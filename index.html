@@ -2,21 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Puddle</title>
-  <style>
-    html, body { height: 100%; margin: 0; }
-    body {
-      display: grid; place-items: center;
-      background: #f2f0eb; color: #1a1a1a;
-      font: 16px/1.5 Georgia, serif;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f5f5">
+  <meta name="description" content="A living water study, seen straight from above. Real simulated ripples rendered in graphite and ink.">
+  <title>Puddle — a water study</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23f5f5f5'/%3E%3Cg fill='none' stroke='%23252525'%3E%3Cellipse cx='20' cy='20' rx='15' ry='11'/%3E%3Cellipse cx='20' cy='20' rx='10' ry='7'/%3E%3Cellipse cx='20' cy='20' rx='5' ry='3'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <header class="masthead">
+    <div class="identity"><h1>Puddle<span>.</span></h1><span class="byline">A water study</span></div>
+    <div class="header-actions">
+      <span class="view-label">Seen from above</span>
+      <button id="pause" class="plain-button" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span></button>
+      <button id="toggle-controls" class="plain-button" type="button" aria-expanded="true" aria-controls="controls">Hide controls</button>
+    </div>
+  </header>
   <main>
-    <h1>Hello, world</h1>
-    <p>Puddle water study: placeholder until the Three.js project lands.</p>
+    <div id="stage" class="stage" aria-label="Interactive water surface, viewed directly from above">
+      <div id="loading" class="loading" role="status"><span class="loading-ring" aria-hidden="true"></span>Settling the water…</div>
+      <div id="error" class="error" role="alert" hidden></div>
+    </div>
+    <aside id="controls" class="controls" aria-label="Water appearance and interaction controls">
+      <div class="panel-heading"><h2>On the surface</h2><span id="style-caption">Ink wash</span></div>
+      <fieldset class="style-field"><legend>Drawing</legend>
+        <div class="style-grid">
+          <button type="button" data-mode="ink-wash" aria-pressed="true"><span class="style-mark wash-mark" aria-hidden="true">≈</span>Ink wash</button>
+          <button type="button" data-mode="etching" aria-pressed="false"><span class="style-mark" aria-hidden="true">≋</span>Etching</button>
+          <button type="button" data-mode="graphite" aria-pressed="false"><span class="style-mark graphite-mark" aria-hidden="true">≋</span>Graphite</button>
+          <button type="button" data-mode="original" aria-pressed="false"><span class="style-mark original-mark" aria-hidden="true">◌</span>Original</button>
+        </div>
+      </fieldset>
+      <fieldset id="tone-field"><legend>Paper</legend>
+        <div class="tone-row">
+          <button type="button" data-tone="paper" aria-pressed="true"><span class="tone-swatch paper-swatch" aria-hidden="true"></span>Light</button>
+          <button type="button" data-tone="silver" aria-pressed="false"><span class="tone-swatch silver-swatch" aria-hidden="true"></span>Silver</button>
+          <button type="button" data-tone="night" aria-pressed="false"><span class="tone-swatch night-swatch" aria-hidden="true"></span>Dark</button>
+        </div>
+      </fieldset>
+      <div class="range-control" id="weight-control"><label for="line-weight">Line weight <output id="weight-value" for="line-weight">Fine</output></label><input id="line-weight" type="range" min="0.5" max="2.5" step="0.05" value="0.85"></div>
+      <div class="geometry-row"><label for="source-geometry">Source geometry</label><input id="source-geometry" type="checkbox" role="switch" checked></div>
+      <p class="geometry-note" id="geometry-note">Original meshes. Original wave solver.</p>
+      <div class="divider"></div>
+      <div class="rain-row"><label for="rain">Gentle rain</label><input id="rain" type="checkbox" role="switch" checked></div>
+      <div class="range-control"><label for="rain-rate">Rainfall <output id="rain-value" for="rain-rate">Light</output></label><input id="rain-rate" type="range" min="0.2" max="8" step="0.2" value="1.4"></div>
+      <div class="range-control"><label for="drop-size">Touch size <output id="size-value" for="drop-size">Medium</output></label><input id="drop-size" type="range" min="0.012" max="0.065" step="0.001" value="0.038"></div>
+      <button id="clear" class="clear-button" type="button">Still the water</button>
+      <details class="about"><summary>About this study</summary><p>The original <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js water</a> simulation, seen straight down. Drawing styles change the image only.</p><p>Source geometry preserves the repo's meshes. Switch it off for a freeform puddle outline. This clips the image; it does not create a new physical shoreline. The water calculations remain identical.</p><p>A heightfield wave model with reflection, refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>Original work: Evan Wallace. Three.js port: Yong Su. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
+    </aside>
   </main>
+  <footer class="footnote"><span id="interaction-hint">Touch the water. Leave a ripple.</span><span class="keyboard-hint"><kbd>Space</kbd> pause <span class="footer-separator">/</span> <kbd>H</kbd> hide controls</span></footer>
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
