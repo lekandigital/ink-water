@@ -14,9 +14,12 @@ assert.equal(effectiveMotion(rainMode).touchForce,effectiveMotion({...rainMode,d
 assert.equal(selectedWaveSpeed(rainMode),.45*.65*.75,'Existing speed controls still set the rain pace');
 let previous=rainWaveSpeed(0),min=Infinity,max=-Infinity;
 for(let seconds=0;seconds<=120;seconds+=.01){
- const speed=rainWaveSpeed(seconds);assert.ok(speed>=.42&&speed<=.86);assert.ok(Math.abs(speed-previous)<.00042,'No abrupt speed changes');
+ const speed=rainWaveSpeed(seconds);assert.ok(speed>=.42&&speed<=.86);assert.ok(Math.abs(speed-previous)<.00058,'No abrupt speed changes');
  assert.equal(rainWaveSpeed(seconds),speed,'Speed variation is deterministic');previous=speed;min=Math.min(min,speed);max=Math.max(max,speed);
 }
 assert.ok(max-min>.3,'The rain pace must visibly vary');
+assert.ok(rainWaveSpeed(0)<rainWaveSpeed(6)&&rainWaveSpeed(6)<rainWaveSpeed(12),'Rain must accelerate from slow to fast');
+assert.ok(rainWaveSpeed(12)>rainWaveSpeed(18)&&rainWaveSpeed(18)>rainWaveSpeed(24),'Rain must decelerate back to slow');
+assert.ok(Math.abs(rainWaveSpeed(0)-rainWaveSpeed(24))<1e-12,'The breathing cycle must repeat continuously');
 assert.equal(rainWaveSpeed(19,.5),rainWaveSpeed(19)*.5);
 console.log(JSON.stringify({neutralSourcePhysics:true,exactOriginalRainDistribution:true,independentDreamySubtle:true,dreamyRainAlwaysFullSpeedTouch:true,smoothRainSpeed:true,rainSpeedRange:[min,max]}));

@@ -10,11 +10,11 @@ const source=(await readFile('src/main.ts','utf8')).replace('void start();','exp
 const {outputFiles}=await build({stdin:{contents:source,loader:'ts',resolveDir:process.cwd()+'/src'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
 const {Puddle,THREE,WaterControls,experimentDefaults}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
 const controls=new WaterControls(),initial={...controls.state};
-assert.equal(initial.hideSunDisc,true,'The published startup hides the reflected sun');
-assert.equal(initial.bitmapTones,true,'The published startup uses Comic bitmap');
-assert.equal(initial.dreamyRainSpeed,false,'New rain experiment must default off');
+assert.equal(initial.hideSunDisc,true,'Latest preference hides the reflected sun by default');
+assert.equal(initial.dreamyRainSpeed,true,'Configuration A enables the independent rain clock');
+assert.equal(initial.bitmapTones,true);assert.equal(initial.gentleMotion,true);assert.equal(initial.shortReferenceLines,true);
 const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);assert.equal(new Set(ids).size,ids.length,'IDs must be unique');
-assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples','caustics','lightAzimuth','lightElevation','causticsStrength','rain','rainRate','dropSize','paused','waveSpeed','rippleScale','rainForce','touchForce'].map(k=>[k,initial[k]])),{mode:'etching',tone:'night',lineWeight:.68,hairlineRipples:false,caustics:true,lightAzimuth:170,lightElevation:90,causticsStrength:2,rain:false,rainRate:.2,dropSize:.038,paused:false,waveSpeed:1,rippleScale:1,rainForce:.0095,touchForce:.02});
+assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples','caustics','lightAzimuth','lightElevation','causticsStrength','rain','rainRate','dropSize','paused','waveSpeed','rippleScale','rainForce','touchForce'].map(k=>[k,initial[k]])),{mode:'etching',tone:'night',lineWeight:.68,hairlineRipples:false,caustics:true,lightAzimuth:170,lightElevation:90,causticsStrength:2,rain:true,rainRate:.2,dropSize:.038,paused:false,waveSpeed:1,rippleScale:1,rainForce:.0095,touchForce:.02});
 const $=id=>document.getElementById(id);
 const keyFor=id=>id.replace(/-([a-z])/g,(_,c)=>c.toUpperCase());
 let changes=0,clears=0;controls.hooks={change:()=>changes++,clear:()=>clears++,gesture:()=>{}};
@@ -49,19 +49,21 @@ controls.reset();keypress(' ',$('bitmap-tones'),'Space');assert.equal(controls.s
 controls.change({dreamy:true,subtle:true,waveSpeed:.7,tone:'night'});const stillSettings={...controls.state};$('clear').click();assert.equal(clears,1);assert.deepEqual(controls.state,stillSettings,'Still only invokes wave clearing');$('reset-defaults').click();assert.deepEqual(controls.state,initial,'Defaults must restore the separate startup preset');
 const beforeInvalid={...controls.state};assert.throws(()=>controls.change({tone:'night',touchForce:NaN}));assert.deepEqual(controls.state,beforeInvalid,'Settings updates must be atomic');
 // Exercise the application clock and clearing methods, not an alternate solver.
+function neutral(){controls.reset();controls.change({bitmapTones:false,hideSunDisc:false,rain:false,gentleMotion:false,dreamyRainSpeed:false,shortReferenceLines:false});}
+neutral();
 const app=new Puddle();app.controls=controls;app.state=controls.state;app.camera=new THREE.PerspectiveCamera(33,1,0.01,100);app.camera.position.set(0,4.5,0);app.camera.up.set(0,0,-1);app.camera.lookAt(0,0,0);app.camera.updateMatrixWorld();
 let steps=0,normals=0;const drops=[];app.simulationSteps=0;app.water={addDrop:(...v)=>drops.push({values:v,step:app.simulationSteps}),stepSimulation:()=>steps++,updateNormals:()=>normals++,textureA:{},textureB:{}};
 app.openBoundary={apply:()=>{}};app.waveLines={model:{addDrop:()=>{},clear:()=>{}}};app.animating=true;app.lastTime=0;app.accumulator=0;app.gestureQueue=[];app.gestureElapsed=0;app.rainAccumulator=0;app.draw=()=>{};
 app.animate(1000);for(let now=1010;now<=2000;now+=10)app.animate(now);assert.ok(steps>=118&&steps<=120);assert.equal(normals,0,'Neutral advance retains original normal-update schedule');
 controls.state.waveSpeed=.32;steps=0;app.accumulator=0;app.lastTime=0;app.animate(3000);for(let now=3010;now<=4000;now+=10)app.animate(now);assert.equal(steps,38);
 controls.state.dreamy=true;steps=0;app.accumulator=0;app.lastTime=0;app.animate(5000);for(let now=5010;now<=6000;now+=10)app.animate(now);assert.equal(steps,24);
-let recaptures=0;app.waterPresentation={capture:()=>recaptures++};controls.reset();app.prepareMotion();
+let recaptures=0;app.waterPresentation={capture:()=>recaptures++};neutral();app.prepareMotion();
 for(const enabled of [true,false,true]){controls.state.dreamy=enabled;app.accumulator=.01;app.prepareMotion();if(enabled)assert.equal(app.accumulator,0);}
 assert.equal(recaptures,2,'Each slow-motion entry must capture the current surface');
 app.waterPresentation=undefined;
 let rainSeconds=0,rainDrops=0,rainClears=0,rainMerges=0;
 app.rainLayer={advance:seconds=>rainSeconds+=seconds,addDrop:()=>rainDrops++,mergeInto:()=>rainMerges++,clear:()=>rainClears++};
-controls.reset();controls.state.waveSpeed=.4;controls.state.dreamy=true;controls.state.gentleMotion=true;controls.state.dreamyRainSpeed=true;
+neutral();controls.state.waveSpeed=.4;controls.state.dreamy=true;controls.state.gentleMotion=true;controls.state.dreamyRainSpeed=true;
 app.prepareMotion();assert.equal(app.motion.speed,1);assert.equal(app.rainLayerActive,true);
 controls.state.rain=true;controls.state.rainRate=8;app.randomPoint=()=>new THREE.Vector2(.1,.2);app.clearRainUntil=0;
 steps=0;drops.length=0;app.lastTime=0;app.accumulator=0;app.rainAccumulator=0;
@@ -73,12 +75,12 @@ controls.state.paused=false;app.disturb(.1,.1);assert.equal(drops.length,1,'Touc
 controls.state.dreamyRainSpeed=false;app.waterPresentation={capture:()=>{}};app.prepareMotion();assert.equal(rainMerges,1);assert.equal(app.rainLayerActive,false);
 controls.state.dreamyRainSpeed=true;app.prepareMotion();assert.equal(app.rainLayerActive,true,'The option must work after re-enabling');
 controls.state.dreamyRainSpeed=false;app.prepareMotion();app.waterPresentation=undefined;
-controls.reset();app.disturb(.1,.1);assert.equal(drops.at(-1).values[2],.038);assert.equal(drops.at(-1).values[3],-.02);controls.state.subtle=true;app.disturb(.1,.1);assert.equal(drops.at(-1).values[3],-.02*.55);
-controls.reset();let replaySamples=0;
+neutral();app.disturb(.1,.1);assert.equal(drops.at(-1).values[2],.038);assert.equal(drops.at(-1).values[3],-.02);controls.state.subtle=true;app.disturb(.1,.1);assert.equal(drops.at(-1).values[3],-.02*.55);
+neutral();let replaySamples=0;
 for(const key of ['c','x','/']){
  const replay=()=>{drops.length=0;app.simulationSteps=0;app.lastTime=0;app.playGesture(key);app.animate(10000);for(let t=10010;t<=12000;t+=10)app.animate(t);return structuredClone(drops);};
  const first=replay();assert.deepEqual(replay(),first,'Exact gesture samples and solver steps must repeat');replaySamples+=first.length;
 }
 app.gl={getRenderTarget:()=>null,getClearColor:()=>{},getClearAlpha:()=>1,setClearColor:()=>{},setRenderTarget:()=>{},clear:()=>{}};controls.change({tone:'night',dreamy:true,subtle:true,bitmapTones:true,waveSpeed:.45});const beforeClear={...controls.state};Puddle.prototype.clear.call(app);assert.deepEqual(controls.state,beforeClear);assert.equal(app.gestureQueue.length,0);
 assert.equal(rainClears,1,'Still the water must clear both wave fields');
-console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,startupDarkComicNoSun:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));
+console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,configurationAStartup:true,darkComicDefault:true,hideSunDefaultOn:true,alignmentDefaultOff:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));

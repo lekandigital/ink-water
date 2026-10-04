@@ -17,7 +17,9 @@ export function selectedWaveSpeed(state:MotionState){
 // Slow, continuous breathing rather than a new random speed at each frame.
 // Simulation time drives this curve, so pausing freezes both its phase and waves.
 export function rainWaveSpeed(seconds:number,multiplier=1){
-  return multiplier*(.64+.14*Math.sin(seconds*.23-1.2)+.08*Math.sin(seconds*.11+.7));
+  // One gentle 24-second cycle: slow → faster → slow. Impact sizes still use
+  // the original per-drop variation, independently of this wave clock.
+  return multiplier*(.64-.22*Math.cos(seconds*Math.PI/12));
 }
 export function effectiveMotion(state:MotionState){
   const force=(state.subtle?.55:1)*(state.gentleMotion?.4:1);

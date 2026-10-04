@@ -10,10 +10,13 @@ async function moduleAt(path){
 // The floor line patches the real water shader, and only in the drawing modes.
 const {patchFloorLine,FloorLinePresentation}=await moduleAt('src/FloorLinePresentation.ts');
 const source=await shaderSource('src/shaders/WaterAbove.frag'),patched=patchFloorLine(source);
-assert.ok(patched.includes('getInkFloorColor(origin + ray'),'Refracted rays must reach the open floor');
+assert.ok(patched.includes('getReferenceFloorColor(origin + ray'),'Refracted rays must reach the open floor');
 assert.ok(!patched.includes('color = getWallColor(origin + ray * t.y);'),'No pool walls in the drawing modes');
 assert.ok(!patched.includes('if (hit.y < 2.0 / 12.0) {'),'No reflected pool rim in the drawing modes');
-assert.ok(patched.includes('clamp(point.xz, vec2(-0.99), vec2(0.99))'),'Caustic light must continue past the source floor');
+assert.ok(patched.includes('float coverage=1.0-focus.a'),'Use source light coverage to remove the finite caustic footprint');
+assert.ok(patched.includes('(focus.r/coverage)*(focus.g/coverage)'),'Keep interior source caustics and remove filtering against the empty border');
+assert.ok(patched.includes('if(referenceLineMaskOnly)'),'The source refracted ray must produce the single-stroke floor mask');
+assert.ok(!patched.includes('scale * (1.0 -'),'Do not send the floor marks through the etching edge detector');
 assert.throws(()=>patchFloorLine(source.replace('color = getWallColor(origin + ray * t.y);','')),'A changed shader must fail loudly');
 const presentation=new FloorLinePresentation(),material=new THREE.ShaderMaterial({fragmentShader:source});
 presentation.apply(material,false);
@@ -25,6 +28,19 @@ const on={fragmentShader:source,uniforms:{}};material.onBeforeCompile(on);
 assert.equal(on.fragmentShader,patched);assert.equal(on.uniforms.inkFloorLine,presentation.line);
 const drawingKey=material.customProgramCacheKey();presentation.apply(material,false);
 assert.notEqual(material.customProgramCacheKey(),drawingKey,'Each mode compiles its own program');
+for(const enabled of [false,true,false,true]){
+  presentation.apply(material,enabled);
+  const shader={fragmentShader:source,uniforms:{}};material.onBeforeCompile(shader);
+  assert.equal(shader.fragmentShader,enabled?patched:source,'The real compile hook must reverse and repeat');
+}
+const {SunDiscPresentation}=await moduleAt('src/OpticsPresentation.ts');
+const sun=new SunDiscPresentation();
+for(const hidden of [false,true,false,true]){
+  sun.apply(material,hidden);
+  assert.equal(material.fragmentShader===source,!hidden,'Reflected sun switches must reverse the exact source shader');
+  const shader={fragmentShader:material.fragmentShader,uniforms:{}};material.onBeforeCompile(shader);
+  assert.ok(shader.fragmentShader.includes('if(referenceLineMaskOnly)'),'Floor lines and sun suppression must compose');
+}
 // Two short lines near the top and bottom, never wider than a third of the screen.
 const camera=new THREE.PerspectiveCamera(33,1,0.01,100);
 const {fitWaterCamera}=await moduleAt('src/Viewport.ts');
@@ -48,4 +64,4 @@ const a=seededRandom(7),b=seededRandom(7),c=seededRandom(8);
 const run=r=>Array.from({length:50},()=>r());
 const first=run(a);assert.deepEqual(first,run(b),'The same seed must repeat exactly');assert.notDeepEqual(first,run(c));
 assert.ok(first.every(v=>v>=0&&v<1));
-console.log(JSON.stringify({floorLinePatchesRealShader:true,originalVerbatim:true,recompileOnModeChangeOnly:true,linesUnderAThird:5,captureOptIn:true,seededRandom:true}));
+console.log(JSON.stringify({floorLinePatchesRealShader:true,originalVerbatim:true,recompileOnModeChangeOnly:true,linesUnderAThird:5,sourceRefractionMask:true,singleStroke:true,sunFloorCombinations:true,captureOptIn:true,seededRandom:true}));

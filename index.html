@@ -105,6 +105,7 @@
           <p class="experiment-note" id="caustic-note">Projected light falls below the water. Its highlights can sit apart from the ripple crests.</p>
           <div class="rain-row experiment-row"><label for="aligned-caustics">Align glow to ripples<small>An artistic glow on the surface</small></label><input id="aligned-caustics" type="checkbox" role="switch"></div>
           <div class="rain-row"><label for="overhead-light">Overhead light</label><input id="overhead-light" type="checkbox" role="switch"></div>
+          <div class="rain-row experiment-row"><label for="short-reference-lines">Underwater lines<small>Two short marks reveal the water’s refraction</small></label><input id="short-reference-lines" type="checkbox" role="switch" checked></div>
           <div class="range-control"><label for="light-azimuth">Light direction <output id="light-azimuth-value" for="light-azimuth">170°</output></label><input id="light-azimuth" type="range" min="-180" max="180" step="1" value="170"></div>
           <div class="range-control"><label for="light-elevation">Light height <output id="light-elevation-value" for="light-elevation">90°</output></label><input id="light-elevation" type="range" min="15" max="90" step="1" value="90"></div>
           <div class="range-control"><label for="caustics-strength">Glow strength <output id="caustics-strength-value" for="caustics-strength">200%</output></label><input id="caustics-strength" type="range" min="0" max="2" step="0.05" value="2"></div>
@@ -113,12 +114,12 @@
       <div class="rain-row"><label for="hide-sun-disc">Hide reflected sun</label><input id="hide-sun-disc" type="checkbox" role="switch" checked></div>
       <button id="reset-defaults" class="reset-button" type="button">Reset to defaults</button>
       <div class="divider"></div>
-      <div class="rain-row"><label for="rain">Gentle rain</label><input id="rain" type="checkbox" role="switch"></div>
-      <div class="range-control"><label for="rain-rate">Rainfall <output id="rain-value" for="rain-rate">Off</output></label><input id="rain-rate" type="range" min="0.2" max="8" step="0.2" value="0.2"></div>
+      <div class="rain-row"><label for="rain">Gentle rain</label><input id="rain" type="checkbox" role="switch" checked></div>
+      <div class="range-control"><label for="rain-rate">Rainfall <output id="rain-value" for="rain-rate">Light</output></label><input id="rain-rate" type="range" min="0.2" max="8" step="0.2" value="0.2"></div>
       <div class="range-control"><label for="drop-size">Touch size <output id="size-value" for="drop-size">Medium</output></label><input id="drop-size" type="range" min="0.012" max="0.065" step="0.001" value="0.038"></div>
       <details class="experiments" open><summary>Motion & force</summary>
-        <div class="rain-row experiment-row"><label for="gentle-motion">Gentle motion<small>Slower, lighter rain and touch</small></label><input id="gentle-motion" type="checkbox" role="switch"></div>
-        <div class="rain-row experiment-row"><label for="dreamy-rain-speed">Dreamy rain speed<small>Rain gently changes pace. Touch stays at 100%.</small></label><input id="dreamy-rain-speed" type="checkbox" role="switch"></div>
+        <div class="rain-row experiment-row"><label for="gentle-motion">Gentle motion<small>Slower, lighter rain and touch</small></label><input id="gentle-motion" type="checkbox" role="switch" checked></div>
+        <div class="rain-row experiment-row"><label for="dreamy-rain-speed">Dreamy rain speed<small>Rain speeds up, then slows. Touch stays at 100%.</small></label><input id="dreamy-rain-speed" type="checkbox" role="switch" checked></div>
         <div class="range-control"><label for="wave-speed">Wave speed <output id="wave-speed-value" for="wave-speed">100%</output></label><input id="wave-speed" type="range" min="0.15" max="1.5" step="0.01" value="1"></div>
         <div class="range-control"><label for="ripple-scale">Ripple scale <output id="ripple-scale-value" for="ripple-scale">100%</output></label><input id="ripple-scale" type="range" min="0.4" max="1.6" step="0.01" value="1"></div>
         <div class="range-control"><label for="rain-force">Rain force <output id="rain-force-value" for="rain-force">100%</output></label><input id="rain-force" type="range" min="0" max="0.019" step="0.0001" value="0.0095"></div>
@@ -136,3 +137,4 @@
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
+

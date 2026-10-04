@@ -14,7 +14,7 @@ const touch=new Water(gl),layer=new RainWaveLayer(gl),lines=new ContinuousWaveLi
 assert.equal(layer.simulationSteps,0);
 layer.addDrop(.12,.2,.023,-.0095);const initialPasses=passes.length;
 for(let i=0;i<60;i++)layer.advance(1/60,1);
-assert.ok(layer.simulationSteps>=66&&layer.simulationSteps<=70,'Rain starts with a gentle slower pace');
+assert.ok(layer.simulationSteps>=48&&layer.simulationSteps<=52,'Rain starts with a gentle slower pace');
 const sourceShader=await shaderSource('src/shaders/WaveSimulation.frag');
 const sourceSteps=passes.slice(initialPasses).filter(p=>p.fragment===sourceShader);
 assert.equal(sourceSteps.length,layer.simulationSteps,'Every rain step must execute the original source shader');

@@ -15,6 +15,7 @@ import { WaterPresentation } from './WaterPresentation';
 import { RainWaveLayer } from './RainWaveLayer';
 import { gesturePattern, type GestureKey } from './GesturePatterns';
 import { SunDiscPresentation } from './OpticsPresentation';
+import { UnderwaterLineDrawing } from './UnderwaterLines';
 import { FloorLinePresentation } from './FloorLinePresentation';
 import { CaptureClock, captureOptions, exposeCapture } from './CaptureMode';
 import drawingVert from './shaders/Drawing.vert';
@@ -49,6 +50,7 @@ class Puddle {
   private waterPresentation?:WaterPresentation;
   private rainLayer?:RainWaveLayer;
   private rainLayerActive=false;
+  private referenceDrawing?:UnderwaterLineDrawing;
   private visualWater?:Water;
   private presentationSpeed=1;
   private pendingDraw=false;
@@ -142,7 +144,6 @@ class Puddle {
     const rect=$('stage').getBoundingClientRect(),width=Math.max(1,rect.width),height=Math.max(1,rect.height);
     this.gl.setSize(width,height);
     fitWaterCamera(this.camera,width,height);
-    this.floorLine.fit(this.camera,width);
     this.inverseViewProjection.multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).invert();
     const size=this.gl.getDrawingBufferSize(new THREE.Vector2());
     this.target.setSize(size.x,size.y);
@@ -152,6 +153,7 @@ class Puddle {
     this.drawing.uniforms.pixel.value.set(1/size.x,1/size.y);
     this.drawing.uniforms.pixelRatio.value=this.gl.getPixelRatio();
     this.engine.setSize(Math.min(size.x,1024),Math.min(size.y,1024));
+    this.updateReferenceLines();
     if(this.water)this.draw();
   }
 
@@ -197,6 +199,8 @@ class Puddle {
     const renderSurface=(target:THREE.WebGLRenderTarget,map:THREE.Texture)=>{
       for(const mesh of [this.engine.getPoolMesh(),this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
         (mesh.material as THREE.ShaderMaterial).uniforms.causticTex.value=map;
+        const uniforms=(mesh.material as THREE.ShaderMaterial).uniforms;
+        if(uniforms.referenceProjected)uniforms.referenceProjected.value=map!==this.flatCaustics;
       }
       this.gl.setClearColor(0x000000,0);
       this.gl.setRenderTarget(target);this.gl.clear();this.gl.render(this.scene,this.camera);
@@ -213,6 +217,10 @@ class Puddle {
     this.gl.setRenderTarget(bitmapActive?this.drawingTarget:null);
     this.gl.render(this.drawingScene,this.drawingCamera);
     if(bitmapActive){this.gl.setRenderTarget(null);this.gl.render(this.bitmapScene,this.drawingCamera);}
+    if(this.state.mode!=='original'&&this.state.shortReferenceLines&&this.state.caustics&&!this.state.causticRipples){
+      if(!this.referenceDrawing)this.referenceDrawing=new UnderwaterLineDrawing(this.engine.getWaterMesh());
+      this.referenceDrawing.draw(this.gl,this.camera,this.drawingCamera,this.drawing.uniforms.ink.value,this.target.width,this.target.height);
+    }
     this.pendingDraw=false;this.renderRevision++;
     this.controls.publish({simulationSteps:this.simulationSteps,renderRevision:this.renderRevision,
       drawingPipeline:printActive?'print':'normal',bitmapPass:bitmapActive,projectedCaustics,
@@ -342,9 +350,23 @@ class Puddle {
     for(const mesh of [this.engine.getPoolMesh(),this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
       (mesh.material as THREE.ShaderMaterial).uniforms.tiles.value=mode==='original'?this.tile:this.matte;
     }
-    for(const mesh of [this.engine.getWaterMesh(),this.engine.getWaterMeshBack()])this.sunDisc.apply(mesh.material as THREE.ShaderMaterial,this.state.hideSunDisc);
-    this.floorLine.apply(this.engine.getWaterMesh().material as THREE.ShaderMaterial,mode!=='original');
+    for(const mesh of [this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
+      const material=mesh.material as THREE.ShaderMaterial;
+      this.sunDisc.apply(material,this.state.hideSunDisc);
+      if(mesh===this.engine.getWaterMesh())this.floorLine.apply(material,mode!=='original'&&this.state.shortReferenceLines&&caustics&&!this.state.causticRipples);
+    }
+    this.updateReferenceLines();
     this.updateControls();if(render)this.draw();else this.pendingDraw=true;
+  }
+
+  private updateReferenceLines(){
+    this.floorLine.fit(this.camera,this.target.width);
+    for(const mesh of [this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
+      const uniforms=(mesh.material as THREE.ShaderMaterial).uniforms;
+      uniforms.inkFloorLine=this.floorLine.line;uniforms.referenceLineWeight={value:this.state.lineWeight};
+      uniforms.referenceNeutralCaustic={value:.2*this.state.causticsStrength};uniforms.referenceProjected??={value:this.state.caustics};
+      uniforms.referenceLineMaskOnly??={value:false};
+    }
   }
 
   updateControls(){this.controls.sync();}
@@ -381,7 +403,7 @@ class Puddle {
 }
 
 async function start(){
-  // Capture mode is opt-in. Without ?capture the page clock and randomness are untouched.
+  // Capture stays opt-in; normal page clocks and randomness are untouched.
   const capture=captureOptions(location.search),clock=capture?new CaptureClock(capture):undefined;
   const controls=new WaterControls();
   try{

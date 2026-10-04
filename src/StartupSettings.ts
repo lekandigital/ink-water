@@ -7,9 +7,10 @@ export type Mode='ink-wash'|'etching'|'graphite'|'original';
 export function startupSettings(){return {
   ...experimentDefaults,...motionDefaults,
   mode:'etching' as Mode,tone:'night' as Tone,lineWeight:.68,
-  bitmapTones:true,hideSunDisc:true,
   hairlineRipples:false,caustics:true,sourceGeometry:true,
   lightAzimuth:170,lightElevation:90,causticsStrength:2,
-  rain:false,rainRate:.2,dropSize:.038,paused:false,
+  bitmapTones:true,hideSunDisc:true,gentleMotion:true,dreamyRainSpeed:true,
+  shortReferenceLines:true,
+  rain:true,rainRate:.2,dropSize:.038,paused:false,
 };}
 export type WaterSettings=ReturnType<typeof startupSettings>;

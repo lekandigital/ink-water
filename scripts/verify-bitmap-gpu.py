@@ -103,6 +103,11 @@ for name in ['pool','above','below']:
 render_objects=[]
 for name in ['pool','above','below']:
  g=data[name];p=program(g['vertex'],g['fragment']);v=vao(p,g);bind_render_uniforms(p,g);render_objects.append((g,p,v))
+line_render_objects=[]
+for name in ['pool','above','below']:
+ g=data[name if name=='pool' else name+'WithLines'];p=program(g['vertex'],g['fragment']);v=vao(p,g);bind_render_uniforms(p,g)
+ setuniform(p,'inkFloorLine',data['inkFloorLine']);setuniform(p,'referenceLineWeight',.68)
+ line_render_objects.append((g,p,v))
 scene_tex.use(5)
 dp=program(data['Drawing.vert'],prints['printDrawing']);dv=vao(dp,data['quad'])
 classic_dp=program(data['Drawing.vert'],prints['drawing']);classic_dv=vao(classic_dp,data['quad'])
@@ -113,6 +118,8 @@ bmp=program(data['Drawing.vert'],prints['bitmapDrawing']);bmv=vao(bmp,data['quad
 for p in [old_dp,bmp]:
  for k,v in [('sceneColor',5),('baseColor',8),('litScene',9),('flatScene',10),('water',0),('pixel',[1/size[0],1/size[1]]),('pixelRatio',1),('poolSize',[1,1]),('eye',data['camera']['position']),('lineWeight',.68),('sourceGeometry',True),('inverseViewProjection',data['camera']['inverseViewProjection'])]:setuniform(p,k,v)
 flat_caustics=ctx.texture((1,1),4,np.asarray([1,0,0,1],dtype='f4').tobytes(),dtype='f4')
+mark_tex=ctx.texture(size,4,dtype='f2');mark_tex.filter=(moderngl.LINEAR,moderngl.LINEAR);mark_fbo=ctx.framebuffer([mark_tex]);mark_tex.repeat_x=mark_tex.repeat_y=False
+mark_overlay=program(data['Drawing.vert'],(project/'src/shaders/ReferenceLineDrawing.frag').read_text());mark_quad=vao(mark_overlay,data['quad']);setuniform(mark_overlay,'marks',13)
 flat_tex=ctx.texture(size,4,dtype='f4');flat_tex.filter=(moderngl.LINEAR,moderngl.LINEAR);flat_fbo=ctx.framebuffer([flat_tex],ctx.depth_renderbuffer(size))
 base_tex=ctx.texture(size,4,dtype='f2');base_tex.filter=(moderngl.LINEAR,moderngl.LINEAR);base_fbo=ctx.framebuffer([base_tex]);output=ctx.texture(size,4);out_fbo=ctx.framebuffer([output])
 for t in [scene_tex,flat_tex,base_tex]:t.repeat_x=t.repeat_y=False
@@ -122,11 +129,12 @@ def reset():
  for f in water_fbos:f.use();f.clear(0,0,0,0)
  current=0;previous=1;spare=2
 
-def surface(fbo,caustics_on):
+def surface(fbo,caustics_on,short_lines=False):
  ctx.disable(moderngl.BLEND);water_textures[current].use(0);tiles.use(1);sky.use(2);blank.use(4)
  (boosted if caustics_on else flat_caustics).use(3)
  fbo.use();fbo.clear(0,0,0,0,depth=1);ctx.viewport=(0,0,*size);ctx.enable(moderngl.DEPTH_TEST);ctx.depth_func='<='
- for g,p,v in render_objects:
+ for g,p,v in (line_render_objects if short_lines else render_objects):
+  setuniform(p,'referenceProjected',caustics_on)
   if g['side']==2:ctx.disable(moderngl.CULL_FACE)
   else:ctx.enable(moderngl.CULL_FACE);ctx.cull_face='front' if g['side']==1 else 'back'
   v.render()
@@ -139,11 +147,13 @@ def render(name=None,mode=1,tone='night',caustics_on=True,baseline=False,**optio
  safe=lambda value: (1e-6 if value>=0 else -1e-6) if abs(value)<1e-6 else value
  light=np.asarray([safe(math.cos(el)*math.cos(az)),math.sin(el),safe(math.cos(el)*math.sin(az))],dtype='f4');light/=np.linalg.norm(light)
  setuniform(cp,'light',light.tolist())
- for g,p,v in render_objects:setuniform(p,'light',light.tolist())
+ for g,p,v in render_objects+line_render_objects:
+  setuniform(p,'light',light.tolist());setuniform(p,'referenceNeutralCaustic',.2*settings['causticsStrength'])
  ctx.disable(moderngl.DEPTH_TEST|moderngl.CULL_FACE|moderngl.BLEND);water_textures[current].use(0)
  caustic_fbo.use();caustic_fbo.clear(0,0,0,1);ctx.viewport=(0,0,1024,1024);cv.render()
  caustic.use(3);boosted_fbo.use();setuniform(intensity,'strength',settings['causticsStrength']);intensity_vao.render()
- surface(scene_fbo,True);surface(flat_fbo,False)
+ short_lines=settings.get('shortReferenceLines',False) and caustics_on
+ surface(scene_fbo,True,short_lines);surface(flat_fbo,False,short_lines)
  (scene_tex if caustics_on else flat_tex).use(5);water_textures[current].use(0)
  use_print=any(settings[key] for key in ['bitmapRipples','textureReveal','printedPaper','textureRefraction']) or (caustics_on and settings['alignedCaustics'])
  bitmap_active=any(settings[key] for key in ['causticRipples','bitmapTones','causticReveal','driftingGrain','softDiffusion','dreamy','subtle']) and not baseline
@@ -156,6 +166,12 @@ def render(name=None,mode=1,tone='night',caustics_on=True,baseline=False,**optio
   base_tex.use(8);scene_tex.use(9);flat_tex.use(10);out_fbo.use()
   for k,v in settings.items():setuniform(bmp,k,v)
   setuniform(bmp,'paper',palettes[tone]['paper']);setuniform(bmp,'ink',palettes[tone]['ink']);bmv.render()
+ if short_lines:
+  g,p,v=line_render_objects[1];setuniform(p,'referenceLineMaskOnly',True)
+  water_textures[current].use(0);mark_fbo.use();mark_fbo.clear(0,0,0,0);ctx.viewport=(0,0,*size);v.render()
+  setuniform(p,'referenceLineMaskOnly',False)
+  mark_tex.use(13);out_fbo.use();setuniform(mark_overlay,'ink',palettes[tone]['ink'])
+  ctx.enable(moderngl.BLEND);ctx.blend_func=(moderngl.SRC_ALPHA,moderngl.ONE_MINUS_SRC_ALPHA,moderngl.ONE,moderngl.ONE_MINUS_SRC_ALPHA);mark_quad.render();ctx.disable(moderngl.BLEND)
  img=Image.frombytes('RGBA',size,output.read()).transpose(Image.Transpose.FLIP_TOP_BOTTOM).convert('RGB');arr=np.array(img)
  assert np.max(np.abs(arr[:,:,0].astype(int)-arr[:,:,1].astype(int)))<=1 and np.max(np.abs(arr[:,:,0].astype(int)-arr[:,:,2].astype(int)))<=1,'Every drawing must stay monochrome'
  if name:img.save(root/(name+'.png'))
@@ -207,3 +223,28 @@ for effect in ['bitmapTones','causticReveal','driftingGrain','softDiffusion','ca
  image=render('startup-'+effect,tone='paper',lightAzimuth=170,lightElevation=90,causticsStrength=2,**{effect:True})
  assert not np.array_equal(image,startup),effect+' must work at startup lighting'
 print(json.dumps({'startupPresetGpuRendered':True,'startupEffects':7,'finiteVerticalCaustics':True}))
+
+# Configuration A uses the same drawing and physical caustics with the optional
+# continuous floor presentation and two genuinely refracted reference marks.
+reset();simpass('WaterNormal')
+options={'tone':'night','lightAzimuth':170,'lightElevation':90,'causticsStrength':2,'bitmapTones':True,'shortReferenceLines':True}
+quiet_lines=render('configuration-a-still',**options)
+quiet_marks=np.frombuffer(mark_tex.read(),dtype='f2').reshape(size[1],size[0],4)[:,:,0].copy()
+from scipy.ndimage import label,find_objects
+components,count=label(quiet_marks>.1)
+assert count==2,'Still water must show exactly two separate short strokes'
+for bounds in find_objects(components):
+ height=bounds[0].stop-bounds[0].start;width=bounds[1].stop-bounds[1].start
+ assert size[0]*.2<width<size[0]/3,'Each reference line must be shorter than a third of the screen'
+ assert height<=4,'Each reference line must be a single thin stroke, not a double outline'
+simpass('WaterRipple',center=[0,-.584],radius=.038,strength=-.008);steps(24)
+distorted_lines=render('configuration-a-touch',**options)
+distorted_marks=np.frombuffer(mark_tex.read(),dtype='f2').reshape(size[1],size[0],4)[:,:,0].copy()
+assert np.count_nonzero(np.abs(distorted_marks-quiet_marks)>.005)>10,'The actual simulated surface must refract the lines themselves'
+delta=np.abs(distorted_lines.astype(int)-quiet_lines.astype(int))
+assert np.count_nonzero(delta>2)>100,'Actual waves must distort the submerged marks'
+off=render(**{**options,'shortReferenceLines':False});on=render(**options)
+off_again=render(**{**options,'shortReferenceLines':False});on_again=render(**options)
+assert np.array_equal(off,off_again) and np.array_equal(on,on_again),'Underwater lines must reverse and repeat'
+assert not np.array_equal(off,on),'Underwater lines must change the actual rendering'
+print(json.dumps({'configurationAGpuRendered':True,'darkComicDefault':True,'singleShortStrokes':count,'refractedLineMaskChangedPixels':int(np.count_nonzero(np.abs(distorted_marks-quiet_marks)>.005)),'refractedLineChangedPixels':int(np.count_nonzero(delta>2)),'underwaterLinesOffOnOffOn':True,'sourceGeometryRetained':True}))
