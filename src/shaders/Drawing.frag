@@ -42,49 +42,56 @@ void main(){
   if(mode==3){fragColor=vec4(mix(paper,original.rgb,alpha),1.0);return;}
   vec2 waterUV=p/poolSize*0.5+0.5;
   vec4 state=bilinearState(waterUV);
-  // Height contours and slopes come from the same texture used by the original mesh.
+  // Draw exactly one hairline for each propagating wave cycle.
+  // Height + vertical velocity form a local wave phasor. A single phase angle
+  // gives one centerline per ripple instead of paired flanks or contour stacks.
   float slope=length(state.ba);
-  // Use the simulation's height + vertical velocity as a local wave phasor.
-  // Unlike repeated iso-height contours, phase follows a propagating wavefront
-  // without turning amplitude variations into extra contour loops/"bubbles".
   float velocityPhase=state.g*2.4;
   float waveAmplitude=length(vec2(state.r,velocityPhase));
   float wavePhase=atan(velocityPhase,state.r);
-  float phaseSignal=sin(wavePhase);
-  float phaseAA=max(fwidth(phaseSignal),0.010);
-  float thinWidth=phaseAA*(0.34*lineWeight+0.28);
-  float phaseContour=1.0-smoothstep(thinWidth,thinWidth+phaseAA*0.72,abs(phaseSignal));
 
-  // Keep line strength uniform around a ripple. The wave-presence test is
-  // intentionally binary: segments are either fully present or absent, never
-  // faded according to local amplitude. Anti-aliasing still happens only
-  // across the line's thickness via phaseContour above.
-  float wavePresence=waveAmplitude+slope*0.35;
-  float activity=step(0.00018,wavePresence);
-  float legacyContour=phaseContour*activity;
+  // Periodic angular distance to phase 0. This selects one line per cycle.
+  float phaseDistance=abs(atan(sin(wavePhase),cos(wavePhase)));
 
-  // Optional comparison mode: a narrow slope contour, not a filled slope band.
-  // A radial wave crosses this level on each flank, giving a fine paired line.
+  // Screen-space anti-aliased hairline. Width stays essentially constant around
+  // the entire ripple and does not depend on local wave amplitude.
+  float phaseAA=max(fwidth(wavePhase),0.004);
+  float hairlineWidth=phaseAA*(0.38+0.10*clamp(lineWeight,0.5,2.5));
+  float hairline=1.0-smoothstep(hairlineWidth,hairlineWidth+phaseAA*0.55,phaseDistance);
+
+  // Binary visibility only: no fading along a ripple.
+  float activity=step(0.00016,waveAmplitude+slope*0.20);
+  hairline*=activity;
+
+  // The optional comparison toggle keeps a narrow slope line. The preferred
+  // default view below is the pure single hairline with no secondary ripple shading.
   float rippleWidth=clamp(lineWeight,0.5,2.5);
   float slopeLevel=0.060/rippleWidth;
   float slopeAA=max(fwidth(slope),0.0015);
-  float pairedRipple=1.0-smoothstep(slopeAA*0.65,slopeAA*1.75,abs(slope-slopeLevel));
-  float contour=waterLikeRipples ? pairedRipple : legacyContour;
-  float slopeInk=smoothstep(0.045,0.34,slope);
+  float slopeLine=1.0-smoothstep(slopeAA*0.55,slopeAA*1.25,abs(slope-slopeLevel));
+  float contour=waterLikeRipples ? slopeLine : hairline;
+
   float light=greyAt(coord);
   vec2 d=pixel*1.8;
   float wash=(light*4.0+greyAt(coord+vec2(d.x,0))+greyAt(coord-vec2(d.x,0))+greyAt(coord+vec2(0,d.y))+greyAt(coord-vec2(0,d.y)))/8.0;
-  float gradient=length(vec2(greyAt(coord+vec2(pixel.x,0))-greyAt(coord-vec2(pixel.x,0)),greyAt(coord+vec2(0,pixel.y))-greyAt(coord-vec2(0,pixel.y))));
   float weight;
-  if(mode==0){
-    // Soft graphite wash, translucent slopes, and selective fine ink contours.
-    weight=0.045+0.19*(1.0-wash)+(waterLikeRipples?0.0:0.19)*slopeInk+contour*(waterLikeRipples?0.26:0.51)+gradient*1.25;
+
+  if(!waterLikeRipples){
+    // Pure hairline treatment: no slope fill, no optical edge enhancement,
+    // no amplitude shading. Only the line itself sits on the paper.
+    if(mode==0){
+      weight=0.040+contour*0.64;
+    } else if(mode==1){
+      weight=0.020+contour*0.90;
+    } else {
+      weight=0.045+contour*0.58;
+    }
+  } else if(mode==0){
+    weight=0.045+0.15*(1.0-wash)+contour*0.28;
   } else if(mode==1){
-    weight=0.022+contour*(waterLikeRipples?0.38:0.88)+slopeInk*(waterLikeRipples?0.0:0.18)+gradient*1.8;
+    weight=0.022+contour*0.42;
   } else {
-    float diagonal=fract((gl_FragCoord.x+gl_FragCoord.y*0.61)*0.18);
-    float hatch=(1.0-smoothstep(0.11,0.32,abs(diagonal-0.5)))*smoothstep(0.02,0.17,slope);
-    weight=0.05+(1.0-wash)*0.22+contour*(waterLikeRipples?0.24:0.34)+slopeInk*(waterLikeRipples?0.0:0.15)+hatch*0.2;
+    weight=0.05+(1.0-wash)*0.16+contour*0.28;
   }
   vec3 drawn=mix(paper,ink,clamp(weight,0.0,0.95))+grain;
   color=mix(color,drawn,alpha);
