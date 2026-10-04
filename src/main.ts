@@ -44,6 +44,7 @@ class Puddle {
   readonly sunDisc=new SunDiscPresentation();
   private waterPresentation?:WaterPresentation;
   private visualWater?:Water;
+  private presentationSpeed=1;
   private pendingDraw=false;
   private renderRevision=0;
   private gestureQueue:{x:number;z:number;at:number}[]=[];
@@ -206,11 +207,18 @@ class Puddle {
   private get motion(){return effectiveMotion(this.state);}
 
   private prepareMotion(){
-    if(this.motion.speed<1&&!this.waterPresentation){
-      this.waterPresentation=new WaterPresentation(this.water);
-      this.visualWater=Object.create(this.water) as Water;
+    const speed=this.motion.speed;
+    if(speed<1&&speed!==this.presentationSpeed){
+      if(!this.waterPresentation){
+        this.waterPresentation=new WaterPresentation(this.water);
+        this.visualWater=Object.create(this.water) as Water;
+      }
+      // Re-entering slow motion must use today's surface, never a stale snapshot
+      // from the last time Dreamy or the speed slider enabled interpolation.
       this.water.updateNormals(POOL.width,POOL.length);this.waterPresentation.capture(this.gl,this.water);
+      this.accumulator=0;
     }
+    this.presentationSpeed=speed;
   }
 
   private animate=(now:number)=>{

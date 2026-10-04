@@ -49,6 +49,10 @@ app.openBoundary={apply:()=>{}};app.waveLines={model:{addDrop:()=>{},clear:()=>{
 app.animate(1000);for(let now=1010;now<=2000;now+=10)app.animate(now);assert.ok(steps>=118&&steps<=120);assert.equal(normals,0,'Neutral advance retains original normal-update schedule');
 controls.state.waveSpeed=.32;steps=0;app.accumulator=0;app.lastTime=0;app.animate(3000);for(let now=3010;now<=4000;now+=10)app.animate(now);assert.equal(steps,38);
 controls.state.dreamy=true;steps=0;app.accumulator=0;app.lastTime=0;app.animate(5000);for(let now=5010;now<=6000;now+=10)app.animate(now);assert.equal(steps,24);
+let recaptures=0;app.waterPresentation={capture:()=>recaptures++};controls.reset();app.prepareMotion();
+for(const enabled of [true,false,true]){controls.state.dreamy=enabled;app.accumulator=.01;app.prepareMotion();if(enabled)assert.equal(app.accumulator,0);}
+assert.equal(recaptures,2,'Each slow-motion entry must capture the current surface');
+app.waterPresentation=undefined;
 controls.reset();app.disturb(.1,.1);assert.equal(drops.at(-1).values[2],.038);assert.equal(drops.at(-1).values[3],-.02);controls.state.subtle=true;app.disturb(.1,.1);assert.equal(drops.at(-1).values[3],-.02*.55);
 controls.reset();let replaySamples=0;
 for(const key of ['c','x','/']){
