@@ -8,12 +8,13 @@ async function moduleAt(path){
   return import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
 }
 const {motionDefaults:defaults,motionRanges:ranges,rainImpulse,validateMotion}=await moduleAt('src/WaterMotion.ts');
-assert.ok(defaults.waveSpeed<.4&&defaults.rippleScale<.7);
+assert.equal(defaults.waveSpeed,1,'Default motion must use the original simulation speed');
+assert.ok(defaults.rippleScale>.65&&defaults.rippleScale<1,'Default size should be larger than the undersized version, while keeping room to adjust');
 assert.ok(defaults.rainForce*1.2<.006,'Even the strongest new rain is weaker than the old lightest rain');
 assert.ok(defaults.touchForce<.0095&&defaults.touchForce>defaults.rainForce,'Touch is slightly weaker than the previous average rain');
 for(const random of [0,.5,1]){
   const drop=rainImpulse(defaults.rainForce,defaults.rippleScale,()=>random);
-  assert.ok(drop.strength<0&&Math.abs(drop.strength)<.006&&drop.radius<.02);
+  assert.ok(drop.strength<0&&Math.abs(drop.strength)<.006&&drop.radius<.028);
 }
 for(const [key,{min,max}] of Object.entries(ranges)){
   validateMotion({[key]:min});validateMotion({[key]:max});

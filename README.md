@@ -6,7 +6,7 @@ Hairline ripples have been removed. The existing surface drawing follows actual 
 
 ## Motion
 
-The defaults are smaller, softer, and slower: rain averages about 19% of the previous rain force; touch uses about 84% of that previous rain average. Wave speed starts at 32%. Ripple scale starts at 65%, and the camera takes in slightly more of the original surface while filling the entire viewport.
+Default motion uses the original 100% wave speed. Ripple scale starts at 85%, with medium touch size: larger and clearer than the previous small default, while still leaving room for wider ripples. Rain averages about 19% of the previous rain force; touch uses about 84% of that previous rain average. The camera takes in slightly more of the original surface while filling the entire viewport.
 
 **Motion & force** independently controls wave speed, ripple scale, rain force, and touch force. Rainfall controls frequency separately. Source updates retain the original two solver steps per tick; slow motion changes the number of source ticks per real second. A separate GPU interpolation pass smooths displayed heights and normals between ticks, without feeding anything back into the solver. Rain still arrives on the real-time clock.
 
@@ -23,7 +23,7 @@ These are separate from Print experiments and layer over the existing drawing, i
 - **Water-bent grain** shifts a quiet bitmap using the simulated water normals.
 - **Soft diffusion** gently softens the ink while retaining the original water features.
 
-Tune bitmap scale, tonal steps, contrast, diffusion radius, and caustic ink strength. Bitmap scale and diffusion use CSS pixels. Patterns are deterministic, with no frame-random texture flicker.
+Tune bitmap scale, tonal steps, contrast, diffusion radius, and caustic ink strength. Settings remain editable even while their effects are off. Drawing controls automatically return from Original to the last drawing view. Bitmap scale and diffusion use CSS pixels. Patterns are deterministic, with no frame-random texture flicker.
 
 ## Print experiments
 
@@ -40,7 +40,7 @@ Choose Comic dots, Stipple, or Pixels. Controls cover print scale, wave contrast
 
 **Caustics** uses the original focused-light calculation below the water. Highlights need not coincide with surface crests: the upstream shaders refract light and project it onto the floor. The default light is the original normalized `(2, 2, -1)` direction. Direction, height, Overhead light, and Glow strength remain adjustable. At 100% strength, the intensity presentation pass is bypassed.
 
-**Caustic ripples** is an additional ripple style. It switches caustic lighting off and draws the same calculated caustic shapes as ink instead of ordinary height contours. The original lit and unlit optical scenes are compared at matching screen positions; there is no approximate texture offset. Light controls still adjust these shapes. This style combines with the bitmap layers, Dreamy, and Subtle.
+**Caustic ripples** is an additional ripple style. It switches caustic lighting off and draws the same calculated caustic shapes as ink instead of ordinary height contours. The original lit and unlit optical scenes are compared at matching screen positions; there is no approximate texture offset. Light controls still adjust these shapes. Switching Caustics on returns to ordinary surface drawing. This style combines with the bitmap layers, Dreamy, and Subtle.
 
 **Align glow to ripples** remains a separate artistic surface effect based on height contours. Original retains projected caustics when enabled. **Reset experiments** turns appearance experiments off and restores the original light, preserving the drawing, paper, motion controls, rainfall, and simulated water.
 

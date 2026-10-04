@@ -1,4 +1,4 @@
-export const motionDefaults={waveSpeed:.32,rippleScale:.65,rainForce:.0018,touchForce:.008};
+export const motionDefaults={waveSpeed:1,rippleScale:.85,rainForce:.0018,touchForce:.008};
 export const motionRanges={waveSpeed:{min:.15,max:1},rippleScale:{min:.4,max:1},rainForce:{min:.0002,max:.0045},touchForce:{min:.001,max:.012}};
 export function validateMotion(input:Record<string,unknown>){
   for(const [key,{min,max}] of Object.entries(motionRanges)){

@@ -48,7 +48,7 @@
       <details class="experiments" open>
         <summary>Bitmap experiments <span class="section-tag">With caustics</span></summary>
         <fieldset id="bitmap-fields" class="experiment-fields"><legend class="visually-hidden">Bitmap layers over the water</legend>
-          <p class="experiment-note">Layers over your existing drawing. Keep the water and caustics; combine any that you like.</p>
+          <p class="experiment-note">Layers over your existing drawing. Keep the water and caustics; combine any that you like. You can tune settings before switching an effect on.</p>
           <div class="rain-row experiment-row"><label for="bitmap-tones">Comic bitmap<small>Water and caustics in dithered shades</small></label><input id="bitmap-tones" type="checkbox" role="switch"></div>
           <div class="rain-row experiment-row"><label for="caustic-reveal">Caustic texture reveal<small>Refracted light makes faint dots clearer</small></label><input id="caustic-reveal" type="checkbox" role="switch"></div>
           <div class="rain-row experiment-row"><label for="drifting-grain">Water-bent grain<small>A quiet bitmap shifted by the waves</small></label><input id="drifting-grain" type="checkbox" role="switch"></div>
@@ -98,10 +98,10 @@
       <div class="divider"></div>
       <div class="rain-row"><label for="rain">Gentle rain</label><input id="rain" type="checkbox" role="switch" checked></div>
       <div class="range-control"><label for="rain-rate">Rainfall <output id="rain-value" for="rain-rate">Light</output></label><input id="rain-rate" type="range" min="0.2" max="8" step="0.2" value="1.4"></div>
-      <div class="range-control"><label for="drop-size">Touch size <output id="size-value" for="drop-size">Small</output></label><input id="drop-size" type="range" min="0.012" max="0.065" step="0.001" value="0.026"></div>
+      <div class="range-control"><label for="drop-size">Touch size <output id="size-value" for="drop-size">Medium</output></label><input id="drop-size" type="range" min="0.012" max="0.065" step="0.001" value="0.03"></div>
       <details class="experiments" open><summary>Motion & force</summary>
-        <div class="range-control"><label for="wave-speed">Wave speed <output id="wave-speed-value" for="wave-speed">32%</output></label><input id="wave-speed" type="range" min="0.15" max="1" step="0.01" value="0.32"></div>
-        <div class="range-control"><label for="ripple-scale">Ripple scale <output id="ripple-scale-value" for="ripple-scale">65%</output></label><input id="ripple-scale" type="range" min="0.4" max="1" step="0.01" value="0.65"></div>
+        <div class="range-control"><label for="wave-speed">Wave speed <output id="wave-speed-value" for="wave-speed">100%</output></label><input id="wave-speed" type="range" min="0.15" max="1" step="0.01" value="1"></div>
+        <div class="range-control"><label for="ripple-scale">Ripple scale <output id="ripple-scale-value" for="ripple-scale">85%</output></label><input id="ripple-scale" type="range" min="0.4" max="1" step="0.01" value="0.85"></div>
         <div class="range-control"><label for="rain-force">Rain force <output id="rain-force-value" for="rain-force">19%</output></label><input id="rain-force" type="range" min="0.0002" max="0.0045" step="0.0001" value="0.0018"></div>
         <div class="range-control"><label for="touch-force">Touch force <output id="touch-force-value" for="touch-force">84%</output></label><input id="touch-force" type="range" min="0.001" max="0.012" step="0.0001" value="0.008"></div>
         <p class="experiment-note">Rain and touch use the same force scale. Dreamy slows motion further; Subtle softens both.</p>

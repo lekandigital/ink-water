@@ -24,7 +24,7 @@ const POOL={width:1,length:1,depth:0.7,radius:1};
 const TICK=1/60;
 
 class Puddle {
-  readonly state={mode:'etching' as Mode,tone:'night' as Tone,lineWeight:0.68,rain:true,rainRate:1.4,dropSize:0.026,paused:false,sourceGeometry:true,caustics:true,...experimentDefaults,...motionDefaults};
+  readonly state={mode:'etching' as Mode,tone:'night' as Tone,lineWeight:0.68,rain:true,rainRate:1.4,dropSize:0.03,paused:false,sourceGeometry:true,caustics:true,...experimentDefaults,...motionDefaults};
   readonly gl:THREE.WebGLRenderer;
   readonly water:Water;
   readonly visualWater:Water;
@@ -57,6 +57,7 @@ class Puddle {
   private pausedByPreference=false;
   private gestureQueue:{x:number;z:number;at:number}[]=[];
   private gestureElapsed=0;
+  private lastDrawingMode:Exclude<Mode,'original'>='etching';
 
   constructor(tile:THREE.Texture,sky:THREE.CubeTexture){
     this.tile=tile;
@@ -254,6 +255,7 @@ class Puddle {
   }
 
   applyAppearance(){
+    if(this.state.mode!=='original')this.lastDrawingMode=this.state.mode;
     if(this.state.causticRipples){this.state.caustics=false;this.state.alignedCaustics=false;}
     const {mode,tone,lineWeight,sourceGeometry,caustics}=this.state;
     document.body.dataset.tone=tone;
@@ -271,6 +273,8 @@ class Puddle {
   }
 
   updateControls(){
+    // Tuning remains available before an effect is enabled and in Original view.
+    $('controls').querySelectorAll<HTMLButtonElement|HTMLInputElement|HTMLFieldSetElement>('button,input,fieldset').forEach(control=>{control.disabled=false;});
     document.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===this.state.mode)));
     document.querySelectorAll<HTMLButtonElement>('[data-tone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tone===this.state.tone)));
     $('style-caption').textContent=labels[this.state.mode];
@@ -278,10 +282,8 @@ class Puddle {
     $('weight-value').textContent=this.state.lineWeight<1?'Fine':this.state.lineWeight<1.7?'Medium':'Bold';
     $<HTMLInputElement>('rain').checked=this.state.rain;
     $<HTMLInputElement>('caustics').checked=this.state.caustics;
-    $<HTMLInputElement>('caustics').disabled=this.state.causticRipples;
     $('ripple-note').textContent=this.state.causticRipples?'Refracted light shapes, drawn as ripples. Caustic lighting is off.':'The existing surface drawing, with open edges and no wall echoes.';
     $<HTMLInputElement>('rain-rate').value=String(this.state.rainRate);
-    $<HTMLInputElement>('rain-rate').disabled=!this.state.rain;
     $('rain-value').textContent=!this.state.rain?'Off':this.state.rainRate<2?'Light':this.state.rainRate<5?'Steady':'Heavy';
     $('size-value').textContent=this.state.dropSize<0.029?'Small':this.state.dropSize<0.05?'Medium':'Large';
     $<HTMLInputElement>('drop-size').value=String(this.state.dropSize);
@@ -292,11 +294,6 @@ class Puddle {
     $('pause').setAttribute('aria-pressed',String(this.state.paused));
     $('pause-label').textContent=this.state.paused?'Resume':'Pause';
     $('pause').querySelector('.pause-symbol')!.textContent=this.state.paused?'▷':'Ⅱ';
-    $<HTMLInputElement>('line-weight').disabled=this.state.mode==='original';
-    $('tone-field').style.opacity=this.state.mode==='original'?'.5':'1';
-    $<HTMLFieldSetElement>('print-fields').disabled=this.state.mode==='original';
-    $<HTMLFieldSetElement>('bitmap-fields').disabled=this.state.mode==='original';
-    $<HTMLInputElement>('caustic-ripples').disabled=this.state.mode==='original';
     for(const key of experimentSwitches)$<HTMLInputElement>(controlId(key)).checked=this.state[key];
     for(const key of Object.keys(experimentRanges) as (keyof typeof experimentRanges)[]){
       $<HTMLInputElement>(controlId(key)).value=String(this.state[key]);
@@ -304,32 +301,32 @@ class Puddle {
       $(controlId(key)+'-value').textContent=['bitmapScale','revealWidth','waterBitmapScale','dreamSoftness'].includes(key)?value.toFixed(key==='bitmapScale'?1:0)+' px':key==='waterBitmapLevels'?Math.round(value)+' shades':key.startsWith('light')?Math.round(value)+'°':Math.round(value*100)+'%';
     }
     document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.pattern)===this.state.bitmapPattern)));
-    const printActive=printSwitches.some(key=>this.state[key]);
-    $<HTMLInputElement>('bitmap-scale').disabled=!printActive;
-    $<HTMLInputElement>('bitmap-strength').disabled=!(this.state.bitmapRipples||this.state.textureReveal);
-    $<HTMLInputElement>('texture-faint').disabled=!(this.state.printedPaper||this.state.textureReveal||this.state.textureRefraction);
-    $<HTMLInputElement>('refraction-strength').disabled=!this.state.textureRefraction;
-    $<HTMLInputElement>('reveal-width').disabled=!(this.state.bitmapRipples||this.state.textureReveal||(this.state.caustics&&this.state.alignedCaustics));
-    $<HTMLFieldSetElement>('caustic-fields').disabled=!(this.state.caustics||this.state.causticRipples||this.state.causticReveal);
-    $<HTMLInputElement>('aligned-caustics').disabled=this.state.mode==='original'||this.state.causticRipples;
-    $<HTMLInputElement>('caustic-ink').disabled=!this.state.causticRipples;
-    $<HTMLInputElement>('dream-softness').disabled=!(this.state.softDiffusion||this.state.dreamy);
-    $<HTMLInputElement>('water-bitmap-levels').disabled=!this.state.bitmapTones;
-    for(const key of ['light-azimuth','light-elevation','overhead-light'])$<HTMLInputElement>(key).disabled=this.state.caustics&&this.state.alignedCaustics&&this.state.mode!=='original';
-    for(const key of ['light-azimuth','light-elevation'])$<HTMLInputElement>(key).disabled=$<HTMLInputElement>(key).disabled||this.state.overheadLight;
     $('caustic-note').textContent=this.state.alignedCaustics&&this.state.mode!=='original'?'Surface glow follows the ripple positions. An artistic alignment experiment.':'Projected light falls below the water. Its highlights can sit apart from the ripple crests.';
   }
 
+  private useDrawing(){if(this.state.mode==='original')this.state.mode=this.lastDrawingMode;}
+
   private connectControls(){
     document.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(b=>b.onclick=()=>{this.state.mode=b.dataset.mode as Mode;this.applyAppearance();});
-    document.querySelectorAll<HTMLButtonElement>('[data-tone]').forEach(b=>b.onclick=()=>{this.state.tone=b.dataset.tone as Tone;this.applyAppearance();});
-    $<HTMLInputElement>('line-weight').oninput=e=>{this.state.lineWeight=Number((e.target as HTMLInputElement).value);this.applyAppearance();};
+    document.querySelectorAll<HTMLButtonElement>('[data-tone]').forEach(b=>b.onclick=()=>{this.useDrawing();this.state.tone=b.dataset.tone as Tone;this.applyAppearance();});
+    $<HTMLInputElement>('line-weight').oninput=e=>{this.useDrawing();this.state.lineWeight=Number((e.target as HTMLInputElement).value);this.applyAppearance();};
     $<HTMLInputElement>('rain').onchange=e=>{this.state.rain=(e.target as HTMLInputElement).checked;this.updateControls();};
-    $<HTMLInputElement>('caustics').onchange=e=>{this.state.caustics=(e.target as HTMLInputElement).checked;this.applyAppearance();};
-    for(const key of experimentSwitches)$<HTMLInputElement>(controlId(key)).onchange=e=>{this.state[key]=(e.target as HTMLInputElement).checked;this.applyAppearance();};
-    for(const key of Object.keys(experimentRanges) as (keyof typeof experimentRanges)[])$<HTMLInputElement>(controlId(key)).oninput=e=>{this.state[key]=Number((e.target as HTMLInputElement).value);this.applyAppearance();};
+    $<HTMLInputElement>('caustics').onchange=e=>{this.state.caustics=(e.target as HTMLInputElement).checked;if(this.state.caustics)this.state.causticRipples=false;this.applyAppearance();};
+    for(const key of experimentSwitches)$<HTMLInputElement>(controlId(key)).onchange=e=>{
+      this.state[key]=(e.target as HTMLInputElement).checked;
+      if(this.state[key]&&key!=='overheadLight')this.useDrawing();
+      if(key==='alignedCaustics'&&this.state.alignedCaustics){this.state.causticRipples=false;this.state.caustics=true;}
+      if(key==='overheadLight')this.state.alignedCaustics=false;
+      this.applyAppearance();
+    };
+    for(const key of Object.keys(experimentRanges) as (keyof typeof experimentRanges)[])$<HTMLInputElement>(controlId(key)).oninput=e=>{
+      this.state[key]=Number((e.target as HTMLInputElement).value);
+      if(key==='lightAzimuth'||key==='lightElevation'){this.state.overheadLight=false;this.state.alignedCaustics=false;}
+      else if(key!=='causticsStrength')this.useDrawing();
+      this.applyAppearance();
+    };
     for(const key of Object.keys(motionRanges) as (keyof typeof motionRanges)[])$<HTMLInputElement>(controlId(key)).oninput=e=>{this.state[key]=Number((e.target as HTMLInputElement).value);this.updateControls();};
-    document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.onclick=()=>{this.state.bitmapPattern=Number(b.dataset.pattern);this.applyAppearance();});
+    document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.onclick=()=>{this.useDrawing();this.state.bitmapPattern=Number(b.dataset.pattern);this.applyAppearance();});
     $('reset-experiments').onclick=()=>{Object.assign(this.state,experimentDefaults);this.applyAppearance();};
     $<HTMLInputElement>('rain-rate').oninput=e=>{this.state.rainRate=Number((e.target as HTMLInputElement).value);this.updateControls();};
     $<HTMLInputElement>('drop-size').oninput=e=>{this.state.dropSize=Number((e.target as HTMLInputElement).value);this.updateControls();};
