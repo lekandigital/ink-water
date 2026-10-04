@@ -124,22 +124,23 @@ After a rename, run `git remote set-url origin https://github.com/lekandigital/i
 
 The social preview image has no API or CLI. Upload it by hand: repository **Settings → General → Social preview → Edit → Upload an image…**, choose `public/social.jpg` (1280×640, well under the 1 MB limit).
 
-## Hosting at demo.1001ud.me/ink-water
+## Hosting at demo.1001ud.me/ink-water/
 
-`demo.1001ud.me` belongs to the existing Vercel project `1001ud-demo-me` (the 1001ud portfolio). This pass did not touch it. Serving Ink Water under `/ink-water/` needs, in that project and with your approval:
+Live since 2026-10-04. `demo.1001ud.me` stays with its existing Vercel project, `1001ud-demo-me` (the 1001ud portfolio, repository `lekandigital/1001ud-demo-me`). Ink Water is mounted inside it as static files:
 
-- a rewrite from `/ink-water/:path*` to the Ink Water deployment (for example `https://puddle-water-study.vercel.app/:path*`, or `ink-water` if that project is renamed)
-- a redirect from `/ink-water` to `/ink-water/`. The built page loads `./app.js`, `./style.css` and its textures by relative path, so it needs the trailing slash.
+- `npm run sync:ink-water` in that repository builds this one with `INK_WATER_BASE=/ink-water/` and copies `dist/` to its `public/ink-water/`, writing the source commit to `public/ink-water/SOURCE.txt`.
+- Its `src/proxy.ts` redirects `/ink-water` to `/ink-water/`. Its `next.config.ts` serves `/ink-water/` from `index.html` and keeps the usual trailing-slash redirect on every other path.
+- Pushing that repository's `main` deploys it.
 
-The page's canonical, `og:url` and `og:image` already point at `https://demo.1001ud.me/ink-water/`, so the social card will only work once that path serves `social.jpg`.
+To publish a change to Ink Water: commit it here, run `npm run sync:ink-water` in `~/Dev/1001ud.me/demo`, then commit and push there.
+
+The separate Vercel project `puddle-water-study` is not involved; it still serves the older `d2e99d3` build at its own `vercel.app` address.
 
 ## Checklist
 
-1. Merge or push the `ink-water-launch` branch to `main` (still local).
+1. Push this branch (`ink-water-launch`) to `main`. The live build at `/ink-water/` comes from local commit `83afd8a`, which isn't on GitHub yet.
 2. Rename the repository and apply the description, website and topics above.
 3. Upload `public/social.jpg` as the GitHub social preview.
-4. Add the `/ink-water/` rewrite and the trailing-slash redirect on `demo.1001ud.me`.
-5. Open the live URL: check WebGL, click and drag, C/X/slash, and that `https://demo.1001ud.me/ink-water/social.jpg` loads.
-6. Check the card with X's post composer or any Open Graph preview tool.
-7. Make the repository public, with explicit approval at that moment.
-8. Post: main video, first self-reply, then the lineage and process replies.
+4. Check the card with X's post composer or any Open Graph preview tool. The live page, its WebGL rendering, the interactions and `https://demo.1001ud.me/ink-water/social.jpg` are already verified.
+5. Make the repository public, with explicit approval at that moment.
+6. Post: main video, first self-reply, then the lineage and process replies.
