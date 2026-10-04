@@ -4,14 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f5f5f5">
-  <meta name="description" content="A living water study, seen straight from above. Real simulated ripples rendered in graphite and ink.">
-  <title>Water — a monochrome study</title>
+  <meta name="description" content="Simulated water, drawn instead of rendered. A real-time heightfield water study in etching, graphite, ink and bitmap texture.">
+  <title>Ink Water — a water study</title>
+  <link rel="canonical" href="https://demo.1001ud.me/ink-water/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ink Water">
+  <meta property="og:title" content="Ink Water — a water study">
+  <meta property="og:description" content="Simulated water, drawn instead of rendered.">
+  <meta property="og:url" content="https://demo.1001ud.me/ink-water/">
+  <meta property="og:image" content="https://demo.1001ud.me/ink-water/social.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Contour lines of a C-shaped wave drawn in white ink on dark paper">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ink Water — a water study">
+  <meta name="twitter:description" content="Simulated water, drawn instead of rendered.">
+  <meta name="twitter:image" content="https://demo.1001ud.me/ink-water/social.jpg">
+  <meta name="twitter:image:alt" content="Contour lines of a C-shaped wave drawn in white ink on dark paper">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23f5f5f5'/%3E%3Cg fill='none' stroke='%23252525'%3E%3Cellipse cx='20' cy='20' rx='15' ry='11'/%3E%3Cellipse cx='20' cy='20' rx='10' ry='7'/%3E%3Cellipse cx='20' cy='20' rx='5' ry='3'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <header class="masthead">
-    <div class="identity"><h1>Water<span>.</span></h1><span class="byline">A water study</span></div>
+    <div class="identity"><h1>Ink Water</h1><span class="byline">A water study</span></div>
     <div class="header-actions">
       <span class="view-label">Seen from above</span>
       <button id="pause" class="plain-button" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span></button>
@@ -113,7 +128,7 @@
       <div class="gesture-controls"><span>Repeat a gesture</span><div class="pattern-grid" role="group" aria-label="Repeatable water gestures"><button type="button" data-gesture="c" title="Press C to draw a C">C</button><button type="button" data-gesture="x" title="Press X to draw an X">X</button><button type="button" data-gesture="/" title="Press slash to draw a slash">/</button></div><p class="experiment-note">Same path and timing, every time. Uses your touch settings.</p></div>
       <button id="clear" class="clear-button" type="button">Still the water</button>
       <p class="experiment-note">Bitmap experiments layer over ordinary water and its projected caustics. Print experiments are a separate treatment. Dreamy and Subtle can be combined. C, X and / replay fixed touch paths.</p>
-      <details class="about"><summary>About this study</summary><p>The original <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js water</a> wave simulation, seen straight down.</p><p>Each impact creates a group of concentric waves that travels outward and fades. Open edges absorb outgoing waves instead of sending them back. Hairline ripples keep complete strokes; switch them off for the artistic contours and bitmap etching texture. Original shows the simulated surface.</p><p>The print experiments can be combined. Bitmap ripples and Texture reveal replace the stroke with marks; Printed paper and Refract the print add texture. Switch the experiments off to return to the existing drawing.</p><p>Projected caustics are refracted light below the water, so their brightest points need not match the ripple crests. Overhead light reduces the sideways shift. Align glow to ripples is a separate artistic surface effect. Original always uses the projected light.</p><p>A heightfield wave model with refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>Original work: Evan Wallace. Three.js port: Yong Su. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
+      <details class="about"><summary>About this study</summary><p>Simulated water, drawn instead of rendered, seen straight down. The water comes from Evan Wallace's <a href="https://madebyevan.com/webgl-water/" target="_blank" rel="noopener noreferrer">WebGL Water</a> (2010), by way of Yong Su's <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js port</a>; Ink Water draws it.</p><p>Each impact creates a group of concentric waves that travels outward and fades. Open edges absorb outgoing waves instead of sending them back. Hairline ripples keep complete strokes; switch them off for the artistic contours and bitmap etching texture. Original shows the simulated surface.</p><p>The print experiments can be combined. Bitmap ripples and Texture reveal replace the stroke with marks; Printed paper and Refract the print add texture. Switch the experiments off to return to the existing drawing.</p><p>Projected caustics are refracted light below the water, so their brightest points need not match the ripple crests. Overhead light reduces the sideways shift. Align glow to ripples is a separate artistic surface effect. Original always uses the projected light. Two faint lines on the floor show the surface bending the view.</p><p>A heightfield wave model with refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>WebGL Water: Evan Wallace, 2010. Three.js port: Yong Su (jeantimex), 2026. Drawing and interaction: Ink Water. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
     </aside>
   </main>
   <footer class="footnote"><span id="interaction-hint">Touch the water. Leave a ripple.</span><span class="keyboard-hint"><kbd>Space</kbd> pause <span class="footer-separator">/</span> <kbd>H</kbd> controls <span class="footer-separator">·</span> <kbd>C</kbd> <kbd>X</kbd> <kbd>/</kbd> gestures</span></footer>
