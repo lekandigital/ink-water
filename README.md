@@ -39,7 +39,7 @@ This repository is connected to Vercel; every push to `main` deploys the applica
 
 Click, touch, or drag inside the water to create ripples. Gestures draw immediately, including when animation is paused or throttled. A touch opts into motion after an automatic reduced-motion pause; a manual pause remains in effect. Space toggles pause, and H hides the controls.
 
-`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, and collisions with the shader helpers injected by the installed Three.js release.
+`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, collisions with the shader helpers injected by the installed Three.js release, and finite grayscale values in the actual drawing palette uniforms. The palette test reproduces the invalid color call that previously made drawing modes solid red.
 
 ## Credits
 

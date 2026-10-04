@@ -3,15 +3,14 @@ import { Water } from './Water';
 import { Renderer as WaterRenderer } from './Renderer';
 import { connectWaterPointer } from './PointerInteraction';
 import { fitWaterCamera, insideWater } from './Viewport';
+import { applyDrawingTone, tones, type Tone } from './DrawingPalette';
 import drawingSurfaceFrag from './shaders/DrawingSurface.frag';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
 
 type Mode='ink-wash'|'etching'|'graphite'|'original';
-type Tone='paper'|'silver'|'night';
 const modes:Record<Mode,number>={'ink-wash':0,etching:1,graphite:2,original:3};
 const labels:Record<Mode,string>={'ink-wash':'Ink wash',etching:'Etching',graphite:'Graphite',original:'Original'};
-const tones:Record<Tone,{paper:number;ink:number}>={paper:{paper:0xf5f5f5,ink:0x232323},silver:{paper:0xdfdfdf,ink:0x292929},night:{paper:0x161616,ink:0xdddddd}};
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const POOL={width:1,length:1,depth:0.7,radius:1};
 const TICK=1/60;
@@ -201,9 +200,7 @@ class Puddle {
   applyAppearance(){
     const {mode,tone,lineWeight,sourceGeometry,hairlineRipples,caustics}=this.state;
     document.body.dataset.tone=tone;
-    // Exact RGB grayscale values; no warm tint is introduced by color management.
-    this.drawing.uniforms.paper.value.set(tones[tone].paper,THREE.LinearSRGBColorSpace);
-    this.drawing.uniforms.ink.value.set(tones[tone].ink,THREE.LinearSRGBColorSpace);
+    applyDrawingTone(this.drawing.uniforms.paper.value,this.drawing.uniforms.ink.value,tone);
     this.drawing.uniforms.mode.value=modes[mode];this.drawing.uniforms.lineWeight.value=lineWeight;
     this.drawing.uniforms.sourceGeometry.value=sourceGeometry;
     this.drawing.uniforms.hairlineRipples.value=hairlineRipples;this.drawing.uniforms.caustics.value=caustics;
