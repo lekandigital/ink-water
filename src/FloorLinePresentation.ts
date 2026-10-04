@@ -25,7 +25,7 @@ vec3 getInkFloorColor(vec3 point) {
   vec2 aa = max(fwidth(point.xz), vec2(1.0e-5));
   float across = 1.0 - smoothstep(inkFloorLine.y - aa.y, inkFloorLine.y + aa.y, abs(abs(point.z) - inkFloorLine.z));
   float along = 1.0 - smoothstep(inkFloorLine.x - aa.x, inkFloorLine.x + aa.x, abs(point.x));
-  return texture2D(tiles, point.xz * 0.5 + 0.5).rgb * scale * (1.0 - 0.85 * across * along);
+  return texture2D(tiles, point.xz * 0.5 + 0.5).rgb * scale * (1.0 - 0.35 * across * along);
 }
 
 `;
@@ -54,7 +54,7 @@ export class FloorLinePresentation{
     if(this.enabled.get(material)!==enabled){this.enabled.set(material,enabled);material.needsUpdate=true;}
   }
   /**
-   * Each line is under 28% of the screen width and a few pixels thick. It sits on the
+   * Each line is under 28% of the screen width, faint and about a pixel thick. It sits on the
    * pool's former edge (floor z = ±1) when that is in view, otherwise near the top
    * and bottom of the screen, at any aspect ratio.
    */
@@ -65,6 +65,6 @@ export class FloorLinePresentation{
     let screen=.82*halfHeight;
     for(let i=0;i<40&&toFloor(screen)>.98;i++)screen*=.99;
     const floorScale=toFloor(screen)/screen;
-    this.line.value.set(.28*halfWidth*floorScale,.65*(2*halfWidth/Math.max(1,width))*floorScale,toFloor(screen));
+    this.line.value.set(.28*halfWidth*floorScale,.3*(2*halfWidth/Math.max(1,width))*floorScale,toFloor(screen));
   }
 }
