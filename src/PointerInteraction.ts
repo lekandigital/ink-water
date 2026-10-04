@@ -6,6 +6,8 @@ export function connectWaterPointer({canvas,camera,inside,disturb,dropSize}:{
   camera:THREE.PerspectiveCamera;
   inside:(x:number,z:number,margin:number)=>boolean;
   disturb:(x:number,z:number)=>void;
+  disturbSegment?:(x0:number,z0:number,x1:number,z1:number)=>void;
+  continuous?:()=>boolean;
   dropSize:()=>number;
 }){
   const raycaster=new THREE.Raycaster();
@@ -34,8 +36,13 @@ export function connectWaterPointer({canvas,camera,inside,disturb,dropSize}:{
     if(event.pointerId!==activePointer)return;
     const p=pointAt(event);
     if(!p||!inside(p.x,p.z,0.02))return;
-    if(lastPoint&&p.distanceTo(lastPoint)>dropSize()*0.8&&event.timeStamp-lastTime>28){
-      disturb(p.x,p.z);lastPoint=p;lastTime=event.timeStamp;
+    if(lastPoint){
+      const distance=p.distanceTo(lastPoint);
+      if(continuous?.()&&disturbSegment&&distance>dropSize()*0.22){
+        disturbSegment(lastPoint.x,lastPoint.z,p.x,p.z);lastPoint=p;lastTime=event.timeStamp;
+      }else if(!continuous?.()&&distance>dropSize()*0.8&&event.timeStamp-lastTime>28){
+        disturb(p.x,p.z);lastPoint=p;lastTime=event.timeStamp;
+      }
     }
   });
   const finish=(event:PointerEvent)=>{
