@@ -2,6 +2,8 @@
 precision highp float;
 uniform sampler2D sceneColor;
 uniform sampler2D water;
+uniform sampler2D waveLines;
+uniform bool hairlineRipples;
 uniform bool caustics;
 uniform vec2 pixel;
 uniform vec2 poolSize;
@@ -42,6 +44,14 @@ void main(){
   if(mode==3){gl_FragColor=vec4(mix(paper,original.rgb,alpha),1.0);return;}
   vec2 waterUV=p/poolSize*0.5+0.5;
   vec4 state=bilinearState(waterUV);
+  if(hairlineRipples){
+    float crest=texture2D(waveLines,coord).r;
+    float wash=caustics?0.035*(1.0-greyAt(coord)):0.0;
+    float textureTone=mode==2?0.004:0.0;
+    float weight=0.012+wash+textureTone+crest*(mode==1?0.68:0.57);
+    gl_FragColor=vec4(clamp(mix(paper,ink,weight)+grain,0.0,1.0),1.0);
+    return;
+  }
   // Height contours and slopes come from the same texture used by the original mesh.
   float slope=length(state.ba);
   float activity=smoothstep(0.006,0.055,slope);

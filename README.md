@@ -1,83 +1,86 @@
-# Water — a monochrome study
+# Puddle
 
-A full-page Three.js water background, viewed straight down. The heightfield solver and 40,401-vertex water mesh come from [jeantimex/threejs-water](https://github.com/jeantimex/threejs-water). Etching with Dark paper and caustics is the default. Ink wash, Graphite, Light, Silver, and Original remain available.
+A full-page, overhead Three.js water background with fine monochrome wave lines.
 
-Hairline ripples have been removed. The existing surface drawing follows actual simulated height and slope, including interference. With appearance experiments off, its non-hairline rendering is preserved. Original bypasses the drawing effects and shows the same simulated surface and geometry. The reflected sun disc is removed in an application-level material patch; the upstream shader files remain unchanged.
+Based on https://github.com/jeantimex/threejs-water at commit `f35a700a16fe386beac997806ed4471018c93ef7`.
+The upstream Water.ts, Renderer.ts, rendering modules, water modules, and original shaders are copied unchanged. The original 256×256 GPU heightfield, drop function, normals, caustics, and mesh generation remain intact. Each 60 Hz application tick invokes the source's two wave steps. An additional open-water pass absorbs outgoing waves at the edges after each step, while preserving the source update in the interior.
 
-## Motion
+The original square pool option is used with width=1, length=1, depth=0.7. Its water mesh remains PlaneGeometry(2, 2, 200, 200). A camera pointed vertically down crops the square surface to fill every viewport corner. The canvas covers the full page, with floating controls above it.
 
-Default motion uses the original 100% wave speed. Ripple scale starts at 85%, with medium touch size: larger and clearer than the previous small default, while still leaving room for wider ripples. Rain averages about 19% of the previous rain force; touch uses about 84% of that previous rain average. The camera takes in slightly more of the original surface while filling the entire viewport.
+Hairline ripples are enabled by default. Each source drop creates a group of four concentric circular strokes that expand from the actual impact point. Their outward motion and shared amplitude envelope are calibrated by running the unchanged upstream drop and wave shaders for nine drop sizes; `src/WaveProfile.ts` stores those measurements and shader hashes. The same impacts and simulation-step clock drive the actual water and the drawing, so pause, rain, dragging, and clearing stay synchronized. Beyond the calibration interval, a continuation uses the measured speed, cylindrical spreading, and source damping. The trailing rings appear smoothly, and the entire group fades together. There are no mirrored centers or returning strokes. Every stroke keeps a constant screen-space width and one opacity value around its entire circumference, so it does not split into fragments or shrink into small ovals.
 
-**Motion & force** independently controls wave speed, ripple scale, rain force, and touch force. Rainfall controls frequency separately. Source updates retain the original two solver steps per tick; slow motion changes the number of source ticks per real second. A separate GPU interpolation pass smooths displayed heights and normals between ticks, without feeding anything back into the solver. Rain still arrives on the real-time clock.
+The open-water pass uses an outgoing radiation condition at the outermost cells and a smooth 40-cell damping zone. Three distinct render targets preserve the previous and predicted states without texture feedback. This suppresses reflections in Original and the artistic contour view as well as in Hairline ripples. The boundary is an approximation to a large body of water, not an exact infinite-domain solution.
 
-The open-water pass uses an outgoing radiation condition at the outermost cells and a smooth 40-cell damping zone. Three distinct solver targets preserve previous and predicted states without texture feedback. This suppresses returning waves throughout all views. It approximates a large body of water rather than an exact infinite domain.
+This continuous drawing is an artistic wave-front representation. It preserves circular wave groups rather than drawing every instantaneous crest of the superposed heightfield. Interference can change the topology of those exact crests; preserving them exactly cannot also guarantee that they never split. **Original** displays the actual simulated surface and interference with the new open edges. All views retain the upstream geometry and interior wave equations.
 
-**Dreamy** adds a further slowdown and soft ink diffusion. **Subtle** reduces rain and touch force and lowers drawing contrast. They are independent switches, can be combined, and retain the chosen drawing, bitmap layers, light settings, and simulation. Diffusion radius is adjustable.
-
-## Bitmap experiments
-
-These are separate from Print experiments and layer over the existing drawing, including caustics. All start off; combine any of them:
-
-- **Comic bitmap** renders water and caustics in ordered, dithered shades.
-- **Caustic texture reveal** makes faint dots clearer at the real refracted light shapes.
-- **Water-bent grain** shifts a quiet bitmap using the simulated water normals.
-- **Soft diffusion** gently softens the ink while retaining the original water features.
-
-Tune bitmap scale, tonal steps, contrast, diffusion radius, and caustic ink strength. Settings remain editable even while their effects are off. Drawing controls automatically return from Original to the last drawing view. Bitmap scale and diffusion use CSS pixels. Patterns are deterministic, with no frame-random texture flicker.
+Turn **Hairline ripples** off for the artistic ink contours, including the comic bitmap texture in Etching with Dark paper. With the new experiments off, the existing appearance is preserved. Ink wash, etching and graphite use monochrome paper and ink values; Original shows the original optical shading. Every appearance control changes rendering only; drawing buffers never feed into the simulation.
 
 ## Print experiments
 
-The existing print experiments remain available and can also be combined with the new bitmap layers:
+All experiments start off and can be combined:
 
-- **Bitmap ripples** replaces ordinary ripple contours with printed marks.
-- **Texture reveal** makes a faint print clearer where simulated wave contours pass.
-- **Printed paper** adds bitmap texture while keeping ordinary ripples.
-- **Refract the print** bends texture using the actual water normals.
+- **Bitmap ripples** replaces the drawn ripple stroke with bands of printed marks.
+- **Texture reveal** keeps a faint print on the paper and makes it clearer where waves pass, without drawing the normal stroke.
+- **Printed paper** adds a quiet bitmap across the full water background while keeping the existing ripples.
+- **Refract the print** bends the print using the actual simulated surface normals.
 
-Choose Comic dots, Stipple, or Pixels. Controls cover print scale, wave contrast, background opacity, band width, and texture bend. Caustic detail is retained when caustics are enabled, including in the stroke replacement experiments. Original bypasses both experiment groups.
+Choose Comic dots, Stipple, or Pixels (ordered Bayer dithering). **Tune the print** controls print scale, wave contrast, background print opacity, wave band width, and texture bend. Scale and band width use CSS pixels so their size stays consistent on Retina displays. The print is deterministic and stationary unless refraction is enabled; there is no frame-random noise or texture flicker.
 
-## Caustics and light
+Hairline mode uses soft bands around the same continuous concentric wave geometry. With Hairline ripples off, reveal bands follow the same source height contours as the existing drawing. In both cases the effect follows the existing wave positions, and uses the same simulation clock. Original bypasses print effects and disables their controls.
 
-**Caustics** uses the original focused-light calculation below the water. Highlights need not coincide with surface crests: the upstream shaders refract light and project it onto the floor. The default light is the original normalized `(2, 2, -1)` direction. Direction, height, Overhead light, and Glow strength remain adjustable. At 100% strength, the intensity presentation pass is bypassed.
+## Light and caustics
 
-**Caustic ripples** is an additional ripple style. It switches caustic lighting off and draws the same calculated caustic shapes as ink instead of ordinary height contours. The original lit and unlit optical scenes are compared at matching screen positions; there is no approximate texture offset. Light controls still adjust these shapes. Switching Caustics on returns to ordinary surface drawing. This style combines with the bitmap layers, Dreamy, and Subtle.
+**Caustics** starts off and enables the source's focused light below the surface. Its bright regions need not coincide with the surface ripple crests: the original shader refracts light through the water and projects it onto the floor. The default light remains exactly the original `(2, 2, -1)` direction, normalized.
 
-**Align glow to ripples** remains a separate artistic surface effect based on height contours. Original retains projected caustics when enabled. **Reset experiments** turns appearance experiments off and restores the original light, preserving the drawing, paper, motion controls, rainfall, and simulated water.
+**Light & caustics** provides light direction, light height, an Overhead light toggle, and Glow strength. Direction and height change the actual light supplied to all source optical passes, without changing wave physics. Overhead light reduces the sideways displacement. Glow strength scales the original caustic intensity while retaining its positions and shadow channel; at the default 100%, this additional presentation pass is bypassed.
 
-This is the upstream linear heightfield wave model, not a calibrated Navier–Stokes solver. It does not model breaking waves, spray, overturning surfaces, wetting, or full fluid flow. Appearance buffers never enter a source simulation pass.
+**Align glow to ripples** replaces the projected caustics in the drawing modes with an artistic glow following the wave bands directly. Its light controls are disabled because this effect does not project light onto the floor. Original always retains projected caustics. Wave band width also controls the aligned glow. **Reset experiments** restores the original light and turns the print experiments off, while preserving the selected drawing, paper, Hairline ripples, rainfall, and simulated water.
 
-## Interaction
+This is the upstream linear heightfield wave model, not a calibrated Navier–Stokes solver. It does not model full fluid flow, wetting, capillary dispersion, overturning surfaces, droplets or breaking waves. The repo's rounded-pool boundary is an optical boundary; its underlying simulation remains a rectangular heightfield.
 
-Click, touch, or drag to create actual solver impacts. Touches appear immediately, including when paused. A gesture resumes an automatic reduced-motion pause; a manual pause remains respected.
-
-- **Space** pauses or resumes, including while buttons, switches, or sliders have focus.
-- **H** hides or shows controls.
-- **C**, **X**, and **/** replay the corresponding fixed touch paths with consistent positions and timing. Matching buttons are provided. Gestures use current touch settings and pause with the water. X lifts between strokes.
-
-Shortcuts ignore text editing, modifier combinations, and key repeats. Starting a new gesture replaces the pending gesture. Still the water cancels pending gestures and clears source and interpolation buffers.
-
-## Run, check, and build
+## Run
 
 Node 20+:
 
 ```
 npm ci
 npm run dev
+```
+
+## Build
+
+```
 npm run check
-npm test
 npm run build
 ```
 
-The static application is in `dist/`. All code and scene textures are bundled locally. `vercel.json` sets `npm ci`, `npm run check && npm run build`, and `dist`; pushes to `main` deploy through the connected Vercel project.
+The complete static application is in dist/. Serve that directory with an HTTP server. All application code and scene textures are bundled locally. A font request has a system-font fallback.
 
-Tests cover real Three.js coordinate mapping, mouse/touch routing, failed pointer capture, full viewport coverage, installed Three.js shader helper conflicts, grayscale palette regression, motion force ranges, reproducible gesture paths, independent interpolation buffers, safe open boundary buffers, finite experiment settings, original default light, caustic intensity bypass, and application-level sun disc removal. The grayscale test reproduces the invalid color call that previously caused a solid red screen.
+## Vercel
 
-An optional GPU regression executes the original wave and open boundary shaders for center, side, and corner impacts. It verifies unchanged interior updates and more than 99% reduction in late returning wave energy compared with the closed pool. With Python `moderngl`, `numpy`, and `scipy` installed:
+This repository is connected to Vercel; every push to `main` deploys the application. `vercel.json` sets `npm ci` as the install command, `npm run check && npm run build` as the build command, and `dist` as the output directory. No environment variables are required.
+
+## Interaction
+
+Click, touch, or drag inside the water to create ripples. Gestures draw immediately, including when animation is paused or throttled. A touch opts into motion after an automatic reduced-motion pause; a manual pause remains in effect. Space toggles pause, and H hides the controls.
+
+`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, collisions with the shader helpers injected by the installed Three.js release, finite grayscale palette uniforms, concentric stroke expansion and whole-wave fading, safe rotation of the boundary render targets, finite experiment settings, exact default light preservation, and the caustic intensity pass's default bypass. The palette test reproduces the invalid color call that previously made drawing modes solid red.
+
+The optional GPU regression renders the actual instanced stroke geometry and shaders into a half-float buffer with maximum blending. It checks that each wave stays a single closed connected ring and keeps the same shape as it fades, across three line widths and two pixel ratios, including near-zero opacity. With Python's `moderngl`, `numpy`, and `scipy` installed:
 
 ```
+node scripts/verify-continuous-waves.mjs --export /tmp/water-strokes.json
+node scripts/verify-shader-integration.mjs --export /tmp/water-three-helpers.glsl
+python scripts/verify-continuity-gpu.py /tmp/water-strokes.json /tmp/water-three-helpers.glsl
 python scripts/verify-open-water-gpu.py
 ```
 
+The open-water GPU check runs the actual source and boundary shaders for center, side, and corner impacts. It verifies that the interior update is unchanged and that late returning wave energy is reduced by more than 99% relative to the closed pool. Energy measures velocity and spatial height gradients, so a constant residual height offset is not mistaken for a returning ripple.
+
+To regenerate the source drop-response calibration, run `python scripts/generate-wave-profile.py`. The generator executes the original GPU shaders; it never edits them.
+
 ## Credits
 
-Original WebGL Water: Evan Wallace, 2011. Three.js port: Yong Su (jeantimex), 2026. Source and sky/tile assets reused under the MIT license retained in `LICENSE`. Upstream credits the tile texture to [zooboing on Flickr](https://www.flickr.com/photos/zooboing/463635680/).
+Original WebGL Water: Evan Wallace, 2011.
+Three.js port: Yong Su (jeantimex), 2026.
+Source and sky/tile assets reused from the upstream repository; MIT license retained in LICENSE. The original README credits tile texture to zooboing on Flickr: https://www.flickr.com/photos/zooboing/463635680/ .

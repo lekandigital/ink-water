@@ -2,6 +2,9 @@
 precision highp float;
 uniform sampler2D sceneColor;
 uniform sampler2D water;
+uniform sampler2D waveLines;
+uniform sampler2D waveBands;
+uniform bool hairlineRipples;
 uniform bool caustics;
 uniform vec2 pixel;
 uniform vec2 poolSize;
@@ -90,6 +93,18 @@ void main(){
   if(mode==3){gl_FragColor=vec4(mix(paper,original.rgb,alpha),1.0);return;}
   vec2 waterUV=p/poolSize*0.5+0.5;
   vec4 state=bilinearState(waterUV);
+  if(hairlineRipples){
+    float crest=texture2D(waveLines,coord).r;
+    float wash=caustics?0.035*(1.0-greyAt(coord)):0.0;
+    float textureTone=mode==2?0.004:0.0;
+    float weight=0.012+wash+textureTone+crest*(mode==1?0.68:0.57);
+    if(bitmapRipples||textureReveal)weight=0.012+wash+textureTone;
+    float band=0.0;
+    if(bitmapRipples||textureReveal||alignedCaustics)band=texture2D(waveBands,coord).r;
+    vec3 drawn=printSurface(mix(paper,ink,weight)+grain,state,band);
+    gl_FragColor=vec4(clamp(drawn,0.0,1.0),1.0);
+    return;
+  }
   // Height contours and slopes come from the same texture used by the original mesh.
   float slope=length(state.ba);
   float activity=smoothstep(0.006,0.055,slope);
@@ -106,15 +121,15 @@ void main(){
   if(mode==0){
     // Soft graphite wash, translucent slopes, and selective fine ink contours.
     weight=0.045+0.19*(1.0-wash)+0.19*slopeInk+contour*0.51+gradient*1.25;
-    if(bitmapRipples||textureReveal)weight=0.045+0.19*(1.0-wash)+0.04*slopeInk+(caustics?gradient*1.25:0.0);
+    if(bitmapRipples||textureReveal)weight=0.045+0.19*(1.0-wash)+0.04*slopeInk;
   } else if(mode==1){
     weight=0.022+contour*0.88+slopeInk*0.18+gradient*1.8;
-    if(bitmapRipples||textureReveal)weight=0.022+0.04*slopeInk+(caustics?gradient*1.8:0.0);
+    if(bitmapRipples||textureReveal)weight=0.022+0.04*slopeInk;
   } else {
     float diagonal=fract((gl_FragCoord.x+gl_FragCoord.y*0.61)*0.18);
     float hatch=(1.0-smoothstep(0.11,0.32,abs(diagonal-0.5)))*smoothstep(0.02,0.17,slope);
     weight=0.05+(1.0-wash)*0.22+contour*0.34+slopeInk*0.15+hatch*0.2;
-    if(bitmapRipples||textureReveal)weight=0.05+(1.0-wash)*0.22+0.04*slopeInk+(caustics?gradient:0.0);
+    if(bitmapRipples||textureReveal)weight=0.05+(1.0-wash)*0.22+0.04*slopeInk;
   }
   vec3 drawn=mix(paper,ink,clamp(weight,0.0,0.95))+grain;
   float band=0.0;
