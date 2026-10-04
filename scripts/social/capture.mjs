@@ -1,7 +1,7 @@
-// Renders the launch video, aesthetic loop, README demo GIFs and social preview from
-// the real app in deterministic capture mode. Usage:
+// Renders the launch video, aesthetic loop and README demo GIF on Dark and Light
+// paper, plus the social preview, from the real app in deterministic capture mode.
 //   npm run social                 everything
-//   npm run social -- gif social   only some outputs (launch, loop, gif, gif-light, social)
+//   npm run social -- gif social   only some outputs (see `outputs` below)
 // Requires Google Chrome (or INK_WATER_CHROME) and ffmpeg with libx264 on PATH.
 import {mkdir,writeFile,rm,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
@@ -9,10 +9,13 @@ import {serve,launchBrowser,openCapture,runSequence,frameEncoder,run} from './ca
 import {launch,loop,demo,social} from './sequences.mjs';
 
 const cache='.capture';
+// Dark paper is the main version of each asset; Light sits beside it.
 const outputs={
-  launch:'assets/ink-water-launch.mp4',loop:'assets/ink-water-loop.mp4',
+  launch:'assets/ink-water-launch.mp4','launch-light':'assets/ink-water-launch-light.mp4',
+  loop:'assets/ink-water-loop.mp4','loop-light':'assets/ink-water-loop-light.mp4',
   gif:'assets/ink-water.gif','gif-light':'assets/ink-water-light.gif',social:'public/social.jpg',
 };
+const tones=[['','night'],['-light','paper']];
 // Measured paper value of each tone in the rendered frames.
 const paper={night:27,paper:240};
 const requested=process.argv.slice(2);
@@ -34,14 +37,16 @@ await run('node',['build.mjs']);
 const server=await serve('dist');
 const browser=await launchBrowser();
 try{
-  if(wanted.has('launch'))await record(launch,{deliver:outputs.launch});
-  if(wanted.has('loop')){
-    await seamless(loop,await record(loop));
-    await ffmpeg('-i',`${cache}/loop-seamless.mkv`,'-vf',toYuv,...deliveryArgs,outputs.loop);
-  }
-  for(const [key,tone] of [['gif','night'],['gif-light','paper']])if(wanted.has(key)){
-    const sequence=demo(tone);
-    await gif(await seamless(sequence,await record(sequence)),outputs[key],paper[tone]);
+  for(const [suffix,tone] of tones){
+    if(wanted.has('launch'+suffix))await record(launch(tone),{deliver:outputs['launch'+suffix]});
+    if(wanted.has('loop'+suffix)){
+      const sequence=loop(tone);
+      await ffmpeg('-i',await seamless(sequence,await record(sequence)),'-vf',toYuv,...deliveryArgs,outputs['loop'+suffix]);
+    }
+    if(wanted.has('gif'+suffix)){
+      const sequence=demo(tone);
+      await gif(await seamless(sequence,await record(sequence)),outputs['gif'+suffix],paper[tone]);
+    }
   }
   if(wanted.has('social'))await still(social,outputs.social);
 }finally{
