@@ -51,7 +51,8 @@ void main(){
   float legacyContour=(1.0-smoothstep(phaseAA*lineWeight*0.3,phaseAA*(lineWeight*0.3+0.9),distanceToLine))*activity;
   // The physical normal field already contains the two steep sides of each wave.
   // Rendering that slope as a continuous band avoids the broken iso-height "beads" produced by repeated contours.
-  float pairedRipple=smoothstep(0.010,0.070,slope);
+  float rippleWidth=clamp(lineWeight,0.5,2.5);
+  float pairedRipple=smoothstep(0.012/rippleWidth,0.070/rippleWidth,slope);
   float contour=waterLikeRipples ? pairedRipple : legacyContour;
   float slopeInk=smoothstep(0.045,0.34,slope);
   float light=greyAt(coord);
