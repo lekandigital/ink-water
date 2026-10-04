@@ -7,7 +7,8 @@
     "build": "node build.mjs",
     "check": "tsc --noEmit",
     "test": "node scripts/verify-input.mjs && node scripts/verify-shader-integration.mjs && node scripts/verify-palette.mjs && node scripts/verify-continuous-waves.mjs && node scripts/verify-experiments.mjs && node scripts/verify-motion.mjs && node scripts/verify-rain-layer.mjs && node scripts/verify-controls.mjs && node scripts/verify-restored-base.mjs",
-    "dev": "vite --host 0.0.0.0 --port 4173 --strictPort"
+    "dev": "vite --host 0.0.0.0 --port 4173 --strictPort",
+    "social": "node scripts/social/capture.mjs"
   },
   "dependencies": {
     "three": "0.184.0",
@@ -17,6 +18,7 @@
     "@types/three": "0.184.1",
     "esbuild": "0.28.1",
     "linkedom": "^0.18.12",
+    "playwright-core": "^1.63.0",
     "typescript": "5.9.3",
     "vite": "^6.4.3"
   },

@@ -15,6 +15,7 @@ import { WaterPresentation } from './WaterPresentation';
 import { RainWaveLayer } from './RainWaveLayer';
 import { gesturePattern, type GestureKey } from './GesturePatterns';
 import { SunDiscPresentation } from './OpticsPresentation';
+import { CaptureClock, captureOptions, exposeCapture } from './CaptureMode';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
 import printDrawingFrag from './shaders/DrawingExperiments.frag';
@@ -376,6 +377,8 @@ class Puddle {
 }
 
 async function start(){
+  // Capture mode is opt-in. Without ?capture the page clock and randomness are untouched.
+  const capture=captureOptions(location.search),clock=capture?new CaptureClock(capture):undefined;
   const controls=new WaterControls();
   try{
     const load=new THREE.TextureLoader();
@@ -385,6 +388,7 @@ async function start(){
     sky.flipY=true;sky.colorSpace=THREE.NoColorSpace;sky.minFilter=sky.magFilter=THREE.LinearFilter;sky.generateMipmaps=false;
     const app=new Puddle(tile,sky,controls);
     (window as Window&{puddle?:Puddle}).puddle=app;
+    if(clock)exposeCapture(app,controls,clock);
   }catch(error){
     $('loading').hidden=true;
     const message=error instanceof Error?error.message:'';
