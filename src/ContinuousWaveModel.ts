@@ -2,6 +2,7 @@ import { waveProfile } from './WaveProfile';
 
 export const WAVE_LIFETIME_STEPS = 720;
 export const MAX_WAVE_IMPULSES = 512;
+export const RINGS_PER_IMPACT = 4;
 export type WaveStroke = { x: number; z: number; radius: number; opacity: number };
 type Impulse = { x: number; z: number; size: number; strength: number; born: number };
 type Profile = typeof waveProfile.profiles[number];
@@ -62,13 +63,20 @@ export class ContinuousWaveModel {
     this.expire(step);
     const result: WaveStroke[] = [];
     for (const impulse of this.impulses) {
-      const { radius, opacity } = sampleWaveStroke(impulse.size, impulse.strength, step-impulse.born);
-      if (opacity <= 0) continue;
-      // First wall and corner reflections use mirrored copies, as appropriate
-      // for the source's clamped square heightfield. They remain complete curves.
-      const xs = [impulse.x, 2-impulse.x, -2-impulse.x];
-      const zs = [impulse.z, 2-impulse.z, -2-impulse.z];
-      for (const x of xs) for (const z of zs) {
+      const age = step-impulse.born;
+      const envelope = sampleWaveStroke(impulse.size, impulse.strength, age);
+      if (envelope.opacity <= 0) continue;
+      // One impact, one outward wave train. All four rings share the true drop
+      // center and the same fade envelope; no mirrored or returning copies exist.
+      const spacingSteps = Math.max(10, Math.round(impulse.size*2.4/(Math.SQRT1_2*2/256)));
+      for (let ring = 0; ring < RINGS_PER_IMPACT; ring++) {
+        const phase = age-ring*spacingSteps;
+        if (phase < 0) continue;
+        const { radius } = sampleWaveStroke(impulse.size, impulse.strength, phase);
+        const intro = ring === 0 ? 1 : Math.min(1,phase/10);
+        const opacity = envelope.opacity * Math.pow(.92,ring) * intro*intro*(3-2*intro);
+        if (opacity <= 0) continue;
+        const { x, z } = impulse;
         const nearest = Math.hypot(Math.max(0,Math.abs(x)-halfX),Math.max(0,Math.abs(z)-halfZ));
         const farthest = Math.hypot(Math.abs(x)+halfX,Math.abs(z)+halfZ);
         if (radius < nearest-.02 || radius > farthest+.02) continue;

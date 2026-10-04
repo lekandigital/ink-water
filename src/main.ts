@@ -5,6 +5,7 @@ import { connectWaterPointer } from './PointerInteraction';
 import { fitWaterCamera, insideWater } from './Viewport';
 import { applyDrawingTone, tones, type Tone } from './DrawingPalette';
 import { ContinuousWaveLines } from './ContinuousWaveLines';
+import { OpenWaterBoundary } from './OpenWaterBoundary';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
 
@@ -19,6 +20,7 @@ class Puddle {
   readonly state={mode:'ink-wash' as Mode,tone:'paper' as Tone,lineWeight:0.68,rain:true,rainRate:1.4,dropSize:0.038,paused:false,sourceGeometry:true,hairlineRipples:true,caustics:false};
   readonly gl:THREE.WebGLRenderer;
   readonly water:Water;
+  readonly openBoundary:OpenWaterBoundary;
   readonly engine:WaterRenderer;
   readonly scene=new THREE.Scene();
   readonly camera=new THREE.PerspectiveCamera(33,1,0.01,100);
@@ -51,6 +53,7 @@ class Puddle {
     this.gl.outputColorSpace=THREE.SRGBColorSpace;
     if(!this.gl.extensions.has('EXT_color_buffer_float')) throw new Error('This study needs WebGL 2 with floating-point textures. Enable hardware acceleration in your browser and reload.');
     this.water=new Water(this.gl);
+    this.openBoundary=new OpenWaterBoundary(this.water);
     const bytes=new Uint8Array(64*64*4);
     // A quiet grayscale paper-like material. Textures are appearance, not geometry.
     let seed=1857;
@@ -114,7 +117,9 @@ class Puddle {
   advance(ticks:number){
     for(let i=0;i<ticks;i++){
       this.water.stepSimulation(POOL.width,POOL.length);
+      this.openBoundary.apply(this.gl,this.water);
       this.water.stepSimulation(POOL.width,POOL.length);
+      this.openBoundary.apply(this.gl,this.water);
       this.simulationSteps+=2;
     }
   }
@@ -216,7 +221,7 @@ class Puddle {
     $<HTMLInputElement>('rain').checked=this.state.rain;
     $<HTMLInputElement>('hairline-ripples').checked=this.state.hairlineRipples;
     $<HTMLInputElement>('caustics').checked=this.state.caustics;
-    $('ripple-note').textContent=this.state.hairlineRipples?'Continuous waves fade as whole strokes.':'Earlier artistic height contours.';
+    $('ripple-note').textContent=this.state.hairlineRipples?'Concentric waves expand and fade. No wall echoes.':'Artistic height contours over open water.';
     $<HTMLInputElement>('rain-rate').value=String(this.state.rainRate);
     $<HTMLInputElement>('rain-rate').disabled=!this.state.rain;
     $('rain-value').textContent=!this.state.rain?'Off':this.state.rainRate<2?'Light':this.state.rainRate<5?'Steady':'Heavy';

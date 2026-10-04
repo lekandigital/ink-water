@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { ContinuousWaveModel, MAX_WAVE_IMPULSES } from './ContinuousWaveModel';
+import { ContinuousWaveModel, MAX_WAVE_IMPULSES, RINGS_PER_IMPACT } from './ContinuousWaveModel';
 import vertexShader from './shaders/ContinuousWave.vert';
 import fragmentShader from './shaders/ContinuousWave.frag';
 
@@ -20,7 +20,7 @@ export class ContinuousWaveLines {
     side: THREE.DoubleSide,
   });
   readonly geometry = new THREE.InstancedBufferGeometry();
-  readonly strokes = new THREE.InstancedBufferAttribute(new Float32Array(MAX_WAVE_IMPULSES*9*4),4)
+  readonly strokes = new THREE.InstancedBufferAttribute(new Float32Array(MAX_WAVE_IMPULSES*RINGS_PER_IMPACT*4),4)
     .setUsage(THREE.DynamicDrawUsage);
 
   constructor(){
