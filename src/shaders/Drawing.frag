@@ -11,6 +11,7 @@ uniform vec3 ink;
 uniform float lineWeight;
 uniform int mode;
 uniform bool sourceGeometry;
+uniform bool waterLikeRipples;
 in vec2 coord;
 out vec4 fragColor;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
@@ -47,7 +48,11 @@ void main(){
   float phase=state.r*380.0;
   float phaseAA=max(fwidth(phase),0.008);
   float distanceToLine=abs(fract(phase+0.5)-0.5);
-  float contour=(1.0-smoothstep(phaseAA*lineWeight*0.3,phaseAA*(lineWeight*0.3+0.9),distanceToLine))*activity;
+  float legacyContour=(1.0-smoothstep(phaseAA*lineWeight*0.3,phaseAA*(lineWeight*0.3+0.9),distanceToLine))*activity;
+  // The physical normal field already contains the two steep sides of each wave.
+  // Rendering that slope as a continuous band avoids the broken iso-height "beads" produced by repeated contours.
+  float pairedRipple=smoothstep(0.010,0.070,slope);
+  float contour=waterLikeRipples ? pairedRipple : legacyContour;
   float slopeInk=smoothstep(0.045,0.34,slope);
   float light=greyAt(coord);
   vec2 d=pixel*1.8;
@@ -56,13 +61,13 @@ void main(){
   float weight;
   if(mode==0){
     // Soft graphite wash, translucent slopes, and selective fine ink contours.
-    weight=0.045+0.19*(1.0-wash)+0.19*slopeInk+contour*0.51+gradient*1.25;
+    weight=0.045+0.19*(1.0-wash)+(waterLikeRipples?0.10:0.19)*slopeInk+contour*(waterLikeRipples?0.31:0.51)+gradient*1.25;
   } else if(mode==1){
-    weight=0.022+contour*0.88+slopeInk*0.18+gradient*1.8;
+    weight=0.022+contour*(waterLikeRipples?0.48:0.88)+slopeInk*(waterLikeRipples?0.10:0.18)+gradient*1.8;
   } else {
     float diagonal=fract((gl_FragCoord.x+gl_FragCoord.y*0.61)*0.18);
     float hatch=(1.0-smoothstep(0.11,0.32,abs(diagonal-0.5)))*smoothstep(0.02,0.17,slope);
-    weight=0.05+(1.0-wash)*0.22+contour*0.34+slopeInk*0.15+hatch*0.2;
+    weight=0.05+(1.0-wash)*0.22+contour*(waterLikeRipples?0.25:0.34)+slopeInk*(waterLikeRipples?0.09:0.15)+hatch*0.2;
   }
   vec3 drawn=mix(paper,ink,clamp(weight,0.0,0.95))+grain;
   color=mix(color,drawn,alpha);
