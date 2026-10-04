@@ -60,9 +60,12 @@ void main(){
   float activity=smoothstep(0.00022,0.0018,waveAmplitude+slope*0.35);
   float legacyContour=phaseContour*activity;
 
-  // Optional comparison mode: still slope-based, but deliberately much thinner.
+  // Optional comparison mode: a narrow slope contour, not a filled slope band.
+  // A radial wave crosses this level on each flank, giving a fine paired line.
   float rippleWidth=clamp(lineWeight,0.5,2.5);
-  float pairedRipple=smoothstep(0.052/rippleWidth,0.078/rippleWidth,slope);
+  float slopeLevel=0.060/rippleWidth;
+  float slopeAA=max(fwidth(slope),0.0015);
+  float pairedRipple=1.0-smoothstep(slopeAA*0.65,slopeAA*1.75,abs(slope-slopeLevel));
   float contour=waterLikeRipples ? pairedRipple : legacyContour;
   float slopeInk=smoothstep(0.045,0.34,slope);
   float light=greyAt(coord);
