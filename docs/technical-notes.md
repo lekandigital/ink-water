@@ -148,7 +148,9 @@ The complete static application is in `dist/`. Serve that directory with an HTTP
 
 `vercel.json` sets `npm ci` as the install command, `npm run check && npm run build` as the build command, and `dist` as the output directory. No environment variables are required.
 
-The built page loads its script, styles and textures by relative path, so it can live under a subpath such as `/ink-water/`. The subpath needs its trailing slash (redirect `/ink-water` to `/ink-water/`); without it, `./app.js` would resolve against the parent directory.
+The built page loads its script, styles and textures by relative path, so it can live under a subpath. For the public site it is built with `INK_WATER_BASE=/ink-water/ npm run build`, which adds `<base href="/ink-water/">` to the page so every relative URL, including the textures the script loads, resolves under `/ink-water/` however the page is reached. Without the variable the build is unchanged and works from `/`.
+
+The public copy lives at https://demo.1001ud.me/ink-water/, served as static files by the 1001ud demo site (`lekandigital/1001ud-demo-me`). That repository's `npm run sync:ink-water` builds this repository with the base above and copies `dist/` into its `public/ink-water/`, recording the source commit in `SOURCE.txt`. Its request proxy redirects `/ink-water` to `/ink-water/`, so the address keeps its trailing slash.
 
 ## Limitations
 
