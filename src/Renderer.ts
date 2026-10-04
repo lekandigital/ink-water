@@ -29,6 +29,7 @@ export class Renderer {
   private readonly caustics: CausticsPass;
   private readonly pool: PoolPass;
   private readonly waterSurface: WaterSurfacePass;
+  private causticsEnabled = true;
 
   constructor(
     renderer: THREE.WebGLRenderer,
@@ -79,7 +80,13 @@ export class Renderer {
    * Triggers the GPU execution pass to update the dynamic caustics light map.
    */
   updateCaustics(water: Water) {
-    this.caustics.update(water);
+    if(this.causticsEnabled)this.caustics.update(water);
+  }
+
+  setCausticsEnabled(enabled: boolean) {
+    if(this.causticsEnabled===enabled)return;
+    this.causticsEnabled=enabled;
+    if(!enabled)this.caustics.clear();
   }
 
   /**
