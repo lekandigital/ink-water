@@ -11,16 +11,16 @@ Dark paper is the primary presentation. Each Light file is the same sequence (sa
 | Use | File | Format |
 |---|---|---|
 | Main post (native video) | `assets/ink-water-launch.mp4` | 1920×1080, 60 fps, H.264 High, 12.5 s, 24.2 MB |
-| Aesthetic follow-up | `assets/ink-water-loop.mp4` | 1920×1080, 60 fps, H.264 High, 7 s seamless loop, 7.5 MB |
+| Aesthetic follow-up | `assets/ink-water-loop.mp4` | 1920×1080, 60 fps, H.264 High, 7 s seamless loop, 7.4 MB |
 | README hero | `assets/ink-water.gif` | 960×540, 15 fps, 7 s loop, 7.5 MB |
 | Social card / Open Graph | `public/social.jpg` | 1280×640 JPEG, 0.23 MB |
 | Light alternate | `assets/ink-water-launch-light.mp4` | as the main video, 24.9 MB |
-| Light alternate | `assets/ink-water-loop-light.mp4` | as the loop, 8.0 MB |
+| Light alternate | `assets/ink-water-loop-light.mp4` | as the loop, 7.9 MB |
 | Light alternate | `assets/ink-water-light.gif` | as the README GIF, 7.9 MB |
 
 **The launch video:** about 0.8 s of the Original pool with ripples already moving, a hard cut to Etching on the same water, gentle rain, a touch at 4 s, the C gesture at 6 s and X at 8.5 s, then rain and interference until it ends, still in motion. No UI, text or cursor.
 
-**Settings in every asset:** Etching with **Comic bitmap**, Fine line, projected caustics at 170° / 90° / 200%, Hide reflected sun **off** (on in the two launch videos, so the opening pool shows no sun glint), Gentle rain **on** at Rainfall 1.6, and the faint floor lines (about 1 CSS px, 35% darkening). The live site starts on Dark paper with Etching and Comic bitmap, and hides the reflected sun. Re-render with `npm run social`; the timelines are in `scripts/social/sequences.mjs`. Rendering the same sequence twice gives byte-identical frames, so re-rendering won't change these files unless the code or the timelines do.
+**Settings in every asset:** Etching with **Comic bitmap**, Fine line, projected caustics at 170° / 90° / 200%, Hide reflected sun **off** (on in the launch and loop videos, so they show no sun glint), Gentle rain **on** at Rainfall 1.6, and the faint floor lines (about 1 CSS px, 35% darkening). The live site starts on Dark paper with Etching and Comic bitmap, and hides the reflected sun. Re-render with `npm run social`; the timelines are in `scripts/social/sequences.mjs`. Rendering the same sequence twice gives byte-identical frames, so re-rendering won't change these files unless the code or the timelines do.
 
 Older renders are kept outside the launch set at `~/Dev/ink-water-demo-v1/` (tag `demo-v1`) and `~/Dev/ink-water-demo-v2/` (tag `demo-v2`, before Comic bitmap). Don't use them.
 

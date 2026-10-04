@@ -38,7 +38,7 @@ export const loop=tone=>({
   name:'loop-'+tone,...hd,seed:5,preroll:3,
   // The last `crossfade` seconds blend back into the start, so the clip loops.
   duration:7.75,crossfade:0.75,
-  setup:[...still(5),defaults(tone)],
+  setup:[...still(5),defaults(tone,{hideSunDisc:true})],
   events:[{at:1.5,do:touch(-0.18,0.08)}],
 });
 
