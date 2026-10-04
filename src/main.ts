@@ -11,11 +11,12 @@ const modes:Record<Mode,number>={'ink-wash':0,etching:1,graphite:2,original:3};
 const labels:Record<Mode,string>={'ink-wash':'Ink wash',etching:'Etching',graphite:'Graphite',original:'Original'};
 const tones:Record<Tone,{paper:number;ink:number}>={paper:{paper:0xf5f5f5,ink:0x232323},silver:{paper:0xdfdfdf,ink:0x292929},night:{paper:0x161616,ink:0xdddddd}};
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
-const POOL={width:1,length:1,depth:0.7,radius:1};
+const VIEW_SCALE=3.0;
+const POOL={width:3.25,length:3.25,depth:0.7,radius:1};
 const TICK=1/60;
 
 class Puddle {
-  readonly state={mode:'ink-wash' as Mode,tone:'paper' as Tone,lineWeight:0.85,rain:true,rainRate:1.4,dropSize:0.038,paused:false,waterLikeRipples:true,caustics:true};
+  readonly state={mode:'ink-wash' as Mode,tone:'paper' as Tone,lineWeight:0.85,rain:true,rainRate:1.4,dropSize:0.038,paused:false,waterLikeRipples:false,caustics:true};
   readonly gl:THREE.WebGLRenderer;
   readonly water:Water;
   readonly engine:WaterRenderer;
@@ -58,7 +59,7 @@ class Puddle {
     this.engine.markWaterOpticsHidden();
     this.target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true});
     this.drawing=new THREE.RawShaderMaterial({glslVersion:THREE.GLSL3,vertexShader:drawingVert,fragmentShader:drawingFrag,uniforms:{
-      sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},pixel:{value:new THREE.Vector2()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},waterLikeRipples:{value:true},
+      sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},pixel:{value:new THREE.Vector2()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},waterLikeRipples:{value:false},
     },depthTest:false,depthWrite:false,toneMapped:false});
     const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
     quad.frustumCulled=false;
@@ -79,8 +80,8 @@ class Puddle {
     canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();this.animating=false;$('error').textContent='The graphics context was interrupted. Reload to return to the water.';$('error').hidden=false;});
     this.applyAppearance();
     // Same drop function and two solver steps per update as the source demo.
-    const drops=[[-0.34,-0.23,0.032,-0.01],[0.28,0.18,0.029,0.012],[-0.12,0.35,0.027,-0.009],[0.41,-0.25,0.023,0.008]];
-    for(const [x,z,r,s] of drops)this.water.addDrop(x,z,r,s,POOL.width,POOL.length);
+    const drops=[[-1.15,-0.78,0.032,-0.01],[0.95,0.62,0.029,0.012],[-0.42,1.18,0.027,-0.009],[1.38,-0.84,0.023,0.008]];
+    for(const [x,z,r,s] of drops)this.water.addDrop(x,z,r/VIEW_SCALE,s,POOL.width,POOL.length);
     this.advance(22);
     this.draw();
     $('loading').hidden=true;
@@ -94,7 +95,7 @@ class Puddle {
     this.gl.setSize(width,height);
     this.camera.aspect=width/height;
     // Fill the viewport with water; keep the physical pool boundary just outside the visible frame.
-    this.camera.position.y=0.985/(Math.tan(THREE.MathUtils.degToRad(this.camera.fov/2))*Math.max(1,this.camera.aspect));
+    this.camera.position.y=2.85/(Math.tan(THREE.MathUtils.degToRad(this.camera.fov/2))*Math.max(1,this.camera.aspect));
     this.camera.updateProjectionMatrix();this.camera.updateMatrixWorld();
     this.inverseViewProjection.multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).invert();
     const size=this.gl.getDrawingBufferSize(new THREE.Vector2());
@@ -139,7 +140,7 @@ class Puddle {
           if(this.rainAccumulator>=1){
             this.rainAccumulator-=1;
             const point=this.randomPoint();
-            this.water.addDrop(point.x,point.y,0.016+Math.random()*0.012,-0.006-Math.random()*0.007,POOL.width,POOL.length);
+            this.water.addDrop(point.x,point.y,(0.016+Math.random()*0.012)/VIEW_SCALE,-0.006-Math.random()*0.007,POOL.width,POOL.length);
           }
         }
         this.advance(1);this.accumulator-=TICK;ticks++;
@@ -154,7 +155,7 @@ class Puddle {
   }
 
   private randomPoint(){
-    for(let i=0;i<100;i++){const x=Math.random()*1.72-0.86,z=Math.random()*1.5-0.75;if(this.inside(x,z,0.07))return new THREE.Vector2(x,z);}
+    for(let i=0;i<100;i++){const x=(Math.random()*2-1)*(POOL.width-0.18),z=(Math.random()*2-1)*(POOL.length-0.18);if(this.inside(x,z,0.07))return new THREE.Vector2(x,z);}
     return new THREE.Vector2(0,0);
   }
 
@@ -165,18 +166,19 @@ class Puddle {
   disturb(x:number,z:number){
     if(!Number.isFinite(x)||!Number.isFinite(z)||!this.inside(x,z,0.015))throw new Error('Choose a point inside the water.');
     this.resumeForGesture();
-    this.water.addDrop(x,z,this.state.dropSize,-0.02,POOL.width,POOL.length);
+    this.water.addDrop(x,z,this.state.dropSize/VIEW_SCALE,-0.02,POOL.width,POOL.length);
     this.draw();
   }
 
   disturbTrail(x0:number,z0:number,x1:number,z1:number){
     this.resumeForGesture();
     const distance=Math.hypot(x1-x0,z1-z0);
-    const spacing=Math.max(0.006,this.state.dropSize*0.28);
+    const physicalDropSize=this.state.dropSize/VIEW_SCALE;
+    const spacing=Math.max(0.004,physicalDropSize*0.42);
     const steps=Math.min(14,Math.max(1,Math.ceil(distance/spacing)));
     for(let i=1;i<=steps;i++){
       const t=i/steps,x=THREE.MathUtils.lerp(x0,x1,t),z=THREE.MathUtils.lerp(z0,z1,t);
-      if(this.inside(x,z,0.015))this.water.addDrop(x,z,this.state.dropSize*0.72,-0.0065,POOL.width,POOL.length);
+      if(this.inside(x,z,0.015))this.water.addDrop(x,z,physicalDropSize*0.72,-0.0065,POOL.width,POOL.length);
     }
     this.draw();
   }
@@ -246,7 +248,7 @@ class Puddle {
   }
 
   private connectPointer(){
-    connectWaterPointer({canvas:this.gl.domElement,camera:this.camera,inside:(x,z,margin)=>this.inside(x,z,margin),disturb:(x,z)=>this.disturb(x,z),disturbSegment:(x0,z0,x1,z1)=>this.disturbTrail(x0,z0,x1,z1),continuous:()=>this.state.waterLikeRipples,dropSize:()=>this.state.dropSize});
+    connectWaterPointer({canvas:this.gl.domElement,camera:this.camera,inside:(x,z,margin)=>this.inside(x,z,margin),disturb:(x,z)=>this.disturb(x,z),disturbSegment:(x0,z0,x1,z1)=>this.disturbTrail(x0,z0,x1,z1),continuous:()=>true,dropSize:()=>this.state.dropSize/VIEW_SCALE});
   }
 
   snapshot(){return {...this.state,simulationSteps:this.simulationSteps,camera:{x:this.camera.position.x,z:this.camera.position.z,up:[this.camera.up.x,this.camera.up.y,this.camera.up.z]},grid:256,waterVertices:this.engine.getWaterMesh().geometry.attributes.position.count};}
