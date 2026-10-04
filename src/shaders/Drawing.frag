@@ -2,10 +2,9 @@
 precision highp float;
 uniform sampler2D sceneColor;
 uniform sampler2D water;
-uniform sampler2D drawingSurface;
+uniform sampler2D waveLines;
 uniform bool hairlineRipples;
 uniform bool caustics;
-uniform float pixelRatio;
 uniform vec2 pixel;
 uniform vec2 poolSize;
 uniform mat4 inverseViewProjection;
@@ -20,28 +19,6 @@ float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float waterLuma(vec3 c){return dot(c,vec3(0.2126,0.7152,0.0722));}
 float greyAt(vec2 uv){ float l=waterLuma(texture2D(sceneColor,uv).rgb);return l/(1.0+l); }
 
-// Catmull–Rom interpolation keeps height and velocity continuous between
-// the original grid cells. Trace the crest phase, not height-level bands.
-vec4 waterCubic(float t){return vec4(-0.5*t+t*t-0.5*t*t*t,1.0-2.5*t*t+1.5*t*t*t,0.5*t+2.0*t*t-1.5*t*t*t,-0.5*t*t+0.5*t*t*t);}
-vec4 waterCubicSecond(float t){return vec4(2.0-3.0*t,-5.0+9.0*t,4.0-9.0*t,-1.0+3.0*t);}
-float waterCrest(vec2 uv){
-  vec2 grid=uv*256.0-0.5,cell=floor(grid),f=fract(grid);
-  vec4 wx=waterCubic(f.x),wz=waterCubic(f.y),xx=waterCubicSecond(f.x),zz=waterCubicSecond(f.y);
-  vec2 wave=vec2(0.0);float laplacian=0.0;
-  for(int j=0;j<4;j++)for(int i=0;i<4;i++){
-    vec2 sampleWave=texture2D(drawingSurface,(cell+vec2(float(i-1),float(j-1))+0.5)/256.0).rg;
-    wave+=sampleWave*wx[i]*wz[j];
-    laplacian+=sampleWave.r*(xx[i]*wz[j]+wx[i]*zz[j]);
-  }
-  // A crest is momentarily stationary in height and accelerating downward.
-  // Unlike several height contours, this contributes a single line per crest.
-  float velocityPerPixel=length(vec2(dFdx(wave.g),dFdy(wave.g)));
-  if(velocityPerPixel<1e-10)return 0.0;
-  float distanceInPixels=abs(wave.g)/velocityPerPixel;
-  float width=clamp(lineWeight,0.35,1.25)*pixelRatio;
-  float stroke=clamp(min(width*0.5,distanceInPixels+0.5)-max(-width*0.5,distanceInPixels-0.5),0.0,1.0);
-  return stroke*step(0.0000008,-laplacian);
-}
 vec4 bilinearState(vec2 uv){
   const vec2 delta=vec2(1.0/256.0);
   vec2 q=clamp(uv,delta*0.5,1.0-delta*0.5)/delta-0.5,i=floor(q),f=fract(q),a=(i+0.5)*delta;
@@ -68,7 +45,7 @@ void main(){
   vec2 waterUV=p/poolSize*0.5+0.5;
   vec4 state=bilinearState(waterUV);
   if(hairlineRipples){
-    float crest=waterCrest(waterUV);
+    float crest=texture2D(waveLines,coord).r;
     float wash=caustics?0.035*(1.0-greyAt(coord)):0.0;
     float textureTone=mode==2?0.004:0.0;
     float weight=0.012+wash+textureTone+crest*(mode==1?0.68:0.57);

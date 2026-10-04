@@ -4,7 +4,7 @@ import { Renderer as WaterRenderer } from './Renderer';
 import { connectWaterPointer } from './PointerInteraction';
 import { fitWaterCamera, insideWater } from './Viewport';
 import { applyDrawingTone, tones, type Tone } from './DrawingPalette';
-import drawingSurfaceFrag from './shaders/DrawingSurface.frag';
+import { ContinuousWaveLines } from './ContinuousWaveLines';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
 
@@ -26,10 +26,7 @@ class Puddle {
   readonly drawingCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
   readonly target:THREE.WebGLRenderTarget;
   readonly drawing:THREE.ShaderMaterial;
-  readonly drawingSurface=new THREE.WebGLRenderTarget(256,256,{type:THREE.FloatType,minFilter:THREE.NearestFilter,magFilter:THREE.NearestFilter,depthBuffer:false});
-  readonly drawingScratch=new THREE.WebGLRenderTarget(256,256,{type:THREE.FloatType,minFilter:THREE.NearestFilter,magFilter:THREE.NearestFilter,depthBuffer:false});
-  readonly surfaceScene=new THREE.Scene();
-  readonly surfaceMaterial:THREE.ShaderMaterial;
+  readonly waveLines=new ContinuousWaveLines();
   readonly flatCaustics=new THREE.DataTexture(new Float32Array([1,0,0,1]),1,1,THREE.RGBAFormat,THREE.FloatType);
   readonly tile:THREE.Texture;
   readonly matte:THREE.Texture;
@@ -70,13 +67,11 @@ class Puddle {
     this.engine.markWaterOpticsHidden();
     this.target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true});
     this.drawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:drawingFrag,uniforms:{
-      sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},drawingSurface:{value:this.drawingSurface.texture},hairlineRipples:{value:true},caustics:{value:false},pixelRatio:{value:this.gl.getPixelRatio()},pixel:{value:new THREE.Vector2()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},
+      sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},waveLines:{value:this.waveLines.target.texture},hairlineRipples:{value:true},caustics:{value:false},pixel:{value:new THREE.Vector2()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},
     },depthTest:false,depthWrite:false,toneMapped:false});
     const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
     quad.frustumCulled=false;
     this.drawingScene.add(quad);
-    this.surfaceMaterial=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:drawingSurfaceFrag,uniforms:{water:{value:this.water.textureA.texture},axis:{value:new THREE.Vector2()}},depthTest:false,depthWrite:false,toneMapped:false});
-    const surfaceQuad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.surfaceMaterial);surfaceQuad.frustumCulled=false;this.surfaceScene.add(surfaceQuad);
     this.camera.position.set(0,4.5,0);
     this.camera.up.set(0,0,-1);
     this.camera.lookAt(0,0,0);
@@ -94,7 +89,7 @@ class Puddle {
     this.applyAppearance();
     // Same drop function and two solver steps per update as the source demo.
     const drops=[[-0.34,-0.23,0.032,-0.01],[0.28,0.18,0.029,0.012],[-0.12,0.35,0.027,-0.009],[0.41,-0.25,0.023,0.008]];
-    for(const [x,z,r,s] of drops)this.water.addDrop(x,z,r,s,POOL.width,POOL.length);
+    for(const [x,z,r,s] of drops)this.addDrop(x,z,r,s);
     this.advance(22);
     this.draw();
     $('loading').hidden=true;
@@ -110,6 +105,7 @@ class Puddle {
     this.inverseViewProjection.multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).invert();
     const size=this.gl.getDrawingBufferSize(new THREE.Vector2());
     this.target.setSize(size.x,size.y);
+    this.waveLines.target.setSize(size.x,size.y);
     this.drawing.uniforms.pixel.value.set(1/size.x,1/size.y);
     this.engine.setSize(Math.min(size.x,1024),Math.min(size.y,1024));
     if(this.water)this.draw();
@@ -125,14 +121,7 @@ class Puddle {
 
   draw(){
     this.water.updateNormals(POOL.width,POOL.length);
-    if(this.state.hairlineRipples){
-      this.surfaceMaterial.uniforms.water.value=this.water.textureA.texture;
-      this.surfaceMaterial.uniforms.axis.value.set(1/256,0);
-      this.gl.setRenderTarget(this.drawingScratch);this.gl.render(this.surfaceScene,this.drawingCamera);
-      this.surfaceMaterial.uniforms.water.value=this.drawingScratch.texture;
-      this.surfaceMaterial.uniforms.axis.value.set(0,1/256);
-      this.gl.setRenderTarget(this.drawingSurface);this.gl.render(this.surfaceScene,this.drawingCamera);
-    }
+    if(this.state.hairlineRipples&&this.state.mode!=='original')this.waveLines.render(this.gl,this.camera,this.simulationSteps,this.state.lineWeight);
     this.engine.updateObjectTextures(this.scene,this.camera,null);
     if(this.state.caustics)this.engine.updateCaustics(this.water);
     this.engine.renderPool(this.water);
@@ -161,7 +150,7 @@ class Puddle {
           if(this.rainAccumulator>=1){
             this.rainAccumulator-=1;
             const point=this.randomPoint();
-            this.water.addDrop(point.x,point.y,0.016+Math.random()*0.012,-0.006-Math.random()*0.007,POOL.width,POOL.length);
+            this.addDrop(point.x,point.y,0.016+Math.random()*0.012,-0.006-Math.random()*0.007);
           }
         }
         this.advance(1);this.accumulator-=TICK;ticks++;
@@ -172,6 +161,13 @@ class Puddle {
   };
 
   inside(x:number,z:number,margin=0){return insideWater(x,z,margin);}
+
+  private addDrop(x:number,z:number,radius:number,strength:number){
+    // Identical impacts and simulation clock drive the original surface and its
+    // continuous drawing. The drawing never feeds back into the source solver.
+    this.water.addDrop(x,z,radius,strength,POOL.width,POOL.length);
+    this.waveLines.model.addDrop(x,z,radius,strength,this.simulationSteps);
+  }
 
   private randomPoint(){
     const rect=$('stage').getBoundingClientRect(),aspect=rect.width/Math.max(1,rect.height);
@@ -184,7 +180,7 @@ class Puddle {
     // An intentional gesture opts into motion after an automatic accessibility pause.
     // A pause chosen with the Pause button is still respected.
     if(this.pausedByPreference){this.pausedByPreference=false;this.state.paused=false;this.lastTime=0;this.accumulator=0;this.updateControls();}
-    this.water.addDrop(x,z,this.state.dropSize,-0.02,POOL.width,POOL.length);
+    this.addDrop(x,z,this.state.dropSize,-0.02);
     // A gesture must be visible even if an embedded view throttles animation frames.
     this.draw();
   }
@@ -194,6 +190,7 @@ class Puddle {
     this.gl.setClearColor(0,0);
     for(const target of [this.water.textureA,this.water.textureB]){this.gl.setRenderTarget(target);this.gl.clear();}
     this.gl.setRenderTarget(previous);this.gl.setClearColor(color,alpha);
+    this.waveLines.model.clear();
     this.rainAccumulator=0;this.clearRainUntil=performance.now()+1800;this.draw();
   }
 
@@ -219,7 +216,7 @@ class Puddle {
     $<HTMLInputElement>('rain').checked=this.state.rain;
     $<HTMLInputElement>('hairline-ripples').checked=this.state.hairlineRipples;
     $<HTMLInputElement>('caustics').checked=this.state.caustics;
-    $('ripple-note').textContent=this.state.hairlineRipples?'Fine lines follow the wave crests.':'Earlier artistic height contours.';
+    $('ripple-note').textContent=this.state.hairlineRipples?'Continuous waves fade as whole strokes.':'Earlier artistic height contours.';
     $<HTMLInputElement>('rain-rate').value=String(this.state.rainRate);
     $<HTMLInputElement>('rain-rate').disabled=!this.state.rain;
     $('rain-value').textContent=!this.state.rain?'Off':this.state.rainRate<2?'Light':this.state.rainRate<5?'Steady':'Heavy';

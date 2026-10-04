@@ -7,7 +7,9 @@ The upstream Water.ts, Renderer.ts, rendering modules, water modules, and origin
 
 The original square pool option is used with width=1, length=1, depth=0.7. Its water mesh remains PlaneGeometry(2, 2, 200, 200). A camera pointed vertically down crops the square surface to fill every viewport corner. The canvas covers the full page, with floating controls above it.
 
-Hairline ripples are enabled by default. A small presentation-only Gaussian filter and bicubic interpolation smooth the displayed height and velocity without changing the simulation; a phase detector traces stationary wave crests with downward acceleration with an antialiased stroke measured in screen pixels. It avoids the multiple isoheight bands of the earlier drawing pass. The image can still show interacting wave fronts and reflections from the original simulation's rectangular boundaries.
+Hairline ripples are enabled by default. Each source drop creates one persistent circular wave stroke. Its outward motion and amplitude envelope are calibrated by running the unchanged upstream drop and wave shaders for nine drop sizes; `src/WaveProfile.ts` stores those measurements and shader hashes. The same impacts and simulation-step clock drive the actual water and the drawing, so pause, rain, dragging, and clearing stay synchronized. Beyond the calibration interval, a continuation uses the measured speed, cylindrical spreading, and source damping; mirrored copies represent first wall and corner reflections. Strokes have a constant screen-space width and one opacity value around their entire circumference. They overlap without extracting new contours, and fade uniformly rather than splitting into fragments or shrinking into small ovals.
+
+This continuous drawing is an artistic wave-front representation. It intentionally preserves the identity and circular shape of each wave, rather than drawing every instantaneous crest of the superposed heightfield. Interference can change the topology of those exact crests; preserving them exactly cannot also guarantee that they never split. **Original** displays the actual simulated surface and interference. The geometry and wave calculations underneath all views remain the upstream originals.
 
 Turn **Hairline ripples** off to compare the earlier ink contours. **Caustics** independently enables the original focused light map. Both toggles change rendering only, and no drawing buffer is fed into the simulation. Ink wash, etching and graphite use monochrome paper and ink values; Original shows the original optical shading. Caustics start off for a clean paper background.
 
@@ -39,7 +41,17 @@ This repository is connected to Vercel; every push to `main` deploys the applica
 
 Click, touch, or drag inside the water to create ripples. Gestures draw immediately, including when animation is paused or throttled. A touch opts into motion after an automatic reduced-motion pause; a manual pause remains in effect. Space toggles pause, and H hides the controls.
 
-`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, collisions with the shader helpers injected by the installed Three.js release, and finite grayscale values in the actual drawing palette uniforms. The palette test reproduces the invalid color call that previously made drawing modes solid red.
+`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, collisions with the shader helpers injected by the installed Three.js release, finite grayscale palette uniforms, and continuous stroke expansion and whole-wave fading. The palette test reproduces the invalid color call that previously made drawing modes solid red.
+
+The optional GPU regression renders the actual instanced stroke geometry and shaders into a half-float buffer with maximum blending. It checks that each wave stays a single closed connected ring and keeps the same shape as it fades, across three line widths and two pixel ratios, including near-zero opacity. With Python's `moderngl`, `numpy`, and `scipy` installed:
+
+```
+node scripts/verify-continuous-waves.mjs --export /tmp/water-strokes.json
+node scripts/verify-shader-integration.mjs --export /tmp/water-three-helpers.glsl
+python scripts/verify-continuity-gpu.py /tmp/water-strokes.json /tmp/water-three-helpers.glsl
+```
+
+To regenerate the source drop-response calibration, run `python scripts/generate-wave-profile.py`. The generator executes the original GPU shaders; it never edits them.
 
 ## Credits
 
