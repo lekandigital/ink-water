@@ -4,16 +4,16 @@
 // gesture paths. Each sequence starts from still water and a fixed random seed,
 // so every run renders the same frames.
 //
-// Every sequence uses the startup settings a visitor first sees, with the reflected
-// sun left visible and Gentle rain on. Rainfall is raised from its minimum (one
-// drop every five seconds) to 1.6, a slider step still labelled Light, so the clips
-// always hold some motion. Only the paper changes: 'night' (Dark) or 'paper' (Light).
+// Every sequence uses Etching with Comic bitmap, the reflected sun left visible and
+// Gentle rain on. Rainfall is raised from its minimum (one drop every five seconds)
+// to 1.6, a slider step still labelled Light, so the clips always hold some motion.
+// Only the paper changes: 'night' (Dark) or 'paper' (Light).
 
 const still=seed=>[{type:'still'},{type:'seed',seed}];
 const touch=(x,y)=>({type:'touch',x,y});
 const settings=values=>({type:'settings',settings:values});
 const gesture=key=>({type:'gesture',key});
-const defaults=(tone,extra={})=>settings({tone,rain:true,rainRate:1.6,hideSunDisc:false,...extra});
+const defaults=(tone,extra={})=>settings({tone,bitmapTones:true,rain:true,rainRate:1.6,hideSunDisc:false,...extra});
 
 // 1280×720 CSS pixels at a 1.5 pixel ratio: a 1920×1080 frame with the line
 // weight and texture scale of a laptop display.
