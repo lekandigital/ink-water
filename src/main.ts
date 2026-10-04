@@ -57,7 +57,7 @@ class Puddle {
     this.scene.add(this.engine.getPoolMesh(),this.engine.getWaterMesh(),this.engine.getWaterMeshBack());
     this.engine.markWaterOpticsHidden();
     this.target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true});
-    this.drawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:drawingFrag,uniforms:{
+    this.drawing=new THREE.RawShaderMaterial({vertexShader:drawingVert,fragmentShader:drawingFrag,uniforms:{
       sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},pixel:{value:new THREE.Vector2()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},
     },depthTest:false,depthWrite:false,toneMapped:false});
     const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
