@@ -86,11 +86,11 @@ These can be combined without enabling Print mode or disabling Caustics. All ope
 
 **Dreamy rain speed** starts off. Enable it in Motion & force for a smooth, slowly varying rain pace, about 42–86% at neutral speed. Rain uses another instance of the unchanged source solver and boundary, with its own simulation clock. Touch, drag and deterministic gestures always advance at 100% while this option is on; the existing speed, Dreamy and Gentle motion settings then set the rain pace. Forces, sizes, drawing, bitmap and lighting preferences remain independent. The view adds the two heightfields and recomputes normals from the sum for ordinary drawing and projected caustics. Neither presentation buffer feeds back into the running solvers. Disabling the option merges existing rain waves into the ordinary solver without clearing them. Pause and Still apply to both fields. The neutral/off path retains the original single solver.
 
-**Hide reflected sun** is a reversible optional rendering change and defaults off on fresh load and Reset to defaults. When off, the original optical shader is used verbatim.
+**Hide reflected sun** is a reversible optional rendering change. The published startup preset turns it on (the original specification had it off). When off, the original optical shader is used verbatim.
 
 ## Startup preset, Still and Reset
 
-The startup preset is separate from the implementation base: Etching, Light paper, Fine line weight (0.68), non-hairline drawing, every Print experiment off, Comic dots, Caustics on, alignment and overhead off, direction 170°, height 90°, glow 200%, rain off with rainfall at minimum, Medium touch (0.038), and simulation running. All later experiments start off. Speed and ripple scale are 100%; rain and touch retain the restored distributions and force.
+The startup preset is separate from the implementation base: Etching, Dark paper, Comic bitmap on, Hide reflected sun on, Fine line weight (0.68), non-hairline drawing, every Print experiment off, Comic dots, Caustics on, alignment and overhead off, direction 170°, height 90°, glow 200%, rain off with rainfall at minimum, Medium touch (0.038), and simulation running. The other later experiments start off. (The original specification in PROMPT.md started on Light paper with the sun visible and Comic bitmap off.) Speed and ripple scale are 100%; rain and touch retain the restored distributions and force.
 
 **Reset to defaults** restores this entire preset. **Still the water** only clears the heightfields (including the optional independent rain field), continuous wave marks, pending gesture and rain disturbance accumulator. It preserves every appearance, light, motion, rain and pause setting, and temporarily holds rain so the surface can settle.
 
@@ -106,7 +106,7 @@ The controller binds native `input` events before graphics initialization, commi
 
 `npm run social` builds the app, drives headless Chrome one exact 60 Hz frame at a time and encodes the launch video, the loop, the README GIFs and the social preview with ffmpeg. Timelines live in `scripts/social/sequences.mjs`. Per-frame hashes are written to `.capture/`; two runs of the same sequence produce byte-identical frames. It needs Google Chrome (or `INK_WATER_CHROME` pointing at another Chromium) and ffmpeg with libx264.
 
-The published assets use the startup settings with the reflected sun visible and Gentle rain on at Rainfall 1.6. Dark paper is the main version; each asset has a Light twin with the same touches and rain positions.
+The published assets use Etching with Comic bitmap, the reflected sun visible and Gentle rain on at Rainfall 1.6. Dark paper is the main version; each asset has a Light twin with the same touches and rain positions.
 
 ## Tests
 
