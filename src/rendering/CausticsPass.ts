@@ -138,6 +138,18 @@ export class CausticsPass {
    *
    * @param water The Water simulation instance containing the heightmap/normal textures.
    */
+  clear() {
+    const previousTarget=this.renderer.getRenderTarget();
+    const previousColor=new THREE.Color();
+    this.renderer.getClearColor(previousColor);
+    const previousAlpha=this.renderer.getClearAlpha();
+    this.renderer.setRenderTarget(this.target);
+    this.renderer.setClearColor(0x000000,1);
+    this.renderer.clear();
+    this.renderer.setRenderTarget(previousTarget);
+    this.renderer.setClearColor(previousColor,previousAlpha);
+  }
+
   update(water: Water) {
     const activeMaterial = this.mesh.material as THREE.ShaderMaterial;
     activeMaterial.uniforms.water.value = water.textureA.texture;
