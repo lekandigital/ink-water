@@ -55,9 +55,12 @@ void main(){
   float thinWidth=phaseAA*(0.34*lineWeight+0.28);
   float phaseContour=1.0-smoothstep(thinWidth,thinWidth+phaseAA*0.72,abs(phaseSignal));
 
-  // Fade only where there is effectively no wave. Keep the threshold low so
-  // complete rings do not get chopped into arcs as their amplitude decays.
-  float activity=smoothstep(0.00022,0.0018,waveAmplitude+slope*0.35);
+  // Keep line strength uniform around a ripple. The wave-presence test is
+  // intentionally binary: segments are either fully present or absent, never
+  // faded according to local amplitude. Anti-aliasing still happens only
+  // across the line's thickness via phaseContour above.
+  float wavePresence=waveAmplitude+slope*0.35;
+  float activity=step(0.00018,wavePresence);
   float legacyContour=phaseContour*activity;
 
   // Optional comparison mode: a narrow slope contour, not a filled slope band.
@@ -75,13 +78,13 @@ void main(){
   float weight;
   if(mode==0){
     // Soft graphite wash, translucent slopes, and selective fine ink contours.
-    weight=0.045+0.19*(1.0-wash)+(waterLikeRipples?0.10:0.19)*slopeInk+contour*(waterLikeRipples?0.20:0.51)+gradient*1.25;
+    weight=0.045+0.19*(1.0-wash)+(waterLikeRipples?0.0:0.19)*slopeInk+contour*(waterLikeRipples?0.26:0.51)+gradient*1.25;
   } else if(mode==1){
-    weight=0.022+contour*(waterLikeRipples?0.31:0.88)+slopeInk*(waterLikeRipples?0.10:0.18)+gradient*1.8;
+    weight=0.022+contour*(waterLikeRipples?0.38:0.88)+slopeInk*(waterLikeRipples?0.0:0.18)+gradient*1.8;
   } else {
     float diagonal=fract((gl_FragCoord.x+gl_FragCoord.y*0.61)*0.18);
     float hatch=(1.0-smoothstep(0.11,0.32,abs(diagonal-0.5)))*smoothstep(0.02,0.17,slope);
-    weight=0.05+(1.0-wash)*0.22+contour*(waterLikeRipples?0.18:0.34)+slopeInk*(waterLikeRipples?0.09:0.15)+hatch*0.2;
+    weight=0.05+(1.0-wash)*0.22+contour*(waterLikeRipples?0.24:0.34)+slopeInk*(waterLikeRipples?0.0:0.15)+hatch*0.2;
   }
   vec3 drawn=mix(paper,ink,clamp(weight,0.0,0.95))+grain;
   color=mix(color,drawn,alpha);
