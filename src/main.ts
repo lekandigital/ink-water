@@ -15,6 +15,7 @@ import { WaterPresentation } from './WaterPresentation';
 import { RainWaveLayer } from './RainWaveLayer';
 import { gesturePattern, type GestureKey } from './GesturePatterns';
 import { SunDiscPresentation } from './OpticsPresentation';
+import { FloorLinePresentation } from './FloorLinePresentation';
 import { CaptureClock, captureOptions, exposeCapture } from './CaptureMode';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
@@ -44,6 +45,7 @@ class Puddle {
   readonly bitmapDrawing:THREE.ShaderMaterial;
   readonly bitmapScene=new THREE.Scene();
   readonly sunDisc=new SunDiscPresentation();
+  readonly floorLine=new FloorLinePresentation();
   private waterPresentation?:WaterPresentation;
   private rainLayer?:RainWaveLayer;
   private rainLayerActive=false;
@@ -140,6 +142,7 @@ class Puddle {
     const rect=$('stage').getBoundingClientRect(),width=Math.max(1,rect.width),height=Math.max(1,rect.height);
     this.gl.setSize(width,height);
     fitWaterCamera(this.camera,width,height);
+    this.floorLine.fit(this.camera,width);
     this.inverseViewProjection.multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).invert();
     const size=this.gl.getDrawingBufferSize(new THREE.Vector2());
     this.target.setSize(size.x,size.y);
@@ -340,6 +343,7 @@ class Puddle {
       (mesh.material as THREE.ShaderMaterial).uniforms.tiles.value=mode==='original'?this.tile:this.matte;
     }
     for(const mesh of [this.engine.getWaterMesh(),this.engine.getWaterMeshBack()])this.sunDisc.apply(mesh.material as THREE.ShaderMaterial,this.state.hideSunDisc);
+    this.floorLine.apply(this.engine.getWaterMesh().material as THREE.ShaderMaterial,mode!=='original');
     this.updateControls();if(render)this.draw();else this.pendingDraw=true;
   }
 
