@@ -1,0 +1,148 @@
+// A presentation pass only: upstream simulation and scene geometry are unchanged.
+precision highp float;
+uniform sampler2D sceneColor;
+uniform sampler2D water;
+uniform sampler2D waveLines;
+uniform sampler2D waveBands;
+uniform bool hairlineRipples;
+uniform bool caustics;
+uniform vec2 pixel;
+uniform vec2 poolSize;
+uniform mat4 inverseViewProjection;
+uniform vec3 eye;
+uniform vec3 paper;
+uniform vec3 ink;
+uniform float lineWeight;
+uniform int mode;
+uniform bool sourceGeometry;
+uniform bool bitmapRipples;
+uniform bool textureReveal;
+uniform bool printedPaper;
+uniform bool textureRefraction;
+uniform bool alignedCaustics;
+uniform int bitmapPattern;
+uniform float bitmapScale;
+uniform float bitmapStrength;
+uniform float textureFaint;
+uniform float revealWidth;
+uniform float refractionStrength;
+uniform float causticsStrength;
+uniform float pixelRatio;
+varying vec2 coord;
+float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float waterLuma(vec3 c){return dot(c,vec3(0.2126,0.7152,0.0722));}
+float greyAt(vec2 uv){ float l=waterLuma(texture2D(sceneColor,uv).rgb);return l/(1.0+l); }
+
+float printOrder(vec2 index){vec2 q=mod(index,2.0);return 2.0*q.x+3.0*q.y-4.0*q.x*q.y;}
+float printMark(vec2 position,float density){
+  float scale=max(2.0,bitmapScale);
+  if(bitmapPattern==2){
+    vec2 index=mod(floor(position/(scale*0.5)),4.0);
+    float threshold=(4.0*printOrder(index)+printOrder(floor(index*0.5))+0.5)/16.0;
+    return step(threshold,density);
+  }
+  vec2 cell=position/scale,index=floor(cell),offset=vec2(0.5);
+  float radius=mix(0.08,0.47,density);
+  if(bitmapPattern==1){
+    offset+=vec2(hash(index+13.7),hash(index+47.1))*0.34-0.17;
+    radius*=0.7+0.55*hash(index+8.9);
+  }
+  float distance=length(fract(cell)-offset);
+  float aa=max(fwidth(distance)*0.55,0.01);
+  return 1.0-smoothstep(radius-aa,radius+aa,distance);
+}
+
+vec3 printSurface(vec3 base,vec4 state,float band){
+  if(!bitmapRipples&&!textureReveal&&!printedPaper&&!textureRefraction&&!alignedCaustics)return base;
+  vec2 position=gl_FragCoord.xy/max(pixelRatio,1.0);
+  if(textureRefraction)position+=vec2(state.b,-state.a)*refractionStrength*60.0;
+  float quiet=(printedPaper||textureReveal||textureRefraction)?textureFaint:0.0;
+  float exposure=quiet;
+  if(bitmapRipples||textureReveal)exposure+=band*bitmapStrength*(textureReveal?0.9:0.78);
+  float density=0.38+(textureReveal?band*0.3:0.0);
+  float marks=printMark(position,density);
+  vec3 result=mix(base,ink,clamp(marks*exposure,0.0,0.95));
+  // An optional artistic glow follows the surface waves directly. The physical
+  // light projection remains available separately, with the upstream shaders.
+  if(alignedCaustics)result=mix(result,ink,clamp(band*causticsStrength*0.2,0.0,0.7));
+  return result;
+}
+
+vec4 bilinearState(vec2 uv){
+  const vec2 delta=vec2(1.0/256.0);
+  vec2 q=clamp(uv,delta*0.5,1.0-delta*0.5)/delta-0.5,i=floor(q),f=fract(q),a=(i+0.5)*delta;
+  return mix(mix(texture2D(water,a),texture2D(water,a+vec2(delta.x,0)),f.x),mix(texture2D(water,a+vec2(0,delta.y)),texture2D(water,a+delta),f.x),f.y);
+}
+void main(){
+  vec4 original=texture2D(sceneColor,coord);
+  float alpha=original.a;
+  float grain=(hash(floor(gl_FragCoord.xy))-0.5)*0.004;
+  vec3 color=paper+grain;
+  vec4 world=inverseViewProjection*vec4(coord*2.0-1.0,0.0,1.0);
+  vec3 ray=normalize(world.xyz/world.w-eye);
+  vec2 p=(eye+ray*(-eye.y/ray.y)).xz;
+  float outline=0.0;
+  if(!sourceGeometry){
+    vec2 q=p/vec2(0.96,0.77);
+    float a=atan(q.y,q.x);
+    float r=0.87+0.06*cos(3.0*a+0.5)+0.032*sin(5.0*a-0.7)+0.018*cos(7.0*a);
+    float sd=(length(q)-r)*0.77,aa=max(fwidth(sd),0.0009);
+    alpha*=1.0-smoothstep(-aa,aa,sd);
+    outline=(1.0-smoothstep(aa*0.5,aa*1.5,abs(sd)))*0.4;
+  }
+  if(mode==3){gl_FragColor=vec4(mix(paper,original.rgb,alpha),1.0);return;}
+  vec2 waterUV=p/poolSize*0.5+0.5;
+  vec4 state=bilinearState(waterUV);
+  if(hairlineRipples){
+    float crest=texture2D(waveLines,coord).r;
+    float wash=caustics?0.035*(1.0-greyAt(coord)):0.0;
+    float textureTone=mode==2?0.004:0.0;
+    float weight=0.012+wash+textureTone+crest*(mode==1?0.68:0.57);
+    if(bitmapRipples||textureReveal)weight=0.012+wash+textureTone;
+    float band=0.0;
+    if(bitmapRipples||textureReveal||alignedCaustics)band=texture2D(waveBands,coord).r;
+    vec3 drawn=printSurface(mix(paper,ink,weight)+grain,state,band);
+    gl_FragColor=vec4(clamp(drawn,0.0,1.0),1.0);
+    return;
+  }
+  // Height contours and slopes come from the same texture used by the original mesh.
+  float slope=length(state.ba);
+  float activity=smoothstep(0.006,0.055,slope);
+  float phase=state.r*380.0;
+  float phaseAA=max(fwidth(phase),0.008);
+  float distanceToLine=abs(fract(phase+0.5)-0.5);
+  float contour=(1.0-smoothstep(phaseAA*lineWeight*0.3,phaseAA*(lineWeight*0.3+0.9),distanceToLine))*activity;
+  float slopeInk=smoothstep(0.045,0.34,slope);
+  float light=greyAt(coord);
+  vec2 d=pixel*1.8;
+  float wash=(light*4.0+greyAt(coord+vec2(d.x,0))+greyAt(coord-vec2(d.x,0))+greyAt(coord+vec2(0,d.y))+greyAt(coord-vec2(0,d.y)))/8.0;
+  float gradient=length(vec2(greyAt(coord+vec2(pixel.x,0))-greyAt(coord-vec2(pixel.x,0)),greyAt(coord+vec2(0,pixel.y))-greyAt(coord-vec2(0,pixel.y))));
+  float weight;
+  if(mode==0){
+    // Soft graphite wash, translucent slopes, and selective fine ink contours.
+    weight=0.045+0.19*(1.0-wash)+0.19*slopeInk+contour*0.51+gradient*1.25;
+    if(bitmapRipples||textureReveal)weight=0.045+0.19*(1.0-wash)+0.04*slopeInk;
+  } else if(mode==1){
+    weight=0.022+contour*0.88+slopeInk*0.18+gradient*1.8;
+    if(bitmapRipples||textureReveal)weight=0.022+0.04*slopeInk;
+  } else {
+    float diagonal=fract((gl_FragCoord.x+gl_FragCoord.y*0.61)*0.18);
+    float hatch=(1.0-smoothstep(0.11,0.32,abs(diagonal-0.5)))*smoothstep(0.02,0.17,slope);
+    weight=0.05+(1.0-wash)*0.22+contour*0.34+slopeInk*0.15+hatch*0.2;
+    if(bitmapRipples||textureReveal)weight=0.05+(1.0-wash)*0.22+0.04*slopeInk;
+  }
+  vec3 drawn=mix(paper,ink,clamp(weight,0.0,0.95))+grain;
+  float band=0.0;
+  if(bitmapRipples||textureReveal||alignedCaustics){
+    float bandAA=phaseAA*(0.5+revealWidth*max(pixelRatio,1.0)*0.5);
+    band=(1.0-smoothstep(0.0,bandAA,distanceToLine))*activity;
+  }
+  drawn=printSurface(drawn,state,band);
+  color=mix(color,drawn,alpha);
+  color=mix(color,ink,outline);
+  // A delicate rim follows the actual geometry's alpha, never a replacement outline.
+  float coverage=(texture2D(sceneColor,coord+pixel*vec2(1,0)).a+texture2D(sceneColor,coord-pixel*vec2(1,0)).a+texture2D(sceneColor,coord+pixel*vec2(0,1)).a+texture2D(sceneColor,coord-pixel*vec2(0,1)).a)*0.25;
+  float rim=sourceGeometry ? abs(alpha-coverage) : 0.0;
+  color=mix(color,ink,rim*0.33);
+  gl_FragColor=vec4(clamp(color,0.0,1.0),1.0);
+}

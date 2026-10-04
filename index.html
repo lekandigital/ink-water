@@ -43,13 +43,45 @@
       <div class="range-control" id="weight-control"><label for="line-weight">Line weight <output id="weight-value" for="line-weight">Fine</output></label><input id="line-weight" type="range" min="0.35" max="1.25" step="0.05" value="0.68"></div>
       <div class="rain-row"><label for="hairline-ripples">Hairline ripples</label><input id="hairline-ripples" type="checkbox" role="switch" checked></div>
       <p class="geometry-note" id="ripple-note">Concentric waves expand and fade. No wall echoes.</p>
+      <details class="experiments" open>
+        <summary>Print experiments <span class="section-tag">Mix & match</span></summary>
+        <fieldset id="print-fields" class="experiment-fields"><legend class="visually-hidden">Bitmap texture experiments</legend>
+          <div class="rain-row experiment-row"><label for="bitmap-ripples">Bitmap ripples<small>Waves made of printed marks</small></label><input id="bitmap-ripples" type="checkbox" role="switch"></div>
+          <div class="rain-row experiment-row"><label for="texture-reveal">Texture reveal<small>A passing wave brings the print to light</small></label><input id="texture-reveal" type="checkbox" role="switch"></div>
+          <div class="rain-row experiment-row"><label for="printed-paper">Printed paper<small>A quiet bitmap across the surface</small></label><input id="printed-paper" type="checkbox" role="switch"></div>
+          <div class="rain-row experiment-row"><label for="texture-refraction">Refract the print<small>The water gently bends the texture</small></label><input id="texture-refraction" type="checkbox" role="switch"></div>
+          <div class="pattern-grid" role="group" aria-label="Print pattern">
+            <button type="button" data-pattern="0" aria-pressed="true">Comic dots</button>
+            <button type="button" data-pattern="1" aria-pressed="false">Stipple</button>
+            <button type="button" data-pattern="2" aria-pressed="false" title="Pixel dither">Pixels</button>
+          </div>
+          <details class="tuning"><summary>Tune the print</summary>
+            <div class="range-control"><label for="bitmap-scale">Print scale <output id="bitmap-scale-value" for="bitmap-scale">3.5 px</output></label><input id="bitmap-scale" type="range" min="2" max="10" step="0.5" value="3.5"></div>
+            <div class="range-control"><label for="bitmap-strength">Wave contrast <output id="bitmap-strength-value" for="bitmap-strength">70%</output></label><input id="bitmap-strength" type="range" min="0" max="1" step="0.05" value="0.7"></div>
+            <div class="range-control"><label for="texture-faint">Background print <output id="texture-faint-value" for="texture-faint">5%</output></label><input id="texture-faint" type="range" min="0" max="0.2" step="0.005" value="0.045"></div>
+            <div class="range-control"><label for="reveal-width">Wave band width <output id="reveal-width-value" for="reveal-width">8 px</output></label><input id="reveal-width" type="range" min="2" max="24" step="1" value="8"></div>
+            <div class="range-control"><label for="refraction-strength">Texture bend <output id="refraction-strength-value" for="refraction-strength">45%</output></label><input id="refraction-strength" type="range" min="0" max="1" step="0.05" value="0.45"></div>
+          </details>
+        </fieldset>
+      </details>
       <div class="rain-row"><label for="caustics">Caustics</label><input id="caustics" type="checkbox" role="switch"></div>
+      <details class="experiments lighting"><summary>Light & caustics</summary>
+        <fieldset id="caustic-fields" class="experiment-fields"><legend class="visually-hidden">Caustic appearance and light controls</legend>
+          <p class="experiment-note" id="caustic-note">Projected light falls below the water. Its highlights can sit apart from the ripple crests.</p>
+          <div class="rain-row experiment-row"><label for="aligned-caustics">Align glow to ripples<small>An artistic glow on the surface</small></label><input id="aligned-caustics" type="checkbox" role="switch"></div>
+          <div class="rain-row"><label for="overhead-light">Overhead light</label><input id="overhead-light" type="checkbox" role="switch"></div>
+          <div class="range-control"><label for="light-azimuth">Light direction <output id="light-azimuth-value" for="light-azimuth">−27°</output></label><input id="light-azimuth" type="range" min="-180" max="180" step="1" value="-27"></div>
+          <div class="range-control"><label for="light-elevation">Light height <output id="light-elevation-value" for="light-elevation">42°</output></label><input id="light-elevation" type="range" min="15" max="90" step="1" value="42"></div>
+          <div class="range-control"><label for="caustics-strength">Glow strength <output id="caustics-strength-value" for="caustics-strength">100%</output></label><input id="caustics-strength" type="range" min="0" max="2" step="0.05" value="1"></div>
+        </fieldset>
+      </details>
+      <button id="reset-experiments" class="reset-button" type="button">Reset experiments</button>
       <div class="divider"></div>
       <div class="rain-row"><label for="rain">Gentle rain</label><input id="rain" type="checkbox" role="switch" checked></div>
       <div class="range-control"><label for="rain-rate">Rainfall <output id="rain-value" for="rain-rate">Light</output></label><input id="rain-rate" type="range" min="0.2" max="8" step="0.2" value="1.4"></div>
       <div class="range-control"><label for="drop-size">Touch size <output id="size-value" for="drop-size">Medium</output></label><input id="drop-size" type="range" min="0.012" max="0.065" step="0.001" value="0.038"></div>
       <button id="clear" class="clear-button" type="button">Still the water</button>
-      <details class="about"><summary>About this study</summary><p>The original <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js water</a> wave simulation, seen straight down.</p><p>Each impact creates a group of concentric waves that travels outward and fades. Open edges absorb outgoing waves instead of sending them back. Hairline ripples keep complete strokes; switch them off for the artistic contours and bitmap etching texture. Original shows the simulated surface. Caustics control the focused light below the surface.</p><p>A heightfield wave model with refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>Original work: Evan Wallace. Three.js port: Yong Su. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
+      <details class="about"><summary>About this study</summary><p>The original <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js water</a> wave simulation, seen straight down.</p><p>Each impact creates a group of concentric waves that travels outward and fades. Open edges absorb outgoing waves instead of sending them back. Hairline ripples keep complete strokes; switch them off for the artistic contours and bitmap etching texture. Original shows the simulated surface.</p><p>The print experiments can be combined. Bitmap ripples and Texture reveal replace the stroke with marks; Printed paper and Refract the print add texture. Switch the experiments off to return to the existing drawing.</p><p>Projected caustics are refracted light below the water, so their brightest points need not match the ripple crests. Overhead light reduces the sideways shift. Align glow to ripples is a separate artistic surface effect. Original always uses the projected light.</p><p>A heightfield wave model with refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>Original work: Evan Wallace. Three.js port: Yong Su. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
     </aside>
   </main>
   <footer class="footnote"><span id="interaction-hint">Touch the water. Leave a ripple.</span><span class="keyboard-hint"><kbd>Space</kbd> pause <span class="footer-separator">/</span> <kbd>H</kbd> hide controls</span></footer>

@@ -6,8 +6,11 @@ import { fitWaterCamera, insideWater } from './Viewport';
 import { applyDrawingTone, tones, type Tone } from './DrawingPalette';
 import { ContinuousWaveLines } from './ContinuousWaveLines';
 import { OpenWaterBoundary } from './OpenWaterBoundary';
+import { CausticPresentation } from './CausticPresentation';
+import { experimentDefaults, experimentSwitches, experimentRanges, printSwitches, printPatterns, controlId, lightDirection, validateExperimentSettings } from './AppearanceExperiments';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
+import printDrawingFrag from './shaders/DrawingExperiments.frag';
 
 type Mode='ink-wash'|'etching'|'graphite'|'original';
 const modes:Record<Mode,number>={'ink-wash':0,etching:1,graphite:2,original:3};
@@ -17,7 +20,7 @@ const POOL={width:1,length:1,depth:0.7,radius:1};
 const TICK=1/60;
 
 class Puddle {
-  readonly state={mode:'ink-wash' as Mode,tone:'paper' as Tone,lineWeight:0.68,rain:true,rainRate:1.4,dropSize:0.038,paused:false,sourceGeometry:true,hairlineRipples:true,caustics:false};
+  readonly state={mode:'ink-wash' as Mode,tone:'paper' as Tone,lineWeight:0.68,rain:true,rainRate:1.4,dropSize:0.038,paused:false,sourceGeometry:true,hairlineRipples:true,caustics:false,...experimentDefaults};
   readonly gl:THREE.WebGLRenderer;
   readonly water:Water;
   readonly openBoundary:OpenWaterBoundary;
@@ -28,7 +31,10 @@ class Puddle {
   readonly drawingCamera=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
   readonly target:THREE.WebGLRenderTarget;
   readonly drawing:THREE.ShaderMaterial;
+  readonly printDrawing:THREE.ShaderMaterial;
+  readonly drawingQuad:THREE.Mesh;
   readonly waveLines=new ContinuousWaveLines();
+  readonly causticPresentation=new CausticPresentation();
   readonly flatCaustics=new THREE.DataTexture(new Float32Array([1,0,0,1]),1,1,THREE.RGBAFormat,THREE.FloatType);
   readonly tile:THREE.Texture;
   readonly matte:THREE.Texture;
@@ -70,11 +76,13 @@ class Puddle {
     this.engine.markWaterOpticsHidden();
     this.target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,depthBuffer:true});
     this.drawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:drawingFrag,uniforms:{
-      sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},waveLines:{value:this.waveLines.target.texture},hairlineRipples:{value:true},caustics:{value:false},pixel:{value:new THREE.Vector2()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},
+      sceneColor:{value:this.target.texture},water:{value:this.water.textureA.texture},waveLines:{value:this.waveLines.target.texture},waveBands:{value:this.waveLines.bandTarget.texture},hairlineRipples:{value:true},caustics:{value:false},pixel:{value:new THREE.Vector2()},pixelRatio:{value:this.gl.getPixelRatio()},poolSize:{value:new THREE.Vector2(POOL.width,POOL.length)},inverseViewProjection:{value:this.inverseViewProjection},eye:{value:this.camera.position},paper:{value:new THREE.Color()},ink:{value:new THREE.Color()},lineWeight:{value:this.state.lineWeight},mode:{value:0},sourceGeometry:{value:true},
+      ...Object.fromEntries(Object.entries(experimentDefaults).map(([key,value])=>[key,{value}])),
     },depthTest:false,depthWrite:false,toneMapped:false});
-    const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
-    quad.frustumCulled=false;
-    this.drawingScene.add(quad);
+    this.printDrawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:printDrawingFrag,uniforms:this.drawing.uniforms,depthTest:false,depthWrite:false,toneMapped:false});
+    this.drawingQuad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
+    this.drawingQuad.frustumCulled=false;
+    this.drawingScene.add(this.drawingQuad);
     this.camera.position.set(0,4.5,0);
     this.camera.up.set(0,0,-1);
     this.camera.lookAt(0,0,0);
@@ -109,7 +117,9 @@ class Puddle {
     const size=this.gl.getDrawingBufferSize(new THREE.Vector2());
     this.target.setSize(size.x,size.y);
     this.waveLines.target.setSize(size.x,size.y);
+    this.waveLines.bandTarget.setSize(size.x,size.y);
     this.drawing.uniforms.pixel.value.set(1/size.x,1/size.y);
+    this.drawing.uniforms.pixelRatio.value=this.gl.getPixelRatio();
     this.engine.setSize(Math.min(size.x,1024),Math.min(size.y,1024));
     if(this.water)this.draw();
   }
@@ -126,13 +136,18 @@ class Puddle {
 
   draw(){
     this.water.updateNormals(POOL.width,POOL.length);
-    if(this.state.hairlineRipples&&this.state.mode!=='original')this.waveLines.render(this.gl,this.camera,this.simulationSteps,this.state.lineWeight);
+    if(this.state.hairlineRipples&&this.state.mode!=='original'){
+      const needsBand=this.state.bitmapRipples||this.state.textureReveal||(this.state.caustics&&this.state.alignedCaustics);
+      this.waveLines.render(this.gl,this.camera,this.simulationSteps,this.state.lineWeight,needsBand?this.state.revealWidth:0);
+    }
     this.engine.updateObjectTextures(this.scene,this.camera,null);
-    if(this.state.caustics)this.engine.updateCaustics(this.water);
+    const projectedCaustics=this.state.caustics&&(this.state.mode==='original'||!this.state.alignedCaustics);
+    if(projectedCaustics)this.engine.updateCaustics(this.water);
     this.engine.renderPool(this.water);
     this.engine.renderWater(this.water,this.camera);
+    const lightMap=projectedCaustics?this.causticPresentation.texture(this.gl,this.engine.objectRenderResources.causticTexture,this.state.causticsStrength):this.flatCaustics;
     for(const mesh of [this.engine.getPoolMesh(),this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
-      (mesh.material as THREE.ShaderMaterial).uniforms.causticTex.value=this.state.caustics?this.engine.objectRenderResources.causticTexture:this.flatCaustics;
+      (mesh.material as THREE.ShaderMaterial).uniforms.causticTex.value=lightMap;
     }
     this.gl.setClearColor(0x000000,0);
     this.gl.setRenderTarget(this.target);this.gl.clear();
@@ -140,6 +155,8 @@ class Puddle {
     this.drawing.uniforms.water.value=this.water.textureA.texture;
     this.gl.setRenderTarget(null);
     this.gl.setClearColor(tones[this.state.tone].paper,1);
+    const printActive=this.state.mode!=='original'&&(printSwitches.some(key=>this.state[key])||(this.state.caustics&&this.state.alignedCaustics));
+    this.drawingQuad.material=printActive?this.printDrawing:this.drawing;
     this.gl.render(this.drawingScene,this.drawingCamera);
   }
 
@@ -205,7 +222,10 @@ class Puddle {
     applyDrawingTone(this.drawing.uniforms.paper.value,this.drawing.uniforms.ink.value,tone);
     this.drawing.uniforms.mode.value=modes[mode];this.drawing.uniforms.lineWeight.value=lineWeight;
     this.drawing.uniforms.sourceGeometry.value=sourceGeometry;
-    this.drawing.uniforms.hairlineRipples.value=hairlineRipples;this.drawing.uniforms.caustics.value=caustics;
+    this.drawing.uniforms.hairlineRipples.value=hairlineRipples;this.drawing.uniforms.caustics.value=caustics&&!this.state.alignedCaustics;
+    for(const key of Object.keys(experimentDefaults) as (keyof typeof experimentDefaults)[])this.drawing.uniforms[key].value=this.state[key];
+    this.drawing.uniforms.alignedCaustics.value=caustics&&this.state.alignedCaustics;
+    this.engine.lightDir.copy(lightDirection(this.state));
     for(const mesh of [this.engine.getPoolMesh(),this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
       (mesh.material as THREE.ShaderMaterial).uniforms.tiles.value=mode==='original'?this.tile:this.matte;
     }
@@ -232,6 +252,25 @@ class Puddle {
     $('pause').querySelector('.pause-symbol')!.textContent=this.state.paused?'▷':'Ⅱ';
     $<HTMLInputElement>('line-weight').disabled=this.state.mode==='original';
     $('tone-field').style.opacity=this.state.mode==='original'?'.5':'1';
+    $<HTMLFieldSetElement>('print-fields').disabled=this.state.mode==='original';
+    for(const key of experimentSwitches)$<HTMLInputElement>(controlId(key)).checked=this.state[key];
+    for(const key of Object.keys(experimentRanges) as (keyof typeof experimentRanges)[]){
+      $<HTMLInputElement>(controlId(key)).value=String(this.state[key]);
+      const value=this.state[key];
+      $(controlId(key)+'-value').textContent=key==='bitmapScale'||key==='revealWidth'?value.toFixed(key==='bitmapScale'?1:0)+' px':key.startsWith('light')?Math.round(value)+'°':Math.round(value*100)+'%';
+    }
+    document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.pattern)===this.state.bitmapPattern)));
+    const printActive=printSwitches.some(key=>this.state[key]);
+    $<HTMLInputElement>('bitmap-scale').disabled=!printActive;
+    $<HTMLInputElement>('bitmap-strength').disabled=!(this.state.bitmapRipples||this.state.textureReveal);
+    $<HTMLInputElement>('texture-faint').disabled=!(this.state.printedPaper||this.state.textureReveal||this.state.textureRefraction);
+    $<HTMLInputElement>('refraction-strength').disabled=!this.state.textureRefraction;
+    $<HTMLInputElement>('reveal-width').disabled=!(this.state.bitmapRipples||this.state.textureReveal||(this.state.caustics&&this.state.alignedCaustics));
+    $<HTMLFieldSetElement>('caustic-fields').disabled=!this.state.caustics;
+    $<HTMLInputElement>('aligned-caustics').disabled=this.state.mode==='original';
+    for(const key of ['light-azimuth','light-elevation','overhead-light'])$<HTMLInputElement>(key).disabled=this.state.caustics&&this.state.alignedCaustics&&this.state.mode!=='original';
+    for(const key of ['light-azimuth','light-elevation'])$<HTMLInputElement>(key).disabled=$<HTMLInputElement>(key).disabled||this.state.overheadLight;
+    $('caustic-note').textContent=this.state.alignedCaustics&&this.state.mode!=='original'?'Surface glow follows the ripple positions. An artistic alignment experiment.':'Projected light falls below the water. Its highlights can sit apart from the ripple crests.';
   }
 
   private connectControls(){
@@ -241,6 +280,10 @@ class Puddle {
     $<HTMLInputElement>('rain').onchange=e=>{this.state.rain=(e.target as HTMLInputElement).checked;this.updateControls();};
     $<HTMLInputElement>('hairline-ripples').onchange=e=>{this.state.hairlineRipples=(e.target as HTMLInputElement).checked;this.applyAppearance();};
     $<HTMLInputElement>('caustics').onchange=e=>{this.state.caustics=(e.target as HTMLInputElement).checked;this.applyAppearance();};
+    for(const key of experimentSwitches)$<HTMLInputElement>(controlId(key)).onchange=e=>{this.state[key]=(e.target as HTMLInputElement).checked;this.applyAppearance();};
+    for(const key of Object.keys(experimentRanges) as (keyof typeof experimentRanges)[])$<HTMLInputElement>(controlId(key)).oninput=e=>{this.state[key]=Number((e.target as HTMLInputElement).value);this.applyAppearance();};
+    document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.onclick=()=>{this.state.bitmapPattern=Number(b.dataset.pattern);this.applyAppearance();});
+    $('reset-experiments').onclick=()=>{Object.assign(this.state,experimentDefaults);this.applyAppearance();};
     $<HTMLInputElement>('rain-rate').oninput=e=>{this.state.rainRate=Number((e.target as HTMLInputElement).value);this.updateControls();};
     $<HTMLInputElement>('drop-size').oninput=e=>{this.state.dropSize=Number((e.target as HTMLInputElement).value);this.updateControls();};
     $('clear').onclick=()=>this.clear();
@@ -273,13 +316,15 @@ class Puddle {
     if(!context?.registerTool)return;
     const lifecycle=new AbortController();window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
     const register=(tool:unknown)=>{try{Promise.resolve(context.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}};
-    register({name:'set_water_appearance',title:'Set water appearance',description:'Change the visible drawing style, paper tone, or ripple/caustics settings without changing the water solver.',inputSchema:{type:'object',properties:{mode:{type:'string',enum:Object.keys(modes)},tone:{type:'string',enum:Object.keys(tones)},hairlineRipples:{type:'boolean'},caustics:{type:'boolean'}},additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:(input:unknown)=>{
+    const appearanceKeys=['mode','tone','hairlineRipples','caustics',...Object.keys(experimentDefaults)];
+    register({name:'set_water_appearance',title:'Set water appearance',description:'Change the drawing, print experiments, or lighting settings without changing the water solver.',inputSchema:{type:'object',properties:{mode:{type:'string',enum:Object.keys(modes)},tone:{type:'string',enum:Object.keys(tones)},hairlineRipples:{type:'boolean'},caustics:{type:'boolean'},bitmapPattern:{type:'integer',minimum:0,maximum:printPatterns.length-1},...Object.fromEntries(experimentSwitches.map(key=>[key,{type:'boolean'}])),...Object.fromEntries(Object.entries(experimentRanges).map(([key,{min,max}])=>[key,{type:'number',minimum:min,maximum:max}]))},additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:(input:unknown)=>{
       if(!input||typeof input!=='object')throw new Error('Expected appearance settings.');
-      const x=input as Record<string,unknown>;for(const key of Object.keys(x))if(!['mode','tone','hairlineRipples','caustics'].includes(key))throw new Error('Unknown setting.');
+      const x=input as Record<string,unknown>;for(const key of Object.keys(x))if(!appearanceKeys.includes(key))throw new Error('Unknown setting.');
       if(x.mode!==undefined&&(typeof x.mode!=='string'||!Object.hasOwn(modes,x.mode)))throw new Error('Unknown drawing mode.');
       if(x.tone!==undefined&&(typeof x.tone!=='string'||!Object.hasOwn(tones,x.tone)))throw new Error('Unknown tone.');
       for(const key of ['hairlineRipples','caustics'])if(x[key]!==undefined&&typeof x[key]!=='boolean')throw new Error(key+' must be boolean.');
-      if(x.mode!==undefined)this.state.mode=x.mode as Mode;if(x.tone!==undefined)this.state.tone=x.tone as Tone;if(x.hairlineRipples!==undefined)this.state.hairlineRipples=x.hairlineRipples as boolean;if(x.caustics!==undefined)this.state.caustics=x.caustics as boolean;
+      validateExperimentSettings(x);
+      for(const [key,value] of Object.entries(x))if(value!==undefined)Object.assign(this.state,{[key]:value});
       this.applyAppearance();return this.snapshot();
     }});
     register({name:'disturb_water',title:'Create a ripple',description:'Create a real simulated ripple at an x,z point inside the visible water, using coordinates between -1 and 1.',inputSchema:{type:'object',properties:{x:{type:'number',minimum:-1,maximum:1},z:{type:'number',minimum:-1,maximum:1}},required:['x','z'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:(input:unknown)=>{

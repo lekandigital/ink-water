@@ -1,12 +1,14 @@
 attribute vec4 waveStroke;
 uniform float worldPixel;
+uniform float bandWidth;
+uniform float pixelRatio;
 varying vec2 waveOffset;
 varying float strokeRadius;
 varying float strokeOpacity;
 void main(){
   // The mesh only bounds a thin annulus. The fragment shader draws an exact
   // circle, including the seam, rather than disconnected polygon segments.
-  float padding=worldPixel*4.0+waveStroke.z*0.00008;
+  float padding=worldPixel*max(4.0,bandWidth*pixelRatio*0.75+2.0)+waveStroke.z*0.00008;
   waveOffset=position.xy*max(0.0,waveStroke.z+uv.x*padding);
   strokeRadius=waveStroke.z;
   strokeOpacity=waveStroke.w;

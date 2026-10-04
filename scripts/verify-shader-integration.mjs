@@ -13,6 +13,6 @@ function verify(source){
   assert.equal(new Set(names).size,names.length,'Shader function conflicts with Three.js injected helpers');
 }
 assert.throws(()=>verify(fragmentHelpers+'float luminance(vec3 c){return c.x;}'));
-for(const name of ['Drawing.frag','ContinuousWave.frag','OpenWaterBoundary.frag'])verify(fragmentHelpers+await readFile(new URL('../src/shaders/'+name,import.meta.url),'utf8'));
+for(const name of ['Drawing.frag','DrawingExperiments.frag','ContinuousWave.frag','OpenWaterBoundary.frag','CausticPresentation.frag'])verify(fragmentHelpers+await readFile(new URL('../src/shaders/'+name,import.meta.url),'utf8'));
 if(process.argv[2]==='--export')await writeFile(process.argv[3],fragmentHelpers);
 console.log(JSON.stringify({threeInjectedHelpersVerified:true,luminanceConflictRegression:true}));

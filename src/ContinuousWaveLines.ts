@@ -11,9 +11,10 @@ export class ContinuousWaveLines {
     type: THREE.HalfFloatType, minFilter: THREE.LinearFilter,
     magFilter: THREE.LinearFilter, depthBuffer: false,
   });
+  readonly bandTarget = this.target.clone();
   readonly material = new THREE.ShaderMaterial({
     vertexShader, fragmentShader,
-    uniforms: { worldPixel: { value: .002 }, lineWeight: { value: .68 }, pixelRatio: { value: 1 } },
+    uniforms: { worldPixel: { value: .002 }, lineWeight: { value: .68 }, pixelRatio: { value: 1 }, bandWidth: { value: 0 } },
     depthTest: false, depthWrite: false, toneMapped: false, transparent: true,
     blending: THREE.CustomBlending, blendEquation: THREE.MaxEquation,
     blendSrc: THREE.OneFactor, blendDst: THREE.OneFactor,
@@ -40,16 +41,23 @@ export class ContinuousWaveLines {
     mesh.frustumCulled=false;this.scene.add(mesh);
   }
 
-  render(renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera, step: number, lineWeight: number){
+  render(renderer: THREE.WebGLRenderer, camera: THREE.PerspectiveCamera, step: number, lineWeight: number, bandWidth = 0){
     const height=2*camera.position.y*Math.tan(THREE.MathUtils.degToRad(camera.fov*.5));
     const pixels=renderer.getDrawingBufferSize(new THREE.Vector2());
     this.material.uniforms.worldPixel.value=height/pixels.y;
     this.material.uniforms.lineWeight.value=lineWeight;
     this.material.uniforms.pixelRatio.value=renderer.getPixelRatio();
-    const waves=this.model.strokes(step,height*camera.aspect*.5,height*.5);
+    this.material.uniforms.bandWidth.value=0;
+    const margin=bandWidth>0?(bandWidth*renderer.getPixelRatio()*.75+2)*height/pixels.y:0;
+    const waves=this.model.strokes(step,height*camera.aspect*.5+margin,height*.5+margin);
     waves.forEach((wave,index)=>this.strokes.setXYZW(index,wave.x,wave.z,wave.radius,wave.opacity));
     this.strokes.needsUpdate=true;this.geometry.instanceCount=waves.length;
     renderer.setRenderTarget(this.target);renderer.setClearColor(0,1);renderer.clear();
     renderer.render(this.scene,camera);
+    if(bandWidth>0){
+      this.material.uniforms.bandWidth.value=bandWidth;
+      renderer.setRenderTarget(this.bandTarget);renderer.clear();renderer.render(this.scene,camera);
+      this.material.uniforms.bandWidth.value=0;
+    }
   }
 }
