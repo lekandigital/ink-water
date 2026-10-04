@@ -1,15 +1,15 @@
 # Puddle
 
-An overhead Three.js water study with a dreamy monochrome drawing pass.
+A full-page, overhead Three.js water background with fine monochrome wave lines.
 
 Based on https://github.com/jeantimex/threejs-water at commit `f35a700a16fe386beac997806ed4471018c93ef7`.
 The upstream Water.ts, Renderer.ts, rendering modules, water modules, and original shaders are copied unchanged. The original 256×256 GPU heightfield, drop function, normals, caustics, and mesh generation remain intact. Each 60 Hz application tick invokes the source's two wave steps. This makes timing consistent with the original demo at 60 fps without altering solver equations or coefficients.
 
-The original rounded-pool option is configured as a circle using its supported dimensions: width=1, length=1, radius=1, depth=0.7. Its water mesh remains PlaneGeometry(2, 2, 200, 200). The camera is a PerspectiveCamera pointed vertically down with up=(0,0,-1); there are no orbit controls.
+The original square pool option is used with width=1, length=1, depth=0.7. Its water mesh remains PlaneGeometry(2, 2, 200, 200). A camera pointed vertically down crops the square surface to fill every viewport corner. The canvas covers the full page, with floating controls above it.
 
-Ink wash, etching, and graphite use a separate full-screen drawing pass. It reads the original scene render, heightfield and normals and uses monochrome paper and ink values. It does not feed anything back into the physics. Drawn styles substitute a subtle grayscale material texture; Original restores the repo's tile texture and unstyled render.
+Hairline ripples are enabled by default. A small presentation-only Gaussian filter and bicubic interpolation smooth the displayed height and velocity without changing the simulation; a phase detector traces stationary wave crests with downward acceleration with an antialiased stroke measured in screen pixels. It avoids the multiple isoheight bands of the earlier drawing pass. The image can still show interacting wave fronts and reflections from the original simulation's rectangular boundaries.
 
-Source geometry is enabled by default. Turning it off clips the rendered image to an irregular puddle silhouette. It does not change the solver, meshes, or physical boundary, and should not be interpreted as physically correct reflections at that new outline. This distinction is disclosed in the interface.
+Turn **Hairline ripples** off to compare the earlier ink contours. **Caustics** independently enables the original focused light map. Both toggles change rendering only, and no drawing buffer is fed into the simulation. Ink wash, etching and graphite use monochrome paper and ink values; Original shows the original optical shading. Caustics start off for a clean paper background.
 
 This is the upstream linear heightfield wave model, not a calibrated Navier–Stokes solver. It does not model full fluid flow, wetting, capillary dispersion, overturning surfaces, droplets or breaking waves. The repo's rounded-pool boundary is an optical boundary; its underlying simulation remains a rectangular heightfield.
 
@@ -39,7 +39,7 @@ This repository is connected to Vercel; every push to `main` deploys the applica
 
 Click, touch, or drag inside the water to create ripples. Gestures draw immediately, including when animation is paused or throttled. A touch opts into motion after an automatic reduced-motion pause; a manual pause remains in effect. Space toggles pause, and H hides the controls.
 
-`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, and real Three.js coordinate projection at desktop and mobile viewport sizes.
+`npm test` checks mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, and collisions with the shader helpers injected by the installed Three.js release.
 
 ## Credits
 

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "tsc --noEmit",
-    "test": "node scripts/verify-input.mjs",
+    "test": "node scripts/verify-input.mjs && node scripts/verify-shader-integration.mjs",
     "dev": "vite --host 0.0.0.0 --port 4173 --strictPort"
   },
   "dependencies": {
