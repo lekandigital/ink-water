@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 /** Pointer input is separate from rendering so captures cannot swallow a ripple. */
-export function connectWaterPointer({canvas,camera,inside,disturb,dropSize}:{
+export function connectWaterPointer({canvas,camera,inside,disturb,disturbSegment,continuous,dropSize}:{
   canvas:HTMLCanvasElement;
   camera:THREE.PerspectiveCamera;
   inside:(x:number,z:number,margin:number)=>boolean;
