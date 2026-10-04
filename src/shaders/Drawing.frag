@@ -44,16 +44,25 @@ void main(){
   vec4 state=bilinearState(waterUV);
   // Height contours and slopes come from the same texture used by the original mesh.
   float slope=length(state.ba);
-  float wavePresence=slope+abs(state.r)*5.0;
-  float activity=smoothstep(0.0007,0.010,wavePresence);
-  float phase=state.r*380.0;
-  float phaseAA=max(fwidth(phase),0.008);
-  float distanceToLine=abs(fract(phase+0.5)-0.5);
-  float legacyContour=(1.0-smoothstep(phaseAA*lineWeight*0.3,phaseAA*(lineWeight*0.3+0.9),distanceToLine))*activity;
-  // The physical normal field already contains the two steep sides of each wave.
-  // Rendering that slope as a continuous band avoids the broken iso-height "beads" produced by repeated contours.
+  // Use the simulation's height + vertical velocity as a local wave phasor.
+  // Unlike repeated iso-height contours, phase follows a propagating wavefront
+  // without turning amplitude variations into extra contour loops/"bubbles".
+  float velocityPhase=state.g*2.4;
+  float waveAmplitude=length(vec2(state.r,velocityPhase));
+  float wavePhase=atan(velocityPhase,state.r);
+  float phaseSignal=sin(wavePhase);
+  float phaseAA=max(fwidth(phaseSignal),0.010);
+  float thinWidth=phaseAA*(0.34*lineWeight+0.28);
+  float phaseContour=1.0-smoothstep(thinWidth,thinWidth+phaseAA*0.72,abs(phaseSignal));
+
+  // Fade only where there is effectively no wave. Keep the threshold low so
+  // complete rings do not get chopped into arcs as their amplitude decays.
+  float activity=smoothstep(0.00022,0.0018,waveAmplitude+slope*0.35);
+  float legacyContour=phaseContour*activity;
+
+  // Optional comparison mode: still slope-based, but deliberately much thinner.
   float rippleWidth=clamp(lineWeight,0.5,2.5);
-  float pairedRipple=smoothstep(0.040/rippleWidth,0.075/rippleWidth,slope);
+  float pairedRipple=smoothstep(0.052/rippleWidth,0.078/rippleWidth,slope);
   float contour=waterLikeRipples ? pairedRipple : legacyContour;
   float slopeInk=smoothstep(0.045,0.34,slope);
   float light=greyAt(coord);
