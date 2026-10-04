@@ -22,7 +22,7 @@ const hd={width:1280,height:720,scale:1.5,fps:60};
 /** Video A: the original simulated pool, then the same water drawn in ink. */
 export const launch=tone=>({
   name:'launch-'+tone,...hd,seed:11,preroll:2,duration:12.5,
-  setup:[...still(11),defaults(tone,{mode:'original'})],
+  setup:[...still(11),defaults(tone,{mode:'original',hideSunDisc:true})],
   events:[
     {at:-0.25,do:touch(-0.22,0.1)},
     {at:0.35,do:touch(0.2,-0.12)},
