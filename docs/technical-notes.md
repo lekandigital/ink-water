@@ -96,7 +96,7 @@ The startup preset is separate from the implementation base: Etching, Dark paper
 
 ## Controls and interaction
 
-Click, touch or drag inside the water to create ripples. Gestures draw immediately, including when animation is paused or throttled. Space toggles pause even with a slider, checkbox or button focused. H hides/shows controls. C, X and / replay fixed screen-space paths, sample spacing and timing; the application places samples on deterministic simulation ticks. Pausing freezes the sequence, pressing a gesture again restarts its path, and Still cancels it. Shortcuts leave text editing and modified key combinations alone.
+The controls start hidden; **Show controls** or H opens them. Click, touch or drag inside the water to create ripples. Gestures draw immediately, including when animation is paused or throttled. Space toggles pause even with a slider, checkbox or button focused. H hides/shows controls. C, X and / replay fixed screen-space paths, sample spacing and timing; the application places samples on deterministic simulation ticks. Pausing freezes the sequence, pressing a gesture again restarts its path, and Still cancels it. Shortcuts leave text editing and modified key combinations alone.
 
 The controller binds native `input` events before graphics initialization, commits validated state once and schedules rendering outside the input event. UI changes remain responsive while paused and during loading. Checkbox state is synchronized only when different. There are no silent drawing-mode, alignment, light or slider resets. Read-only `get_water_state` exposes actual application settings; the hidden `water-state` output reports controls and the last rendered pipeline for browser regression checks.
 
