@@ -2,18 +2,24 @@ import * as THREE from 'three';
 
 export const printSwitches = ['bitmapRipples','textureReveal','printedPaper','textureRefraction'] as const;
 export const lightSwitches = ['overheadLight','alignedCaustics'] as const;
-export const experimentSwitches = [...printSwitches,...lightSwitches] as const;
+export const waterBitmapSwitches = ['bitmapTones','causticReveal','driftingGrain','softDiffusion'] as const;
+export const experimentSwitches = [...printSwitches,...lightSwitches,...waterBitmapSwitches,'causticRipples','dreamy','subtle','gentleMotion','hideSunDisc'] as const;
 export const printPatterns = ['Comic dots','Stipple','Pixel dither'];
 export const experimentRanges = {
   bitmapScale: {min:2,max:10}, bitmapStrength: {min:0,max:1},
   textureFaint: {min:0,max:.2}, revealWidth: {min:2,max:24},
   refractionStrength: {min:0,max:1}, causticsStrength: {min:0,max:2},
   lightAzimuth: {min:-180,max:180}, lightElevation: {min:15,max:90},
+  waterBitmapScale:{min:1,max:8},waterBitmapLevels:{min:2,max:10},waterBitmapContrast:{min:0,max:1},
+  causticInk:{min:.5,max:4},dreamSoftness:{min:1,max:10},
 };
 export const experimentDefaults = {
   bitmapRipples:false, textureReveal:false, printedPaper:false, textureRefraction:false,
   bitmapPattern:0, bitmapScale:3.5, bitmapStrength:.7, textureFaint:.045, revealWidth:8, refractionStrength:.45,
   overheadLight:false, alignedCaustics:false, causticsStrength:1,
+  bitmapTones:false,causticReveal:false,driftingGrain:false,softDiffusion:false,
+  causticRipples:false,dreamy:false,subtle:false,gentleMotion:false,hideSunDisc:false,
+  waterBitmapScale:2,waterBitmapLevels:5,waterBitmapContrast:.55,causticInk:1.5,dreamSoftness:3,
   lightAzimuth:THREE.MathUtils.radToDeg(Math.atan2(-1,2)),
   lightElevation:THREE.MathUtils.radToDeg(Math.atan2(2,Math.sqrt(5))),
 };

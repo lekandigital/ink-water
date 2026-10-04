@@ -1,0 +1,14 @@
+import {build} from 'esbuild';
+import {mkdtemp,writeFile,readFile,mkdir} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {resolve,join} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {execFileSync} from 'node:child_process';
+import {shaderSource} from '../shader-loader.mjs';
+const directory=process.argv[2];if(!directory)throw new Error('Pass a directory for GPU fixtures.');
+await mkdir(directory,{recursive:true});
+const temporary=await mkdtemp(join(tmpdir(),'water-gpu-export-'));
+const bundle=join(temporary,'export.mjs');
+await build({entryPoints:['scripts/export-bitmap-gpu.ts'],bundle:true,platform:'node',format:'esm',outfile:bundle,plugins:[{name:'shader',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async a=>({contents:await shaderSource(a.path),loader:'text'}));}}]});
+await import(pathToFileURL(bundle).href);
+for(const [script,file] of [['verify-experiments.mjs','dream-fixtures.json'],['verify-continuous-waves.mjs','continuous-fixtures.json'],['verify-palette.mjs','palettes.json'],['verify-shader-integration.mjs','three-prefix.glsl']])execFileSync(process.execPath,['scripts/'+script,'--export',resolve(directory,file)],{stdio:'inherit'});

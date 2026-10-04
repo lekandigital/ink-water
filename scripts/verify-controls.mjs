@@ -1,0 +1,59 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {build} from 'esbuild';
+import {parseHTML} from 'linkedom';
+import {shaderSource} from '../shader-loader.mjs';
+process.on('uncaughtException',error=>{console.error(error.name+': '+error.message+'\n'+error.stack.split('\n').filter(line=>!line.includes('data:text')).slice(1,8).join('\n'));process.exitCode=1;});
+const {window,document}=parseHTML(await readFile('index.html','utf8'));
+Object.assign(globalThis,{window,document,requestAnimationFrame:()=>0,__qaSkip:true});
+const source=(await readFile('src/main.ts','utf8')).replace('void start();','export {Puddle,THREE,WaterControls,experimentDefaults};').replace('constructor(tile:THREE.Texture,sky:THREE.CubeTexture,controls:WaterControls){','constructor(tile:THREE.Texture,sky:THREE.CubeTexture,controls:WaterControls){if((globalThis as any).__qaSkip)return;');
+const {outputFiles}=await build({stdin:{contents:source,loader:'ts',resolveDir:process.cwd()+'/src'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
+const {Puddle,THREE,WaterControls,experimentDefaults}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
+const controls=new WaterControls(),initial={...controls.state};
+const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);assert.equal(new Set(ids).size,ids.length,'IDs must be unique');
+assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples','caustics','lightAzimuth','lightElevation','causticsStrength','rain','rainRate','dropSize','paused','waveSpeed','rippleScale','rainForce','touchForce'].map(k=>[k,initial[k]])),{mode:'etching',tone:'paper',lineWeight:.68,hairlineRipples:false,caustics:true,lightAzimuth:170,lightElevation:90,causticsStrength:2,rain:false,rainRate:.2,dropSize:.038,paused:false,waveSpeed:1,rippleScale:1,rainForce:.0095,touchForce:.02});
+const $=id=>document.getElementById(id);
+const keyFor=id=>id.replace(/-([a-z])/g,(_,c)=>c.toUpperCase());
+let changes=0,clears=0;controls.hooks={change:()=>changes++,clear:()=>clears++,gesture:()=>{}};
+function input(id,value){const el=$(id);if(el.type==='checkbox')el.checked=value;else el.value=String(value);el.dispatchEvent(new window.Event('input',{bubbles:true}));return el;}
+let cycles=0;
+for(const el of document.querySelectorAll('input[type="checkbox"]')){
+ controls.reset();const key=keyFor(el.id);
+ input(el.id,false);const before={...controls.state};
+ for(const checked of [true,false,true]){
+  input(el.id,checked);assert.equal(el.checked,checked);assert.equal(controls.state[key],checked);
+  assert.equal(JSON.parse($('water-state').textContent)[key],checked,'Published state must be actual committed state');
+  for(const [other,value] of Object.entries(before))if(![key,'caustics','causticRipples'].includes(other))assert.equal(controls.state[other],value,'Unrelated setting reset: '+key+' -> '+other);
+ }
+ cycles++;
+}
+// Sliders remain independent of switches, with input bindings and visible outputs.
+let sliders=0;
+for(const el of document.querySelectorAll('input[type="range"]')){
+ controls.reset();const key=keyFor(el.id),value=Number(el.getAttribute('min'))+(Number(el.getAttribute('max'))-Number(el.getAttribute('min')))*.4;
+ input(el.id,value);assert.equal(controls.state[key],value);
+ for(const checked of [true,false,true]){input('bitmap-tones',checked);assert.equal(controls.state[key],value);}
+ input(el.id,Number(el.getAttribute('min')));assert.equal(controls.state[key],Number(el.getAttribute('min')));sliders++;
+}
+controls.reset();input('caustic-ripples',true);assert.equal(controls.state.caustics,false);input('caustic-ripples',false);assert.equal(controls.state.caustics,true,'Leaving caustic ink restores prior lighting');
+for(const id of ['bitmap-tones','caustic-reveal','drifting-grain','soft-diffusion']){input(id,true);assert.equal(controls.state.caustics,true);assert.ok(['bitmapRipples','textureReveal','printedPaper','textureRefraction'].every(k=>!controls.state[k]));}
+input('aligned-caustics',true);input('overhead-light',true);input('light-azimuth',43);assert.equal(controls.state.alignedCaustics,true);assert.equal(controls.state.overheadLight,true,'Light sliders must not reset switches');
+function keypress(key,target=document.body,code=''){const e=new window.Event('keydown',{bubbles:true,cancelable:true});Object.assign(e,{key,code,repeat:false});target.dispatchEvent(e);assert.ok(e.defaultPrevented);}
+controls.reset();keypress(' ',$('bitmap-tones'),'Space');assert.equal(controls.state.paused,true);keypress(' ',$('wave-speed'),'Space');assert.equal(controls.state.paused,false);keypress('h');assert.ok(document.body.classList.contains('controls-hidden'));keypress('h');assert.ok(!document.body.classList.contains('controls-hidden'));
+controls.change({dreamy:true,subtle:true,waveSpeed:.7,tone:'night'});const stillSettings={...controls.state};$('clear').click();assert.equal(clears,1);assert.deepEqual(controls.state,stillSettings,'Still only invokes wave clearing');$('reset-defaults').click();assert.deepEqual(controls.state,initial,'Defaults must restore the separate startup preset');
+const beforeInvalid={...controls.state};assert.throws(()=>controls.change({tone:'night',touchForce:NaN}));assert.deepEqual(controls.state,beforeInvalid,'Settings updates must be atomic');
+// Exercise the application clock and clearing methods, not an alternate solver.
+const app=new Puddle();app.controls=controls;app.state=controls.state;app.camera=new THREE.PerspectiveCamera(33,1,0.01,100);app.camera.position.set(0,4.5,0);app.camera.up.set(0,0,-1);app.camera.lookAt(0,0,0);app.camera.updateMatrixWorld();
+let steps=0,normals=0;const drops=[];app.simulationSteps=0;app.water={addDrop:(...v)=>drops.push({values:v,step:app.simulationSteps}),stepSimulation:()=>steps++,updateNormals:()=>normals++,textureA:{},textureB:{}};
+app.openBoundary={apply:()=>{}};app.waveLines={model:{addDrop:()=>{},clear:()=>{}}};app.animating=true;app.lastTime=0;app.accumulator=0;app.gestureQueue=[];app.gestureElapsed=0;app.rainAccumulator=0;app.draw=()=>{};
+app.animate(1000);for(let now=1010;now<=2000;now+=10)app.animate(now);assert.ok(steps>=118&&steps<=120);assert.equal(normals,0,'Neutral advance retains original normal-update schedule');
+controls.state.waveSpeed=.32;steps=0;app.accumulator=0;app.lastTime=0;app.animate(3000);for(let now=3010;now<=4000;now+=10)app.animate(now);assert.equal(steps,38);
+controls.state.dreamy=true;steps=0;app.accumulator=0;app.lastTime=0;app.animate(5000);for(let now=5010;now<=6000;now+=10)app.animate(now);assert.equal(steps,24);
+controls.reset();app.disturb(.1,.1);assert.equal(drops.at(-1).values[2],.038);assert.equal(drops.at(-1).values[3],-.02);controls.state.subtle=true;app.disturb(.1,.1);assert.equal(drops.at(-1).values[3],-.02*.55);
+controls.reset();let replaySamples=0;
+for(const key of ['c','x','/']){
+ const replay=()=>{drops.length=0;app.simulationSteps=0;app.lastTime=0;app.playGesture(key);app.animate(10000);for(let t=10010;t<=12000;t+=10)app.animate(t);return structuredClone(drops);};
+ const first=replay();assert.deepEqual(replay(),first,'Exact gesture samples and solver steps must repeat');replaySamples+=first.length;
+}
+app.gl={getRenderTarget:()=>null,getClearColor:()=>{},getClearAlpha:()=>1,setClearColor:()=>{},setRenderTarget:()=>{},clear:()=>{}};controls.change({tone:'night',dreamy:true,subtle:true,bitmapTones:true,waveSpeed:.45});const beforeClear={...controls.state};Puddle.prototype.clear.call(app);assert.deepEqual(controls.state,beforeClear);assert.equal(app.gestureQueue.length,0);
+console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,sourceClockPreserved:true,sourceTouchForcePreserved:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));
