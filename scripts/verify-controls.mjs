@@ -18,6 +18,9 @@ assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples
 const $=id=>document.getElementById(id);
 const keyFor=id=>id.replace(/-([a-z])/g,(_,c)=>c.toUpperCase());
 let changes=0,clears=0;controls.hooks={change:()=>changes++,clear:()=>clears++,gesture:()=>{}};
+// The page body carries data-tone too; a bubbling click must not re-apply the paper tone,
+// which would undo the switch being clicked before its input event.
+{const before=changes;$('rain').dispatchEvent(new window.Event('click',{bubbles:true}));document.body.dispatchEvent(new window.Event('click',{bubbles:true}));assert.equal(changes,before,'Clicks outside the tone, mode and pattern buttons must not change settings');}
 function input(id,value){const el=$(id);if(el.type==='checkbox')el.checked=value;else el.value=String(value);el.dispatchEvent(new window.Event('input',{bubbles:true}));return el;}
 let cycles=0;
 for(const el of document.querySelectorAll('input[type="checkbox"]')){

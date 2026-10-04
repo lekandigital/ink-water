@@ -24,10 +24,10 @@ export class WaterControls{
       const input=$<HTMLInputElement>(controlId(key));
       input.addEventListener('input',()=>this.change({[key]:Number(input.value)}));
     }
-    document.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(b=>b.addEventListener('click',()=>this.change({mode:b.dataset.mode})));
-    document.querySelectorAll<HTMLButtonElement>('[data-tone]').forEach(b=>b.addEventListener('click',()=>this.change({tone:b.dataset.tone})));
-    document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.addEventListener('click',()=>this.change({bitmapPattern:Number(b.dataset.pattern)})));
-    document.querySelectorAll<HTMLButtonElement>('[data-gesture]').forEach(b=>b.addEventListener('click',()=>this.hooks.gesture(b.dataset.gesture as GestureKey)));
+    document.querySelectorAll<HTMLButtonElement>('button[data-mode]').forEach(b=>b.addEventListener('click',()=>this.change({mode:b.dataset.mode})));
+    document.querySelectorAll<HTMLButtonElement>('button[data-tone]').forEach(b=>b.addEventListener('click',()=>this.change({tone:b.dataset.tone})));
+    document.querySelectorAll<HTMLButtonElement>('button[data-pattern]').forEach(b=>b.addEventListener('click',()=>this.change({bitmapPattern:Number(b.dataset.pattern)})));
+    document.querySelectorAll<HTMLButtonElement>('button[data-gesture]').forEach(b=>b.addEventListener('click',()=>this.hooks.gesture(b.dataset.gesture as GestureKey)));
     $('reset-defaults').addEventListener('click',()=>this.reset());
     $('clear').addEventListener('click',()=>this.hooks.clear());
     $('pause').addEventListener('click',()=>this.change({paused:!this.state.paused}));
@@ -93,9 +93,9 @@ export class WaterControls{
       else text=Math.round(value*(key==='rainForce'?100/motionDefaults.rainForce:key==='touchForce'?100/motionDefaults.touchForce:100))+'%';
       $(key==='lineWeight'?'weight-value':key==='rainRate'?'rain-value':key==='dropSize'?'size-value':controlId(key)+'-value').textContent=text;
     }
-    document.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===this.state.mode)));
-    document.querySelectorAll<HTMLButtonElement>('[data-tone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tone===this.state.tone)));
-    document.querySelectorAll<HTMLButtonElement>('[data-pattern]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.pattern)===this.state.bitmapPattern)));
+    document.querySelectorAll<HTMLButtonElement>('button[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===this.state.mode)));
+    document.querySelectorAll<HTMLButtonElement>('button[data-tone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tone===this.state.tone)));
+    document.querySelectorAll<HTMLButtonElement>('button[data-pattern]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.pattern)===this.state.bitmapPattern)));
     $('style-caption').textContent=labels[this.state.mode];
     $('pause').setAttribute('aria-pressed',String(this.state.paused));
     $('pause-label').textContent=this.state.paused?'Resume':'Pause';
