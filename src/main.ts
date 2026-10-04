@@ -10,8 +10,9 @@ import { CausticPresentation } from './CausticPresentation';
 import { experimentDefaults, printSwitches, waterBitmapSwitches, lightDirection } from './AppearanceExperiments';
 import { WaterControls } from './WaterControls';
 import { type Mode, type WaterSettings } from './StartupSettings';
-import { effectiveMotion, rainImpulse } from './WaterMotion';
+import { effectiveMotion, rainImpulse, selectedWaveSpeed } from './WaterMotion';
 import { WaterPresentation } from './WaterPresentation';
+import { RainWaveLayer } from './RainWaveLayer';
 import { gesturePattern, type GestureKey } from './GesturePatterns';
 import { SunDiscPresentation } from './OpticsPresentation';
 import drawingVert from './shaders/Drawing.vert';
@@ -43,6 +44,8 @@ class Puddle {
   readonly bitmapScene=new THREE.Scene();
   readonly sunDisc=new SunDiscPresentation();
   private waterPresentation?:WaterPresentation;
+  private rainLayer?:RainWaveLayer;
+  private rainLayerActive=false;
   private visualWater?:Water;
   private presentationSpeed=1;
   private pendingDraw=false;
@@ -162,9 +165,15 @@ class Puddle {
 
   draw(){
     this.water.updateNormals(POOL.width,POOL.length);
+    this.drawing.uniforms.waveLines.value=this.waveLines.target.texture;
+    this.drawing.uniforms.waveBands.value=this.waveLines.bandTarget.texture;
     if(this.state.hairlineRipples&&this.state.mode!=='original'){
       const needsBand=this.state.bitmapRipples||this.state.textureReveal||(this.state.caustics&&this.state.alignedCaustics);
       this.waveLines.render(this.gl,this.camera,this.simulationSteps,this.state.lineWeight,needsBand?this.state.revealWidth:0);
+      if(this.rainLayerActive&&this.rainLayer){
+        const drawing=this.rainLayer.renderLines(this.waveLines,this.camera,this.state.lineWeight,needsBand?this.state.revealWidth:0);
+        this.drawing.uniforms.waveLines.value=drawing.lines;this.drawing.uniforms.waveBands.value=drawing.bands;
+      }
     }
     const bitmapActive=this.state.mode!=='original'&&(this.state.causticRipples||this.state.dreamy||this.state.subtle||waterBitmapSwitches.some(key=>this.state[key]));
     // The neutral path presents the original Water object directly, exactly as 0124a47.
@@ -173,6 +182,7 @@ class Puddle {
       this.visualWater.textureA=this.waterPresentation.present(this.gl,this.water,this.accumulator/TICK);
       surface=this.visualWater;
     }
+    if(this.rainLayerActive&&this.rainLayer)surface=this.rainLayer.surface(this.water);
     this.engine.updateObjectTextures(this.scene,this.camera,null);
     const projectedCaustics=this.state.caustics&&!this.state.causticRipples&&(this.state.mode==='original'||!this.state.alignedCaustics);
     const needsFocus=bitmapActive&&(this.state.causticRipples||this.state.causticReveal);
@@ -201,12 +211,21 @@ class Puddle {
     if(bitmapActive){this.gl.setRenderTarget(null);this.gl.render(this.bitmapScene,this.drawingCamera);}
     this.pendingDraw=false;this.renderRevision++;
     this.controls.publish({simulationSteps:this.simulationSteps,renderRevision:this.renderRevision,
-      drawingPipeline:printActive?'print':'normal',bitmapPass:bitmapActive,projectedCaustics});
+      drawingPipeline:printActive?'print':'normal',bitmapPass:bitmapActive,projectedCaustics,
+      touchWaveSpeed:this.motion.speed,rainWaveSpeed:this.rainLayerActive?this.rainLayer?.speed:this.motion.speed,
+      rainSimulationSteps:this.rainLayerActive?this.rainLayer?.simulationSteps:0});
   }
 
   private get motion(){return effectiveMotion(this.state);}
 
   private prepareMotion(){
+    if(this.state.dreamyRainSpeed&&!this.rainLayerActive){
+      if(!this.rainLayer)this.rainLayer=new RainWaveLayer(this.gl);
+      this.rainLayerActive=true;this.accumulator=0;
+    }else if(!this.state.dreamyRainSpeed&&this.rainLayerActive){
+      this.rainLayer?.mergeInto(this.water,this.waveLines,this.simulationSteps);
+      this.rainLayerActive=false;this.accumulator=0;
+    }
     const speed=this.motion.speed;
     if(speed<1&&speed!==this.presentationSpeed){
       if(!this.waterPresentation){
@@ -227,6 +246,7 @@ class Puddle {
     let ticks=0;
     if(!this.state.paused){
       const motion=this.motion;
+      if(this.rainLayerActive)this.rainLayer?.advance(dt,selectedWaveSpeed(this.state));
       this.accumulator+=dt*motion.speed;
       while(this.accumulator>=TICK&&ticks<6){
         // Fixed tick boundaries, path samples and spacing make gesture replays deterministic.
@@ -243,13 +263,14 @@ class Puddle {
           if(this.rainAccumulator>=1){
             this.rainAccumulator-=1;
             const point=this.randomPoint(),drop=rainImpulse(motion.rainForce,motion.scale);
-            this.addDrop(point.x,point.y,drop.radius,drop.strength);
+            if(this.rainLayerActive&&this.rainLayer)this.rainLayer.addDrop(point.x,point.y,drop.radius,drop.strength);
+            else this.addDrop(point.x,point.y,drop.radius,drop.strength);
           }
         }
         this.advance(1);this.accumulator-=TICK;ticks++;
       }
     }
-    if(this.pendingDraw||ticks||(!this.state.paused&&this.motion.speed<1))this.draw();
+    if(this.pendingDraw||ticks||(!this.state.paused&&(this.motion.speed<1||this.rainLayerActive)))this.draw();
     requestAnimationFrame(this.animate);
   };
 
@@ -298,6 +319,7 @@ class Puddle {
     for(const target of [this.water.textureA,this.water.textureB]){this.gl.setRenderTarget(target);this.gl.clear();}
     this.gl.setRenderTarget(previous);this.gl.setClearColor(color,alpha);
     this.waveLines.model.clear();this.gestureQueue=[];this.gestureElapsed=0;
+    this.rainLayer?.clear();
     if(this.waterPresentation){this.water.updateNormals(POOL.width,POOL.length);this.waterPresentation.capture(this.gl,this.water);}
     this.rainAccumulator=0;this.clearRainUntil=performance.now()+1800;this.draw();
   }

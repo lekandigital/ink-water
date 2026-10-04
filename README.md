@@ -42,7 +42,7 @@ Hairline mode uses soft bands around the same continuous concentric wave geometr
 
 The startup preset is separate from the implementation base: Etching, Light paper, Fine line weight (0.68), non-hairline drawing, every Print experiment off, Comic dots, Caustics on, alignment and overhead off, direction 170°, height 90°, glow 200%, rain off with rainfall at minimum, Medium touch (0.038), and simulation running. All later experiments start off. Speed and ripple scale are 100%; rain and touch retain the restored distributions and force.
 
-**Reset to defaults** restores this entire preset. **Still the water** only clears the two heightfield buffers, continuous wave marks, pending gesture and rain disturbance accumulator. It preserves every appearance, light, motion, rain, and pause setting, and temporarily holds rain so the surface can settle.
+**Reset to defaults** restores this entire preset. **Still the water** only clears the heightfields (including the optional independent rain field), continuous wave marks, pending gesture and rain disturbance accumulator. It preserves every appearance, light, motion, rain, and pause setting, and temporarily holds rain so the surface can settle.
 
 ## Bitmap experiments on normal water
 
@@ -61,7 +61,9 @@ These can be combined without enabling Print mode or disabling Caustics. All ope
 
 **Dreamy** slows the source clock and adds soft diffusion. **Subtle** reduces impact force and drawing contrast independently; both can be enabled together. **Gentle motion** gives a further optional slowdown and lighter rain and touch. Sliders independently set wave speed, ripple scale, rain force and touch force. Each 100% value retains the restored behavior; changes only apply when used. Slow motion interpolates previous and current states for viewing in separate buffers. The interpolation never enters the solver and is bypassed at neutral speed.
 
-**Hide reflected sun** is a reversible optional rendering change. When off, the original optical shader is used verbatim.
+**Dreamy rain speed** starts off. Enable it in Motion & force for a smooth, slowly varying rain pace, about 42–86% at neutral speed. Rain uses another instance of the unchanged source solver and boundary, with its own simulation clock. Touch, drag, and deterministic gestures always advance at 100% while this option is on; the existing speed, Dreamy and Gentle motion settings then set the rain pace. Forces, sizes, drawing, bitmap and lighting preferences remain independent. The view adds the two heightfields and recomputes normals from the sum for ordinary drawing and projected caustics. Neither presentation buffer feeds back into the running solvers. Disabling the option merges existing rain waves into the ordinary solver without clearing them. Pause and Still apply to both fields. The neutral/off path retains the original single solver.
+
+**Hide reflected sun** is a reversible optional rendering change and defaults off on fresh load and Reset to defaults. When off, the original optical shader is used verbatim.
 
 The controller binds native `input` events before graphics initialization, commits validated state once and schedules rendering outside the input event. UI changes remain responsive while paused and during loading. Checkbox state is synchronized only when different. There are no silent drawing-mode, alignment, light or slider resets. Read-only `get_water_state` exposes actual application settings; the hidden `water-state` output reports controls and the last rendered pipeline for browser regression checks.
 
@@ -114,6 +116,12 @@ python scripts/verify-bitmap-gpu.py /tmp/water-bitmap-fixtures
 ```
 
 These EGL checks and DOM/controller tests do not substitute for a real WebGL browser visual test.
+
+The independent rain GPU check compiles the new composition shader with the actual fullscreen vertex shader, runs the untouched source solver and boundary for full-speed touch and slower rain, and verifies height/velocity addition, recalculated normals and stroke-mask composition:
+
+```
+python scripts/verify-rain-gpu.py
+```
 
 To regenerate the source drop-response calibration, run `python scripts/generate-wave-profile.py`. The generator executes the original GPU shaders; it never edits them.
 

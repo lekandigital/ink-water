@@ -10,6 +10,8 @@ const source=(await readFile('src/main.ts','utf8')).replace('void start();','exp
 const {outputFiles}=await build({stdin:{contents:source,loader:'ts',resolveDir:process.cwd()+'/src'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
 const {Puddle,THREE,WaterControls,experimentDefaults}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
 const controls=new WaterControls(),initial={...controls.state};
+assert.equal(initial.hideSunDisc,false,'Hide reflected sun must default off');
+assert.equal(initial.dreamyRainSpeed,false,'New rain experiment must default off');
 const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);assert.equal(new Set(ids).size,ids.length,'IDs must be unique');
 assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples','caustics','lightAzimuth','lightElevation','causticsStrength','rain','rainRate','dropSize','paused','waveSpeed','rippleScale','rainForce','touchForce'].map(k=>[k,initial[k]])),{mode:'etching',tone:'paper',lineWeight:.68,hairlineRipples:false,caustics:true,lightAzimuth:170,lightElevation:90,causticsStrength:2,rain:false,rainRate:.2,dropSize:.038,paused:false,waveSpeed:1,rippleScale:1,rainForce:.0095,touchForce:.02});
 const $=id=>document.getElementById(id);
@@ -53,6 +55,20 @@ let recaptures=0;app.waterPresentation={capture:()=>recaptures++};controls.reset
 for(const enabled of [true,false,true]){controls.state.dreamy=enabled;app.accumulator=.01;app.prepareMotion();if(enabled)assert.equal(app.accumulator,0);}
 assert.equal(recaptures,2,'Each slow-motion entry must capture the current surface');
 app.waterPresentation=undefined;
+let rainSeconds=0,rainDrops=0,rainClears=0,rainMerges=0;
+app.rainLayer={advance:seconds=>rainSeconds+=seconds,addDrop:()=>rainDrops++,mergeInto:()=>rainMerges++,clear:()=>rainClears++};
+controls.reset();controls.state.waveSpeed=.4;controls.state.dreamy=true;controls.state.gentleMotion=true;controls.state.dreamyRainSpeed=true;
+app.prepareMotion();assert.equal(app.motion.speed,1);assert.equal(app.rainLayerActive,true);
+controls.state.rain=true;controls.state.rainRate=8;app.randomPoint=()=>new THREE.Vector2(.1,.2);app.clearRainUntil=0;
+steps=0;drops.length=0;app.lastTime=0;app.accumulator=0;app.rainAccumulator=0;
+app.animate(7000);for(let now=7010;now<=8000;now+=10)app.animate(now);
+assert.ok(steps>=118&&steps<=120,'Touch solver must advance at 100% throughout slow rain');
+assert.ok(rainDrops>=7&&rainDrops<=8);assert.equal(drops.length,0,'Rain must enter only the independent rain field');assert.ok(Math.abs(rainSeconds-1)<1e-9);
+controls.state.paused=true;const pausedRainSeconds=rainSeconds;app.animate(8010);assert.equal(rainSeconds,pausedRainSeconds,'Pause must stop the rain clock too');
+controls.state.paused=false;app.disturb(.1,.1);assert.equal(drops.length,1,'Touch must enter only the full-speed field');
+controls.state.dreamyRainSpeed=false;app.waterPresentation={capture:()=>{}};app.prepareMotion();assert.equal(rainMerges,1);assert.equal(app.rainLayerActive,false);
+controls.state.dreamyRainSpeed=true;app.prepareMotion();assert.equal(app.rainLayerActive,true,'The option must work after re-enabling');
+controls.state.dreamyRainSpeed=false;app.prepareMotion();app.waterPresentation=undefined;
 controls.reset();app.disturb(.1,.1);assert.equal(drops.at(-1).values[2],.038);assert.equal(drops.at(-1).values[3],-.02);controls.state.subtle=true;app.disturb(.1,.1);assert.equal(drops.at(-1).values[3],-.02*.55);
 controls.reset();let replaySamples=0;
 for(const key of ['c','x','/']){
@@ -60,4 +76,5 @@ for(const key of ['c','x','/']){
  const first=replay();assert.deepEqual(replay(),first,'Exact gesture samples and solver steps must repeat');replaySamples+=first.length;
 }
 app.gl={getRenderTarget:()=>null,getClearColor:()=>{},getClearAlpha:()=>1,setClearColor:()=>{},setRenderTarget:()=>{},clear:()=>{}};controls.change({tone:'night',dreamy:true,subtle:true,bitmapTones:true,waveSpeed:.45});const beforeClear={...controls.state};Puddle.prototype.clear.call(app);assert.deepEqual(controls.state,beforeClear);assert.equal(app.gestureQueue.length,0);
-console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,sourceClockPreserved:true,sourceTouchForcePreserved:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));
+assert.equal(rainClears,1,'Still the water must clear both wave fields');
+console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,hideSunDefaultOff:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));

@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {build} from 'esbuild';
+import {shaderSource} from '../shader-loader.mjs';
+const {outputFiles}=await build({stdin:{contents:"export {RainWaveLayer} from './src/RainWaveLayer'; export {Water} from './src/Water'; export {ContinuousWaveLines} from './src/ContinuousWaveLines';",resolveDir:process.cwd(),loader:'ts'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shader',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
+const {RainWaveLayer,Water,ContinuousWaveLines}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
+let target=null;const passes=[];
+const gl={capabilities:{isWebGL2:true},extensions:{has:()=>true},getRenderTarget:()=>target,getClearColor:color=>color.set(0),getClearAlpha:()=>1,setClearColor:()=>{},setRenderTarget:value=>{target=value;},clear:()=>{},render:scene=>{
+ const material=scene.children[0].material,uniforms=material.uniforms;
+ // Reading the same texture that is being written causes real GPU corruption.
+ for(const uniform of Object.values(uniforms))assert.notEqual(uniform.value,target?.texture,'Framebuffer feedback loop');
+ passes.push({fragment:material.fragmentShader,inputs:Object.fromEntries(Object.entries(uniforms).map(([k,v])=>[k,v.value])),output:target});
+}};
+const touch=new Water(gl),layer=new RainWaveLayer(gl),lines=new ContinuousWaveLines();
+assert.equal(layer.simulationSteps,0);
+layer.addDrop(.12,.2,.023,-.0095);const initialPasses=passes.length;
+for(let i=0;i<60;i++)layer.advance(1/60,1);
+assert.ok(layer.simulationSteps>=66&&layer.simulationSteps<=70,'Rain starts with a gentle slower pace');
+const sourceShader=await shaderSource('src/shaders/WaveSimulation.frag');
+const sourceSteps=passes.slice(initialPasses).filter(p=>p.fragment===sourceShader);
+assert.equal(sourceSteps.length,layer.simulationSteps,'Every rain step must execute the original source shader');
+const simulationBefore=layer.simulationSteps;
+const surface=layer.surface(touch);assert.equal(surface,layer.combined);
+assert.equal(layer.simulationSteps,simulationBefore,'Composing a view must never advance physics');
+const sum=passes.at(-2);assert.equal(sum.inputs.touchWater,touch.textureA.texture);assert.ok(sum.inputs.rainWater);assert.equal(sum.inputs.joinStrokes,false);
+assert.equal(passes.at(-1).inputs.tInput,sum.output.texture,'Normals must be recomputed from the combined heightfield');
+const beforeTouch=touch.textureA,beforeMerge=passes.length,mergeTarget=touch.textureB;
+layer.mergeInto(touch,lines,120);assert.equal(passes[beforeMerge+1].inputs.touchWater,beforeTouch.texture);assert.equal(passes[beforeMerge+1].output,mergeTarget);assert.equal(layer.simulationSteps,0);
+assert.ok(lines.model.strokes(120).length>0,'Disabling the option must retain existing hairline waves');
+layer.addDrop(-.2,.3,.023,-.0095);layer.advance(.1,.5);assert.ok(layer.simulationSteps>0,'Re-entry must run again');
+layer.clear();assert.equal(layer.simulationSteps,0);assert.equal(layer.lines.model.strokes(0).length,0);
+console.log(JSON.stringify({originalSolverInRainLayer:true,rainStepCount:simulationBefore,noFramebufferFeedback:true,combinedNormals:true,mergePreservesWaves:true,reentryAndClear:true}));
