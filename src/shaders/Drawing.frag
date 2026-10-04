@@ -11,17 +11,18 @@ uniform vec3 ink;
 uniform float lineWeight;
 uniform int mode;
 uniform bool sourceGeometry;
-varying vec2 coord;
+in vec2 coord;
+out vec4 fragColor;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float luminance(vec3 c){return dot(c,vec3(0.2126,0.7152,0.0722));}
-float greyAt(vec2 uv){ float l=luminance(texture2D(sceneColor,uv).rgb);return l/(1.0+l); }
+float greyAt(vec2 uv){ float l=luminance(texture(sceneColor,uv).rgb);return l/(1.0+l); }
 vec4 bilinearState(vec2 uv){
   const vec2 delta=vec2(1.0/256.0);
   vec2 q=clamp(uv,delta*0.5,1.0-delta*0.5)/delta-0.5,i=floor(q),f=fract(q),a=(i+0.5)*delta;
-  return mix(mix(texture2D(water,a),texture2D(water,a+vec2(delta.x,0)),f.x),mix(texture2D(water,a+vec2(0,delta.y)),texture2D(water,a+delta),f.x),f.y);
+  return mix(mix(texture(water,a),texture(water,a+vec2(delta.x,0)),f.x),mix(texture(water,a+vec2(0,delta.y)),texture(water,a+delta),f.x),f.y);
 }
 void main(){
-  vec4 original=texture2D(sceneColor,coord);
+  vec4 original=texture(sceneColor,coord);
   float alpha=original.a;
   float grain=(hash(floor(gl_FragCoord.xy))-0.5)*0.004;
   vec3 color=paper+grain;
@@ -37,7 +38,7 @@ void main(){
     alpha*=1.0-smoothstep(-aa,aa,sd);
     outline=(1.0-smoothstep(aa*0.5,aa*1.5,abs(sd)))*0.4;
   }
-  if(mode==3){gl_FragColor=vec4(mix(paper,original.rgb,alpha),1.0);return;}
+  if(mode==3){fragColor=vec4(mix(paper,original.rgb,alpha),1.0);return;}
   vec2 waterUV=p/poolSize*0.5+0.5;
   vec4 state=bilinearState(waterUV);
   // Height contours and slopes come from the same texture used by the original mesh.
@@ -67,8 +68,8 @@ void main(){
   color=mix(color,drawn,alpha);
   color=mix(color,ink,outline);
   // A delicate rim follows the actual geometry's alpha, never a replacement outline.
-  float coverage=(texture2D(sceneColor,coord+pixel*vec2(1,0)).a+texture2D(sceneColor,coord-pixel*vec2(1,0)).a+texture2D(sceneColor,coord+pixel*vec2(0,1)).a+texture2D(sceneColor,coord-pixel*vec2(0,1)).a)*0.25;
+  float coverage=(texture(sceneColor,coord+pixel*vec2(1,0)).a+texture(sceneColor,coord-pixel*vec2(1,0)).a+texture(sceneColor,coord+pixel*vec2(0,1)).a+texture(sceneColor,coord-pixel*vec2(0,1)).a)*0.25;
   float rim=sourceGeometry ? abs(alpha-coverage) : 0.0;
   color=mix(color,ink,rim*0.33);
-  gl_FragColor=vec4(clamp(color,0.0,1.0),1.0);
+  fragColor=vec4(clamp(color,0.0,1.0),1.0);
 }
