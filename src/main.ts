@@ -183,8 +183,8 @@ class Puddle {
     const {mode,tone,lineWeight,sourceGeometry}=this.state;
     document.body.dataset.tone=tone;
     // Exact RGB grayscale values; no warm tint is introduced by color management.
-    this.drawing.uniforms.paper.value.set(tones[tone].paper,THREE.LinearSRGBColorSpace);
-    this.drawing.uniforms.ink.value.set(tones[tone].ink,THREE.LinearSRGBColorSpace);
+    this.drawing.uniforms.paper.value.setHex(tones[tone].paper,THREE.LinearSRGBColorSpace);
+    this.drawing.uniforms.ink.value.setHex(tones[tone].ink,THREE.LinearSRGBColorSpace);
     this.drawing.uniforms.mode.value=modes[mode];this.drawing.uniforms.lineWeight.value=lineWeight;
     this.drawing.uniforms.sourceGeometry.value=sourceGeometry;
     for(const mesh of [this.engine.getPoolMesh(),this.engine.getWaterMesh(),this.engine.getWaterMeshBack()]){
