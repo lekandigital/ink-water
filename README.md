@@ -89,6 +89,8 @@ npm run build    # static site in dist/
 
 Restoration history, the exact-base file hashes, the open-water boundary, the rain field, shader details and the full test suite are in [docs/technical-notes.md](docs/technical-notes.md).
 
+The one-song music-synchronized rain experiment, playback instructions and artistic score are documented in [docs/marumari-rain.md](docs/marumari-rain.md). Music Sync is Off by default.
+
 ## Credits
 
 - **Original WebGL Water** — [Evan Wallace](https://madebyevan.com/), 2010 ([demo](https://madebyevan.com/webgl-water/), [source](https://github.com/evanw/webgl-water))

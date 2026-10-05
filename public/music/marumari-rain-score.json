@@ -1,0 +1,413 @@
+{
+  "version": 1,
+  "artist": "Marumari",
+  "title": "birch beer forest",
+  "duration": 211.487,
+  "seed": 20261005,
+  "source": {
+    "recording": "marumari-birch-beer-forest.mp3",
+    "recordingSha256": "b54ef768ef66e81611e2f05cd2dc8317bdf173206d066bc215f3db65812bf29e",
+    "analysis": "marumari-full-analysis.json",
+    "analysisSha256": "ea8d0909ba03a81a451c168594d35be8d3fe2d5b19fca51f2c8e2a9d65c7234b"
+  },
+  "interpretation": "Authored sections and selected accents shape irregular physical rainfall. Timing is repeatable; positions and the original per-drop radius/force variation remain generative.",
+  "units": {
+    "density": "mean physical drops per second before bounded analysis modulation",
+    "strength": "multiplier on the existing rain-force control",
+    "scale": "multiplier on the existing rain radius distribution and ripple-scale control",
+    "pulse": "depth of a smooth beat-phase modulation of background density, not one drop per beat",
+    "bias": "small normalized broad x/z attraction of otherwise random rain positions"
+  },
+  "sections": [
+    {
+      "name": "Still opening",
+      "start": 0,
+      "end": 8,
+      "density": [
+        0,
+        0
+      ],
+      "strength": [
+        0.5,
+        0.5
+      ],
+      "scale": [
+        0.65,
+        0.65
+      ],
+      "pulse": 0,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "A real pause in rainfall; low-energy brightness artifacts do not trigger drops."
+    },
+    {
+      "name": "First flecks",
+      "start": 8,
+      "end": 18,
+      "density": [
+        0.045,
+        0.12
+      ],
+      "strength": [
+        0.5,
+        0.62
+      ],
+      "scale": [
+        0.65,
+        0.72
+      ],
+      "pulse": 0,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "A few small, widely separated impacts as the opening becomes audible."
+    },
+    {
+      "name": "Gathering",
+      "start": 18,
+      "end": 36.525,
+      "density": [
+        0.12,
+        0.3
+      ],
+      "strength": [
+        0.62,
+        0.76
+      ],
+      "scale": [
+        0.72,
+        0.88
+      ],
+      "pulse": 0,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "Gradually gather rain, then briefly clear space before the rhythm enters."
+    },
+    {
+      "name": "Rhythm arrives",
+      "start": 36.525,
+      "end": 62.113,
+      "density": [
+        0.68,
+        0.82
+      ],
+      "strength": [
+        0.84,
+        0.9
+      ],
+      "scale": [
+        0.92,
+        0.86
+      ],
+      "pulse": 0.28,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "The bass-rich rhythmic body receives irregular showers, with a gentle rate pulse rather than beat-triggered drops."
+    },
+    {
+      "name": "Moving detail",
+      "start": 62.113,
+      "end": 98.522,
+      "density": [
+        0.82,
+        0.76
+      ],
+      "strength": [
+        0.78,
+        0.82
+      ],
+      "scale": [
+        0.8,
+        0.76
+      ],
+      "pulse": 0.22,
+      "bias": [
+        -0.12,
+        0.08
+      ],
+      "note": "Brighter activity gets smaller impacts and a restrained drift across the water."
+    },
+    {
+      "name": "Dark pocket",
+      "start": 98.522,
+      "end": 118.422,
+      "density": [
+        0.47,
+        0.62
+      ],
+      "strength": [
+        0.95,
+        1.02
+      ],
+      "scale": [
+        1.03,
+        1.05
+      ],
+      "pulse": 0.32,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "Make room in the darker bass-rich passage; fewer, heavier drops. The isolated 118.422 onset has a longer anticipation."
+    },
+    {
+      "name": "Fine shower",
+      "start": 118.422,
+      "end": 141.735,
+      "density": [
+        0.98,
+        1.05
+      ],
+      "strength": [
+        0.86,
+        0.91
+      ],
+      "scale": [
+        0.8,
+        0.76
+      ],
+      "pulse": 0.32,
+      "bias": [
+        -0.16,
+        -0.07
+      ],
+      "note": "Higher onset activity brings a finer, busier shower; most attacks still receive no event."
+    },
+    {
+      "name": "Brighter crest",
+      "start": 141.735,
+      "end": 158.243,
+      "density": [
+        1.12,
+        1.18
+      ],
+      "strength": [
+        0.91,
+        0.96
+      ],
+      "scale": [
+        0.72,
+        0.8
+      ],
+      "pulse": 0.28,
+      "bias": [
+        0.16,
+        0.07
+      ],
+      "note": "A brighter late passage carries small, sharp rain around selected heavier anchors."
+    },
+    {
+      "name": "Full body",
+      "start": 158.243,
+      "end": 181.835,
+      "density": [
+        1.08,
+        0.88
+      ],
+      "strength": [
+        1.02,
+        0.91
+      ],
+      "scale": [
+        0.94,
+        0.98
+      ],
+      "pulse": 0.34,
+      "bias": [
+        0.06,
+        -0.1
+      ],
+      "note": "The higher-energy late body is sustained rather than mapped directly to loudness."
+    },
+    {
+      "name": "Rhythm recedes",
+      "start": 181.835,
+      "end": 199.204,
+      "density": [
+        0.42,
+        0.19
+      ],
+      "strength": [
+        0.72,
+        0.52
+      ],
+      "scale": [
+        0.77,
+        0.63
+      ],
+      "pulse": 0,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "The tracked rhythm and low-frequency body disappear; let sparse drops and existing waves breathe."
+    },
+    {
+      "name": "Dissolving",
+      "start": 199.204,
+      "end": 208,
+      "density": [
+        0.15,
+        0
+      ],
+      "strength": [
+        0.49,
+        0.3
+      ],
+      "scale": [
+        0.6,
+        0.5
+      ],
+      "pulse": 0,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "Taper toward stillness with the recording, while existing physical waves keep fading."
+    },
+    {
+      "name": "Tail stillness",
+      "start": 208,
+      "end": 211.487,
+      "density": [
+        0,
+        0
+      ],
+      "strength": [
+        0.3,
+        0.3
+      ],
+      "scale": [
+        0.5,
+        0.5
+      ],
+      "pulse": 0,
+      "bias": [
+        0,
+        0
+      ],
+      "note": "No new rain in the silent tail."
+    }
+  ],
+  "accents": [
+    {
+      "time": 36.525,
+      "strength": 1.4,
+      "scale": 1.32,
+      "anticipation": 0.55,
+      "quiet": 0.94,
+      "note": "First tracked beat after a 3.669-second onset gap; establish the rhythmic entrance."
+    },
+    {
+      "time": 53.592,
+      "strength": 1.28,
+      "scale": 1.24,
+      "anticipation": 0.2,
+      "quiet": 0.8,
+      "note": "A bass-rich early anchor; leave intervening percussion alone."
+    },
+    {
+      "time": 62.113,
+      "strength": 1.2,
+      "scale": 1.16,
+      "anticipation": 0.2,
+      "quiet": 0.78,
+      "note": "Mark the next phase without changing the underlying ripple style."
+    },
+    {
+      "time": 80.318,
+      "strength": 1.2,
+      "scale": 1.12,
+      "anticipation": 0.2,
+      "quiet": 0.78,
+      "note": "A sharper mid-body accent surrounded by finer rain."
+    },
+    {
+      "time": 98.522,
+      "strength": 1.32,
+      "scale": 1.28,
+      "anticipation": 0.3,
+      "quiet": 0.86,
+      "note": "Open the darker, more spacious pocket."
+    },
+    {
+      "time": 109.32,
+      "strength": 1.35,
+      "scale": 1.3,
+      "anticipation": 0.24,
+      "quiet": 0.86,
+      "note": "A strong low-band accent, not another visual beat marker."
+    },
+    {
+      "time": 118.422,
+      "strength": 1.5,
+      "scale": 1.38,
+      "anticipation": 0.75,
+      "quiet": 0.96,
+      "note": "Strong onset after a 1.974-second gap. Clear rain briefly so this impact can land alone."
+    },
+    {
+      "time": 137.183,
+      "strength": 1.24,
+      "scale": 1.15,
+      "anticipation": 0.2,
+      "quiet": 0.8,
+      "note": "A bright late-body anchor."
+    },
+    {
+      "time": 141.735,
+      "strength": 1.3,
+      "scale": 1.2,
+      "anticipation": 0.28,
+      "quiet": 0.86,
+      "note": "Transition into the brighter crest."
+    },
+    {
+      "time": 150.256,
+      "strength": 1.52,
+      "scale": 1.36,
+      "anticipation": 0.3,
+      "quiet": 0.9,
+      "note": "The selected onset has strong low-band energy despite the surrounding brightness."
+    },
+    {
+      "time": 154.831,
+      "strength": 1.37,
+      "scale": 1.27,
+      "anticipation": 0.24,
+      "quiet": 0.84,
+      "note": "A second heavier anchor, with restrained supporting drops."
+    },
+    {
+      "time": 173.314,
+      "strength": 1.32,
+      "scale": 1.25,
+      "anticipation": 0.26,
+      "quiet": 0.84,
+      "note": "One late-body anchor before the rhythmic departure."
+    },
+    {
+      "time": 181.835,
+      "strength": 0.94,
+      "scale": 0.94,
+      "anticipation": 0.32,
+      "quiet": 0.88,
+      "note": "A light departure mark as the bass-rich body recedes."
+    },
+    {
+      "time": 195.233,
+      "strength": 0.66,
+      "scale": 0.7,
+      "anticipation": 0.24,
+      "quiet": 0.82,
+      "note": "One isolated small drop in the receding texture."
+    }
+  ]
+}

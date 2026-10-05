@@ -1,0 +1,14 @@
+
+Marumari - birch beer forest (Official Music Video).mp3
+duration: 211.5s
+
+Top 12.5-second candidates:
+
+1. 2:04.00 → 2:16.50    score=0.662
+2. 2:34.75 → 2:47.25    score=0.660
+3. 2:45.25 → 2:57.75    score=0.656
+4. 2:14.00 → 2:26.50    score=0.655
+5. 2:25.75 → 2:38.25    score=0.646
+6. 1:55.50 → 2:08.00    score=0.635
+7. 1:18.25 → 1:30.75    score=0.614
+8. 1:04.75 → 1:17.25    score=0.612

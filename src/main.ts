@@ -18,6 +18,8 @@ import { SunDiscPresentation } from './OpticsPresentation';
 import { UnderwaterLineDrawing } from './UnderwaterLines';
 import { FloorLinePresentation } from './FloorLinePresentation';
 import { CaptureClock, captureOptions, exposeCapture } from './CaptureMode';
+import { MusicRainPlayer } from './music/MusicRainPlayer';
+import type { MusicRainClock } from './music/MarumariRainScheduler';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
 import printDrawingFrag from './shaders/DrawingExperiments.frag';
@@ -50,6 +52,7 @@ class Puddle {
   private waterPresentation?:WaterPresentation;
   private rainLayer?:RainWaveLayer;
   private rainLayerActive=false;
+  private musicRain?:MusicRainClock;
   private referenceDrawing?:UnderwaterLineDrawing;
   private visualWater?:Water;
   private presentationSpeed=1;
@@ -259,6 +262,11 @@ class Puddle {
     if(!this.state.paused){
       const motion=this.motion;
       if(this.rainLayerActive)this.rainLayer?.advance(dt,selectedWaveSpeed(this.state));
+      // Audio time schedules impacts once per displayed frame. The existing
+      // solvers, their clocks, and the renderer remain in charge of the waves.
+      if(this.musicRain?.enabled){
+        for(const drop of this.musicRain.updateMusicRain())if(now>this.clearRainUntil)this.emitRain(drop.strength,drop.scale,drop.bias);
+      }
       this.accumulator+=dt*motion.speed;
       while(this.accumulator>=TICK&&ticks<6){
         // Fixed tick boundaries, path samples and spacing make gesture replays deterministic.
@@ -270,13 +278,11 @@ class Puddle {
           }
         }
         // Preserve the restored rain clock, random sample order and force distribution.
-        if(this.state.rain&&now>this.clearRainUntil){
+        if(!this.musicRain?.enabled&&this.state.rain&&now>this.clearRainUntil){
           this.rainAccumulator+=TICK*this.state.rainRate;
           if(this.rainAccumulator>=1){
             this.rainAccumulator-=1;
-            const point=this.randomPoint(),drop=rainImpulse(motion.rainForce,motion.scale);
-            if(this.rainLayerActive&&this.rainLayer)this.rainLayer.addDrop(point.x,point.y,drop.radius,drop.strength);
-            else this.addDrop(point.x,point.y,drop.radius,drop.strength);
+            this.emitRain();
           }
         }
         this.advance(1);this.accumulator-=TICK;ticks++;
@@ -287,6 +293,22 @@ class Puddle {
   };
 
   inside(x:number,z:number,margin=0){return insideWater(x,z,margin);}
+
+  setMusicRain(clock:MusicRainClock){this.musicRain=clock;clock.setSimulationPaused(this.state.paused);}
+
+  // Both ordinary rain and music use this same physical impact path. At neutral
+  // multipliers, the random sample order and restored distribution are identical.
+  private emitRain(strength=1,scale=1,bias:[number,number]=[0,0]){
+    const motion=this.motion,point=this.randomPoint();
+    if(bias[0]||bias[1]){
+      const rect=$('stage').getBoundingClientRect(),aspect=rect.width/Math.max(1,rect.height);
+      point.x=.82*point.x+.7*bias[0]*(.94*Math.min(1,aspect)*.93);
+      point.y=.82*point.y+.7*bias[1]*(.94/Math.max(1,aspect)*.93);
+    }
+    const drop=rainImpulse(motion.rainForce*strength,motion.scale*scale);
+    if(this.rainLayerActive&&this.rainLayer)this.rainLayer.addDrop(point.x,point.y,drop.radius,drop.strength);
+    else this.addDrop(point.x,point.y,drop.radius,drop.strength);
+  }
 
   private addDrop(x:number,z:number,radius:number,strength:number){
     // Identical impacts and simulation clock drive the original surface and its
@@ -332,11 +354,13 @@ class Puddle {
     this.gl.setRenderTarget(previous);this.gl.setClearColor(color,alpha);
     this.waveLines.model.clear();this.gestureQueue=[];this.gestureElapsed=0;
     this.rainLayer?.clear();
+    this.musicRain?.rebase();
     if(this.waterPresentation){this.water.updateNormals(POOL.width,POOL.length);this.waterPresentation.capture(this.gl,this.water);}
     this.rainAccumulator=0;this.clearRainUntil=performance.now()+1800;this.draw();
   }
 
   applyAppearance(render=true){
+    this.musicRain?.setSimulationPaused(this.state.paused);
     this.prepareMotion();
     const {mode,tone,lineWeight,sourceGeometry,hairlineRipples,caustics}=this.state;
     document.body.dataset.tone=tone;
@@ -414,6 +438,9 @@ async function start(){
     sky.flipY=true;sky.colorSpace=THREE.NoColorSpace;sky.minFilter=sky.magFilter=THREE.LinearFilter;sky.generateMipmaps=false;
     const app=new Puddle(tile,sky,controls);
     (window as Window&{puddle?:Puddle}).puddle=app;
+    const music=new MusicRainPlayer(state=>controls.publish(state));
+    app.setMusicRain(music);
+    controls.hooks.reset=()=>{void music.setEnabled(false);};
     if(clock)exposeCapture(app,controls,clock);
   }catch(error){
     $('loading').hidden=true;

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "tsc --noEmit",
-    "test": "node scripts/verify-input.mjs && node scripts/verify-shader-integration.mjs && node scripts/verify-palette.mjs && node scripts/verify-continuous-waves.mjs && node scripts/verify-experiments.mjs && node scripts/verify-motion.mjs && node scripts/verify-rain-layer.mjs && node scripts/verify-presentation.mjs && node scripts/verify-controls.mjs && node scripts/verify-restored-base.mjs",
+    "test": "node scripts/verify-input.mjs && node scripts/verify-shader-integration.mjs && node scripts/verify-palette.mjs && node scripts/verify-continuous-waves.mjs && node scripts/verify-experiments.mjs && node scripts/verify-motion.mjs && node scripts/verify-rain-layer.mjs && node scripts/verify-presentation.mjs && node scripts/verify-controls.mjs && node scripts/verify-restored-base.mjs && node scripts/verify-music-rain.mjs",
     "dev": "vite --host 0.0.0.0 --port 4173 --strictPort",
     "social": "node scripts/social/capture.mjs"
   },

@@ -6,7 +6,7 @@ const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(
 const labels={'ink-wash':'Ink wash',etching:'Etching',graphite:'Graphite',original:'Original'};
 export const switchKeys=['hairlineRipples','caustics','rain',...experimentSwitches] as const;
 export const ranges={lineWeight:{min:.35,max:1.25},rainRate:{min:.2,max:8},dropSize:{min:.012,max:.065},...experimentRanges,...motionRanges};
-type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void};
+type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void;reset?:()=>void};
 
 // A single state owner, bound before graphics initialization. Native input events
 // commit state once; GPU work runs later, outside the checkbox's click transaction.
@@ -63,7 +63,7 @@ export class WaterControls{
     Object.assign(this.state,updates);
     this.sync();this.hooks.change();
   }
-  reset(){Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();this.hooks.change();}
+  reset(){Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();this.hooks.reset?.();this.hooks.change();}
   toggleVisibility(){
     const hidden=document.body.classList.toggle('controls-hidden');
     $('toggle-controls').setAttribute('aria-expanded',String(!hidden));

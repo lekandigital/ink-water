@@ -10,3 +10,12 @@ button,input{font:inherit}button{color:inherit;cursor:pointer;touch-action:manip
 @media(max-width:700px){.masthead{padding:20px;align-items:flex-start}.identity{display:block}h1{font-size:2.2rem}.byline{display:block;margin-top:5px}.header-actions{gap:14px}.view-label{display:none}.controls{right:16px;top:100px;width:262px;max-height:calc(100svh - 164px);padding:19px}.footnote{left:20px;right:20px;bottom:19px}.keyboard-hint{display:none}}@media(max-width:370px){.byline{display:none}.header-actions{font-size:.75rem;gap:11px}.controls{width:240px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.loading-ring{animation:none}}
 .capture .masthead,.capture .controls,.capture .footnote{display:none}.capture .stage canvas{cursor:none}
+#music-audio{display:block;width:100%;height:38px;margin:12px 0;color-scheme:light}
+body[data-tone="night"] #music-audio{color-scheme:dark}
+.music-title{margin-bottom:4px}
+.music-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.music-actions .reset-button{width:auto;margin:0}
+.music-actions output{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.music-switch{min-width:44px;padding:5px 8px;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--text);font:inherit;font-size:11px;cursor:pointer}
+.music-switch[aria-checked="true"]{background:var(--selected);color:var(--on-selected)}
+.music-switch:disabled{opacity:.45;cursor:wait}
