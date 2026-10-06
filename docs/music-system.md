@@ -50,9 +50,12 @@ The default playlist is `PLTab0IXtn0Nw`. After an explicit Play click, the app l
 
 At readiness, `getPlaylist()` supplies actual video IDs. The app compares them to the explicit source manifest and reports missing expected tracks, unexpected IDs, duplicate IDs and exact order differences in “Playback source check” and the published state. The cinematic order stays unchanged. Reorder YouTube later without changing scores: current **video identity**, not queue position or title, chooses its score.
 
-The player remains visible with a viewport of at least 200×200; custom controls sit adjacent to it. Closing Music destroys the embed. `H` hides the water controls without hiding a playing YouTube player. Capture URLs disallow YouTube playback. Autoplay blocking asks the user to press the actual player's Play control. Errors 100/101/150 mark the actual rejected video unavailable and advance through the native playlist; omitted private items appear as missing expected IDs. Other errors are shown without fabricating rain. At the last item the playlist ends cleanly; Play returns to its first item. The native End event is allowed to settle before any manual advance to avoid double skipping.
+Music opens as a small translucent card with Play/Pause, Next, elapsed/total time and Expand. Before Play there is no empty video rectangle. Once connected, compact mode keeps a visible 200×200 YouTube viewport; Expand enlarges the player and reveals track selection, previous/restart/highlight, rain sync and source diagnostics. Only the surrounding card is translucent; the iframe is opaque and unobscured. Expansion never recreates the player, resets its clock or changes water settings. Details scroll independently so they cannot scroll the player out of the card.
+
+The header Music button expands/collapses an open card. “Stop and hide music” destroys the embed before hiding it. `H` hides the water controls without hiding a playing YouTube player. YouTube does not permit invisible/background-only playback; the compact card is the smallest visible alternative. Capture URLs disallow YouTube playback. Autoplay blocking asks the user to press the actual player's Play control. Errors 100/101/150 mark the actual rejected video unavailable and advance through the native playlist; omitted private items appear as missing expected IDs. Other errors are shown without fabricating rain. At the last item the playlist ends cleanly; Play returns to its first item. The native End event is allowed to settle before any manual advance to avoid double skipping.
 
 Official API and embed requirements: https://developers.google.com/youtube/iframe_api_reference
+Player visibility/background-playback policy: https://developers.google.com/youtube/terms/developer-policies
 
 ## Master clock, seeks and source offsets
 
@@ -74,11 +77,11 @@ The runtime seeks to the source start on native item changes and advances manual
 
 ## Normal water and tones
 
-Music starts Off. Opening the panel does not change the water. Play prefers Green Light only if the user has not deliberately chosen another tone in that session. All five tones remain available; leaving an automatic Green Light music session restores the prior tone. The existing default remains Dark/comic bitmap. Music does not reset switches, lighting, motion controls, rain force, touch force, camera, render modes or geometry. Rain Sync Off resumes normal rain scheduling while audio can continue. Closing Music leaves ordinary Ink Water behavior intact. Still the water clears waves only; it does not restart the song or reset settings.
+Music starts Off. Opening, playing, expanding, collapsing or closing Music never changes the current palette. The existing default remains Dark/comic bitmap. A five-swatch Color picker is always available outside the technical controls; it and the existing Paper row share the same `WaterControls` state and stay synchronized. All five palettes work in and out of music mode. The manifest's preferred tone is an artistic recommendation, not an automatic UI override. Music does not reset switches, lighting, motion controls, rain force, touch force, camera, render modes or geometry. Rain Sync Off resumes normal rain scheduling while audio can continue. Closing Music leaves ordinary Ink Water behavior intact. Still the water clears waves only; it does not restart the song or reset settings.
 
-## Local reference playback
+## Reference recordings and development
 
-Start `npm run dev` and open `?music-dev=1`. Open Music, choose the numbered reference MP3s in “Reference recordings,” and press Play. File hashes must match the 32 analyzed references. Blob URLs stay in the browser; no upload, public-folder copy or production audio request occurs. The audio element's `currentTime` directly supplies score time; native audio controls provide seek, pause and resume. Next/previous follow the cinematic data order in this local transport.
+The application plays YouTube only. The reference-recording chooser, HTML audio player and local-file playback transport have been removed, including from old `?music-dev=1` URLs. The original full-song analyses remain intact as timing evidence. Deterministic development playback uses the synthetic score clock below and does not play an MP3 in the application.
 
 Local audio is ignored by Git. The build rejects MP3/WAV/FLAC/M4A/OGG/AAC files in `public` or build output. Never add recordings to `public`, `data`, `dist` or commits. The older experiment branch is not merged; its historical audio assets are absent from this branch's tree.
 

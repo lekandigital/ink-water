@@ -23,6 +23,9 @@ let changes=0,clears=0;controls.hooks={change:()=>changes++,clear:()=>clears++,g
 {const before=changes;$('rain').dispatchEvent(new window.Event('click',{bubbles:true}));document.body.dispatchEvent(new window.Event('click',{bubbles:true}));assert.equal(changes,before,'Clicks outside the tone, mode and pattern buttons must not change settings');}
 function input(id,value){const el=$(id);if(el.type==='checkbox')el.checked=value;else el.value=String(value);el.dispatchEvent(new window.Event('input',{bubbles:true}));return el;}
 const toneButtons=[...document.querySelectorAll('button[data-tone]')];
+const quickTones=[...document.querySelectorAll('button[data-quick-tone]')];
+assert.deepEqual(quickTones.map(b=>b.dataset.quickTone),['paper','silver','night','green-light','green-dark']);
+assert.equal($('quick-tones').closest('#controls'),null,'The quick palette must be available outside technical controls');
 assert.deepEqual(toneButtons.map(b=>b.dataset.tone),['paper','silver','night','green-light','green-dark']);
 assert.deepEqual(toneButtons.map(b=>b.textContent),['Light','Silver','Dark','Green Light','Green Dark']);
 const icon=document.querySelector('link[rel="icon"]'),theme=document.querySelector('meta[name="theme-color"]');
@@ -31,7 +34,7 @@ for(const tone of ['green-light','green-dark','paper','silver','night','green-da
  const before={...controls.state};toneButtons.find(b=>b.dataset.tone===tone).click();
  assert.equal(controls.state.tone,tone);assert.equal(document.body.dataset.tone,tone);
  assert.equal(JSON.parse($('water-state').textContent).tone,tone);
- for(const button of toneButtons)assert.equal(button.getAttribute('aria-pressed'),String(button.dataset.tone===tone));
+ for(const button of [...toneButtons,...quickTones])assert.equal(button.getAttribute('aria-pressed'),String((button.dataset.tone??button.dataset.quickTone)===tone));
  for(const [key,value] of Object.entries(before))if(key!=='tone')assert.equal(controls.state[key],value,'A palette change must preserve every water setting');
  if(tone.startsWith('green-')){
   const paper=tone==='green-light'?'#aacdb2':'#144a32',ink=tone==='green-light'?'#144a32':'#aacdb2';
@@ -39,6 +42,14 @@ for(const tone of ['green-light','green-dark','paper','silver','night','green-da
   const href=icon.getAttribute('href');input('wave-speed',.87);input('bitmap-tones',false);input('bitmap-tones',true);
   assert.equal(controls.state.tone,tone);assert.equal(icon.getAttribute('href'),href,'Unrelated controls must not disturb browser chrome');assert.equal(controls.state.waveSpeed,.87);
  }else assert.deepEqual({icon:icon.getAttribute('href'),color:theme.content},originalChrome,'Returning to an existing tone must restore the original browser chrome');
+}
+for(const tone of ['paper','silver','night','green-light','green-dark','night']){
+ const before={...controls.state};assert.ok(document.body.classList.contains('controls-hidden'));
+ quickTones.find(b=>b.dataset.quickTone===tone).click();assert.equal(controls.state.tone,tone);
+ assert.equal(document.body.dataset.tone,tone);assert.equal(JSON.parse($('water-state').textContent).tone,tone);
+ for(const b of [...toneButtons,...quickTones])assert.equal(b.getAttribute('aria-pressed'),String((b.dataset.tone??b.dataset.quickTone)===tone));
+ for(const [key,value] of Object.entries(before))if(key!=='tone')assert.equal(controls.state[key],value,'Quick colors preserve every other setting');
+ assert.ok(document.body.classList.contains('controls-hidden'),'Quick colors must not open the technical panel');
 }
 controls.reset();assert.equal(controls.state.tone,'night');assert.deepEqual({icon:icon.getAttribute('href'),color:theme.content},originalChrome);
 const beforeBadTone={...controls.state};assert.throws(()=>controls.change({tone:'toString'}));assert.deepEqual(controls.state,beforeBadTone,'Invalid inherited property names are not tones');

@@ -6,6 +6,7 @@ import {tones} from './DrawingPalette';
 import {syncToneChrome} from './ToneChrome';
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const labels={'ink-wash':'Ink wash',etching:'Etching',graphite:'Graphite',original:'Original'};
+const toneButtons='button[data-tone],button[data-quick-tone]';
 export const switchKeys=['hairlineRipples','caustics','rain',...experimentSwitches] as const;
 export const ranges={lineWeight:{min:.35,max:1.25},rainRate:{min:.2,max:8},dropSize:{min:.012,max:.065},...experimentRanges,...motionRanges};
 type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void};
@@ -14,7 +15,6 @@ type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void};
 // commit state once; GPU work runs later, outside the checkbox's click transaction.
 export class WaterControls{
   readonly state:WaterSettings=startupSettings();
-  toneWasChosen=false;
   hooks:Hooks={change:()=>{},clear:()=>{},gesture:()=>{}};
   private savedCaustics:boolean|undefined;
   private diagnostics:Record<string,unknown>={ready:false,renderRevision:0};
@@ -28,7 +28,7 @@ export class WaterControls{
       input.addEventListener('input',()=>this.change({[key]:Number(input.value)}));
     }
     document.querySelectorAll<HTMLButtonElement>('button[data-mode]').forEach(b=>b.addEventListener('click',()=>this.change({mode:b.dataset.mode})));
-    document.querySelectorAll<HTMLButtonElement>('button[data-tone]').forEach(b=>b.addEventListener('click',()=>this.change({tone:b.dataset.tone})));
+    document.querySelectorAll<HTMLButtonElement>(toneButtons).forEach(b=>b.addEventListener('click',()=>this.change({tone:b.dataset.tone??b.dataset.quickTone})));
     document.querySelectorAll<HTMLButtonElement>('button[data-pattern]').forEach(b=>b.addEventListener('click',()=>this.change({bitmapPattern:Number(b.dataset.pattern)})));
     document.querySelectorAll<HTMLButtonElement>('button[data-gesture]').forEach(b=>b.addEventListener('click',()=>this.hooks.gesture(b.dataset.gesture as GestureKey)));
     $('reset-defaults').addEventListener('click',()=>this.reset());
@@ -45,7 +45,7 @@ export class WaterControls{
     });
     this.sync();
   }
-  change(input:Record<string,unknown>,chooseTone=true){
+  change(input:Record<string,unknown>){
     // Validate the entire update before touching any state.
     for(const key of Object.keys(input))if(!Object.hasOwn(this.state,key))throw new Error('Unknown setting: '+key);
     for(const key of [...switchKeys,'paused','sourceGeometry'])if(input[key]!==undefined&&typeof input[key]!=='boolean')throw new Error(key+' must be boolean.');
@@ -63,11 +63,10 @@ export class WaterControls{
       this.savedCaustics=undefined;
     }
     if(updates.caustics===true){updates.causticRipples=false;this.savedCaustics=undefined;}
-    if(updates.tone!==undefined&&chooseTone)this.toneWasChosen=true;
     Object.assign(this.state,updates);
     this.sync();this.hooks.change();
   }
-  reset(){Object.assign(this.state,startupSettings());this.toneWasChosen=false;this.savedCaustics=undefined;this.sync();this.hooks.change();}
+  reset(){Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();this.hooks.change();}
   toggleVisibility(){
     const hidden=document.body.classList.toggle('controls-hidden');
     $('toggle-controls').setAttribute('aria-expanded',String(!hidden));
@@ -99,7 +98,7 @@ export class WaterControls{
       $(key==='lineWeight'?'weight-value':key==='rainRate'?'rain-value':key==='dropSize'?'size-value':controlId(key)+'-value').textContent=text;
     }
     document.querySelectorAll<HTMLButtonElement>('button[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===this.state.mode)));
-    document.querySelectorAll<HTMLButtonElement>('button[data-tone]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.tone===this.state.tone)));
+    document.querySelectorAll<HTMLButtonElement>(toneButtons).forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.tone??b.dataset.quickTone)===this.state.tone)));
     document.querySelectorAll<HTMLButtonElement>('button[data-pattern]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.pattern)===this.state.bitmapPattern)));
     $('style-caption').textContent=labels[this.state.mode];
     $('pause').setAttribute('aria-pressed',String(this.state.paused));

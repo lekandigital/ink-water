@@ -428,8 +428,7 @@ async function start(){
   // Capture stays opt-in; normal page clocks and randomness are untouched.
   const capture=captureOptions(location.search),clock=capture?new CaptureClock(capture):undefined;
   const controls=new WaterControls();
-  const music=new PlaylistMusic({tone:()=>controls.state.tone,toneChosen:()=>controls.toneWasChosen,
-    setTone:tone=>controls.change({tone},false),publish:state=>controls.publish(state)},!!clock);
+  const music=new PlaylistMusic({publish:state=>controls.publish(state)},!!clock);
   try{
     const load=new THREE.TextureLoader();
     const tile=await load.loadAsync('./assets/tiles.jpg');
