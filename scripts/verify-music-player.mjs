@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {build} from 'esbuild';
 import {parseHTML} from 'linkedom';
+import {createHash} from 'node:crypto';
 process.on('uncaughtException',error=>{console.error(error.name+': '+error.message+'\n'+error.stack.split('\n').filter(line=>!line.includes('data:text')).slice(1,5).join('\n'));process.exitCode=1;});
 
 const json=async file=>JSON.parse(await readFile(file,'utf8'));
@@ -20,6 +21,7 @@ Object.assign(globalThis,{window,document,location,performance:{now:()=>now},fet
 Object.defineProperty(document,'baseURI',{value:'https://ink-water.test/'});
 Object.defineProperty(document.getElementById('music-track'),'value',{value:'',writable:true});
 const audio=document.getElementById('music-local-audio');
+Object.defineProperty(audio,'src',{get(){return this.getAttribute('src')??'';},set(value){this.setAttribute('src',value);}});
 Object.assign(audio,{paused:true,ended:false,seeking:false,currentTime:0,duration:0,
  pause(){this.paused=true;this.dispatchEvent(new window.Event('pause'));},
  play(){this.paused=false;this.dispatchEvent(new window.Event('play'));return Promise.resolve();},load(){}});
@@ -69,7 +71,7 @@ await poll(port,2,854);music.seek(126.11);assert.equal(port.calls.at(-1)[1],980.
 music.setSimulationPaused(true);assert.equal(port.state,2);assert.deepEqual(music.updateMusicRain(),[]);
 music.setSimulationPaused(false);await flush();assert.equal(port.state,1);
 await poll(port,2,854+fixture.tracks.find(t=>t.index===21).duration);assert.equal(port.calls.at(-1)[1],3,'Segment end manually advances a longer album source');
-await poll(port,3,0);port.options.events.onError({data:100});await flush();assert.equal(port.calls.at(-1)[1],4);
+port.index=3;port.time=0;port.options.events.onError({data:100});await flush();assert.equal(port.calls.at(-1)[1],4,'Native error identity must be read even before the next polling sample');
 assert.ok(latest.musicUnavailableVideos.includes(port.playlist[3]));await poll(port,4,0);
 port.options.events.onAutoplayBlocked();assert.deepEqual(music.updateMusicRain(),[]);assert.match(document.getElementById('music-status').textContent,/visible YouTube/);
 await poll(port,4,0);port.playlist[5]='unknown1234';await poll(port,5,30);
@@ -94,6 +96,30 @@ fixture.tracks.forEach(t=>t.source=null);toneChosen=false;await music.open();mus
 await music.assets();await music.play();const absent=ports.at(-1);
 absent.cuePlaylist=function(value){this.calls.push(['cuePlaylist',value]);this.playlist=['lipZU8lu07M'];};absent.ready();await flush();await poll(absent,0,30);
 assert.equal(music.engine.scheduler,undefined);assert.equal(latest.musicPlaylistValidation.mappingComplete,false);music.close();
+// Browser-file selection is tested with disposable local fixtures, no media
+// transfer, external upload or copyrighted reference asset required by CI.
+const originalCreate=URL.createObjectURL,originalRevoke=URL.revokeObjectURL,revoked=[];
+URL.createObjectURL=()=>`blob:local-fixture`;URL.revokeObjectURL=url=>revoked.push(url);
+const bytes=new TextEncoder().encode('disposable reference fixture');
+const localTrack=fixture.tracks.find(t=>t.index===2);localTrack.reference_sha256=createHash('sha256').update(bytes).digest('hex');
+const file={name:'02 - fused (DJ-Kicks).mp3',arrayBuffer:async()=>bytes.buffer};
+Object.defineProperty(document.getElementById('music-local-files'),'files',{value:[file],writable:true});
+await music.open();music.manifestLoading=undefined;music.session=undefined;await music.assets();
+await music.importLocalFiles();assert.equal(music.transport,'local');assert.equal(document.querySelector('iframe'),null);
+await music.select(localTrack.id,false);await flush();audio.duration=localTrack.duration;audio.dispatchEvent(new window.Event('loadedmetadata'));
+assert.equal(music.engine.scheduler.score.track_id,localTrack.id);assert.equal(audio.src,'blob:local-fixture');
+await music.play();music.updateMusicRain();audio.currentTime=124.55;audio.dispatchEvent(new window.Event('seeking'));
+assert.deepEqual(music.updateMusicRain(),[],'Local seek uses the audio master clock with no replay storm');
+music.pause();const localCount=music.engine.scheduler.emitted;now+=4000;assert.deepEqual(music.updateMusicRain(),[]);
+await music.play();music.updateMusicRain();audio.currentTime+=.1;music.updateMusicRain();assert.ok(music.engine.scheduler.emitted<=localCount+2);
+music.seek(40);assert.equal(audio.currentTime,40);music.seek(120);assert.equal(audio.currentTime,120);
+await music.select('21-continuum-3',false);await flush();assert.equal(audio.src,'','A missing local file must detach the previous recording');
+await music.play();assert.equal(audio.paused,true,'A missing local recording cannot play the previous song under a different score');
+await music.select(localTrack.id,false);await flush();
+document.getElementById('music-local-files').files=[{...file,arrayBuffer:async()=>new TextEncoder().encode('wrong recording').buffer}];
+await music.importLocalFiles();assert.match(document.getElementById('music-status').textContent,/not the analyzed reference MP3/);
+assert.equal(audio.src,'blob:local-fixture','Rejected imports leave the existing reference selection intact');
+music.close();assert.equal(audio.paused,true);URL.createObjectURL=originalCreate;URL.revokeObjectURL=originalRevoke;
 // The development reference/capture clock uses the exact same score owner.
 const capture=new PlaylistMusic({tone:()=>tone,toneChosen:()=>true,setTone:value=>tone=value,publish:()=>{}},true);
 await window.inkWaterMusicCapture.select('02-fused-dj-kicks',124.55);
@@ -105,4 +131,5 @@ window.inkWaterMusicCapture.seek(35);assert.equal(window.inkWaterMusicCapture.st
 assert.ok(requests.every(url=>!url.endsWith('.mp3')));
 console.log(JSON.stringify({nativePlaylistOnly:true,visiblePlayer:true,idMatching:true,sourceOffsets:true,lateSamplesDiscarded:true,trackChanges:true,
  nativeOrderPreserved:true,pauseResume:true,seeksNoStorm:true,unavailableSkipped:true,autoplayHandled:true,playlistEnd:true,musicOffDestroysEmbed:true,
- syncSwitchCycle:true,deliberateTonesPreserved:true,missingMapHoldsRain:true,captureClockDeterministic:true,referenceAudioNeverFetched:true}));
+ syncSwitchCycle:true,deliberateTonesPreserved:true,missingMapHoldsRain:true,captureClockDeterministic:true,referenceAudioNeverFetched:true,
+ localHashesValidated:true,localAudioMasterClock:true,localSeeksAndPause:true,missingLocalFilesDetachPreviousAudio:true}));

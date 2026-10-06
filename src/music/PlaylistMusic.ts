@@ -128,7 +128,11 @@ export class PlaylistMusic implements MusicRainClock{
       if(!this.active)await this.open();const opening=this.opening,manifest=await this.assets();
       if(!this.active||opening!==this.opening)return;
       if(this.simulationPaused){this.status('Water paused — resume the water to play.');return;}
-      if(this.transport==='local'){if(!this.audio.src)await this.select(this.session!.current.id,false);this.enterTone();await this.audio.play();return;}
+      if(this.transport==='local'){
+        if(!this.audio.src)await this.select(this.session!.current.id,false);
+        if(!this.audio.src){this.status('Choose this numbered reference MP3 in development mode.');return;}
+        this.enterTone();await this.audio.play();return;
+      }
       if(this.transport==='capture'){this.referenceWall=performance.now();this.referencePlaying=true;this.rebase();return;}
       if(this.captureMode)throw new Error('Capture mode uses the reference clock. Use a normal page URL for YouTube playback.');
       this.enterTone();
@@ -231,6 +235,8 @@ export class PlaylistMusic implements MusicRainClock{
   private youTubeError(code:number){
     this.snapshot=undefined;this.engine.clearScore();
     if([100,101,150].includes(code)&&this.session){
+      const actualIndex=this.pendingNativeIndex??this.player?.port.getPlaylistIndex()??this.nativeIndex;
+      if(actualIndex>=0)this.nativeIndex=actualIndex;
       const videoId=this.nativeVideos[this.pendingNativeIndex??this.nativeIndex];
       const track=this.session.identify(videoId,-1),failed=track?.title??videoId??'This video';
       if(track)this.session.unavailable.add(track.id);if(videoId)this.unavailableVideos.add(videoId);
@@ -261,7 +267,7 @@ export class PlaylistMusic implements MusicRainClock{
     void this.activateScore(track,0);
     if(this.transport==='local'){
       this.audio.pause();const url=this.localFiles.get(id);
-      if(!url){this.audio.removeAttribute('src');this.status('Choose this numbered reference MP3 in development mode.');return;}
+      if(!url){this.audio.removeAttribute('src');this.audio.load();this.status('Choose this numbered reference MP3 in development mode.');return;}
       this.audio.src=url;this.audio.load();if(play&&!this.simulationPaused)await this.audio.play().catch(()=>this.status('Press play to start the reference recording.'));
     }else if(this.transport==='capture'){this.referenceStart=0;this.referenceWall=performance.now();this.referencePlaying=play;}
     this.sync();this.progress();
