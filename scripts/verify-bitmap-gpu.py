@@ -173,7 +173,16 @@ def render(name=None,mode=1,tone='night',caustics_on=True,baseline=False,**optio
   mark_tex.use(13);out_fbo.use();setuniform(mark_overlay,'ink',palettes[tone]['ink'])
   ctx.enable(moderngl.BLEND);ctx.blend_func=(moderngl.SRC_ALPHA,moderngl.ONE_MINUS_SRC_ALPHA,moderngl.ONE,moderngl.ONE_MINUS_SRC_ALPHA);mark_quad.render();ctx.disable(moderngl.BLEND)
  img=Image.frombytes('RGBA',size,output.read()).transpose(Image.Transpose.FLIP_TOP_BOTTOM).convert('RGB');arr=np.array(img)
- assert np.max(np.abs(arr[:,:,0].astype(int)-arr[:,:,1].astype(int)))<=1 and np.max(np.abs(arr[:,:,0].astype(int)-arr[:,:,2].astype(int)))<=1,'Every drawing must stay monochrome'
+ if tone in ['paper','silver','night']:
+  assert np.max(np.abs(arr[:,:,0].astype(int)-arr[:,:,1].astype(int)))<=1 and np.max(np.abs(arr[:,:,0].astype(int)-arr[:,:,2].astype(int)))<=1,'Existing drawing tones must stay grayscale'
+ else:
+  # A colored monochrome print uses a single paper-to-ink ramp. Permit the
+  # original achromatic grain and byte quantization, not unrelated RGB hues.
+  rgb=arr.astype(float)/255;paper=np.asarray(palettes[tone]['paper']);ink=np.asarray(palettes[tone]['ink']);span=ink-paper
+  weight=np.sum((rgb-paper)*span,axis=2)/np.sum(span*span)
+  residual=rgb-(paper+np.clip(weight,0,1)[:,:,None]*span)
+  assert np.max(np.linalg.norm(residual,axis=2))<.015,'Green drawing must retain the chosen paper/ink family'
+  assert np.min(rgb[:,:,1]-rgb[:,:,0])>.08 and np.min(rgb[:,:,1]-rgb[:,:,2])>.06,'Green print must actually render green'
  if name:img.save(root/(name+'.png'))
  return arr
 
@@ -186,7 +195,7 @@ base=render('dream-base');old=render(baseline=True);assert np.array_equal(base,o
 source_before=water_textures[current].read();variants=0
 for tone in palettes:
  for mode in [0,1,2]:
-  reference=render(mode=mode,tone=tone);assert np.ptp(reference[:,:,0])>15
+  reference=render('palette-'+tone+'-'+str(mode),mode=mode,tone=tone);assert np.ptp(reference[:,:,0])>15
   for effect in ['bitmapTones','causticReveal','driftingGrain','softDiffusion','causticRipples','dreamy','subtle']:
    image=render('dream-'+effect if tone=='night' and mode==1 else None,mode=mode,tone=tone,**{effect:True})
    assert not np.array_equal(image,reference),effect+' must visibly change the drawing';variants+=1

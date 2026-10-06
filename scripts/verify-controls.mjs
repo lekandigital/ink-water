@@ -22,6 +22,26 @@ let changes=0,clears=0;controls.hooks={change:()=>changes++,clear:()=>clears++,g
 // which would undo the switch being clicked before its input event.
 {const before=changes;$('rain').dispatchEvent(new window.Event('click',{bubbles:true}));document.body.dispatchEvent(new window.Event('click',{bubbles:true}));assert.equal(changes,before,'Clicks outside the tone, mode and pattern buttons must not change settings');}
 function input(id,value){const el=$(id);if(el.type==='checkbox')el.checked=value;else el.value=String(value);el.dispatchEvent(new window.Event('input',{bubbles:true}));return el;}
+const toneButtons=[...document.querySelectorAll('button[data-tone]')];
+assert.deepEqual(toneButtons.map(b=>b.dataset.tone),['paper','silver','night','green-light','green-dark']);
+assert.deepEqual(toneButtons.map(b=>b.textContent),['Light','Silver','Dark','Green Light','Green Dark']);
+const icon=document.querySelector('link[rel="icon"]'),theme=document.querySelector('meta[name="theme-color"]');
+const originalChrome={icon:icon.getAttribute('href'),color:theme.content};
+for(const tone of ['green-light','green-dark','paper','silver','night','green-dark','green-light','night']){
+ const before={...controls.state};toneButtons.find(b=>b.dataset.tone===tone).click();
+ assert.equal(controls.state.tone,tone);assert.equal(document.body.dataset.tone,tone);
+ assert.equal(JSON.parse($('water-state').textContent).tone,tone);
+ for(const button of toneButtons)assert.equal(button.getAttribute('aria-pressed'),String(button.dataset.tone===tone));
+ for(const [key,value] of Object.entries(before))if(key!=='tone')assert.equal(controls.state[key],value,'A palette change must preserve every water setting');
+ if(tone.startsWith('green-')){
+  const paper=tone==='green-light'?'#aacdb2':'#144a32',ink=tone==='green-light'?'#144a32':'#aacdb2';
+  assert.equal(theme.content,paper);const svg=decodeURIComponent(icon.getAttribute('href').split(',')[1]);assert.ok(svg.includes('fill="'+paper+'"')&&svg.includes('stroke="'+ink+'"'));
+  const href=icon.getAttribute('href');input('wave-speed',.87);input('bitmap-tones',false);input('bitmap-tones',true);
+  assert.equal(controls.state.tone,tone);assert.equal(icon.getAttribute('href'),href,'Unrelated controls must not disturb browser chrome');assert.equal(controls.state.waveSpeed,.87);
+ }else assert.deepEqual({icon:icon.getAttribute('href'),color:theme.content},originalChrome,'Returning to an existing tone must restore the original browser chrome');
+}
+controls.reset();assert.equal(controls.state.tone,'night');assert.deepEqual({icon:icon.getAttribute('href'),color:theme.content},originalChrome);
+const beforeBadTone={...controls.state};assert.throws(()=>controls.change({tone:'toString'}));assert.deepEqual(controls.state,beforeBadTone,'Invalid inherited property names are not tones');
 let cycles=0;
 for(const el of document.querySelectorAll('input[type="checkbox"]')){
  controls.reset();const key=keyFor(el.id);
@@ -83,4 +103,4 @@ for(const key of ['c','x','/']){
 }
 app.gl={getRenderTarget:()=>null,getClearColor:()=>{},getClearAlpha:()=>1,setClearColor:()=>{},setRenderTarget:()=>{},clear:()=>{}};controls.change({tone:'night',dreamy:true,subtle:true,bitmapTones:true,waveSpeed:.45});const beforeClear={...controls.state};Puddle.prototype.clear.call(app);assert.deepEqual(controls.state,beforeClear);assert.equal(app.gestureQueue.length,0);
 assert.equal(rainClears,1,'Still the water must clear both wave fields');
-console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,configurationAStartup:true,darkComicDefault:true,hideSunDefaultOn:true,alignmentDefaultOff:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));
+console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,toneOptions:toneButtons.length,reversibleGreenChrome:true,toneChangesPreserveSettings:true,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,configurationAStartup:true,darkComicDefault:true,hideSunDefaultOn:true,alignmentDefaultOff:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));
