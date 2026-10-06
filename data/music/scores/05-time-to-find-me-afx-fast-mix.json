@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "05-time-to-find-me-afx-fast-mix",
   "seed": 2659712989,
   "title": "Time to Find Me (AFX Fast Mix)",
@@ -24,8 +24,8 @@
         0.28
       ],
       "force": [
-        0.405,
-        0.4275
+        0.4662,
+        0.4662
       ],
       "scale": [
         0.7483,
@@ -65,8 +65,8 @@
         0.47
       ],
       "force": [
-        0.414,
-        0.4365
+        0.4662,
+        0.5109
       ],
       "scale": [
         0.7421,
@@ -106,8 +106,8 @@
         0.36
       ],
       "force": [
-        0.423,
-        0.4455
+        0.5109,
+        0.4865
       ],
       "scale": [
         0.7392,
@@ -147,8 +147,8 @@
         0.62
       ],
       "force": [
-        0.432,
-        0.4545
+        0.4865,
+        0.54
       ],
       "scale": [
         0.734,
@@ -188,8 +188,8 @@
         0.29
       ],
       "force": [
-        0.441,
-        0.4635
+        0.54,
+        0.4689
       ],
       "scale": [
         0.739,
@@ -229,8 +229,8 @@
         0.48
       ],
       "force": [
-        0.45,
-        0.4725
+        0.4689,
+        0.513
       ],
       "scale": [
         0.738,
@@ -270,8 +270,8 @@
         0.13
       ],
       "force": [
-        0.459,
-        0.4815
+        0.513,
+        0.418
       ],
       "scale": [
         0.7364,
@@ -316,6 +316,17 @@
       "note": "Selected phrase arrival near 44s; measured attack, not every transient."
     },
     {
+      "time": 57.4694,
+      "type": "glint",
+      "force": 0.61,
+      "scale": 0.82,
+      "count": 2,
+      "spacing": 0.31,
+      "anticipation": 0.65,
+      "quiet": 0.8,
+      "note": "Two spatially separate showers reform in the uncanny highlight."
+    },
+    {
       "time": 328.8874,
       "type": "arrival",
       "force": 0.6427,
@@ -338,6 +349,7 @@
       "note": "Selected phrase arrival near 396s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 29.48,
@@ -384,7 +396,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/4",

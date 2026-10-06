@@ -9,7 +9,7 @@ export class MusicRainEngine{
   private wasPlaying=false;
   setScore(score:RainScore,time=0){this.scheduler=new RainScheduler(score);this.scheduler.seek(time);this.wasPlaying=false;}
   clearScore(){this.scheduler=undefined;this.wasPlaying=false;}
-  seek(time:number){this.scheduler?.seek(time);}
+  seek(time:number,playing?:boolean){this.scheduler?.seek(time);if(playing!==undefined)this.wasPlaying=playing;}
   updateMusicRain(sample:PlaybackSample){
     const scheduler=this.scheduler;
     if(!scheduler||scheduler.score.track_id!==sample.trackId)return [];

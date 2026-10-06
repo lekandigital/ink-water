@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "02-fused-dj-kicks",
   "seed": 357903480,
   "title": "fused (DJ-Kicks)",
@@ -24,8 +24,8 @@
         0.09
       ],
       "force": [
-        0.594,
-        0.627
+        0.5848,
+        0.5848
       ],
       "scale": [
         0.9495,
@@ -65,8 +65,8 @@
         0.28
       ],
       "force": [
-        0.6072,
-        0.6402
+        0.5848,
+        0.6786
       ],
       "scale": [
         0.9452,
@@ -106,8 +106,8 @@
         0.38
       ],
       "force": [
-        0.6204,
-        0.6534
+        0.6786,
+        0.7143
       ],
       "scale": [
         0.9542,
@@ -141,14 +141,14 @@
     {
       "name": "cells: phrase 3",
       "start": 108.0,
-      "end": 128.1974,
+      "end": 127.617,
       "density": [
         0.38,
         0.16
       ],
       "force": [
-        0.6336,
-        0.6666
+        0.7143,
+        0.6257
       ],
       "scale": [
         0.9435,
@@ -181,15 +181,15 @@
     },
     {
       "name": "cells: phrase 4",
-      "start": 128.1974,
+      "start": 127.617,
       "end": 148.0,
       "density": [
-        0.79,
+        0.88,
         0.65
       ],
       "force": [
-        0.6468,
-        0.6798
+        0.79,
+        0.7
       ],
       "scale": [
         0.9553,
@@ -229,8 +229,8 @@
         0.47
       ],
       "force": [
-        0.66,
-        0.693
+        0.792,
+        0.7426
       ],
       "scale": [
         0.9497,
@@ -270,8 +270,8 @@
         0.2
       ],
       "force": [
-        0.6732,
-        0.7062
+        0.7426,
+        0.6451
       ],
       "scale": [
         0.947,
@@ -316,15 +316,37 @@
       "note": "Selected phrase arrival near 40s; measured attack, not every transient."
     },
     {
-      "time": 128.1974,
+      "time": 123.1586,
+      "type": "fleck",
+      "force": 0.28,
+      "scale": 0.75,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.25,
+      "quiet": 0.4,
+      "note": "A light preparatory impact gives the authentic pre-roll a visible first frame."
+    },
+    {
+      "time": 124.8305,
+      "type": "fleck",
+      "force": 0.3,
+      "scale": 0.74,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.25,
+      "quiet": 0.4,
+      "note": "One quiet opening fleck: restrained texture, not completely dead water."
+    },
+    {
+      "time": 127.617,
       "type": "arrival",
-      "force": 0.98,
+      "force": 1.08,
       "scale": 1.18,
       "count": 1,
       "spacing": 0.25,
       "anticipation": 1.1,
       "quiet": 0.95,
-      "note": "Selected phrase arrival near 128s; measured attack, not every transient."
+      "note": "The proven demo arrival, confirmed by decoded reference energy; not the later maximum transient."
     },
     {
       "time": 147.795,
@@ -338,6 +360,7 @@
       "note": "Selected phrase arrival near 148s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 26.8,
@@ -365,9 +388,21 @@
     },
     {
       "start": 124.55,
-      "end": 127.9,
-      "amount": 0.1,
-      "note": "Restrain the opening of the supplied flagship excerpt."
+      "end": 126.9,
+      "amount": 0.2,
+      "note": "Restrained texture before the flagship riser."
+    },
+    {
+      "start": 126.9,
+      "end": 127.617,
+      "amount": 0,
+      "note": "Anticipation lets the structural arrival land clearly."
+    },
+    {
+      "start": 133.55,
+      "end": 134.25,
+      "amount": 0.12,
+      "note": "A small clearing inside the structured rain, not a constant wall."
     },
     {
       "start": 141.4,
@@ -390,7 +425,9 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
+    "Demo transcript corrects the main arrival to 127.617s; decoded MP3 jump starts around 127.597s and peaks at 127.617s. The old 128.1974s event was late."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/1",

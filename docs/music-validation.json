@@ -54,8 +54,8 @@
             0.035
           ],
           "force": [
-            0.216,
-            0.228
+            0.25,
+            0.25
           ],
           "scale": [
             0.8574,
@@ -95,8 +95,8 @@
             0.07
           ],
           "force": [
-            0.2208,
-            0.2328
+            0.25,
+            0.2839
           ],
           "scale": [
             0.8591,
@@ -136,8 +136,8 @@
             0.043
           ],
           "force": [
-            0.2256,
-            0.2376
+            0.2839,
+            0.2589
           ],
           "scale": [
             0.8639,
@@ -177,8 +177,8 @@
             0.065
           ],
           "force": [
-            0.2304,
-            0.2424
+            0.2589,
+            0.2797
           ],
           "scale": [
             0.8735,
@@ -218,8 +218,8 @@
             0.039
           ],
           "force": [
-            0.2352,
-            0.2472
+            0.2797,
+            0.2545
           ],
           "scale": [
             0.8735,
@@ -259,8 +259,8 @@
             0.075
           ],
           "force": [
-            0.24,
-            0.252
+            0.2545,
+            0.288
           ],
           "scale": [
             0.8812,
@@ -300,8 +300,8 @@
             0.025
           ],
           "force": [
-            0.2448,
-            0.2568
+            0.288,
+            0.2373
           ],
           "scale": [
             0.8707,
@@ -368,6 +368,7 @@
           "note": "Selected phrase arrival near 60s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 13.4,
@@ -412,6 +413,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 0,
         "end": 12.5
@@ -419,7 +431,7 @@
       "alternate": null,
       "highlighted_events": 2,
       "event_count": 11,
-      "event_fingerprint": "8c04a5e637cb224231f556384661e70a3d083ab01d26a21990197125866e0f29",
+      "event_fingerprint": "bca7d6d5ead65b4bb7d505a11795d516fb3fa0f3374ca1612add8d454a06afbd",
       "quiet_spaces": [
         {
           "start": 0,
@@ -537,7 +549,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -590,8 +603,8 @@
             0.1
           ],
           "force": [
-            0.288,
-            0.304
+            0.318,
+            0.318
           ],
           "scale": [
             0.7856,
@@ -631,8 +644,8 @@
             0.22
           ],
           "force": [
-            0.2944,
-            0.3104
+            0.318,
+            0.3634
           ],
           "scale": [
             0.795,
@@ -672,8 +685,8 @@
             0.16
           ],
           "force": [
-            0.3008,
-            0.3168
+            0.3634,
+            0.3428
           ],
           "scale": [
             0.7872,
@@ -713,8 +726,8 @@
             0.29
           ],
           "force": [
-            0.3072,
-            0.3232
+            0.3428,
+            0.384
           ],
           "scale": [
             0.7922,
@@ -754,8 +767,8 @@
             0.19
           ],
           "force": [
-            0.3136,
-            0.3296
+            0.384,
+            0.3535
           ],
           "scale": [
             0.8008,
@@ -795,8 +808,8 @@
             0.24
           ],
           "force": [
-            0.32,
-            0.336
+            0.3535,
+            0.3696
           ],
           "scale": [
             0.7964,
@@ -836,8 +849,8 @@
             0.08
           ],
           "force": [
-            0.3264,
-            0.3424
+            0.3696,
+            0.308
           ],
           "scale": [
             0.8012,
@@ -893,6 +906,7 @@
           "note": "Selected phrase arrival near 120s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 13.4,
@@ -937,6 +951,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 68.99,
         "end": 81.49
@@ -944,7 +969,7 @@
       "alternate": null,
       "highlighted_events": 6,
       "event_count": 45,
-      "event_fingerprint": "99ab2bbd099d4079b54248e14d8a6a0e800906d9df934d056c5dfbdf3acd50a6",
+      "event_fingerprint": "808b90542bccd02f7e64572e56611e0491faec769b4937571cf8dbdd0da484d5",
       "quiet_spaces": [
         {
           "start": 0,
@@ -1082,7 +1107,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -1142,8 +1168,8 @@
             0.15
           ],
           "force": [
-            0.315,
-            0.3325
+            0.3484,
+            0.3484
           ],
           "scale": [
             0.8632,
@@ -1183,8 +1209,8 @@
             0.35
           ],
           "force": [
-            0.322,
-            0.3395
+            0.3484,
+            0.4029
           ],
           "scale": [
             0.9112,
@@ -1224,8 +1250,8 @@
             0.17
           ],
           "force": [
-            0.329,
-            0.3465
+            0.4029,
+            0.355
           ],
           "scale": [
             0.9046,
@@ -1265,8 +1291,8 @@
             0.28
           ],
           "force": [
-            0.336,
-            0.3535
+            0.355,
+            0.3862
           ],
           "scale": [
             0.8907,
@@ -1306,8 +1332,8 @@
             0.43
           ],
           "force": [
-            0.343,
-            0.3605
+            0.3862,
+            0.42
           ],
           "scale": [
             0.8832,
@@ -1347,8 +1373,8 @@
             0.26
           ],
           "force": [
-            0.35,
-            0.3675
+            0.42,
+            0.3811
           ],
           "scale": [
             0.8556,
@@ -1388,8 +1414,8 @@
             0.15
           ],
           "force": [
-            0.357,
-            0.3745
+            0.3811,
+            0.3484
           ],
           "scale": [
             0.889,
@@ -1445,6 +1471,28 @@
           "note": "Selected phrase arrival near 108s; measured attack, not every transient."
         },
         {
+          "time": 132.7949,
+          "type": "arrival",
+          "force": 0.43,
+          "scale": 1.04,
+          "count": 1,
+          "spacing": 0.25,
+          "anticipation": 0.65,
+          "quiet": 0.65,
+          "note": "A broad harmonic arrival; flowing rain remains soft and unquantized."
+        },
+        {
+          "time": 136.0225,
+          "type": "glint",
+          "force": 0.26,
+          "scale": 0.73,
+          "count": 2,
+          "spacing": 0.52,
+          "anticipation": 0.3,
+          "quiet": 0.35,
+          "note": "Two small drifting echoes after the sustained arrival."
+        },
+        {
           "time": 204.8232,
           "type": "arrival",
           "force": 0.5714,
@@ -1456,7 +1504,19 @@
           "note": "Selected phrase arrival near 204s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 126.11,
         "end": 138.61
@@ -1465,9 +1525,9 @@
         "start": 82.69,
         "end": 95.19
       },
-      "highlighted_events": 7,
-      "event_count": 105,
-      "event_fingerprint": "8dda82c391816ac8771f7e3aab3a47fe21b4ddcf4c19a66626119b8e54f6ae15",
+      "highlighted_events": 10,
+      "event_count": 108,
+      "event_fingerprint": "67027b9ece713d13869d10d16ffbf0097cfebf760c0e2abec49ee47957d79292",
       "quiet_spaces": [
         {
           "start": 0,
@@ -1646,6 +1706,7 @@
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
         "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
         "Standalone Gx41vYzyPZo uses offset 0; supplied album IyvqVDAGU0s retains 854s."
       ]
     },
@@ -1699,8 +1760,8 @@
             0.14
           ],
           "force": [
-            0.243,
-            0.2565
+            0.2732,
+            0.2732
           ],
           "scale": [
             0.5563,
@@ -1740,8 +1801,8 @@
             0.24
           ],
           "force": [
-            0.2484,
-            0.2619
+            0.2732,
+            0.2992
           ],
           "scale": [
             0.5491,
@@ -1781,8 +1842,8 @@
             0.31
           ],
           "force": [
-            0.2538,
-            0.2673
+            0.2992,
+            0.3143
           ],
           "scale": [
             0.5547,
@@ -1822,8 +1883,8 @@
             0.22
           ],
           "force": [
-            0.2592,
-            0.2727
+            0.3143,
+            0.2945
           ],
           "scale": [
             0.558,
@@ -1863,8 +1924,8 @@
             0.36
           ],
           "force": [
-            0.2646,
-            0.2781
+            0.2945,
+            0.324
           ],
           "scale": [
             0.5572,
@@ -1904,8 +1965,8 @@
             0.26
           ],
           "force": [
-            0.27,
-            0.2835
+            0.324,
+            0.3037
           ],
           "scale": [
             0.5749,
@@ -1945,8 +2006,8 @@
             0.12
           ],
           "force": [
-            0.2754,
-            0.2889
+            0.3037,
+            0.2669
           ],
           "scale": [
             0.5539,
@@ -2002,7 +2063,19 @@
           "note": "Selected phrase arrival near 216s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 27.78,
         "end": 40.28
@@ -2010,7 +2083,7 @@
       "alternate": null,
       "highlighted_events": 3,
       "event_count": 97,
-      "event_fingerprint": "b91112e383d8e475e4ff0f9dd37ed88b7a8181a0ccdf38f1b0290962a23b9ec5",
+      "event_fingerprint": "12d14b100ec92739679c81ade5ace73474486e6e670301143704b335c33de7bb",
       "quiet_spaces": [
         {
           "start": 0,
@@ -2128,7 +2201,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -2187,8 +2261,8 @@
             0.16
           ],
           "force": [
-            0.324,
-            0.342
+            0.3631,
+            0.3631
           ],
           "scale": [
             0.6082,
@@ -2228,8 +2302,8 @@
             0.36
           ],
           "force": [
-            0.3312,
-            0.3492
+            0.3631,
+            0.4186
           ],
           "scale": [
             0.6077,
@@ -2269,8 +2343,8 @@
             0.29
           ],
           "force": [
-            0.3384,
-            0.3564
+            0.4186,
+            0.4016
           ],
           "scale": [
             0.6096,
@@ -2310,8 +2384,8 @@
             0.42
           ],
           "force": [
-            0.3456,
-            0.3636
+            0.4016,
+            0.432
           ],
           "scale": [
             0.6027,
@@ -2351,8 +2425,8 @@
             0.24
           ],
           "force": [
-            0.3528,
-            0.3708
+            0.432,
+            0.3881
           ],
           "scale": [
             0.6018,
@@ -2392,8 +2466,8 @@
             0.35
           ],
           "force": [
-            0.36,
-            0.378
+            0.3881,
+            0.4163
           ],
           "scale": [
             0.6038,
@@ -2433,8 +2507,8 @@
             0.15
           ],
           "force": [
-            0.3672,
-            0.3852
+            0.4163,
+            0.3596
           ],
           "scale": [
             0.606,
@@ -2523,6 +2597,7 @@
           "note": "Selected phrase arrival near 200s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 16.08,
@@ -2567,6 +2642,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 24.84,
         "end": 37.34
@@ -2577,7 +2663,7 @@
       },
       "highlighted_events": 5,
       "event_count": 164,
-      "event_fingerprint": "fbb8163f6bd4dc7f8b5c0765ad1849de6bbf2d081bb4a709a14460d002d7b527",
+      "event_fingerprint": "03d33eb0ebcdc7131c67f0145f04c311007a0cd235f823f51e27167ca1950b0e",
       "quiet_spaces": [
         {
           "start": 0.5,
@@ -2736,6 +2822,7 @@
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
         "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
         "Current lrAWkOGkpBw upload is an explicit duration-only alias; supplied 62Zeu3jBs_I is preserved."
       ]
     },
@@ -2789,8 +2876,8 @@
             0.13
           ],
           "force": [
-            0.441,
-            0.4655
+            0.4552,
+            0.4552
           ],
           "scale": [
             0.7674,
@@ -2830,8 +2917,8 @@
             0.38
           ],
           "force": [
-            0.4508,
-            0.4753
+            0.4552,
+            0.5348
           ],
           "scale": [
             0.7617,
@@ -2871,8 +2958,8 @@
             0.55
           ],
           "force": [
-            0.4606,
-            0.4851
+            0.5348,
+            0.5738
           ],
           "scale": [
             0.7747,
@@ -2912,8 +2999,8 @@
             0.62
           ],
           "force": [
-            0.4704,
-            0.4949
+            0.5738,
+            0.588
           ],
           "scale": [
             0.7695,
@@ -2953,8 +3040,8 @@
             0.44
           ],
           "force": [
-            0.4802,
-            0.5047
+            0.588,
+            0.5494
           ],
           "scale": [
             0.7789,
@@ -2994,8 +3081,8 @@
             0.32
           ],
           "force": [
-            0.49,
-            0.5145
+            0.5494,
+            0.519
           ],
           "scale": [
             0.7694,
@@ -3035,8 +3122,8 @@
             0.14
           ],
           "force": [
-            0.4998,
-            0.5243
+            0.519,
+            0.4594
           ],
           "scale": [
             0.7781,
@@ -3081,6 +3168,17 @@
           "note": "Selected phrase arrival near 36s; measured attack, not every transient."
         },
         {
+          "time": 118.3521,
+          "type": "arrival",
+          "force": 0.93,
+          "scale": 1.13,
+          "count": 1,
+          "spacing": 0.25,
+          "anticipation": 1.15,
+          "quiet": 0.95,
+          "note": "The dramatic later Marumari accent from the earlier prototype, with a clearing before it."
+        },
+        {
           "time": 135.9993,
           "type": "arrival",
           "force": 0.72,
@@ -3101,6 +3199,24 @@
           "anticipation": 0.65,
           "quiet": 0.72,
           "note": "Selected phrase arrival near 180s; measured attack, not every transient."
+        }
+      ],
+      "gestures": [
+        {
+          "time": 41.5869,
+          "path": "c",
+          "force": 0.28,
+          "scale": 0.64,
+          "spread": 0.82,
+          "note": "A physical C at the proven launch phrase, using the existing deterministic touch path."
+        },
+        {
+          "time": 44.1411,
+          "path": "x",
+          "force": 0.23,
+          "scale": 0.61,
+          "spread": 0.76,
+          "note": "A rare crossing gesture at the next proven phrase; each sample enters through rain."
         }
       ],
       "breaths": [
@@ -3147,6 +3263,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 35.73,
         "end": 48.23
@@ -3155,9 +3282,9 @@
         "start": 115.14,
         "end": 127.64
       },
-      "highlighted_events": 21,
-      "event_count": 169,
-      "event_fingerprint": "5d05d6c15c3ae0ea32f73e02ab37adbe4d4126e1c538bc51275bc2ab043661f7",
+      "highlighted_events": 100,
+      "event_count": 249,
+      "event_fingerprint": "946a7cb8ae7e3fefda31d349c173613572c5701d299e5bc8884c402066ad43f3",
       "quiet_spaces": [
         {
           "start": 0,
@@ -3263,7 +3390,9 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
+        "The supplied demo transcript informed C/X phrase gestures and the later ~118.422s breathing/accent moment; gestures are physical rain samples, not drawn overlays."
       ]
     },
     {
@@ -3316,8 +3445,8 @@
             0.39
           ],
           "force": [
-            0.414,
-            0.437
+            0.4701,
+            0.4701
           ],
           "scale": [
             0.5933,
@@ -3357,8 +3486,8 @@
             0.66
           ],
           "force": [
-            0.4232,
-            0.4462
+            0.4701,
+            0.5147
           ],
           "scale": [
             0.596,
@@ -3398,8 +3527,8 @@
             0.82
           ],
           "force": [
-            0.4324,
-            0.4554
+            0.5147,
+            0.5368
           ],
           "scale": [
             0.5848,
@@ -3439,8 +3568,8 @@
             0.49
           ],
           "force": [
-            0.4416,
-            0.4646
+            0.5368,
+            0.4881
           ],
           "scale": [
             0.5884,
@@ -3480,8 +3609,8 @@
             0.94
           ],
           "force": [
-            0.4508,
-            0.4738
+            0.4881,
+            0.552
           ],
           "scale": [
             0.5824,
@@ -3521,8 +3650,8 @@
             0.62
           ],
           "force": [
-            0.46,
-            0.483
+            0.552,
+            0.5088
           ],
           "scale": [
             0.5992,
@@ -3562,8 +3691,8 @@
             0.24
           ],
           "force": [
-            0.4692,
-            0.4922
+            0.5088,
+            0.4382
           ],
           "scale": [
             0.5841,
@@ -3619,6 +3748,17 @@
           "note": "Two spatially separate impacts in the preferred early window."
         },
         {
+          "time": 30.6968,
+          "type": "glint",
+          "force": 0.38,
+          "scale": 0.53,
+          "count": 3,
+          "spacing": 0.085,
+          "anticipation": 0.25,
+          "quiet": 0.5,
+          "note": "A short dispersed technical answer to the separated pair."
+        },
+        {
           "time": 136.0457,
           "type": "arrival",
           "force": 0.6772,
@@ -3641,6 +3781,7 @@
           "note": "Selected phrase arrival near 204s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 16.08,
@@ -3685,6 +3826,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 19.5,
         "end": 32
@@ -3693,9 +3845,9 @@
         "start": 131.94,
         "end": 144.44
       },
-      "highlighted_events": 14,
-      "event_count": 452,
-      "event_fingerprint": "24c94590dc473de4be9a18dfc6654093d7af8182cac19d91461fb30feaddb0fd",
+      "highlighted_events": 17,
+      "event_count": 455,
+      "event_fingerprint": "c9e915916f033f97b8a2ed0f4bdde766b8557aa6c7a61fab3b9990c293a12f1c",
       "quiet_spaces": [
         {
           "start": 0,
@@ -3797,7 +3949,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -3850,8 +4003,8 @@
             0.4
           ],
           "force": [
-            0.432,
-            0.456
+            0.4917,
+            0.4917
           ],
           "scale": [
             0.6046,
@@ -3891,8 +4044,8 @@
             0.62
           ],
           "force": [
-            0.4416,
-            0.4656
+            0.4917,
+            0.5299
           ],
           "scale": [
             0.6134,
@@ -3932,8 +4085,8 @@
             0.73
           ],
           "force": [
-            0.4512,
-            0.4752
+            0.5299,
+            0.5464
           ],
           "scale": [
             0.6135,
@@ -3973,8 +4126,8 @@
             0.48
           ],
           "force": [
-            0.4608,
-            0.4848
+            0.5464,
+            0.5066
           ],
           "scale": [
             0.6037,
@@ -4014,8 +4167,8 @@
             0.95
           ],
           "force": [
-            0.4704,
-            0.4944
+            0.5066,
+            0.576
           ],
           "scale": [
             0.6013,
@@ -4055,8 +4208,8 @@
             0.68
           ],
           "force": [
-            0.48,
-            0.504
+            0.576,
+            0.5391
           ],
           "scale": [
             0.5979,
@@ -4096,8 +4249,8 @@
             0.28
           ],
           "force": [
-            0.4896,
-            0.5136
+            0.5391,
+            0.4663
           ],
           "scale": [
             0.5901,
@@ -4153,6 +4306,17 @@
           "note": "Selected phrase arrival near 136s; measured attack, not every transient."
         },
         {
+          "time": 137.9498,
+          "type": "glint",
+          "force": 0.46,
+          "scale": 0.56,
+          "count": 3,
+          "spacing": 0.13,
+          "anticipation": 0.28,
+          "quiet": 0.45,
+          "note": "One fine separated shower inside the dense mist; force stays modest."
+        },
+        {
           "time": 183.6698,
           "type": "arrival",
           "force": 0.6529,
@@ -4164,15 +4328,27 @@
           "note": "Selected phrase arrival near 184s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 133.73,
         "end": 146.23
       },
       "alternate": null,
-      "highlighted_events": 13,
-      "event_count": 322,
-      "event_fingerprint": "52fab1959aca47576c0e03a05117e6c237c53eff4d4b2466c75eb1201bf3f1c9",
+      "highlighted_events": 16,
+      "event_count": 325,
+      "event_fingerprint": "c2417e81437d3b0feb37db49843272bd5aa00789c767b0c0932819d80042c4db",
       "quiet_spaces": [
         {
           "start": 0,
@@ -4302,7 +4478,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -4355,8 +4532,8 @@
             0.09
           ],
           "force": [
-            0.594,
-            0.627
+            0.5848,
+            0.5848
           ],
           "scale": [
             0.9495,
@@ -4396,8 +4573,8 @@
             0.28
           ],
           "force": [
-            0.6072,
-            0.6402
+            0.5848,
+            0.6786
           ],
           "scale": [
             0.9452,
@@ -4437,8 +4614,8 @@
             0.38
           ],
           "force": [
-            0.6204,
-            0.6534
+            0.6786,
+            0.7143
           ],
           "scale": [
             0.9542,
@@ -4472,14 +4649,14 @@
         {
           "name": "cells: phrase 3",
           "start": 108,
-          "end": 128.1974,
+          "end": 127.617,
           "density": [
             0.38,
             0.16
           ],
           "force": [
-            0.6336,
-            0.6666
+            0.7143,
+            0.6257
           ],
           "scale": [
             0.9435,
@@ -4512,15 +4689,15 @@
         },
         {
           "name": "cells: phrase 4",
-          "start": 128.1974,
+          "start": 127.617,
           "end": 148,
           "density": [
-            0.79,
+            0.88,
             0.65
           ],
           "force": [
-            0.6468,
-            0.6798
+            0.79,
+            0.7
           ],
           "scale": [
             0.9553,
@@ -4560,8 +4737,8 @@
             0.47
           ],
           "force": [
-            0.66,
-            0.693
+            0.792,
+            0.7426
           ],
           "scale": [
             0.9497,
@@ -4601,8 +4778,8 @@
             0.2
           ],
           "force": [
-            0.6732,
-            0.7062
+            0.7426,
+            0.6451
           ],
           "scale": [
             0.947,
@@ -4647,15 +4824,37 @@
           "note": "Selected phrase arrival near 40s; measured attack, not every transient."
         },
         {
-          "time": 128.1974,
+          "time": 123.1586,
+          "type": "fleck",
+          "force": 0.28,
+          "scale": 0.75,
+          "count": 1,
+          "spacing": 0.25,
+          "anticipation": 0.25,
+          "quiet": 0.4,
+          "note": "A light preparatory impact gives the authentic pre-roll a visible first frame."
+        },
+        {
+          "time": 124.8305,
+          "type": "fleck",
+          "force": 0.3,
+          "scale": 0.74,
+          "count": 1,
+          "spacing": 0.25,
+          "anticipation": 0.25,
+          "quiet": 0.4,
+          "note": "One quiet opening fleck: restrained texture, not completely dead water."
+        },
+        {
+          "time": 127.617,
           "type": "arrival",
-          "force": 0.98,
+          "force": 1.08,
           "scale": 1.18,
           "count": 1,
           "spacing": 0.25,
           "anticipation": 1.1,
           "quiet": 0.95,
-          "note": "Selected phrase arrival near 128s; measured attack, not every transient."
+          "note": "The proven demo arrival, confirmed by decoded reference energy; not the later maximum transient."
         },
         {
           "time": 147.795,
@@ -4669,6 +4868,7 @@
           "note": "Selected phrase arrival near 148s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 26.8,
@@ -4696,9 +4896,21 @@
         },
         {
           "start": 124.55,
-          "end": 127.9,
-          "amount": 0.1,
-          "note": "Restrain the opening of the supplied flagship excerpt."
+          "end": 126.9,
+          "amount": 0.2,
+          "note": "Restrained texture before the flagship riser."
+        },
+        {
+          "start": 126.9,
+          "end": 127.617,
+          "amount": 0,
+          "note": "Anticipation lets the structural arrival land clearly."
+        },
+        {
+          "start": 133.55,
+          "end": 134.25,
+          "amount": 0.12,
+          "note": "A small clearing inside the structured rain, not a constant wall."
         },
         {
           "start": 141.4,
@@ -4719,14 +4931,25 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 124.55,
         "end": 137.05
       },
       "alternate": null,
-      "highlighted_events": 24,
-      "event_count": 180,
-      "event_fingerprint": "d45cbb41dcba24587ce602abdd5aa03b391f70fda8a0a402ba785b9f313d32bb",
+      "highlighted_events": 25,
+      "event_count": 187,
+      "event_fingerprint": "1dde34a941e8fa25d97401e606291d5226ce8dcc3c5cc9a5a3d9fa1c7faeb8e8",
       "quiet_spaces": [
         {
           "start": 0,
@@ -4828,7 +5051,9 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
+        "Demo transcript corrects the main arrival to 127.617s; decoded MP3 jump starts around 127.597s and peaks at 127.617s. The old 128.1974s event was late."
       ]
     },
     {
@@ -4881,8 +5106,8 @@
             0.22
           ],
           "force": [
-            0.513,
-            0.5415
+            0.5745,
+            0.5745
           ],
           "scale": [
             0.8704,
@@ -4922,8 +5147,8 @@
             0.43
           ],
           "force": [
-            0.5244,
-            0.5529
+            0.5745,
+            0.6444
           ],
           "scale": [
             0.9082,
@@ -4963,8 +5188,8 @@
             0.55
           ],
           "force": [
-            0.5358,
-            0.5643
+            0.6444,
+            0.6765
           ],
           "scale": [
             0.9057,
@@ -5004,8 +5229,8 @@
             0.36
           ],
           "force": [
-            0.5472,
-            0.5757
+            0.6765,
+            0.6235
           ],
           "scale": [
             0.8932,
@@ -5045,8 +5270,8 @@
             0.58
           ],
           "force": [
-            0.5586,
-            0.5871
+            0.6235,
+            0.684
           ],
           "scale": [
             0.9053,
@@ -5086,8 +5311,8 @@
             0.44
           ],
           "force": [
-            0.57,
-            0.5985
+            0.684,
+            0.6472
           ],
           "scale": [
             0.8906,
@@ -5127,8 +5352,8 @@
             0.2
           ],
           "force": [
-            0.5814,
-            0.6099
+            0.6472,
+            0.5664
           ],
           "scale": [
             0.8864,
@@ -5195,6 +5420,7 @@
           "note": "Selected phrase arrival near 156s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 10.72,
@@ -5239,6 +5465,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 96.77,
         "end": 109.27
@@ -5246,7 +5483,7 @@
       "alternate": null,
       "highlighted_events": 12,
       "event_count": 244,
-      "event_fingerprint": "047a2be748ec09bd6fecc67e22b424b40863972ebd38997734255cf85093f28c",
+      "event_fingerprint": "11364c3e24bb5944bb3fc37b5a68e731f0e8fd125ccc00c525e942d47ce568ec",
       "quiet_spaces": [
         {
           "start": 0,
@@ -5340,7 +5577,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -5393,8 +5631,8 @@
             0.12
           ],
           "force": [
-            0.585,
-            0.6175
+            0.575,
+            0.575
           ],
           "scale": [
             1.0254,
@@ -5471,12 +5709,12 @@
           "start": 88,
           "end": 124,
           "density": [
-            0.32,
+            0.88,
             0.73
           ],
           "force": [
-            0.5,
-            0.78
+            0.8,
+            0.9
           ],
           "scale": [
             1.006,
@@ -5516,8 +5754,8 @@
             0.26
           ],
           "force": [
-            0.624,
-            0.6565
+            0.751,
+            0.6317
           ],
           "scale": [
             1.015,
@@ -5557,8 +5795,8 @@
             0.55
           ],
           "force": [
-            0.637,
-            0.6695
+            0.6317,
+            0.7119
           ],
           "scale": [
             0.9904,
@@ -5598,8 +5836,8 @@
             0.88
           ],
           "force": [
-            0.65,
-            0.6825
+            0.7119,
+            0.78
           ],
           "scale": [
             1.0095,
@@ -5639,8 +5877,8 @@
             0.24
           ],
           "force": [
-            0.663,
-            0.6955
+            0.78,
+            0.6247
           ],
           "scale": [
             0.9814,
@@ -5685,6 +5923,17 @@
           "note": "Selected phrase arrival near 88s; measured attack, not every transient."
         },
         {
+          "time": 91.8117,
+          "type": "arrival",
+          "force": 0.64,
+          "scale": 0.98,
+          "count": 2,
+          "spacing": 0.4,
+          "anticipation": 0.45,
+          "quiet": 0.7,
+          "note": "A rounded answering pair after the cinematic arrival."
+        },
+        {
           "time": 184.0414,
           "type": "arrival",
           "force": 0.9056,
@@ -5707,15 +5956,43 @@
           "note": "Selected phrase arrival near 200s; measured attack, not every transient."
         }
       ],
-      "breaths": [],
+      "gestures": [
+        {
+          "time": 201.1777,
+          "path": "c",
+          "force": 0.26,
+          "scale": 0.64,
+          "spread": 0.9,
+          "note": "A single curved physical sweep at the later crest, followed by open water."
+        }
+      ],
+      "breaths": [
+        {
+          "start": 93.2,
+          "end": 94.4,
+          "amount": 0.18,
+          "note": "The rise briefly opens out so its larger waves can breathe."
+        }
+      ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 82.66,
         "end": 95.16
       },
       "alternate": null,
-      "highlighted_events": 6,
-      "event_count": 294,
-      "event_fingerprint": "24398cea7ae4d690e00488eb459a8cfa26f1c6bee374a249aa45446255b04d42",
+      "highlighted_events": 15,
+      "event_count": 344,
+      "event_fingerprint": "405644875bd2e1f443870b976f9507351254f55f20c75ed50bd7c788499b730d",
       "quiet_spaces": [
         {
           "start": 0,
@@ -5877,7 +6154,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -5930,8 +6208,8 @@
             0.28
           ],
           "force": [
-            0.405,
-            0.4275
+            0.4662,
+            0.4662
           ],
           "scale": [
             0.7483,
@@ -5971,8 +6249,8 @@
             0.47
           ],
           "force": [
-            0.414,
-            0.4365
+            0.4662,
+            0.5109
           ],
           "scale": [
             0.7421,
@@ -6012,8 +6290,8 @@
             0.36
           ],
           "force": [
-            0.423,
-            0.4455
+            0.5109,
+            0.4865
           ],
           "scale": [
             0.7392,
@@ -6053,8 +6331,8 @@
             0.62
           ],
           "force": [
-            0.432,
-            0.4545
+            0.4865,
+            0.54
           ],
           "scale": [
             0.734,
@@ -6094,8 +6372,8 @@
             0.29
           ],
           "force": [
-            0.441,
-            0.4635
+            0.54,
+            0.4689
           ],
           "scale": [
             0.739,
@@ -6135,8 +6413,8 @@
             0.48
           ],
           "force": [
-            0.45,
-            0.4725
+            0.4689,
+            0.513
           ],
           "scale": [
             0.738,
@@ -6176,8 +6454,8 @@
             0.13
           ],
           "force": [
-            0.459,
-            0.4815
+            0.513,
+            0.418
           ],
           "scale": [
             0.7364,
@@ -6222,6 +6500,17 @@
           "note": "Selected phrase arrival near 44s; measured attack, not every transient."
         },
         {
+          "time": 57.4694,
+          "type": "glint",
+          "force": 0.61,
+          "scale": 0.82,
+          "count": 2,
+          "spacing": 0.31,
+          "anticipation": 0.65,
+          "quiet": 0.8,
+          "note": "Two spatially separate showers reform in the uncanny highlight."
+        },
+        {
           "time": 328.8874,
           "type": "arrival",
           "force": 0.6427,
@@ -6244,6 +6533,7 @@
           "note": "Selected phrase arrival near 396s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 29.48,
@@ -6288,14 +6578,25 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 51.52,
         "end": 64.02
       },
       "alternate": null,
-      "highlighted_events": 7,
-      "event_count": 366,
-      "event_fingerprint": "54a82aa755cf9fc169be24aec963815cb8ac0e205c297bb230f647a7188cbef2",
+      "highlighted_events": 9,
+      "event_count": 368,
+      "event_fingerprint": "3ccb404d4b393d512e779a42dab240df4387eb5319544d1304730b340fe9eaa6",
       "quiet_spaces": [
         {
           "start": 449,
@@ -6381,7 +6682,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -6434,8 +6736,8 @@
             0.09
           ],
           "force": [
-            0.261,
-            0.2755
+            0.2838,
+            0.2838
           ],
           "scale": [
             0.7229,
@@ -6475,8 +6777,8 @@
             0.24
           ],
           "force": [
-            0.2668,
-            0.2813
+            0.2838,
+            0.3349
           ],
           "scale": [
             0.7207,
@@ -6516,8 +6818,8 @@
             0.29
           ],
           "force": [
-            0.2726,
-            0.2871
+            0.3349,
+            0.348
           ],
           "scale": [
             0.7295,
@@ -6557,8 +6859,8 @@
             0.12
           ],
           "force": [
-            0.2784,
-            0.2929
+            0.348,
+            0.2963
           ],
           "scale": [
             0.7204,
@@ -6598,8 +6900,8 @@
             0.23
           ],
           "force": [
-            0.2842,
-            0.2987
+            0.2963,
+            0.3321
           ],
           "scale": [
             0.7213,
@@ -6639,8 +6941,8 @@
             0.27
           ],
           "force": [
-            0.29,
-            0.3045
+            0.3321,
+            0.3429
           ],
           "scale": [
             0.7167,
@@ -6680,8 +6982,8 @@
             0.105
           ],
           "force": [
-            0.2958,
-            0.3103
+            0.3429,
+            0.2902
           ],
           "scale": [
             0.7229,
@@ -6737,6 +7039,7 @@
           "note": "Selected phrase arrival near 232s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 20.520000000000003,
@@ -6865,6 +7168,17 @@
           "note": "Negative space is part of this track’s language."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 71.68,
         "end": 84.18
@@ -6872,7 +7186,7 @@
       "alternate": null,
       "highlighted_events": 2,
       "event_count": 146,
-      "event_fingerprint": "280566b0baa16870d09979600731edb9c154bc3c82820dd8d9416d84625ead44",
+      "event_fingerprint": "958b70833cabc4cb2f5e473a11718678b39644b7a2b0f602baf51ce4e4bf6fb2",
       "quiet_spaces": [
         {
           "start": 0,
@@ -6974,7 +7288,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -7027,8 +7342,8 @@
             0.28
           ],
           "force": [
-            0.45,
-            0.475
+            0.4988,
+            0.4988
           ],
           "scale": [
             0.5447,
@@ -7068,8 +7383,8 @@
             0.51
           ],
           "force": [
-            0.46,
-            0.485
+            0.4988,
+            0.5509
           ],
           "scale": [
             0.5471,
@@ -7109,8 +7424,8 @@
             0.69
           ],
           "force": [
-            0.47,
-            0.495
+            0.5509,
+            0.5836
           ],
           "scale": [
             0.54,
@@ -7150,8 +7465,8 @@
             0.47
           ],
           "force": [
-            0.48,
-            0.505
+            0.5836,
+            0.5428
           ],
           "scale": [
             0.542,
@@ -7191,8 +7506,8 @@
             0.79
           ],
           "force": [
-            0.49,
-            0.515
+            0.5428,
+            0.6
           ],
           "scale": [
             0.5382,
@@ -7232,8 +7547,8 @@
             0.57
           ],
           "force": [
-            0.5,
-            0.525
+            0.6,
+            0.5624
           ],
           "scale": [
             0.5391,
@@ -7273,8 +7588,8 @@
             0.26
           ],
           "force": [
-            0.51,
-            0.535
+            0.5624,
+            0.4934
           ],
           "scale": [
             0.5457,
@@ -7328,17 +7643,40 @@
           "anticipation": 0.65,
           "quiet": 0.72,
           "note": "Selected phrase arrival near 156s; measured attack, not every transient."
+        },
+        {
+          "time": 181.2317,
+          "type": "glint",
+          "force": 0.43,
+          "scale": 0.51,
+          "count": 3,
+          "spacing": 0.09,
+          "anticipation": 0.35,
+          "quiet": 0.65,
+          "note": "A selected needle burst, then release; not every percussion hit."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 179.65,
         "end": 192.15
       },
       "alternate": null,
-      "highlighted_events": 17,
-      "event_count": 414,
-      "event_fingerprint": "63ddfec6cf319feb6844c8247e911fed83507a69cd1ba8753d9c5de3d2da7179",
+      "highlighted_events": 20,
+      "event_count": 417,
+      "event_fingerprint": "2bde366342e7ee5d906256a6c2193779d15ef8a373503cbf05e89acedd8a7440",
       "quiet_spaces": [
         {
           "start": 0,
@@ -7452,7 +7790,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -7505,8 +7844,8 @@
             0.12
           ],
           "force": [
-            0.621,
-            0.6555
+            0.6134,
+            0.6134
           ],
           "scale": [
             0.78,
@@ -7546,8 +7885,8 @@
             0.21
           ],
           "force": [
-            0.6348,
-            0.6693
+            0.6134,
+            0.6555
           ],
           "scale": [
             0.78,
@@ -7587,8 +7926,8 @@
             0.32
           ],
           "force": [
-            0.6486,
-            0.6831
+            0.6555,
+            0.6959
           ],
           "scale": [
             0.78,
@@ -7628,8 +7967,8 @@
             0.45
           ],
           "force": [
-            0.6624,
-            0.6969
+            0.6959,
+            0.7355
           ],
           "scale": [
             0.9985,
@@ -7669,8 +8008,8 @@
             0.68
           ],
           "force": [
-            0.6762,
-            0.7107
+            0.7355,
+            0.7934
           ],
           "scale": [
             1.02,
@@ -7710,8 +8049,8 @@
             0.84
           ],
           "force": [
-            0.69,
-            0.7245
+            0.7934,
+            0.828
           ],
           "scale": [
             1.17,
@@ -7751,8 +8090,8 @@
             0.3
           ],
           "force": [
-            0.7038,
-            0.7383
+            0.828,
+            0.6892
           ],
           "scale": [
             1.0274,
@@ -7808,7 +8147,19 @@
           "note": "Selected phrase arrival near 216s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 212.8,
         "end": 225.3
@@ -7816,7 +8167,7 @@
       "alternate": null,
       "highlighted_events": 14,
       "event_count": 179,
-      "event_fingerprint": "5533297835117b8d2bef0bdfffca102393877622ed6a57c5aa9510e2e4f286dc",
+      "event_fingerprint": "a0c05a57f9f956afb3f47427566f66ff744a3478d487e43fb3a7e9d22e072785",
       "quiet_spaces": [
         {
           "start": 36,
@@ -7922,7 +8273,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -7975,8 +8327,8 @@
             0.17
           ],
           "force": [
-            0.27,
-            0.285
+            0.3131,
+            0.3131
           ],
           "scale": [
             0.8751,
@@ -8016,8 +8368,8 @@
             0.28
           ],
           "force": [
-            0.276,
-            0.291
+            0.3131,
+            0.3423
           ],
           "scale": [
             0.8749,
@@ -8057,8 +8409,8 @@
             0.34
           ],
           "force": [
-            0.282,
-            0.297
+            0.3423,
+            0.3558
           ],
           "scale": [
             0.8787,
@@ -8098,8 +8450,8 @@
             0.25
           ],
           "force": [
-            0.288,
-            0.303
+            0.3558,
+            0.335
           ],
           "scale": [
             0.8804,
@@ -8139,8 +8491,8 @@
             0.36
           ],
           "force": [
-            0.294,
-            0.309
+            0.335,
+            0.36
           ],
           "scale": [
             0.8805,
@@ -8180,8 +8532,8 @@
             0.24
           ],
           "force": [
-            0.3,
-            0.315
+            0.36,
+            0.3325
           ],
           "scale": [
             0.876,
@@ -8221,8 +8573,8 @@
             0.11
           ],
           "force": [
-            0.306,
-            0.321
+            0.3325,
+            0.2929
           ],
           "scale": [
             0.8735,
@@ -8278,7 +8630,19 @@
           "note": "Selected phrase arrival near 468s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 36.29,
         "end": 48.79
@@ -8286,7 +8650,7 @@
       "alternate": null,
       "highlighted_events": 4,
       "event_count": 234,
-      "event_fingerprint": "e560fe27f1a72a16e0d77cd6f4b84bf4bd1e0edb785c3fb35fd5a99d880d3e83",
+      "event_fingerprint": "2b7e1801c9f1a45e1e47b526abb3bda429ca77d67fdbc9af802e4cc2b149e079",
       "quiet_spaces": [
         {
           "start": 0,
@@ -8376,7 +8740,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -8429,7 +8794,7 @@
             0.19
           ],
           "force": [
-            0.387,
+            0.4085,
             0.4085
           ],
           "scale": [
@@ -8470,8 +8835,8 @@
             0.32
           ],
           "force": [
-            0.3956,
-            0.4171
+            0.4085,
+            0.4405
           ],
           "scale": [
             0.6142,
@@ -8511,8 +8876,8 @@
             0.44
           ],
           "force": [
-            0.4042,
-            0.4257
+            0.4405,
+            0.4646
           ],
           "scale": [
             0.6156,
@@ -8552,8 +8917,8 @@
             0.56
           ],
           "force": [
-            0.4128,
-            0.4343
+            0.4646,
+            0.4856
           ],
           "scale": [
             0.6153,
@@ -8593,8 +8958,8 @@
             0.76
           ],
           "force": [
-            0.4214,
-            0.4429
+            0.4856,
+            0.516
           ],
           "scale": [
             0.6219,
@@ -8634,8 +8999,8 @@
             0.63
           ],
           "force": [
-            0.43,
-            0.4515
+            0.516,
+            0.4968
           ],
           "scale": [
             0.6191,
@@ -8675,8 +9040,8 @@
             0.28
           ],
           "force": [
-            0.4386,
-            0.4601
+            0.4968,
+            0.4315
           ],
           "scale": [
             0.6125,
@@ -8743,7 +9108,19 @@
           "note": "Selected phrase arrival near 416s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 316.06,
         "end": 328.56
@@ -8751,7 +9128,7 @@
       "alternate": null,
       "highlighted_events": 36,
       "event_count": 492,
-      "event_fingerprint": "c1dbb23933d5fa9a097fe50776d0449f41eef2df5cf4ef21162838ec780bffa7",
+      "event_fingerprint": "d01e1dc2350f3d2120ee6fbf17af2fdf3e9155d4c43234269a02dfac0794e3bb",
       "quiet_spaces": [
         {
           "start": 0,
@@ -8865,7 +9242,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -8918,8 +9296,8 @@
             0.35
           ],
           "force": [
-            0.531,
-            0.5605
+            0.6046,
+            0.6046
           ],
           "scale": [
             0.7882,
@@ -8959,8 +9337,8 @@
             0.59
           ],
           "force": [
-            0.5428,
-            0.5723
+            0.6046,
+            0.6617
           ],
           "scale": [
             0.8122,
@@ -9000,8 +9378,8 @@
             0.76
           ],
           "force": [
-            0.5546,
-            0.5841
+            0.6617,
+            0.6953
           ],
           "scale": [
             0.8114,
@@ -9041,8 +9419,8 @@
             0.46
           ],
           "force": [
-            0.5664,
-            0.5959
+            0.6953,
+            0.6326
           ],
           "scale": [
             0.8068,
@@ -9082,8 +9460,8 @@
             0.83
           ],
           "force": [
-            0.5782,
-            0.6077
+            0.6326,
+            0.708
           ],
           "scale": [
             0.8092,
@@ -9123,8 +9501,8 @@
             0.61
           ],
           "force": [
-            0.59,
-            0.6195
+            0.708,
+            0.6659
           ],
           "scale": [
             0.8181,
@@ -9164,8 +9542,8 @@
             0.23
           ],
           "force": [
-            0.6018,
-            0.6313
+            0.6659,
+            0.5683
           ],
           "scale": [
             0.8055,
@@ -9232,6 +9610,7 @@
           "note": "Selected phrase arrival near 132s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 18.76,
@@ -9276,6 +9655,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 26.43,
         "end": 38.93
@@ -9283,7 +9673,7 @@
       "alternate": null,
       "highlighted_events": 13,
       "event_count": 274,
-      "event_fingerprint": "6f0566b60e9f97b6e65d0fafa2b6205039fb027b68b5906e957b9e5fea9a4536",
+      "event_fingerprint": "88362d8f835654a5366b02a76971525bfe43f17b5896e9aefa93a4382e18aba2",
       "quiet_spaces": [
         {
           "start": 0,
@@ -9377,7 +9767,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -9430,8 +9821,8 @@
             0.14
           ],
           "force": [
-            0.396,
-            0.418
+            0.4433,
+            0.4433
           ],
           "scale": [
             1.0446,
@@ -9471,8 +9862,8 @@
             0.25
           ],
           "force": [
-            0.4048,
-            0.4268
+            0.4433,
+            0.4888
           ],
           "scale": [
             1.0743,
@@ -9512,8 +9903,8 @@
             0.34
           ],
           "force": [
-            0.4136,
-            0.4356
+            0.4888,
+            0.5189
           ],
           "scale": [
             1.056,
@@ -9553,8 +9944,8 @@
             0.24
           ],
           "force": [
-            0.4224,
-            0.4444
+            0.5189,
+            0.4852
           ],
           "scale": [
             1.0563,
@@ -9594,8 +9985,8 @@
             0.37
           ],
           "force": [
-            0.4312,
-            0.4532
+            0.4852,
+            0.528
           ],
           "scale": [
             1.0365,
@@ -9635,8 +10026,8 @@
             0.29
           ],
           "force": [
-            0.44,
-            0.462
+            0.528,
+            0.5028
           ],
           "scale": [
             1.0604,
@@ -9676,8 +10067,8 @@
             0.13
           ],
           "force": [
-            0.4488,
-            0.4708
+            0.5028,
+            0.4384
           ],
           "scale": [
             1.0565,
@@ -9733,6 +10124,7 @@
           "note": "Selected phrase arrival near 212s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 8.04,
@@ -9777,6 +10169,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 86.46,
         "end": 98.96
@@ -9784,7 +10187,7 @@
       "alternate": null,
       "highlighted_events": 2,
       "event_count": 149,
-      "event_fingerprint": "ae5dc8bbe66ed4b925c12b0a104160d7e4ca489e46fe24b186b76b365090e966",
+      "event_fingerprint": "a712a09f9feef4e58918f25c400d2f20bb2855a56ec023b43e0c2364d0d3207f",
       "quiet_spaces": [
         {
           "start": 0,
@@ -9942,7 +10345,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -9995,8 +10399,8 @@
             0.17
           ],
           "force": [
-            0.342,
-            0.361
+            0.3855,
+            0.3855
           ],
           "scale": [
             0.896,
@@ -10036,8 +10440,8 @@
             0.28
           ],
           "force": [
-            0.3496,
-            0.3686
+            0.3855,
+            0.4193
           ],
           "scale": [
             0.9209,
@@ -10077,8 +10481,8 @@
             0.34
           ],
           "force": [
-            0.3572,
-            0.3762
+            0.4193,
+            0.435
           ],
           "scale": [
             0.9243,
@@ -10118,8 +10522,8 @@
             0.23
           ],
           "force": [
-            0.3648,
-            0.3838
+            0.435,
+            0.405
           ],
           "scale": [
             0.9219,
@@ -10159,8 +10563,8 @@
             0.43
           ],
           "force": [
-            0.3724,
-            0.3914
+            0.405,
+            0.456
           ],
           "scale": [
             0.9209,
@@ -10200,8 +10604,8 @@
             0.3
           ],
           "force": [
-            0.38,
-            0.399
+            0.456,
+            0.4247
           ],
           "scale": [
             0.9229,
@@ -10241,8 +10645,8 @@
             0.12
           ],
           "force": [
-            0.3876,
-            0.4066
+            0.4247,
+            0.3664
           ],
           "scale": [
             0.9037,
@@ -10298,7 +10702,19 @@
           "note": "Selected phrase arrival near 192s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 188.83,
         "end": 201.33
@@ -10306,7 +10722,7 @@
       "alternate": null,
       "highlighted_events": 9,
       "event_count": 197,
-      "event_fingerprint": "c8597c4988ae91c5096fdeea81bff4cf27da14fca39e14467b9681b88220deac",
+      "event_fingerprint": "b42a09fc5c3c798d28e248ee43c2f5daee844915ae4989ca9d2eba4b1866e3b5",
       "quiet_spaces": [
         {
           "start": 0,
@@ -10400,7 +10816,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -10453,8 +10870,8 @@
             0.1
           ],
           "force": [
-            0.414,
-            0.437
+            0.4595,
+            0.4595
           ],
           "scale": [
             1.0464,
@@ -10494,8 +10911,8 @@
             0.19
           ],
           "force": [
-            0.4232,
-            0.4462
+            0.4595,
+            0.5115
           ],
           "scale": [
             1.0183,
@@ -10535,8 +10952,8 @@
             0.26
           ],
           "force": [
-            0.4324,
-            0.4554
+            0.5115,
+            0.5436
           ],
           "scale": [
             1.0129,
@@ -10576,8 +10993,8 @@
             0.16
           ],
           "force": [
-            0.4416,
-            0.4646
+            0.5436,
+            0.4959
           ],
           "scale": [
             1.0065,
@@ -10617,8 +11034,8 @@
             0.28
           ],
           "force": [
-            0.4508,
-            0.4738
+            0.4959,
+            0.552
           ],
           "scale": [
             1.0202,
@@ -10658,8 +11075,8 @@
             0.18
           ],
           "force": [
-            0.46,
-            0.483
+            0.552,
+            0.5064
           ],
           "scale": [
             1.0308,
@@ -10699,8 +11116,8 @@
             0.09
           ],
           "force": [
-            0.4692,
-            0.4922
+            0.5064,
+            0.4524
           ],
           "scale": [
             1.0288,
@@ -10767,6 +11184,7 @@
           "note": "Selected phrase arrival near 176s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 5.36,
@@ -10811,6 +11229,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 98.56,
         "end": 111.06
@@ -10818,7 +11247,7 @@
       "alternate": null,
       "highlighted_events": 4,
       "event_count": 72,
-      "event_fingerprint": "55a1e4287c52e2622bcf7e47b5d67dcbab921c6c1399b501ecc26ce551817b50",
+      "event_fingerprint": "68f5fbf82d3b626e431a811a5fa79a75674893e96cb24e666f196c9f7c52a7b4",
       "quiet_spaces": [
         {
           "start": 197,
@@ -10904,7 +11333,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -10957,8 +11387,8 @@
             0.24
           ],
           "force": [
-            0.513,
-            0.5415
+            0.5778,
+            0.5778
           ],
           "scale": [
             0.9537,
@@ -10998,8 +11428,8 @@
             0.39
           ],
           "force": [
-            0.5244,
-            0.5529
+            0.5778,
+            0.6269
           ],
           "scale": [
             0.9701,
@@ -11039,8 +11469,8 @@
             0.53
           ],
           "force": [
-            0.5358,
-            0.5643
+            0.6269,
+            0.6647
           ],
           "scale": [
             0.9638,
@@ -11080,8 +11510,8 @@
             0.31
           ],
           "force": [
-            0.5472,
-            0.5757
+            0.6647,
+            0.6022
           ],
           "scale": [
             0.9544,
@@ -11121,8 +11551,8 @@
             0.61
           ],
           "force": [
-            0.5586,
-            0.5871
+            0.6022,
+            0.684
           ],
           "scale": [
             0.9679,
@@ -11162,8 +11592,8 @@
             0.42
           ],
           "force": [
-            0.57,
-            0.5985
+            0.684,
+            0.6355
           ],
           "scale": [
             0.9363,
@@ -11203,8 +11633,8 @@
             0.16
           ],
           "force": [
-            0.5814,
-            0.6099
+            0.6355,
+            0.545
           ],
           "scale": [
             0.9287,
@@ -11260,6 +11690,7 @@
           "note": "Selected phrase arrival near 112s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 18.76,
@@ -11304,6 +11735,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 121.86,
         "end": 134.36
@@ -11311,7 +11753,7 @@
       "alternate": null,
       "highlighted_events": 24,
       "event_count": 212,
-      "event_fingerprint": "fa24eb5fe52bab6803ba933f8e280dff89e8c564293c4612ede798642c1d3b43",
+      "event_fingerprint": "ffbb48b3b3a45885d94f68846463269b8890b9802952b99a2e66bf76de20e59a",
       "quiet_spaces": [
         {
           "start": 0,
@@ -11413,7 +11855,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -11466,8 +11909,8 @@
             0.07
           ],
           "force": [
-            0.333,
-            0.3515
+            0.3898,
+            0.3898
           ],
           "scale": [
             1.057,
@@ -11507,8 +11950,8 @@
             0.12
           ],
           "force": [
-            0.3404,
-            0.3589
+            0.3898,
+            0.4303
           ],
           "scale": [
             1.0529,
@@ -11548,8 +11991,8 @@
             0.08
           ],
           "force": [
-            0.3478,
-            0.3663
+            0.4303,
+            0.3988
           ],
           "scale": [
             1.0589,
@@ -11589,8 +12032,8 @@
             0.13
           ],
           "force": [
-            0.3552,
-            0.3737
+            0.3988,
+            0.4373
           ],
           "scale": [
             1.0588,
@@ -11630,8 +12073,8 @@
             0.09
           ],
           "force": [
-            0.3626,
-            0.3811
+            0.4373,
+            0.4073
           ],
           "scale": [
             1.0482,
@@ -11671,8 +12114,8 @@
             0.14
           ],
           "force": [
-            0.37,
-            0.3885
+            0.4073,
+            0.444
           ],
           "scale": [
             1.0513,
@@ -11712,8 +12155,8 @@
             0.055
           ],
           "force": [
-            0.3774,
-            0.3959
+            0.444,
+            0.375
           ],
           "scale": [
             1.0519,
@@ -11791,6 +12234,7 @@
           "note": "Selected phrase arrival near 416s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 8.04,
@@ -11835,6 +12279,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 6.72,
         "end": 19.22
@@ -11842,7 +12297,7 @@
       "alternate": null,
       "highlighted_events": 4,
       "event_count": 62,
-      "event_fingerprint": "d17c770fdc7d308273ed400abe8472a33554fe03b502ccc0ab2486f74656bcb8",
+      "event_fingerprint": "9ee237189c78ea67bc328070a2979c8c88f93929f6777fca725996a40395545b",
       "quiet_spaces": [
         {
           "start": 0,
@@ -11932,7 +12387,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -11985,8 +12441,8 @@
             0.07
           ],
           "force": [
-            0.243,
-            0.2565
+            0.2652,
+            0.2652
           ],
           "scale": [
             1.0228,
@@ -12026,8 +12482,8 @@
             0.15
           ],
           "force": [
-            0.2484,
-            0.2619
+            0.2652,
+            0.3005
           ],
           "scale": [
             1.0094,
@@ -12067,8 +12523,8 @@
             0.12
           ],
           "force": [
-            0.2538,
-            0.2673
+            0.3005,
+            0.2887
           ],
           "scale": [
             1.0049,
@@ -12108,8 +12564,8 @@
             0.19
           ],
           "force": [
-            0.2592,
-            0.2727
+            0.2887,
+            0.3145
           ],
           "scale": [
             1.0056,
@@ -12149,8 +12605,8 @@
             0.22
           ],
           "force": [
-            0.2646,
-            0.2781
+            0.3145,
+            0.324
           ],
           "scale": [
             1.0148,
@@ -12190,8 +12646,8 @@
             0.15
           ],
           "force": [
-            0.27,
-            0.2835
+            0.324,
+            0.3005
           ],
           "scale": [
             1.0036,
@@ -12231,8 +12687,8 @@
             0.06
           ],
           "force": [
-            0.2754,
-            0.2889
+            0.3005,
+            0.2595
           ],
           "scale": [
             1.0118,
@@ -12288,6 +12744,7 @@
           "note": "Selected phrase arrival near 172s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 37.52,
@@ -12332,6 +12789,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 167.78,
         "end": 180.28
@@ -12339,7 +12807,7 @@
       "alternate": null,
       "highlighted_events": 5,
       "event_count": 39,
-      "event_fingerprint": "71ffc757f1667e73af6d91bc9e65f62ad4348edc7ea6f969fa2a674fdfa358e9",
+      "event_fingerprint": "949249620633829739804a548d32b4ecfbb75270f5e03fbfc377f2d0746cf1bc",
       "quiet_spaces": [
         {
           "start": 0,
@@ -12549,7 +13017,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -12602,8 +13071,8 @@
             0.2
           ],
           "force": [
-            0.27,
-            0.285
+            0.3068,
+            0.3068
           ],
           "scale": [
             0.4743,
@@ -12643,8 +13112,8 @@
             0.34
           ],
           "force": [
-            0.276,
-            0.291
+            0.3068,
+            0.3362
           ],
           "scale": [
             0.4743,
@@ -12684,8 +13153,8 @@
             0.39
           ],
           "force": [
-            0.282,
-            0.297
+            0.3362,
+            0.3452
           ],
           "scale": [
             0.4706,
@@ -12725,8 +13194,8 @@
             0.31
           ],
           "force": [
-            0.288,
-            0.303
+            0.3452,
+            0.3305
           ],
           "scale": [
             0.4661,
@@ -12766,8 +13235,8 @@
             0.48
           ],
           "force": [
-            0.294,
-            0.309
+            0.3305,
+            0.36
           ],
           "scale": [
             0.4685,
@@ -12807,8 +13276,8 @@
             0.35
           ],
           "force": [
-            0.3,
-            0.315
+            0.36,
+            0.3381
           ],
           "scale": [
             0.469,
@@ -12848,8 +13317,8 @@
             0.16
           ],
           "force": [
-            0.306,
-            0.321
+            0.3381,
+            0.2966
           ],
           "scale": [
             0.452,
@@ -12905,6 +13374,7 @@
           "note": "Selected phrase arrival near 148s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 13.4,
@@ -12949,6 +13419,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 118.5,
         "end": 131
@@ -12956,7 +13437,7 @@
       "alternate": null,
       "highlighted_events": 14,
       "event_count": 97,
-      "event_fingerprint": "f3a61355b1c64d90b60e68a75191b138e536ada7c35c180cee3bbf5d0dff27c4",
+      "event_fingerprint": "4a16ec430328426ba2824ba32adf554463001d42abe22931c64fd81755155665",
       "quiet_spaces": [
         {
           "start": 119,
@@ -13046,7 +13527,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -13099,8 +13581,8 @@
             0.09
           ],
           "force": [
-            0.297,
-            0.3135
+            0.3245,
+            0.3245
           ],
           "scale": [
             0.7539,
@@ -13140,8 +13622,8 @@
             0.21
           ],
           "force": [
-            0.3036,
-            0.3201
+            0.3245,
+            0.3739
           ],
           "scale": [
             0.7558,
@@ -13181,8 +13663,8 @@
             0.14
           ],
           "force": [
-            0.3102,
-            0.3267
+            0.3739,
+            0.3477
           ],
           "scale": [
             0.748,
@@ -13222,8 +13704,8 @@
             0.28
           ],
           "force": [
-            0.3168,
-            0.3333
+            0.3477,
+            0.396
           ],
           "scale": [
             0.7379,
@@ -13263,8 +13745,8 @@
             0.17
           ],
           "force": [
-            0.3234,
-            0.3399
+            0.396,
+            0.3596
           ],
           "scale": [
             0.7433,
@@ -13304,8 +13786,8 @@
             0.23
           ],
           "force": [
-            0.33,
-            0.3465
+            0.3596,
+            0.3805
           ],
           "scale": [
             0.7447,
@@ -13345,8 +13827,8 @@
             0.09
           ],
           "force": [
-            0.3366,
-            0.3531
+            0.3805,
+            0.3245
           ],
           "scale": [
             0.7338,
@@ -13402,6 +13884,7 @@
           "note": "Selected phrase arrival near 180s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 5.36,
@@ -13446,6 +13929,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 122.75,
         "end": 135.25
@@ -13453,7 +13947,7 @@
       "alternate": null,
       "highlighted_events": 4,
       "event_count": 44,
-      "event_fingerprint": "0bcacec9ab0ac9a7451aee90ca13962a2e5206969788cea5fb5a079c0b6b7442",
+      "event_fingerprint": "94948126990f8da2785761c19e9e4290fe38f16150ac2655c393ae9a06739f8a",
       "quiet_spaces": [
         {
           "start": 0,
@@ -13543,7 +14037,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -13596,8 +14091,8 @@
             0.17
           ],
           "force": [
-            0.405,
-            0.4275
+            0.4655,
+            0.4655
           ],
           "scale": [
             0.9172,
@@ -13637,8 +14132,8 @@
             0.28
           ],
           "force": [
-            0.414,
-            0.4365
+            0.4655,
+            0.5081
           ],
           "scale": [
             0.9175,
@@ -13678,8 +14173,8 @@
             0.21
           ],
           "force": [
-            0.423,
-            0.4455
+            0.5081,
+            0.4823
           ],
           "scale": [
             0.917,
@@ -13719,8 +14214,8 @@
             0.33
           ],
           "force": [
-            0.432,
-            0.4545
+            0.4823,
+            0.5247
           ],
           "scale": [
             0.9204,
@@ -13760,8 +14255,8 @@
             0.38
           ],
           "force": [
-            0.441,
-            0.4635
+            0.5247,
+            0.54
           ],
           "scale": [
             0.9042,
@@ -13801,8 +14296,8 @@
             0.23
           ],
           "force": [
-            0.45,
-            0.4725
+            0.54,
+            0.49
           ],
           "scale": [
             0.9181,
@@ -13842,8 +14337,8 @@
             0.12
           ],
           "force": [
-            0.459,
-            0.4815
+            0.49,
+            0.4414
           ],
           "scale": [
             0.915,
@@ -13899,6 +14394,7 @@
           "note": "Selected phrase arrival near 88s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 10.72,
@@ -13943,6 +14439,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 78.4,
         "end": 90.9
@@ -13953,7 +14460,7 @@
       },
       "highlighted_events": 9,
       "event_count": 36,
-      "event_fingerprint": "33847d1c38448bbb64d254764b3edd481ae15befb982c0c075533ff82380f2eb",
+      "event_fingerprint": "936360ebe5fa7c0f2ccbf497765e2dc5d01387c240f94a3034fbf66a7bba3640",
       "quiet_spaces": [
         {
           "start": 2,
@@ -14119,7 +14626,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -14172,8 +14680,8 @@
             0.13
           ],
           "force": [
-            0.261,
-            0.2755
+            0.2901,
+            0.2901
           ],
           "scale": [
             0.9411,
@@ -14213,8 +14721,8 @@
             0.23
           ],
           "force": [
-            0.2668,
-            0.2813
+            0.2901,
+            0.3189
           ],
           "scale": [
             0.938,
@@ -14254,8 +14762,8 @@
             0.31
           ],
           "force": [
-            0.2726,
-            0.2871
+            0.3189,
+            0.3376
           ],
           "scale": [
             0.9202,
@@ -14295,8 +14803,8 @@
             0.2
           ],
           "force": [
-            0.2784,
-            0.2929
+            0.3376,
+            0.3111
           ],
           "scale": [
             0.9169,
@@ -14336,8 +14844,8 @@
             0.36
           ],
           "force": [
-            0.2842,
-            0.2987
+            0.3111,
+            0.348
           ],
           "scale": [
             0.9124,
@@ -14377,8 +14885,8 @@
             0.27
           ],
           "force": [
-            0.29,
-            0.3045
+            0.348,
+            0.3286
           ],
           "scale": [
             0.9368,
@@ -14418,8 +14926,8 @@
             0.12
           ],
           "force": [
-            0.2958,
-            0.3103
+            0.3286,
+            0.2867
           ],
           "scale": [
             0.9474,
@@ -14475,7 +14983,19 @@
           "note": "Selected phrase arrival near 140s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 135.74,
         "end": 148.24
@@ -14483,7 +15003,7 @@
       "alternate": null,
       "highlighted_events": 2,
       "event_count": 79,
-      "event_fingerprint": "c3f87cfd103ba6a494c15c3929e38ef4436f0fa44d4df54c8cd06dc68079d81d",
+      "event_fingerprint": "79c76dadad476a45d65c34d20cfdd2697b0f6cce53429564b494b8f201ab0c24",
       "quiet_spaces": [
         {
           "start": 219.5,
@@ -14569,7 +15089,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -14622,8 +15143,8 @@
             0.23
           ],
           "force": [
-            0.495,
-            0.5225
+            0.5525,
+            0.5525
           ],
           "scale": [
             1.0131,
@@ -14663,8 +15184,8 @@
             0.37
           ],
           "force": [
-            0.506,
-            0.5335
+            0.5525,
+            0.5974
           ],
           "scale": [
             0.9998,
@@ -14704,8 +15225,8 @@
             0.55
           ],
           "force": [
-            0.517,
-            0.5445
+            0.5974,
+            0.644
           ],
           "scale": [
             1.0112,
@@ -14745,8 +15266,8 @@
             0.42
           ],
           "force": [
-            0.528,
-            0.5555
+            0.644,
+            0.6113
           ],
           "scale": [
             0.9962,
@@ -14786,8 +15307,8 @@
             0.62
           ],
           "force": [
-            0.539,
-            0.5665
+            0.6113,
+            0.66
           ],
           "scale": [
             1.0048,
@@ -14827,8 +15348,8 @@
             0.47
           ],
           "force": [
-            0.55,
-            0.5775
+            0.66,
+            0.6244
           ],
           "scale": [
             0.9997,
@@ -14868,8 +15389,8 @@
             0.2
           ],
           "force": [
-            0.561,
-            0.5885
+            0.6244,
+            0.5412
           ],
           "scale": [
             1.0203,
@@ -14936,6 +15457,7 @@
           "note": "Selected phrase arrival near 216s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 56.28,
@@ -14980,6 +15502,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 144.93,
         "end": 157.43
@@ -14987,7 +15520,7 @@
       "alternate": null,
       "highlighted_events": 14,
       "event_count": 199,
-      "event_fingerprint": "d11cc3fbffd99dc42030d92959cfd6294011179e254b2dd416f408085af75461",
+      "event_fingerprint": "f595c040c263f756c14762887699df10866a8b0fc6caf845dfb5073c10ea7ffa",
       "quiet_spaces": [
         {
           "start": 250,
@@ -15073,7 +15606,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -15126,8 +15660,8 @@
             0.29
           ],
           "force": [
-            0.522,
-            0.551
+            0.5982,
+            0.5982
           ],
           "scale": [
             0.7908,
@@ -15167,8 +15701,8 @@
             0.51
           ],
           "force": [
-            0.5336,
-            0.5626
+            0.5982,
+            0.6609
           ],
           "scale": [
             0.7807,
@@ -15208,8 +15742,8 @@
             0.66
           ],
           "force": [
-            0.5452,
-            0.5742
+            0.6609,
+            0.696
           ],
           "scale": [
             0.7847,
@@ -15249,8 +15783,8 @@
             0.4
           ],
           "force": [
-            0.5568,
-            0.5858
+            0.696,
+            0.6318
           ],
           "scale": [
             0.7881,
@@ -15290,8 +15824,8 @@
             0.64
           ],
           "force": [
-            0.5684,
-            0.5974
+            0.6318,
+            0.6916
           ],
           "scale": [
             0.7783,
@@ -15331,8 +15865,8 @@
             0.43
           ],
           "force": [
-            0.58,
-            0.609
+            0.6916,
+            0.6401
           ],
           "scale": [
             0.7831,
@@ -15372,8 +15906,8 @@
             0.16
           ],
           "force": [
-            0.5916,
-            0.6206
+            0.6401,
+            0.5488
           ],
           "scale": [
             0.794,
@@ -15429,6 +15963,7 @@
           "note": "Selected phrase arrival near 120s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [
         {
           "start": 18.76,
@@ -15473,6 +16008,17 @@
           "note": "Authored room for decay and interference."
         }
       ],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 103.49,
         "end": 115.99
@@ -15480,7 +16026,7 @@
       "alternate": null,
       "highlighted_events": 5,
       "event_count": 173,
-      "event_fingerprint": "76b02ee4b4e7e9db5af3398e501969c500baa7dd739d1236b4f9599263191089",
+      "event_fingerprint": "5aead36522123506f0a447f995cd94246be7ad27c88d34ec6af72178ea28b44d",
       "quiet_spaces": [
         {
           "start": 5.5,
@@ -15579,6 +16125,7 @@
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
         "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
         "Playlist position 30 is DEAR DRIVER — NICO, while the authored reference is Rider. Equal duration is insufficient; identity needs verification."
       ]
     },
@@ -15632,8 +16179,8 @@
             0.12
           ],
           "force": [
-            0.405,
-            0.4275
+            0.4367,
+            0.4367
           ],
           "scale": [
             1.1162,
@@ -15673,8 +16220,8 @@
             0.2
           ],
           "force": [
-            0.414,
-            0.4365
+            0.4367,
+            0.4721
           ],
           "scale": [
             1.0934,
@@ -15714,8 +16261,8 @@
             0.29
           ],
           "force": [
-            0.423,
-            0.4455
+            0.4721,
+            0.5042
           ],
           "scale": [
             1.0971,
@@ -15755,8 +16302,8 @@
             0.22
           ],
           "force": [
-            0.432,
-            0.4545
+            0.5042,
+            0.4798
           ],
           "scale": [
             1.0949,
@@ -15796,8 +16343,8 @@
             0.41
           ],
           "force": [
-            0.441,
-            0.4635
+            0.4798,
+            0.54
           ],
           "scale": [
             1.1093,
@@ -15837,8 +16384,8 @@
             0.32
           ],
           "force": [
-            0.45,
-            0.4725
+            0.54,
+            0.5138
           ],
           "scale": [
             1.1075,
@@ -15878,8 +16425,8 @@
             0.12
           ],
           "force": [
-            0.459,
-            0.4815
+            0.5138,
+            0.4367
           ],
           "scale": [
             1.0953,
@@ -15935,7 +16482,19 @@
           "note": "Selected phrase arrival near 308s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 320.32,
         "end": 332.82
@@ -15943,7 +16502,7 @@
       "alternate": null,
       "highlighted_events": 8,
       "event_count": 142,
-      "event_fingerprint": "31f5402c30ff4219a64514e92d1b31b84a75b54a541d1c183f3a32344a3c778a",
+      "event_fingerprint": "f3e18b4255f0f7ab79d48d21f09b19e5a9f187f86fe1b4d00abfaefafcc0b2c0",
       "quiet_spaces": [
         {
           "start": 0,
@@ -16089,7 +16648,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     },
     {
@@ -16142,8 +16702,8 @@
             0.25
           ],
           "force": [
-            0.486,
-            0.513
+            0.5538,
+            0.5538
           ],
           "scale": [
             0.9688,
@@ -16183,8 +16743,8 @@
             0.42
           ],
           "force": [
-            0.4968,
-            0.5238
+            0.5538,
+            0.6058
           ],
           "scale": [
             0.982,
@@ -16224,8 +16784,8 @@
             0.59
           ],
           "force": [
-            0.5076,
-            0.5346
+            0.6058,
+            0.648
           ],
           "scale": [
             0.971,
@@ -16265,8 +16825,8 @@
             0.48
           ],
           "force": [
-            0.5184,
-            0.5454
+            0.648,
+            0.6215
           ],
           "scale": [
             0.9868,
@@ -16306,8 +16866,8 @@
             0.53
           ],
           "force": [
-            0.5292,
-            0.5562
+            0.6215,
+            0.6339
           ],
           "scale": [
             0.9734,
@@ -16347,8 +16907,8 @@
             0.32
           ],
           "force": [
-            0.54,
-            0.567
+            0.6339,
+            0.5768
           ],
           "scale": [
             0.9703,
@@ -16388,8 +16948,8 @@
             0.08
           ],
           "force": [
-            0.5508,
-            0.5778
+            0.5768,
+            0.4774
           ],
           "scale": [
             0.9913,
@@ -16456,7 +17016,19 @@
           "note": "Selected phrase arrival near 164s; measured attack, not every transient."
         }
       ],
+      "gestures": [],
       "breaths": [],
+      "physical_calibration": {
+        "ordinary_rain_unchanged": true,
+        "music_gain": {
+          "background": 1.4,
+          "rain": 2.6,
+          "cluster": 2.6,
+          "accent": 3.2,
+          "gesture": 1.7
+        },
+        "expression_default": 1
+      },
       "demo": {
         "start": 62.05,
         "end": 74.55
@@ -16464,7 +17036,7 @@
       "alternate": null,
       "highlighted_events": 6,
       "event_count": 185,
-      "event_fingerprint": "245fffa97527a9b757bf6b52edeace4114556a5da643681f5c442481e5bc7c57",
+      "event_fingerprint": "0accbcf004779af2c6d3d0bf2d566638aafebc3f506a3d376ed25c1aaf6073e6",
       "quiet_spaces": [
         {
           "start": 0,
@@ -16586,7 +17158,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
       ]
     }
   ]

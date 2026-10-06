@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "20-recovery",
   "seed": 3396902718,
   "title": "Recovery",
@@ -24,8 +24,8 @@
         0.12
       ],
       "force": [
-        0.585,
-        0.6175
+        0.575,
+        0.575
       ],
       "scale": [
         1.0254,
@@ -102,12 +102,12 @@
       "start": 88.0,
       "end": 124.0,
       "density": [
-        0.32,
+        0.88,
         0.73
       ],
       "force": [
-        0.5,
-        0.78
+        0.8,
+        0.9
       ],
       "scale": [
         1.006,
@@ -147,8 +147,8 @@
         0.26
       ],
       "force": [
-        0.624,
-        0.6565
+        0.751,
+        0.6317
       ],
       "scale": [
         1.015,
@@ -188,8 +188,8 @@
         0.55
       ],
       "force": [
-        0.637,
-        0.6695
+        0.6317,
+        0.7119
       ],
       "scale": [
         0.9904,
@@ -229,8 +229,8 @@
         0.88
       ],
       "force": [
-        0.65,
-        0.6825
+        0.7119,
+        0.78
       ],
       "scale": [
         1.0095,
@@ -270,8 +270,8 @@
         0.24
       ],
       "force": [
-        0.663,
-        0.6955
+        0.78,
+        0.6247
       ],
       "scale": [
         0.9814,
@@ -316,6 +316,17 @@
       "note": "Selected phrase arrival near 88s; measured attack, not every transient."
     },
     {
+      "time": 91.8117,
+      "type": "arrival",
+      "force": 0.64,
+      "scale": 0.98,
+      "count": 2,
+      "spacing": 0.4,
+      "anticipation": 0.45,
+      "quiet": 0.7,
+      "note": "A rounded answering pair after the cinematic arrival."
+    },
+    {
       "time": 184.0414,
       "type": "arrival",
       "force": 0.9056,
@@ -338,10 +349,28 @@
       "note": "Selected phrase arrival near 200s; measured attack, not every transient."
     }
   ],
-  "breaths": [],
+  "gestures": [
+    {
+      "time": 201.1777,
+      "path": "c",
+      "force": 0.26,
+      "scale": 0.64,
+      "spread": 0.9,
+      "note": "A single curved physical sweep at the later crest, followed by open water."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 93.2,
+      "end": 94.4,
+      "amount": 0.18,
+      "note": "The rise briefly opens out so its larger waves can breathe."
+    }
+  ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/19",

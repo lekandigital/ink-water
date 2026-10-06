@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "14-slipping-fingers-through-curls",
   "seed": 171314827,
   "title": "Slipping Fingers Through Curls",
-  "artist": "",
+  "artist": "J",
   "duration": 217.528254,
   "style": "tactile / collage",
   "direction": "Use irregular microdrops, paired events and long gaps. The choreography should feel close and tactile, almost like marks appearing on paper, not like weather.",
@@ -24,8 +24,8 @@
         0.09
       ],
       "force": [
-        0.297,
-        0.3135
+        0.3245,
+        0.3245
       ],
       "scale": [
         0.7539,
@@ -65,8 +65,8 @@
         0.21
       ],
       "force": [
-        0.3036,
-        0.3201
+        0.3245,
+        0.3739
       ],
       "scale": [
         0.7558,
@@ -106,8 +106,8 @@
         0.14
       ],
       "force": [
-        0.3102,
-        0.3267
+        0.3739,
+        0.3477
       ],
       "scale": [
         0.748,
@@ -147,8 +147,8 @@
         0.28
       ],
       "force": [
-        0.3168,
-        0.3333
+        0.3477,
+        0.396
       ],
       "scale": [
         0.7379,
@@ -188,8 +188,8 @@
         0.17
       ],
       "force": [
-        0.3234,
-        0.3399
+        0.396,
+        0.3596
       ],
       "scale": [
         0.7433,
@@ -229,8 +229,8 @@
         0.23
       ],
       "force": [
-        0.33,
-        0.3465
+        0.3596,
+        0.3805
       ],
       "scale": [
         0.7447,
@@ -270,8 +270,8 @@
         0.09
       ],
       "force": [
-        0.3366,
-        0.3531
+        0.3805,
+        0.3245
       ],
       "scale": [
         0.7338,
@@ -327,6 +327,7 @@
       "note": "Selected phrase arrival near 180s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 5.36,
@@ -373,7 +374,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/13",

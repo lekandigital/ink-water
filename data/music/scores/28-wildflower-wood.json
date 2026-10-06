@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "28-wildflower-wood",
   "seed": 3048215528,
   "title": "Wildflower Wood",
-  "artist": "",
+  "artist": "The Seven Fields of Aphelion",
   "duration": 226.64,
   "style": "dream / environmental",
   "direction": "Use soft scattered rain with occasional slow clusters. Let spatial placement wander naturally across the surface, like weather moving through a landscape.",
@@ -24,8 +24,8 @@
         0.13
       ],
       "force": [
-        0.261,
-        0.2755
+        0.2901,
+        0.2901
       ],
       "scale": [
         0.9411,
@@ -65,8 +65,8 @@
         0.23
       ],
       "force": [
-        0.2668,
-        0.2813
+        0.2901,
+        0.3189
       ],
       "scale": [
         0.938,
@@ -106,8 +106,8 @@
         0.31
       ],
       "force": [
-        0.2726,
-        0.2871
+        0.3189,
+        0.3376
       ],
       "scale": [
         0.9202,
@@ -147,8 +147,8 @@
         0.2
       ],
       "force": [
-        0.2784,
-        0.2929
+        0.3376,
+        0.3111
       ],
       "scale": [
         0.9169,
@@ -188,8 +188,8 @@
         0.36
       ],
       "force": [
-        0.2842,
-        0.2987
+        0.3111,
+        0.348
       ],
       "scale": [
         0.9124,
@@ -229,8 +229,8 @@
         0.27
       ],
       "force": [
-        0.29,
-        0.3045
+        0.348,
+        0.3286
       ],
       "scale": [
         0.9368,
@@ -270,8 +270,8 @@
         0.12
       ],
       "force": [
-        0.2958,
-        0.3103
+        0.3286,
+        0.2867
       ],
       "scale": [
         0.9474,
@@ -327,10 +327,12 @@
       "note": "Selected phrase arrival near 140s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/27",

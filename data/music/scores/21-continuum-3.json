@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "21-continuum-3",
   "seed": 4193532708,
   "title": "Continuum 3",
@@ -27,8 +27,8 @@
         0.15
       ],
       "force": [
-        0.315,
-        0.3325
+        0.3484,
+        0.3484
       ],
       "scale": [
         0.8632,
@@ -68,8 +68,8 @@
         0.35
       ],
       "force": [
-        0.322,
-        0.3395
+        0.3484,
+        0.4029
       ],
       "scale": [
         0.9112,
@@ -109,8 +109,8 @@
         0.17
       ],
       "force": [
-        0.329,
-        0.3465
+        0.4029,
+        0.355
       ],
       "scale": [
         0.9046,
@@ -150,8 +150,8 @@
         0.28
       ],
       "force": [
-        0.336,
-        0.3535
+        0.355,
+        0.3862
       ],
       "scale": [
         0.8907,
@@ -191,8 +191,8 @@
         0.43
       ],
       "force": [
-        0.343,
-        0.3605
+        0.3862,
+        0.42
       ],
       "scale": [
         0.8832,
@@ -232,8 +232,8 @@
         0.26
       ],
       "force": [
-        0.35,
-        0.3675
+        0.42,
+        0.3811
       ],
       "scale": [
         0.8556,
@@ -273,8 +273,8 @@
         0.15
       ],
       "force": [
-        0.357,
-        0.3745
+        0.3811,
+        0.3484
       ],
       "scale": [
         0.889,
@@ -330,6 +330,28 @@
       "note": "Selected phrase arrival near 108s; measured attack, not every transient."
     },
     {
+      "time": 132.7949,
+      "type": "arrival",
+      "force": 0.43,
+      "scale": 1.04,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.65,
+      "note": "A broad harmonic arrival; flowing rain remains soft and unquantized."
+    },
+    {
+      "time": 136.0225,
+      "type": "glint",
+      "force": 0.26,
+      "scale": 0.73,
+      "count": 2,
+      "spacing": 0.52,
+      "anticipation": 0.3,
+      "quiet": 0.35,
+      "note": "Two small drifting echoes after the sustained arrival."
+    },
+    {
       "time": 204.8232,
       "type": "arrival",
       "force": 0.5714,
@@ -341,10 +363,12 @@
       "note": "Selected phrase arrival near 204s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/20",

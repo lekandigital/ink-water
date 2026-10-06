@@ -1,0 +1,1123 @@
+{
+  "schema_version": 1,
+  "renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
+  "tracks": [
+    {
+      "track": "01-inhale-the-mist",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 3139,
+          "maximum_contrast": 193,
+          "physical_force": -0.005031713627585797
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2809,
+          "maximum_contrast": 146,
+          "physical_force": -0.005031713627585797
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4588,
+          "maximum_contrast": 193,
+          "physical_force": -0.0121041239961952
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 4198,
+          "maximum_contrast": 146,
+          "physical_force": -0.0121041239961952
+        }
+      ]
+    },
+    {
+      "track": "02-fused-dj-kicks",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 4106,
+          "maximum_contrast": 193,
+          "physical_force": -0.006459994162017837
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 3538,
+          "maximum_contrast": 145,
+          "physical_force": -0.006459994162017837
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3020,
+          "maximum_contrast": 193,
+          "physical_force": -0.004241084887325764
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2749,
+          "maximum_contrast": 146,
+          "physical_force": -0.004241084887325764
+        }
+      ],
+      "excerpt": {
+        "physical_impacts": 26,
+        "changed_pixels_per_second": [
+          2633,
+          4191,
+          7938,
+          11044,
+          8314,
+          10685,
+          8441,
+          16706,
+          30330,
+          45518,
+          30594,
+          32730,
+          25446,
+          44037
+        ],
+        "dreamy_rain_clock": true
+      }
+    },
+    {
+      "track": "03-sun-tickles",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 3280,
+          "maximum_contrast": 193,
+          "physical_force": -0.004621760482630101
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 2904,
+          "maximum_contrast": 146,
+          "physical_force": -0.004621760482630101
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2906,
+          "maximum_contrast": 192,
+          "physical_force": -0.0037413403013348587
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2557,
+          "maximum_contrast": 145,
+          "physical_force": -0.0037413403013348587
+        }
+      ]
+    },
+    {
+      "track": "04-by-the-rain",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 3153,
+          "maximum_contrast": 189,
+          "physical_force": -0.005992752897942289
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2927,
+          "maximum_contrast": 143,
+          "physical_force": -0.005992752897942289
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2570,
+          "maximum_contrast": 188,
+          "physical_force": -0.0039649379285663375
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2207,
+          "maximum_contrast": 141,
+          "physical_force": -0.0039649379285663375
+        }
+      ]
+    },
+    {
+      "track": "05-time-to-find-me-afx-fast-mix",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2366,
+          "maximum_contrast": 184,
+          "physical_force": -0.00300274614134688
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2033,
+          "maximum_contrast": 138,
+          "physical_force": -0.00300274614134688
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2907,
+          "maximum_contrast": 193,
+          "physical_force": -0.005478557997140289
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2501,
+          "maximum_contrast": 145,
+          "physical_force": -0.005478557997140289
+        }
+      ]
+    },
+    {
+      "track": "06-pop-4",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 2345,
+          "maximum_contrast": 178,
+          "physical_force": -0.0038923575850954495
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 1912,
+          "maximum_contrast": 135,
+          "physical_force": -0.0038923575850954495
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3003,
+          "maximum_contrast": 193,
+          "physical_force": -0.006723194301149608
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2426,
+          "maximum_contrast": 145,
+          "physical_force": -0.006723194301149608
+        }
+      ]
+    },
+    {
+      "track": "07-lusine-without-a-plan",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 4557,
+          "maximum_contrast": 193,
+          "physical_force": -0.006643274149815484
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 3781,
+          "maximum_contrast": 146,
+          "physical_force": -0.006643274149815484
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3790,
+          "maximum_contrast": 192,
+          "physical_force": -0.009404290878658475
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3164,
+          "maximum_contrast": 145,
+          "physical_force": -0.009404290878658475
+        }
+      ]
+    },
+    {
+      "track": "08-memory-of-a-memory",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 4054,
+          "maximum_contrast": 193,
+          "physical_force": -0.007043443969135022
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 3533,
+          "maximum_contrast": 145,
+          "physical_force": -0.007043443969135022
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 5032,
+          "maximum_contrast": 193,
+          "physical_force": -0.012674423527940511
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 4318,
+          "maximum_contrast": 146,
+          "physical_force": -0.012674423527940511
+        }
+      ]
+    },
+    {
+      "track": "09-places-remember-events",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2863,
+          "maximum_contrast": 182,
+          "physical_force": -0.0034174860950218814
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2441,
+          "maximum_contrast": 134,
+          "physical_force": -0.0034174860950218814
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4740,
+          "maximum_contrast": 193,
+          "physical_force": -0.011098256088515371
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 4092,
+          "maximum_contrast": 146,
+          "physical_force": -0.011098256088515371
+        }
+      ]
+    },
+    {
+      "track": "10-sun-arcs-laraaji-remix",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2939,
+          "maximum_contrast": 186,
+          "physical_force": -0.0033651954700436595
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2493,
+          "maximum_contrast": 140,
+          "physical_force": -0.0033651954700436595
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3210,
+          "maximum_contrast": 193,
+          "physical_force": -0.005362195271826714
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2900,
+          "maximum_contrast": 146,
+          "physical_force": -0.005362195271826714
+        }
+      ]
+    },
+    {
+      "track": "11-remember",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 3196,
+          "maximum_contrast": 193,
+          "physical_force": -0.005234450856055832
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2858,
+          "maximum_contrast": 146,
+          "physical_force": -0.005234450856055832
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2921,
+          "maximum_contrast": 193,
+          "physical_force": -0.006649412094628276
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2394,
+          "maximum_contrast": 145,
+          "physical_force": -0.006649412094628276
+        }
+      ]
+    },
+    {
+      "track": "12-wilson-tanner-blush",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 754,
+          "maximum_contrast": 43,
+          "physical_force": -0.0017053216270720764
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 669,
+          "maximum_contrast": 33,
+          "physical_force": -0.0017053216270720764
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2181,
+          "maximum_contrast": 148,
+          "physical_force": -0.0037255379928829084
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 1696,
+          "maximum_contrast": 112,
+          "physical_force": -0.0037255379928829084
+        }
+      ]
+    },
+    {
+      "track": "13-argento-sabbia-su-sabbia",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2118,
+          "maximum_contrast": 94,
+          "physical_force": -0.0019843439011441267
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 1687,
+          "maximum_contrast": 71,
+          "physical_force": -0.0019843439011441267
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2999,
+          "maximum_contrast": 193,
+          "physical_force": -0.004354296570526838
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2693,
+          "maximum_contrast": 146,
+          "physical_force": -0.004354296570526838
+        }
+      ]
+    },
+    {
+      "track": "14-slipping-fingers-through-curls",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 1813,
+          "maximum_contrast": 91,
+          "physical_force": -0.0022455403760083207
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 1473,
+          "maximum_contrast": 69,
+          "physical_force": -0.0022455403760083207
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 1982,
+          "maximum_contrast": 187,
+          "physical_force": -0.004333730322736145
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 1556,
+          "maximum_contrast": 141,
+          "physical_force": -0.004333730322736145
+        }
+      ]
+    },
+    {
+      "track": "15-190304-05",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2979,
+          "maximum_contrast": 169,
+          "physical_force": -0.003092048373770714
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2575,
+          "maximum_contrast": 127,
+          "physical_force": -0.003092048373770714
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2979,
+          "maximum_contrast": 169,
+          "physical_force": -0.003092048373770714
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2575,
+          "maximum_contrast": 127,
+          "physical_force": -0.003092048373770714
+        }
+      ],
+      "excerpt": {
+        "physical_impacts": 2,
+        "changed_pixels_per_second": [
+          0,
+          3457,
+          3894,
+          2269,
+          2209,
+          1775,
+          705,
+          897,
+          1484,
+          729,
+          145,
+          40
+        ],
+        "dreamy_rain_clock": true
+      }
+    },
+    {
+      "track": "16-gaganbadiba",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2930,
+          "maximum_contrast": 147,
+          "physical_force": -0.005294050496621244
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2488,
+          "maximum_contrast": 111,
+          "physical_force": -0.005294050496621244
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2798,
+          "maximum_contrast": 193,
+          "physical_force": -0.006385687239725144
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2241,
+          "maximum_contrast": 145,
+          "physical_force": -0.006385687239725144
+        }
+      ]
+    },
+    {
+      "track": "17-i",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 3058,
+          "maximum_contrast": 190,
+          "physical_force": -0.004159580496063754
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 2696,
+          "maximum_contrast": 143,
+          "physical_force": -0.004159580496063754
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3625,
+          "maximum_contrast": 193,
+          "physical_force": -0.0069440733307374715
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3128,
+          "maximum_contrast": 145,
+          "physical_force": -0.0069440733307374715
+        }
+      ]
+    },
+    {
+      "track": "18-birch-beer-forest",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2663,
+          "maximum_contrast": 188,
+          "physical_force": -0.003486026009446953
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2308,
+          "maximum_contrast": 141,
+          "physical_force": -0.003486026009446953
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3645,
+          "maximum_contrast": 153,
+          "physical_force": -0.0113532604950127
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3217,
+          "maximum_contrast": 137,
+          "physical_force": -0.0113532604950127
+        }
+      ],
+      "excerpt": {
+        "physical_impacts": 100,
+        "changed_pixels_per_second": [
+          0,
+          0,
+          3217,
+          5687,
+          22789,
+          31297,
+          28756,
+          29893,
+          62866,
+          49869,
+          35999,
+          37186,
+          28162,
+          23447
+        ],
+        "dreamy_rain_clock": true
+      }
+    },
+    {
+      "track": "19-an-unopened-letter",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 3393,
+          "maximum_contrast": 193,
+          "physical_force": -0.004030232087524162
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 2803,
+          "maximum_contrast": 145,
+          "physical_force": -0.004030232087524162
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2860,
+          "maximum_contrast": 190,
+          "physical_force": -0.005583425317264944
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2337,
+          "maximum_contrast": 143,
+          "physical_force": -0.005583425317264944
+        }
+      ]
+    },
+    {
+      "track": "20-recovery",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 2043,
+          "maximum_contrast": 182,
+          "physical_force": -0.003918934576263715
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 1699,
+          "maximum_contrast": 137,
+          "physical_force": -0.003918934576263715
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4102,
+          "maximum_contrast": 156,
+          "physical_force": -0.01278258643519372
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3591,
+          "maximum_contrast": 118,
+          "physical_force": -0.01278258643519372
+        }
+      ]
+    },
+    {
+      "track": "21-continuum-3",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2416,
+          "maximum_contrast": 187,
+          "physical_force": -0.003904957078476334
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2054,
+          "maximum_contrast": 141,
+          "physical_force": -0.003904957078476334
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2044,
+          "maximum_contrast": 189,
+          "physical_force": -0.004381932721912862
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 1573,
+          "maximum_contrast": 143,
+          "physical_force": -0.004381932721912862
+        }
+      ]
+    },
+    {
+      "track": "22-rider",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 3797,
+          "maximum_contrast": 193,
+          "physical_force": -0.005240276602658517
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 3220,
+          "maximum_contrast": 146,
+          "physical_force": -0.005240276602658517
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4871,
+          "maximum_contrast": 193,
+          "physical_force": -0.011957627897322447
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 4220,
+          "maximum_contrast": 146,
+          "physical_force": -0.011957627897322447
+        }
+      ]
+    },
+    {
+      "track": "23-lights-on-the-vibe",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2185,
+          "maximum_contrast": 184,
+          "physical_force": -0.0031301731100085565
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 1791,
+          "maximum_contrast": 138,
+          "physical_force": -0.0031301731100085565
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2351,
+          "maximum_contrast": 191,
+          "physical_force": -0.005148389090454162
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 1784,
+          "maximum_contrast": 143,
+          "physical_force": -0.005148389090454162
+        }
+      ]
+    },
+    {
+      "track": "24-heal",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 3411,
+          "maximum_contrast": 193,
+          "physical_force": -0.0044965541981876024
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 2982,
+          "maximum_contrast": 145,
+          "physical_force": -0.0044965541981876024
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3820,
+          "maximum_contrast": 191,
+          "physical_force": -0.006668129237826824
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3247,
+          "maximum_contrast": 144,
+          "physical_force": -0.006668129237826824
+        }
+      ]
+    },
+    {
+      "track": "25-the-dance-no-2",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 1511,
+          "maximum_contrast": 92,
+          "physical_force": -0.002528223217320775
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 1241,
+          "maximum_contrast": 70,
+          "physical_force": -0.002528223217320775
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2237,
+          "maximum_contrast": 190,
+          "physical_force": -0.005266886198481917
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 1734,
+          "maximum_contrast": 143,
+          "physical_force": -0.005266886198481917
+        }
+      ]
+    },
+    {
+      "track": "26-a-future-untold",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2843,
+          "maximum_contrast": 190,
+          "physical_force": -0.005585988170298874
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2370,
+          "maximum_contrast": 143,
+          "physical_force": -0.005585988170298874
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 3477,
+          "maximum_contrast": 193,
+          "physical_force": -0.009091601240671635
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2686,
+          "maximum_contrast": 146,
+          "physical_force": -0.009091601240671635
+        }
+      ]
+    },
+    {
+      "track": "27-k-notes",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 2617,
+          "maximum_contrast": 190,
+          "physical_force": -0.004213081180589532
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 2173,
+          "maximum_contrast": 143,
+          "physical_force": -0.004213081180589532
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4304,
+          "maximum_contrast": 193,
+          "physical_force": -0.012373419220024766
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3827,
+          "maximum_contrast": 146,
+          "physical_force": -0.012373419220024766
+        }
+      ]
+    },
+    {
+      "track": "28-wildflower-wood",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2453,
+          "maximum_contrast": 181,
+          "physical_force": -0.003388293211620252
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2105,
+          "maximum_contrast": 136,
+          "physical_force": -0.003388293211620252
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 1208,
+          "maximum_contrast": 51,
+          "physical_force": -0.003735390323284865
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 880,
+          "maximum_contrast": 38,
+          "physical_force": -0.003735390323284865
+        }
+      ]
+    },
+    {
+      "track": "29-bromine-yamaneko-s-irusu-mix",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "rain",
+          "changed_pixels": 2742,
+          "maximum_contrast": 150,
+          "physical_force": -0.003183544011627436
+        },
+        {
+          "tone": "green-light",
+          "kind": "rain",
+          "changed_pixels": 2293,
+          "maximum_contrast": 113,
+          "physical_force": -0.003183544011627436
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2925,
+          "maximum_contrast": 193,
+          "physical_force": -0.005110502524825693
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 2449,
+          "maximum_contrast": 145,
+          "physical_force": -0.005110502524825693
+        }
+      ]
+    },
+    {
+      "track": "30-in-memory",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 3042,
+          "maximum_contrast": 193,
+          "physical_force": -0.004793358196949642
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2639,
+          "maximum_contrast": 146,
+          "physical_force": -0.004793358196949642
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4707,
+          "maximum_contrast": 194,
+          "physical_force": -0.009840878965804012
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 4214,
+          "maximum_contrast": 146,
+          "physical_force": -0.009840878965804012
+        }
+      ]
+    },
+    {
+      "track": "31-unknown",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 3308,
+          "maximum_contrast": 192,
+          "physical_force": -0.004981473140776202
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 2829,
+          "maximum_contrast": 144,
+          "physical_force": -0.004981473140776202
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 2119,
+          "maximum_contrast": 191,
+          "physical_force": -0.006535850117161633
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 1659,
+          "maximum_contrast": 145,
+          "physical_force": -0.006535850117161633
+        }
+      ]
+    },
+    {
+      "track": "32-da-du-dah-onome-remix-feat-nyron-higor",
+      "sample_visibility": [
+        {
+          "tone": "night",
+          "kind": "cluster",
+          "changed_pixels": 2235,
+          "maximum_contrast": 187,
+          "physical_force": -0.004560911180568527
+        },
+        {
+          "tone": "green-light",
+          "kind": "cluster",
+          "changed_pixels": 1760,
+          "maximum_contrast": 141,
+          "physical_force": -0.004560911180568527
+        },
+        {
+          "tone": "night",
+          "kind": "accent",
+          "changed_pixels": 4275,
+          "maximum_contrast": 193,
+          "physical_force": -0.010208356820132642
+        },
+        {
+          "tone": "green-light",
+          "kind": "accent",
+          "changed_pixels": 3835,
+          "maximum_contrast": 146,
+          "physical_force": -0.010208356820132642
+        }
+      ]
+    }
+  ],
+  "defaultGentleMotion": true,
+  "normalInkBitmapAndCaustics": true,
+  "sourceSolverUnchanged": true
+}

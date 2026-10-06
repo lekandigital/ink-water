@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import vertexShader from './shaders/Drawing.vert';
 import fragmentShader from './shaders/MusicRefraction.frag';
 
-/** Read-only refraction of the compact DOM card, sampled from the displayed
+/** Read-only refraction of the quick-control and music cluster, sampled from the displayed
  * physical heightfield. Native video stays in its original, interactive iframe;
  * neither its pixels nor either water solver are copied or modified. */
 export class MusicWaterPresentation{
@@ -19,7 +19,7 @@ export class MusicWaterPresentation{
   private failed=false;
   private readonly host:HTMLElement;
   constructor(private readonly panel:HTMLElement,private readonly map:SVGElement){
-    this.host=panel.closest<HTMLElement>('.music-panel')??panel;
+    this.host=panel;
     // Resolve against the page, not the external stylesheet's asset URL.
     this.panel.style.setProperty('--water-refraction-filter',`url("${new URL('#music-water-refraction',document.baseURI).href}")`);
     const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.material);quad.frustumCulled=false;this.scene.add(quad);
@@ -40,7 +40,7 @@ export class MusicWaterPresentation{
       const frame=video.getBoundingClientRect();left=Math.min(left,frame.left);top=Math.min(top,frame.bottom-frame.height);
       right=Math.max(right,frame.left+frame.width);bottom=Math.max(bottom,frame.bottom);
     }
-    // Include the separate compact video pane and a 12px refraction margin.
+    // Include the native video and a 12px refraction margin.
     left-=12;top-=12;right+=12;bottom+=12;
     const u=this.material.uniforms;
     u.water.value=water;u.inverseViewProjection.value.copy(inverse);u.viewProjection.value.copy(inverse).invert();u.eye.value.copy(eye);

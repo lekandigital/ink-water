@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "32-da-du-dah-onome-remix-feat-nyron-higor",
   "seed": 3264905271,
   "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
-  "artist": "",
+  "artist": "Kokoroko",
   "duration": 223.565079,
   "style": "organic groove / closing release",
   "direction": "Use loose, human-feeling rhythmic clusters with gentle asymmetry. Keep the choreography warm and flowing; avoid quantizing the rain too tightly.",
@@ -24,8 +24,8 @@
         0.25
       ],
       "force": [
-        0.486,
-        0.513
+        0.5538,
+        0.5538
       ],
       "scale": [
         0.9688,
@@ -65,8 +65,8 @@
         0.42
       ],
       "force": [
-        0.4968,
-        0.5238
+        0.5538,
+        0.6058
       ],
       "scale": [
         0.982,
@@ -106,8 +106,8 @@
         0.59
       ],
       "force": [
-        0.5076,
-        0.5346
+        0.6058,
+        0.648
       ],
       "scale": [
         0.971,
@@ -147,8 +147,8 @@
         0.48
       ],
       "force": [
-        0.5184,
-        0.5454
+        0.648,
+        0.6215
       ],
       "scale": [
         0.9868,
@@ -188,8 +188,8 @@
         0.53
       ],
       "force": [
-        0.5292,
-        0.5562
+        0.6215,
+        0.6339
       ],
       "scale": [
         0.9734,
@@ -229,8 +229,8 @@
         0.32
       ],
       "force": [
-        0.54,
-        0.567
+        0.6339,
+        0.5768
       ],
       "scale": [
         0.9703,
@@ -270,8 +270,8 @@
         0.08
       ],
       "force": [
-        0.5508,
-        0.5778
+        0.5768,
+        0.4774
       ],
       "scale": [
         0.9913,
@@ -338,10 +338,12 @@
       "note": "Selected phrase arrival near 164s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/31",

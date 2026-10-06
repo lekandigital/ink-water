@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "07-lusine-without-a-plan",
   "seed": 167229160,
   "title": "Lusine - Without a Plan",
@@ -24,8 +24,8 @@
         0.22
       ],
       "force": [
-        0.513,
-        0.5415
+        0.5745,
+        0.5745
       ],
       "scale": [
         0.8704,
@@ -65,8 +65,8 @@
         0.43
       ],
       "force": [
-        0.5244,
-        0.5529
+        0.5745,
+        0.6444
       ],
       "scale": [
         0.9082,
@@ -106,8 +106,8 @@
         0.55
       ],
       "force": [
-        0.5358,
-        0.5643
+        0.6444,
+        0.6765
       ],
       "scale": [
         0.9057,
@@ -147,8 +147,8 @@
         0.36
       ],
       "force": [
-        0.5472,
-        0.5757
+        0.6765,
+        0.6235
       ],
       "scale": [
         0.8932,
@@ -188,8 +188,8 @@
         0.58
       ],
       "force": [
-        0.5586,
-        0.5871
+        0.6235,
+        0.684
       ],
       "scale": [
         0.9053,
@@ -229,8 +229,8 @@
         0.44
       ],
       "force": [
-        0.57,
-        0.5985
+        0.684,
+        0.6472
       ],
       "scale": [
         0.8906,
@@ -270,8 +270,8 @@
         0.2
       ],
       "force": [
-        0.5814,
-        0.6099
+        0.6472,
+        0.5664
       ],
       "scale": [
         0.8864,
@@ -338,6 +338,7 @@
       "note": "Selected phrase arrival near 156s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 10.72,
@@ -384,7 +385,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/6",

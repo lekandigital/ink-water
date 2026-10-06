@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "19-an-unopened-letter",
   "seed": 3795392773,
   "title": "An Unopened Letter",
-  "artist": "",
+  "artist": "Dorian Concept & Bibio",
   "duration": 173.522721,
   "style": "handmade / miniature",
   "direction": "Use small hand-placed-feeling clusters and soft isolated impacts. Avoid continuous rain. The motion should feel like a sketch becoming animated.",
@@ -24,8 +24,8 @@
         0.1
       ],
       "force": [
-        0.288,
-        0.304
+        0.318,
+        0.318
       ],
       "scale": [
         0.7856,
@@ -65,8 +65,8 @@
         0.22
       ],
       "force": [
-        0.2944,
-        0.3104
+        0.318,
+        0.3634
       ],
       "scale": [
         0.795,
@@ -106,8 +106,8 @@
         0.16
       ],
       "force": [
-        0.3008,
-        0.3168
+        0.3634,
+        0.3428
       ],
       "scale": [
         0.7872,
@@ -147,8 +147,8 @@
         0.29
       ],
       "force": [
-        0.3072,
-        0.3232
+        0.3428,
+        0.384
       ],
       "scale": [
         0.7922,
@@ -188,8 +188,8 @@
         0.19
       ],
       "force": [
-        0.3136,
-        0.3296
+        0.384,
+        0.3535
       ],
       "scale": [
         0.8008,
@@ -229,8 +229,8 @@
         0.24
       ],
       "force": [
-        0.32,
-        0.336
+        0.3535,
+        0.3696
       ],
       "scale": [
         0.7964,
@@ -270,8 +270,8 @@
         0.08
       ],
       "force": [
-        0.3264,
-        0.3424
+        0.3696,
+        0.308
       ],
       "scale": [
         0.8012,
@@ -327,6 +327,7 @@
       "note": "Selected phrase arrival near 120s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 13.4,
@@ -373,7 +374,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/18",

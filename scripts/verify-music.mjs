@@ -39,7 +39,9 @@ for(const track of manifest.tracks){
 assert.equal(new Set(counts.map(c=>c.signature)).size,32,'No song shares a generic drop program');
 assert.ok(counts.find(c=>c.id.startsWith('09-')).density>counts.find(c=>c.id.startsWith('15-')).density*5);
 const logic=scores.get('02-fused-dj-kicks'),logicRain=new RainScheduler(logic);
-const before=logicRain.events.filter(e=>e.time>=124.55&&e.time<128.1974),after=logicRain.events.filter(e=>e.time>=128.1974&&e.time<137.05);
+const before=logicRain.events.filter(e=>e.time>=124.55&&e.time<127.617),after=logicRain.events.filter(e=>e.time>=127.617&&e.time<137.05);
+assert.equal(logic.accents.find(a=>a.type==='arrival'&&a.time>124&&a.time<130).time,127.617,'Use the proven structural entrance, not its later maximum transient');
+assert.ok(before.length>0,'The quiet flagship opening must contain restrained physical texture');
 assert.ok(after.length>before.length*2&&after.some(e=>e.kind==='cluster')&&after.some(e=>e.kind==='accent'),'Flagship excerpt must visibly acquire structure after its arrival');
 const engine=new MusicRainEngine();engine.setScore(logic,124.55);
 engine.updateMusicRain({trackId:logic.track_id,time:124.55,playing:true});

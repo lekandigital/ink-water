@@ -19,6 +19,7 @@ import { UnderwaterLineDrawing } from './UnderwaterLines';
 import { FloorLinePresentation } from './FloorLinePresentation';
 import { CaptureClock, captureOptions, exposeCapture, seededRandom } from './CaptureMode';
 import { PlaylistMusic } from './music/PlaylistMusic';
+import { musicImpact } from './music/MusicDynamics';
 import { MusicWaterPresentation } from './MusicWaterPresentation';
 import type { MusicRainClock, MusicRainDrop } from './music/MusicScore';
 import drawingVert from './shaders/Drawing.vert';
@@ -54,6 +55,7 @@ class Puddle {
   private rainLayer?:RainWaveLayer;
   private rainLayerActive=false;
   private musicRain?:MusicRainClock;
+  private musicPhysicalImpacts=0;
   private musicWater?:MusicWaterPresentation;
   private referenceDrawing?:UnderwaterLineDrawing;
   private visualWater?:Water;
@@ -226,7 +228,7 @@ class Puddle {
       if(!this.referenceDrawing)this.referenceDrawing=new UnderwaterLineDrawing(this.engine.getWaterMesh());
       this.referenceDrawing.draw(this.gl,this.camera,this.drawingCamera,this.drawing.uniforms.ink.value,this.target.width,this.target.height);
     }
-    const musicPanel=$('music-panel');
+    const musicPanel=$('water-dock');
     if(!musicPanel.hidden){
       this.musicWater??=new MusicWaterPresentation(musicPanel,document.getElementById('music-water-map') as unknown as SVGElement);
       this.musicWater.update(this.gl,surface.textureA.texture,this.inverseViewProjection,this.camera.position,$('stage').getBoundingClientRect());
@@ -310,9 +312,15 @@ class Puddle {
       const rect=$('stage').getBoundingClientRect(),aspect=rect.width/Math.max(1,rect.height);
       point=new THREE.Vector2(event.position[0]*.94*Math.min(1,aspect)*.93,event.position[1]*.94/Math.max(1,aspect)*.93);
     }else point=this.randomPoint();
-    const drop=rainImpulse(motion.rainForce*(event?.force??1),motion.scale*(event?.scale??1),random);
+    const impact=event?musicImpact(event,this.musicRain?.expression):{force:1,scale:1};
+    const drop=rainImpulse(motion.rainForce*impact.force,motion.scale*impact.scale,random);
     if(this.rainLayerActive&&this.rainLayer)this.rainLayer.addDrop(point.x,point.y,drop.radius,drop.strength);
     else this.addDrop(point.x,point.y,drop.radius,drop.strength);
+    if(event){
+      $('music-physical-count').textContent=String(++this.musicPhysicalImpacts);
+      this.controls.publish({musicPhysicalImpacts:this.musicPhysicalImpacts,
+        musicLastImpactTime:event.time,musicLastImpactKind:event.kind,musicLastImpactForce:drop.strength});
+    }
   }
 
   private addDrop(x:number,z:number,radius:number,strength:number){

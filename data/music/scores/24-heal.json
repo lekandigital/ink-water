@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "24-heal",
   "seed": 2272366731,
   "title": "Heal",
-  "artist": "",
+  "artist": "Space Ghost",
   "duration": 410.635828,
   "style": "haze / pulse",
   "direction": "Maintain a soft background field and let stronger pulses briefly raise density. Avoid sharp, frequent accents. The rain should feel suspended in a larger atmosphere.",
@@ -24,8 +24,8 @@
         0.17
       ],
       "force": [
-        0.342,
-        0.361
+        0.3855,
+        0.3855
       ],
       "scale": [
         0.896,
@@ -65,8 +65,8 @@
         0.28
       ],
       "force": [
-        0.3496,
-        0.3686
+        0.3855,
+        0.4193
       ],
       "scale": [
         0.9209,
@@ -106,8 +106,8 @@
         0.34
       ],
       "force": [
-        0.3572,
-        0.3762
+        0.4193,
+        0.435
       ],
       "scale": [
         0.9243,
@@ -147,8 +147,8 @@
         0.23
       ],
       "force": [
-        0.3648,
-        0.3838
+        0.435,
+        0.405
       ],
       "scale": [
         0.9219,
@@ -188,8 +188,8 @@
         0.43
       ],
       "force": [
-        0.3724,
-        0.3914
+        0.405,
+        0.456
       ],
       "scale": [
         0.9209,
@@ -229,8 +229,8 @@
         0.3
       ],
       "force": [
-        0.38,
-        0.399
+        0.456,
+        0.4247
       ],
       "scale": [
         0.9229,
@@ -270,8 +270,8 @@
         0.12
       ],
       "force": [
-        0.3876,
-        0.4066
+        0.4247,
+        0.3664
       ],
       "scale": [
         0.9037,
@@ -327,10 +327,12 @@
       "note": "Selected phrase arrival near 192s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/23",

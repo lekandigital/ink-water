@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "01-inhale-the-mist",
   "seed": 2828421508,
   "title": "inhale the Mist",
@@ -24,8 +24,8 @@
         0.4
       ],
       "force": [
-        0.432,
-        0.456
+        0.4917,
+        0.4917
       ],
       "scale": [
         0.6046,
@@ -65,8 +65,8 @@
         0.62
       ],
       "force": [
-        0.4416,
-        0.4656
+        0.4917,
+        0.5299
       ],
       "scale": [
         0.6134,
@@ -106,8 +106,8 @@
         0.73
       ],
       "force": [
-        0.4512,
-        0.4752
+        0.5299,
+        0.5464
       ],
       "scale": [
         0.6135,
@@ -147,8 +147,8 @@
         0.48
       ],
       "force": [
-        0.4608,
-        0.4848
+        0.5464,
+        0.5066
       ],
       "scale": [
         0.6037,
@@ -188,8 +188,8 @@
         0.95
       ],
       "force": [
-        0.4704,
-        0.4944
+        0.5066,
+        0.576
       ],
       "scale": [
         0.6013,
@@ -229,8 +229,8 @@
         0.68
       ],
       "force": [
-        0.48,
-        0.504
+        0.576,
+        0.5391
       ],
       "scale": [
         0.5979,
@@ -270,8 +270,8 @@
         0.28
       ],
       "force": [
-        0.4896,
-        0.5136
+        0.5391,
+        0.4663
       ],
       "scale": [
         0.5901,
@@ -327,6 +327,17 @@
       "note": "Selected phrase arrival near 136s; measured attack, not every transient."
     },
     {
+      "time": 137.9498,
+      "type": "glint",
+      "force": 0.46,
+      "scale": 0.56,
+      "count": 3,
+      "spacing": 0.13,
+      "anticipation": 0.28,
+      "quiet": 0.45,
+      "note": "One fine separated shower inside the dense mist; force stays modest."
+    },
+    {
       "time": 183.6698,
       "type": "arrival",
       "force": 0.6529,
@@ -338,10 +349,12 @@
       "note": "Selected phrase arrival near 184s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/0",

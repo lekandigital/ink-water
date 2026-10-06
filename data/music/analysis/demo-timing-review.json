@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "reference": "ChatGPT-GitHub Repos Review-20261006-0904.md",
+  "artistic_sources_rechecked": ["ink-water-32-track-choreography.json", "ink-water-32-track-choreography.md", "ink_water_audio_analysis.json"],
+  "reattached_sources_match_preserved_originals": true,
+  "logic1000": {
+    "reference_sha256": "5d3053b7bbd3785702152a15875395f104bf201c462b3112de0e6e65af134179",
+    "preserved_recommended_window": {"start": 124.55, "end": 137.05},
+    "proven_demo_arrival_seconds": 127.617,
+    "independent_attack_seconds": 127.5937,
+    "decoded_envelope_resolution_seconds": 0.01,
+    "first_loud_frame_seconds": 127.5968,
+    "riser_rms_median": 0.07904,
+    "arrival_rms_median": 0.68452,
+    "arrival_to_riser_ratio": 8.66,
+    "previous_late_accent_seconds": 128.1974,
+    "decision": "Place the structural arrival at the proven 127.617s cue. Keep sparse opening texture, clear the riser, then irregular clustered physical rain and a short internal breathing gap."
+  },
+  "marumari": {
+    "decision": "Reuse the transcript's C/X phrase concept, refined against the supplied numbered MP3 attacks at 41.5869s and 44.1411s. Retain the supplied highlight and a later anticipated accent near 118.422s. Every gesture sample is a physical rain impact."
+  },
+  "music_calibration": {
+    "decision": "Authored force and default Gentle motion were compounding into almost invisible rain. Calibrate music impacts separately while preserving ordinary rain, user force controls, all shaders and the original solver.",
+    "force_gain": {"background": 1.4, "rain": 2.6, "cluster": 2.6, "accent": 3.2, "gesture": 1.7},
+    "expression_default": 1,
+    "gesture_count_across_playlist": 3
+  }
+}

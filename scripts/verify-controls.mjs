@@ -66,7 +66,7 @@ for(const el of document.querySelectorAll('input[type="checkbox"]')){
 }
 // Sliders remain independent of switches, with input bindings and visible outputs.
 let sliders=0;
-for(const el of document.querySelectorAll('input[type="range"]')){
+for(const el of document.querySelectorAll('#controls input[type="range"]')){
  controls.reset();const key=keyFor(el.id),value=Number(el.getAttribute('min'))+(Number(el.getAttribute('max'))-Number(el.getAttribute('min')))*.4;
  input(el.id,value);assert.equal(controls.state[key],value);
  for(const checked of [true,false,true]){input('bitmap-tones',checked);assert.equal(controls.state[key],value);}

@@ -1,4 +1,5 @@
 import {clamp,finite,upperBound,validateScore,type RainScore,type RainSection,type MusicRainDrop,type Pair} from './MusicScore';
+import {gesturePattern} from '../GesturePatterns';
 
 // Stable event-local randomness, including physical positions/force variation.
 // Seeking does not consume a global generator or change future weather.
@@ -82,6 +83,16 @@ export class RainScheduler{
         const point:Pair=a.type==='split'&&j%2?[-p[0],-p[1]]:a.type==='glint'&&j?
           this.position(at,100000+i,s,j*83):[...p];
         push(at,100000+i,j,'accent',a.force,a.scale,point);
+      }
+    }
+    for(const [i,g] of (this.score.gestures??[]).entries()){
+      const s=this.sectionAt(g.time),center=this.position(g.time,200000+i,s);
+      const cx=clamp(center[0],-.42,.42),cy=clamp(center[1],-.42,.42);
+      // The same canonical C/X/slash samples as manual touch, now timestamped
+      // by song time. Every sample remains an ordinary physical rain impact.
+      for(const [j,p] of gesturePattern(g.path).entries()){
+        push(g.time+p.at/1000,200000+i,j,'gesture',g.force,g.scale,
+          [cx+p.x*g.spread,cy+p.y*g.spread]);
       }
     }
     return Object.freeze(events.sort((a,b)=>a.time-b.time));

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.mjs",
     "check": "tsc --noEmit",
-    "test": "node scripts/verify-input.mjs && node scripts/verify-shader-integration.mjs && node scripts/verify-palette.mjs && node scripts/verify-continuous-waves.mjs && node scripts/verify-experiments.mjs && node scripts/verify-motion.mjs && node scripts/verify-rain-layer.mjs && node scripts/verify-presentation.mjs && node scripts/verify-controls.mjs && node scripts/verify-restored-base.mjs && node scripts/verify-music.mjs && node scripts/verify-music-player.mjs && node scripts/verify-music-physical.mjs && node scripts/verify-music-refraction.mjs",
+    "test": "node scripts/verify-input.mjs && node scripts/verify-shader-integration.mjs && node scripts/verify-palette.mjs && node scripts/verify-continuous-waves.mjs && node scripts/verify-experiments.mjs && node scripts/verify-motion.mjs && node scripts/verify-rain-layer.mjs && node scripts/verify-presentation.mjs && node scripts/verify-controls.mjs && node scripts/verify-restored-base.mjs && node scripts/verify-music.mjs && node scripts/verify-music-player.mjs && node scripts/verify-music-dynamics.mjs && node scripts/verify-music-physical.mjs && node scripts/verify-music-refraction.mjs",
     "music:release-check": "node scripts/music/check-sources.mjs",
     "music:report": "node scripts/music/report.mjs",
     "music:capture": "node scripts/social/capture-music.mjs",

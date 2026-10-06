@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "17-i",
   "seed": 1140821188,
   "title": "I",
-  "artist": "",
+  "artist": "Oren Ambarchi",
   "duration": 480.96,
   "style": "polyrhythmic / accumulative",
   "direction": "Build layers. Start with a few independent drop streams, then add overlapping cluster patterns as the polyrhythm thickens. Keep individual drops modest so complexity comes from superposition, not force.",
@@ -24,7 +24,7 @@
         0.19
       ],
       "force": [
-        0.387,
+        0.4085,
         0.4085
       ],
       "scale": [
@@ -65,8 +65,8 @@
         0.32
       ],
       "force": [
-        0.3956,
-        0.4171
+        0.4085,
+        0.4405
       ],
       "scale": [
         0.6142,
@@ -106,8 +106,8 @@
         0.44
       ],
       "force": [
-        0.4042,
-        0.4257
+        0.4405,
+        0.4646
       ],
       "scale": [
         0.6156,
@@ -147,8 +147,8 @@
         0.56
       ],
       "force": [
-        0.4128,
-        0.4343
+        0.4646,
+        0.4856
       ],
       "scale": [
         0.6153,
@@ -188,8 +188,8 @@
         0.76
       ],
       "force": [
-        0.4214,
-        0.4429
+        0.4856,
+        0.516
       ],
       "scale": [
         0.6219,
@@ -229,8 +229,8 @@
         0.63
       ],
       "force": [
-        0.43,
-        0.4515
+        0.516,
+        0.4968
       ],
       "scale": [
         0.6191,
@@ -270,8 +270,8 @@
         0.28
       ],
       "force": [
-        0.4386,
-        0.4601
+        0.4968,
+        0.4315
       ],
       "scale": [
         0.6125,
@@ -338,10 +338,12 @@
       "note": "Selected phrase arrival near 416s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/16",

@@ -27,12 +27,7 @@
 <body data-tone="night" class="controls-hidden">
   <header class="masthead">
     <div class="identity"><h1>Ink Water</h1><span class="byline">A water study</span></div>
-    <div class="header-actions">
-      <span class="view-label">Seen from above</span>
-      <button id="music-open" class="plain-button music-trigger" type="button" aria-expanded="false" aria-controls="music-panel">Play music</button>
-      <button id="pause" class="plain-button" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span></button>
-      <button id="toggle-controls" class="plain-button" type="button" aria-expanded="false" aria-controls="controls">Show controls</button>
-    </div>
+
   </header>
   <main>
     <div id="stage" class="stage" aria-label="Interactive water surface, viewed directly from above">
@@ -134,33 +129,12 @@
       <p class="experiment-note">Bitmap experiments layer over ordinary water and its projected caustics. Print experiments are a separate treatment. Dreamy and Subtle can be combined. C, X and / replay fixed touch paths.</p>
       <details class="about"><summary>About this study</summary><p>Simulated water, drawn instead of rendered, seen straight down. The water comes from Evan Wallace's <a href="https://madebyevan.com/webgl-water/" target="_blank" rel="noopener noreferrer">WebGL Water</a> (2010), by way of Yong Su's <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js port</a>; Ink Water draws it.</p><p>Each impact creates a group of concentric waves that travels outward and fades. Open edges absorb outgoing waves instead of sending them back. Hairline ripples keep complete strokes; switch them off for the artistic contours and bitmap etching texture. Original shows the simulated surface.</p><p>The print experiments can be combined. Bitmap ripples and Texture reveal replace the stroke with marks; Printed paper and Refract the print add texture. Switch the experiments off to return to the existing drawing.</p><p>Projected caustics are refracted light below the water, so their brightest points need not match the ripple crests. Overhead light reduces the sideways shift. Align glow to ripples is a separate artistic surface effect. Original always uses the projected light. Two faint lines on the floor show the surface bending the view.</p><p>A heightfield wave model with refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>WebGL Water: Evan Wallace, 2010. Three.js port: Yong Su (jeantimex), 2026. Drawing and interaction: Ink Water. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
     </aside>
-    <aside id="music-panel" class="music-panel" aria-label="Music and authored rain" hidden>
-      <div id="music-bar" class="music-bar">
-        <div class="music-art" aria-hidden="true"><span id="music-art-placeholder">≋</span><img id="music-art-image" width="52" height="52" alt="" decoding="async" hidden></div>
-        <div class="music-summary">
-          <h2 id="music-title">Ink Water playlist</h2>
-          <div class="music-byline"><span id="music-artist"></span><span id="music-position">32 tracks</span><span id="music-rain-state" class="music-rain-state" role="status" aria-live="polite" hidden></span></div>
-          <div class="music-transport"><button id="music-play" type="button" aria-label="Play playlist">Play</button><button id="music-next" type="button" aria-label="Next track">Next</button><span id="music-time">0:00</span></div>
-        </div>
-        <div class="music-window-actions"><button id="music-expand" type="button" class="plain-button" aria-expanded="false" aria-controls="music-details">Expand</button><button id="music-close" type="button" class="plain-button" aria-label="Minimize music" title="Minimize music" hidden>×</button></div>
-      </div>
-      <div id="youtube-frame" class="youtube-frame" hidden></div>
-      <div id="music-details" class="music-details" hidden>
-        <label class="music-track-label" for="music-track">Playlist</label><select id="music-track" aria-label="Choose track"></select>
-        <div class="music-timeline"><button id="music-previous" type="button" aria-label="Previous track">Previous</button><button id="music-restart" type="button">Restart</button></div>
-        <details class="music-more"><summary>More</summary>
-        <div class="music-timeline"><button id="music-highlight" type="button">Highlight</button><button id="music-sync" type="button" aria-pressed="true">Rain sync on</button></div>
-        <p id="music-status" class="music-status music-live-status visually-hidden" role="status" aria-live="polite">Ready</p>
-        <p id="music-playlist-note" class="music-status"></p>
-        <p id="music-weather" class="music-weather">Each song has its own authored weather.</p>
-        <details class="music-selection"><summary>Change playlist</summary>
-          <form id="music-playlist-form"><label for="music-playlist-id">YouTube playlist</label><div class="playlist-entry"><input id="music-playlist-id" type="text" placeholder="Playlist URL or ID" autocomplete="off"><button type="submit">Load</button></div></form>
-        </details>
-        <details class="music-validation"><summary>Playback source check</summary><pre id="music-source-report">Playlist IDs are checked when YouTube loads.</pre></details>
-        <button id="music-stop" type="button" class="plain-button">Stop and close music</button>
-        </details>
-      </div>
-    </aside>
+    <section id="water-dock" class="water-dock" aria-label="Water and music quick controls">
+    <div class="header-actions">
+
+      <button id="pause" class="plain-button" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span></button>
+      <button id="toggle-controls" class="plain-button" type="button" aria-expanded="false" aria-controls="controls">Show controls</button>
+    </div>
     <div class="appearance-dock">
     <nav id="quick-tones" class="tone-dock" aria-label="Water colors">
       <span class="tone-dock-label" aria-hidden="true">Color</span>
@@ -171,12 +145,43 @@
       <button type="button" data-quick-tone="green-dark" aria-label="Green Dark" title="Green Dark" aria-pressed="false"><span class="tone-swatch green-dark-swatch" aria-hidden="true"></span></button>
     </nav>
     <nav id="quick-drawings" class="drawing-dock" aria-label="Water drawing">
-      <button type="button" data-quick-mode="etching" aria-pressed="true">Etched</button>
       <button type="button" data-quick-mode="ink-wash" aria-pressed="false">Ink</button>
+      <button type="button" data-quick-mode="etching" aria-pressed="true">Etched</button>
       <button type="button" data-quick-mode="graphite" aria-pressed="false">Graphite</button>
       <button type="button" data-quick-mode="original" aria-pressed="false">Real</button>
     </nav>
     </div>
+      <button id="music-open" class="plain-button music-trigger" type="button" aria-expanded="false" aria-controls="music-panel">Play music</button>
+    <aside id="music-panel" class="music-panel" aria-label="Music and authored rain" hidden>
+      <div id="music-bar" class="music-bar">
+        <div class="music-summary">
+          <h2 id="music-title">Ink Water playlist</h2>
+          <div class="music-byline"><span id="music-artist"></span><span id="music-position">32 tracks</span><span id="music-rain-state" class="music-rain-state" role="status" aria-live="polite" hidden></span></div>
+          <div class="music-transport"><button id="music-play" type="button" aria-label="Play playlist">Play</button><button id="music-next" type="button" aria-label="Next track">Next</button><span id="music-time">0:00</span></div>
+        </div>
+        <div class="music-window-actions"><button id="music-expand" type="button" class="plain-button" aria-expanded="false" aria-controls="music-details">Expand</button><button id="music-close" type="button" class="plain-button" aria-label="Minimize music" title="Minimize music" hidden>×</button></div>
+      </div>
+      <div id="youtube-frame" class="youtube-frame" hidden></div>
+      <div id="music-details" class="music-details" hidden>
+        <label class="music-track-label" for="music-track">Playlist</label><select id="music-track" aria-label="Choose track"></select>
+        <label class="visually-hidden" for="music-seek">Seek within the song</label><input id="music-seek" type="range" min="0" max="1" step="0.1" value="0" aria-label="Seek within the song">
+        <div class="music-timeline"><button id="music-previous" type="button" aria-label="Previous track">Previous</button><button id="music-back" type="button" aria-label="Back 15 seconds">−15 s</button><button id="music-forward" type="button" aria-label="Forward 15 seconds">+15 s</button><button id="music-restart" type="button">Restart</button></div>
+        <details class="music-more"><summary>More</summary>
+        <div class="music-timeline"><button id="music-highlight" type="button">Highlight</button><button id="music-sync" type="button" aria-pressed="true">Rain sync on</button></div>
+        <p id="music-status" class="music-status music-live-status visually-hidden" role="status" aria-live="polite">Ready</p>
+        <p id="music-playlist-note" class="music-status"></p>
+        <div class="range-control"><label for="music-expression">Expression <output id="music-expression-value">100%</output></label><input id="music-expression" type="range" min="0.5" max="1.75" step="0.05" value="1"></div>
+        <p class="music-diagnostics"><span id="music-score-count">0</span> scheduled · <span id="music-physical-count">0</span> physical impacts</p>
+        <p id="music-weather" class="music-weather">Each song has its own authored weather.</p>
+        <details class="music-selection"><summary>Change playlist</summary>
+          <form id="music-playlist-form"><label for="music-playlist-id">YouTube playlist</label><div class="playlist-entry"><input id="music-playlist-id" type="text" placeholder="Playlist URL or ID" autocomplete="off"><button type="submit">Load</button></div></form>
+        </details>
+        <details class="music-validation"><summary>Playback source check</summary><pre id="music-source-report">Playlist IDs are checked when YouTube loads.</pre></details>
+        <button id="music-stop" type="button" class="plain-button">Stop and close music</button>
+        </details>
+      </div>
+    </aside>
+    </section>
     <svg class="water-filter-defs" width="0" height="0" aria-hidden="true" focusable="false">
       <defs><filter id="music-water-refraction" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
         <feImage id="music-water-map" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="waterNormals"/>

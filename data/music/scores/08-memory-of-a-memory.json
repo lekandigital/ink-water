@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "08-memory-of-a-memory",
   "seed": 1607012503,
   "title": "memory of a memory",
-  "artist": "",
+  "artist": "mu tate & Ben Bondy",
   "duration": 251.701859,
   "style": "cinematic / late swell",
   "direction": "Favor a late-build choreography: sparse medium drops grow into paired and triplet clusters, then one or two larger soft impacts. Preserve the emotional swell rather than following every transient.",
@@ -24,8 +24,8 @@
         0.12
       ],
       "force": [
-        0.621,
-        0.6555
+        0.6134,
+        0.6134
       ],
       "scale": [
         0.78,
@@ -65,8 +65,8 @@
         0.21
       ],
       "force": [
-        0.6348,
-        0.6693
+        0.6134,
+        0.6555
       ],
       "scale": [
         0.78,
@@ -106,8 +106,8 @@
         0.32
       ],
       "force": [
-        0.6486,
-        0.6831
+        0.6555,
+        0.6959
       ],
       "scale": [
         0.78,
@@ -147,8 +147,8 @@
         0.45
       ],
       "force": [
-        0.6624,
-        0.6969
+        0.6959,
+        0.7355
       ],
       "scale": [
         0.9985,
@@ -188,8 +188,8 @@
         0.68
       ],
       "force": [
-        0.6762,
-        0.7107
+        0.7355,
+        0.7934
       ],
       "scale": [
         1.02,
@@ -229,8 +229,8 @@
         0.84
       ],
       "force": [
-        0.69,
-        0.7245
+        0.7934,
+        0.828
       ],
       "scale": [
         1.17,
@@ -270,8 +270,8 @@
         0.3
       ],
       "force": [
-        0.7038,
-        0.7383
+        0.828,
+        0.6892
       ],
       "scale": [
         1.0274,
@@ -327,10 +327,12 @@
       "note": "Selected phrase arrival near 216s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/7",

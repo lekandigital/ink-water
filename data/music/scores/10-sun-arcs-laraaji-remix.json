@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "10-sun-arcs-laraaji-remix",
   "seed": 2402321929,
   "title": "Sun Arcs (Laraaji Remix)",
-  "artist": "",
+  "artist": "Blue Lake",
   "duration": 252.0,
   "style": "shimmer / atmospheric",
   "direction": "Use widely spaced small drops, occasional paired glints, and slow background activity. Let shimmering passages increase spatial spread rather than simply density.",
@@ -24,8 +24,8 @@
         0.14
       ],
       "force": [
-        0.243,
-        0.2565
+        0.2732,
+        0.2732
       ],
       "scale": [
         0.5563,
@@ -65,8 +65,8 @@
         0.24
       ],
       "force": [
-        0.2484,
-        0.2619
+        0.2732,
+        0.2992
       ],
       "scale": [
         0.5491,
@@ -106,8 +106,8 @@
         0.31
       ],
       "force": [
-        0.2538,
-        0.2673
+        0.2992,
+        0.3143
       ],
       "scale": [
         0.5547,
@@ -147,8 +147,8 @@
         0.22
       ],
       "force": [
-        0.2592,
-        0.2727
+        0.3143,
+        0.2945
       ],
       "scale": [
         0.558,
@@ -188,8 +188,8 @@
         0.36
       ],
       "force": [
-        0.2646,
-        0.2781
+        0.2945,
+        0.324
       ],
       "scale": [
         0.5572,
@@ -229,8 +229,8 @@
         0.26
       ],
       "force": [
-        0.27,
-        0.2835
+        0.324,
+        0.3037
       ],
       "scale": [
         0.5749,
@@ -270,8 +270,8 @@
         0.12
       ],
       "force": [
-        0.2754,
-        0.2889
+        0.3037,
+        0.2669
       ],
       "scale": [
         0.5539,
@@ -327,10 +327,12 @@
       "note": "Selected phrase arrival near 216s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/9",

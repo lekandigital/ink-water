@@ -30,7 +30,7 @@ class Port{
  pauseVideo(){this.calls.push(['pause']);this.state=2;}
  stopVideo(){this.state=0;}
  playVideoAt(index){this.calls.push(['playVideoAt',index]);/* deliberately retain old metadata until delivered */}
- seekTo(time){this.calls.push(['seek',time]);this.time=time;}
+ seekTo(time){this.calls.push(['seek',time]);if(!this.delayedSeek)this.time=time;}
  getPlaylist(){return [...this.playlist];}getPlaylistIndex(){return this.index;}getCurrentTime(){return this.time;}getDuration(){return this.duration;}
  getVideoUrl(){return 'https://www.youtube.com/watch?v='+this.playlist[this.index];}getPlayerState(){return this.state;}getPlaybackRate(){return this.rate;}
  setLoop(value){this.calls.push(['loop',value]);}setShuffle(value){this.calls.push(['shuffle',value]);}getIframe(){return this.frame;}
@@ -59,7 +59,9 @@ assert.equal(document.getElementById('youtube-frame').hidden,false);
 assert.equal(latest.musicPlaylistValidation.orderMatches,true);assert.equal(latest.musicPlaylistValidation.mappingComplete,true);
 const openingId=fixture.order[0];await poll(port,0,0);assert.equal(music.engine.scheduler.score.track_id,openingId);
 assert.equal(document.getElementById('music-play').textContent,'Pause');
-assert.equal(document.getElementById('music-art-image').dataset.video,port.playlist[0]);
+assert.equal(document.getElementById('music-art-image'),null,'Use the actual live video without duplicate song artwork');
+assert.equal(document.querySelectorAll('#water-dock #quick-tones,#water-dock #quick-drawings,#water-dock #pause,#water-dock #toggle-controls,#water-dock #music-panel').length,5,'All quick controls and music belong to one vertical cluster');
+assert.deepEqual([...document.querySelectorAll('#quick-drawings button')].map(b=>b.dataset.quickMode),[...document.querySelectorAll('.style-grid button')].map(b=>b.dataset.mode),'Outside modes follow panel order');
 document.getElementById('pause').click();assert.equal(port.state,2,'Water Pause immediately pauses music without a GPU frame');
 assert.equal(controls.state.paused,true);document.getElementById('pause').click();await flush();await poll(port,0,0);
 assert.equal(port.state,1);assert.equal(controls.state.paused,false);
@@ -85,6 +87,16 @@ document.getElementById('music-play').click();await flush();await poll(port,0,0)
 music.updateMusicRain();const n=music.engine.scheduler.emitted;
 await poll(port,0,40);assert.deepEqual(music.updateMusicRain(),[],'Native forward seek does not discharge missed drops');assert.equal(music.engine.scheduler.emitted,n);
 await poll(port,0,2);assert.deepEqual(music.updateMusicRain(),[],'Native backward seek rebases');
+// Commands are asynchronous in the real iframe. Hold rain until the master
+// actually reaches the newest request; late old samples cannot emit old drops.
+port.delayedSeek=true;music.seek(70);const emittedAtSeek=music.engine.scheduler.emitted;
+await poll(port,0,2.08);assert.deepEqual(music.updateMusicRain(),[]);assert.ok(music.pendingSeek);
+music.seek(20);await poll(port,0,70);assert.deepEqual(music.updateMusicRain(),[],'An older seek acknowledgement cannot revive its score cursor');
+await poll(port,0,20);assert.equal(music.pendingSeek,undefined);music.updateMusicRain();
+assert.equal(music.engine.scheduler.emitted,emittedAtSeek,'No backlog follows an acknowledged seek');
+await poll(port,0,20.4);assert.deepEqual(music.updateMusicRain(),[],'Even a short native forward skip rebases instead of replaying missed drops');
+await poll(port,0,20.32);assert.deepEqual(music.updateMusicRain(),[],'Small native backward seeks re-enable the correct future');
+port.delayedSeek=false;await poll(port,0,2);
 music.pause();now+=3000;assert.deepEqual(music.updateMusicRain(),[]);await poll(port,0,2,2);assert.equal(latest.musicPlaying,false);
 await music.play();await poll(port,0,2.08);music.updateMusicRain();assert.ok(music.engine.scheduler.emitted<=n+2);
 await music.next();assert.equal(port.calls.at(-1)[1],1);await poll(port,0,2.16);assert.equal(music.engine.scheduler,undefined,'Late samples cannot revive the previous track');
@@ -93,6 +105,7 @@ document.getElementById('music-previous').click();await flush();assert.equal(por
 await poll(port,2,0);assert.equal(music.engine.scheduler.score.track_id,'21-continuum-3');
 assert.ok(port.calls.some(c=>c[0]==='seek'&&c[1]===854),'Native changes apply the source offset');
 await poll(port,2,854);music.seek(126.11);assert.equal(port.calls.at(-1)[1],980.11);assert.equal(music.engine.scheduler.score.track_id,'21-continuum-3');
+await poll(port,2,980.11);assert.equal(music.pendingSeek,undefined,'The album-offset seek is acknowledged before pause/resume');
 music.setSimulationPaused(true);assert.equal(port.state,2);assert.deepEqual(music.updateMusicRain(),[]);
 music.setSimulationPaused(false);await flush();assert.equal(port.state,1);
 await poll(port,2,854+fixture.tracks.find(t=>t.index===21).duration);assert.equal(port.calls.at(-1)[1],3,'Segment end manually advances a longer album source');
@@ -115,6 +128,21 @@ for(const enabled of [false,true,false,true]){
  document.getElementById('music-sync').click();assert.equal(music.enabled,enabled);assert.equal(document.getElementById('music-sync').getAttribute('aria-pressed'),String(enabled));
  if(!enabled)assert.deepEqual(music.updateMusicRain(),[]);
 }
+const beforeExpression={...controls.state},plannedEvents=music.engine.scheduler.events;
+for(const value of [.5,1.75,1]){
+ const input=document.getElementById('music-expression');input.value=String(value);input.dispatchEvent(new window.Event('input',{bubbles:true}));
+ assert.equal(music.expression,value);assert.equal(document.getElementById('music-expression-value').textContent,Math.round(value*100)+'%');
+ assert.deepEqual(controls.state,beforeExpression,'Music expression cannot change ordinary water controls');assert.equal(music.engine.scheduler.events,plannedEvents);
+}
+document.getElementById('music-forward').click();const forward=music.pendingSeek.scoreTime;
+assert.ok(forward>=15);await poll(port,0,forward);
+document.getElementById('music-back').click();assert.ok(Math.abs(music.pendingSeek.scoreTime-(forward-15))<.001);await poll(port,0,forward-15);
+music.pause();const seekInput=document.getElementById('music-seek');seekInput.value='7';seekInput.dispatchEvent(new window.Event('input',{bubbles:true}));
+await poll(port,0,7,2);assert.equal(music.pendingSeek,undefined);assert.deepEqual(music.updateMusicRain(),[],'Seeking while paused must not start choreography');
+await music.play();await poll(port,0,7);music.updateMusicRain();
+music.pause();await music.next();await poll(port,1,0);
+assert.equal(port.state,2,'Next track preserves a paused music transport');assert.deepEqual(music.updateMusicRain(),[]);
+await music.play();await poll(port,1,0);music.updateMusicRain();
 controls.change({tone:'green-dark'});const selected={...controls.state};
 document.getElementById('music-expand').click();document.getElementById('music-close').click();
 assert.equal(document.getElementById('music-panel').hidden,false,'Close minimizes instead of hiding the native player');assert.equal(music.expanded,false);

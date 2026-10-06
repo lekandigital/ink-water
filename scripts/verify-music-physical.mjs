@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {readFile,writeFile} from 'node:fs/promises';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {build} from 'esbuild';
 import {parseHTML} from 'linkedom';
 import {shaderSource} from '../shader-loader.mjs';
@@ -11,13 +11,13 @@ const source=(await readFile('src/main.ts','utf8')).replace('void start();','exp
  .replace('constructor(tile:THREE.Texture,sky:THREE.CubeTexture,controls:WaterControls){','constructor(tile:THREE.Texture,sky:THREE.CubeTexture,controls:WaterControls){if((globalThis as any).__qaSkip)return;');
 const {outputFiles}=await build({stdin:{contents:source,loader:'ts',resolveDir:process.cwd()+'/src'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
 const {Puddle,WaterControls,MusicRainEngine,seededRandom}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
-function app(){
- const controls=new WaterControls();controls.change({rain:true,rainRate:2,dreamyRainSpeed:false,dreamy:false,subtle:false,gentleMotion:false,waveSpeed:1});
+function app(overrides={}){
+ const controls=new WaterControls();controls.change({rain:true,rainRate:2,dreamyRainSpeed:false,dreamy:false,subtle:false,gentleMotion:false,waveSpeed:1,...overrides});
  const puddle=new Puddle(),physical=[],drawing=[],rain=[];
  puddle.controls=controls;puddle.state=controls.state;puddle.simulationSteps=0;
  puddle.water={addDrop:(...drop)=>physical.push({drop,step:puddle.simulationSteps}),stepSimulation:()=>{},updateNormals:()=>{}};
  puddle.openBoundary={apply:()=>{}};puddle.waveLines={model:{addDrop:(...drop)=>drawing.push(drop)}};
- puddle.rainLayer={advance:()=>{},addDrop:(...drop)=>rain.push({drop,step:puddle.simulationSteps})};
+ puddle.rainLayer={advance:()=>{},addDrop:(...drop)=>rain.push({drop,step:puddle.simulationSteps,time:(puddle.lastTime-1000)/1000})};
  Object.assign(puddle,{animating:true,lastTime:0,accumulator:0,gestureQueue:[],gestureElapsed:0,rainAccumulator:0,clearRainUntil:0,draw:()=>{}});
  return {puddle,controls,physical,drawing,rain};
 }
@@ -47,5 +47,28 @@ playing=false;const before=a.physical.length;for(now=13510;now<=13900;now+=10)a.
 assert.equal(rebaseCalls,0,'Track/seek changes never clear or manipulate the water');
 const out=process.argv[2];if(out)await writeFile(out,JSON.stringify({track:score.track_id,start:124.55,duration:12.5,
  impulses:a.physical.map(({drop,step})=>({time:step/120,x:drop[0],z:drop[1],radius:drop[2],strength:drop[3]}))}));
+const directory=process.argv[3];
+if(directory){
+ await mkdir(directory,{recursive:true});
+ const manifest=JSON.parse(await readFile('data/music/manifest.json','utf8')),fixtures=[];
+ for(const track of manifest.tracks){
+  const song=JSON.parse(await readFile('data/music/'+track.score,'utf8')),owner=new MusicRainEngine();
+  const start=Math.max(0,song.recommended_demo.start-2),duration=song.recommended_demo.end-start;
+  owner.setScore(song,start);const field=app({gentleMotion:true,dreamyRainSpeed:true});field.puddle.rainLayerActive=true;
+  let wall=1000;const master={enabled:true,updateMusicRain:()=>owner.updateMusicRain({trackId:song.track_id,time:start+(wall-1000)/1000,playing:true}),setSimulationPaused:()=>{},rebase:()=>{}};
+  field.puddle.setMusicRain(master);field.puddle.animate(wall);
+  for(let frame=1;frame<=Math.ceil(duration*60);frame++){wall=1000+frame*1000/60;field.puddle.animate(wall);}
+  assert.equal(field.physical.length,0,'Default Dreamy music stays in the separate physical rain solver');
+  assert.equal(field.rain.length,owner.scheduler.events.filter(e=>e.time>start&&e.time<=start+Math.ceil(duration*60)/60).length);
+  const first=owner.scheduler.events.find(e=>e.kind!=='background'),accent=owner.scheduler.events.find(e=>e.kind==='accent'&&e.time>=song.recommended_demo.start&&e.time<=song.recommended_demo.end)??owner.scheduler.events.find(e=>e.kind==='accent');
+  const samples=[];for(const event of [first,accent].filter(Boolean)){
+   const sample=app({gentleMotion:true,dreamyRainSpeed:true});sample.puddle.rainLayerActive=true;sample.puddle.emitRain(event);
+   const drop=sample.rain[0].drop;samples.push({kind:event.kind,time:event.time,x:drop[0],z:drop[1],radius:drop[2],strength:drop[3]});
+  }
+  fixtures.push({track:song.track_id,start,duration,demo:song.recommended_demo,selectedSpeed:.75,defaultDreamyRain:true,samples,
+   impulses:field.rain.map(({drop,time})=>({time,x:drop[0],z:drop[1],radius:drop[2],strength:drop[3]}))});
+ }
+ await writeFile(directory+'/music-physical-fixtures.json',JSON.stringify({schema_version:1,fixtures}));
+}
 console.log(JSON.stringify({actualPuddleRainPath:true,physicalMusicImpacts:a.physical.length,normalRainOffExact:true,
  noSurfaceDeformation:true,existingImpulseDistribution:true,rainLayerRoute:true,touchSeparate:true,seededPhysicalForces:true,settingsUnchanged:true}));

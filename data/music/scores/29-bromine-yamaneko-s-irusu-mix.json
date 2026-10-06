@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "29-bromine-yamaneko-s-irusu-mix",
   "seed": 1683823654,
   "title": "Bromine (Yamaneko's Irusu Mix)",
@@ -24,8 +24,8 @@
         0.09
       ],
       "force": [
-        0.261,
-        0.2755
+        0.2838,
+        0.2838
       ],
       "scale": [
         0.7229,
@@ -65,8 +65,8 @@
         0.24
       ],
       "force": [
-        0.2668,
-        0.2813
+        0.2838,
+        0.3349
       ],
       "scale": [
         0.7207,
@@ -106,8 +106,8 @@
         0.29
       ],
       "force": [
-        0.2726,
-        0.2871
+        0.3349,
+        0.348
       ],
       "scale": [
         0.7295,
@@ -147,8 +147,8 @@
         0.12
       ],
       "force": [
-        0.2784,
-        0.2929
+        0.348,
+        0.2963
       ],
       "scale": [
         0.7204,
@@ -188,8 +188,8 @@
         0.23
       ],
       "force": [
-        0.2842,
-        0.2987
+        0.2963,
+        0.3321
       ],
       "scale": [
         0.7213,
@@ -229,8 +229,8 @@
         0.27
       ],
       "force": [
-        0.29,
-        0.3045
+        0.3321,
+        0.3429
       ],
       "scale": [
         0.7167,
@@ -270,8 +270,8 @@
         0.105
       ],
       "force": [
-        0.2958,
-        0.3103
+        0.3429,
+        0.2902
       ],
       "scale": [
         0.7229,
@@ -327,6 +327,7 @@
       "note": "Selected phrase arrival near 232s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 20.520000000000003,
@@ -457,7 +458,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/28",

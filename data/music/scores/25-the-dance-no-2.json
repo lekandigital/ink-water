@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "25-the-dance-no-2",
   "seed": 201256372,
   "title": "The Dance No. 2",
-  "artist": "",
+  "artist": "Laraaji",
   "duration": 582.733333,
   "style": "ritual / spacious",
   "direction": "Use the opening. A few deliberate drops with long decay, occasional paired events, and restrained force. Let the surface remain mostly open.",
@@ -24,8 +24,8 @@
         0.07
       ],
       "force": [
-        0.333,
-        0.3515
+        0.3898,
+        0.3898
       ],
       "scale": [
         1.057,
@@ -65,8 +65,8 @@
         0.12
       ],
       "force": [
-        0.3404,
-        0.3589
+        0.3898,
+        0.4303
       ],
       "scale": [
         1.0529,
@@ -106,8 +106,8 @@
         0.08
       ],
       "force": [
-        0.3478,
-        0.3663
+        0.4303,
+        0.3988
       ],
       "scale": [
         1.0589,
@@ -147,8 +147,8 @@
         0.13
       ],
       "force": [
-        0.3552,
-        0.3737
+        0.3988,
+        0.4373
       ],
       "scale": [
         1.0588,
@@ -188,8 +188,8 @@
         0.09
       ],
       "force": [
-        0.3626,
-        0.3811
+        0.4373,
+        0.4073
       ],
       "scale": [
         1.0482,
@@ -229,8 +229,8 @@
         0.14
       ],
       "force": [
-        0.37,
-        0.3885
+        0.4073,
+        0.444
       ],
       "scale": [
         1.0513,
@@ -270,8 +270,8 @@
         0.055
       ],
       "force": [
-        0.3774,
-        0.3959
+        0.444,
+        0.375
       ],
       "scale": [
         1.0519,
@@ -349,6 +349,7 @@
       "note": "Selected phrase arrival near 416s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 8.04,
@@ -395,7 +396,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/24",

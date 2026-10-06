@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "18-birch-beer-forest",
   "seed": 3098539203,
   "title": "birch beer forest",
@@ -27,8 +27,8 @@
         0.13
       ],
       "force": [
-        0.441,
-        0.4655
+        0.4552,
+        0.4552
       ],
       "scale": [
         0.7674,
@@ -68,8 +68,8 @@
         0.38
       ],
       "force": [
-        0.4508,
-        0.4753
+        0.4552,
+        0.5348
       ],
       "scale": [
         0.7617,
@@ -109,8 +109,8 @@
         0.55
       ],
       "force": [
-        0.4606,
-        0.4851
+        0.5348,
+        0.5738
       ],
       "scale": [
         0.7747,
@@ -150,8 +150,8 @@
         0.62
       ],
       "force": [
-        0.4704,
-        0.4949
+        0.5738,
+        0.588
       ],
       "scale": [
         0.7695,
@@ -191,8 +191,8 @@
         0.44
       ],
       "force": [
-        0.4802,
-        0.5047
+        0.588,
+        0.5494
       ],
       "scale": [
         0.7789,
@@ -232,8 +232,8 @@
         0.32
       ],
       "force": [
-        0.49,
-        0.5145
+        0.5494,
+        0.519
       ],
       "scale": [
         0.7694,
@@ -273,8 +273,8 @@
         0.14
       ],
       "force": [
-        0.4998,
-        0.5243
+        0.519,
+        0.4594
       ],
       "scale": [
         0.7781,
@@ -319,6 +319,17 @@
       "note": "Selected phrase arrival near 36s; measured attack, not every transient."
     },
     {
+      "time": 118.3521,
+      "type": "arrival",
+      "force": 0.93,
+      "scale": 1.13,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 1.15,
+      "quiet": 0.95,
+      "note": "The dramatic later Marumari accent from the earlier prototype, with a clearing before it."
+    },
+    {
       "time": 135.9993,
       "type": "arrival",
       "force": 0.72,
@@ -339,6 +350,24 @@
       "anticipation": 0.65,
       "quiet": 0.72,
       "note": "Selected phrase arrival near 180s; measured attack, not every transient."
+    }
+  ],
+  "gestures": [
+    {
+      "time": 41.5869,
+      "path": "c",
+      "force": 0.28,
+      "scale": 0.64,
+      "spread": 0.82,
+      "note": "A physical C at the proven launch phrase, using the existing deterministic touch path."
+    },
+    {
+      "time": 44.1411,
+      "path": "x",
+      "force": 0.23,
+      "scale": 0.61,
+      "spread": 0.76,
+      "note": "A rare crossing gesture at the next proven phrase; each sample enters through rain."
     }
   ],
   "breaths": [
@@ -387,7 +416,9 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
+    "The supplied demo transcript informed C/X phrase gestures and the later ~118.422s breathing/accent moment; gestures are physical rain samples, not drawn overlays."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/17",

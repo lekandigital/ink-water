@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "03-sun-tickles",
   "seed": 2844696453,
   "title": "Sun Tickles",
@@ -27,8 +27,8 @@
         0.16
       ],
       "force": [
-        0.324,
-        0.342
+        0.3631,
+        0.3631
       ],
       "scale": [
         0.6082,
@@ -68,8 +68,8 @@
         0.36
       ],
       "force": [
-        0.3312,
-        0.3492
+        0.3631,
+        0.4186
       ],
       "scale": [
         0.6077,
@@ -109,8 +109,8 @@
         0.29
       ],
       "force": [
-        0.3384,
-        0.3564
+        0.4186,
+        0.4016
       ],
       "scale": [
         0.6096,
@@ -150,8 +150,8 @@
         0.42
       ],
       "force": [
-        0.3456,
-        0.3636
+        0.4016,
+        0.432
       ],
       "scale": [
         0.6027,
@@ -191,8 +191,8 @@
         0.24
       ],
       "force": [
-        0.3528,
-        0.3708
+        0.432,
+        0.3881
       ],
       "scale": [
         0.6018,
@@ -232,8 +232,8 @@
         0.35
       ],
       "force": [
-        0.36,
-        0.378
+        0.3881,
+        0.4163
       ],
       "scale": [
         0.6038,
@@ -273,8 +273,8 @@
         0.15
       ],
       "force": [
-        0.3672,
-        0.3852
+        0.4163,
+        0.3596
       ],
       "scale": [
         0.606,
@@ -363,6 +363,7 @@
       "note": "Selected phrase arrival near 200s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 16.08,
@@ -409,7 +410,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/2",

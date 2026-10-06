@@ -16,7 +16,8 @@ class ImageData{constructor(width,height){this.data=new Uint8ClampedArray(width*
 Object.assign(globalThis,{window,document,ImageData});
 const {outputFiles}=await build({stdin:{contents:"export {MusicWaterPresentation} from './src/MusicWaterPresentation';export {Matrix4,Vector3,Texture} from 'three';",resolveDir:process.cwd(),loader:'ts'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
 const {MusicWaterPresentation,Matrix4,Vector3,Texture}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
-const panel=document.getElementById('music-panel'),map=document.getElementById('music-water-map');
+const panel=document.getElementById('water-dock'),map=document.getElementById('music-water-map');
+panel.hidden=true;
 panel.matches=()=>hover;
 panel.getBoundingClientRect=()=>({left:280,bottom:700,width:234,height:90});
 const presentation=new MusicWaterPresentation(panel,map),water=new Texture();
@@ -29,7 +30,7 @@ const renderer={getRenderTarget:()=>current,setRenderTarget:t=>{current=t;},rend
 }};
 const stage={left:0,top:0,width:1000,height:1000};
 const update=time=>presentation.update(renderer,water,new Matrix4(),new Vector3(0,4.5,0),stage,time);
-update(100);assert.equal(renders,0,'Off mode does no presentation work');
+update(100);assert.equal(renders,0,'Hidden cluster does no presentation work');
 panel.hidden=false;update(200);assert.equal(renders,1);assert.equal(presentation.material.uniforms.water.value,water);
 presentation.material.uniforms.screenRect.value.toArray().forEach((n,i)=>assert.ok(Math.abs(n-[.268,.288,.258,.114][i])<1e-12));
 assert.equal(current,'original-target');update(250);assert.equal(renders,1,'Only one asynchronous read may be in flight');
@@ -42,4 +43,5 @@ document.body.classList.add('capture');update(700);assert.equal(renders,3);docum
 const video=document.getElementById('youtube-frame');video.hidden=false;video.getBoundingClientRect=()=>({left:280,bottom:598,width:202,height:202});
 update(800);assert.equal(map.getAttribute('y'),'-226','The compact video is included, never clipped by a bar-sized filter');resolveRead();await new Promise(resolve=>setImmediate(resolve));assert.equal(writes,3);
 assert.equal(panel.classList.contains('water-refracting'),true,'Refraction works again after hover/expansion/reduced-motion/capture');
-console.log(JSON.stringify({readOnlyDisplayedField:true,asyncGPURead:true,oneReadInFlight:true,correctScreenCoordinates:true,restoreRenderTarget:true,hoverCrisp:true,expandedIdleSubmerged:true,compactVideoIncluded:true,reducedMotion:true,musicOffNoGPUWork:true,captureUnchanged:true}));
+assert.equal(document.getElementById('music-panel').hidden,true,'Quick controls refract even while Music is off');
+console.log(JSON.stringify({readOnlyDisplayedField:true,asyncGPURead:true,oneReadInFlight:true,correctScreenCoordinates:true,restoreRenderTarget:true,hoverCrisp:true,expandedIdleSubmerged:true,compactVideoIncluded:true,reducedMotion:true,wholeQuickClusterSubmerged:true,captureUnchanged:true}));

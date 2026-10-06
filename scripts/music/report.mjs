@@ -20,7 +20,8 @@ for(const [position,id] of manifest.order.entries()){
   reference_duration:track.duration,container_duration:analysis.reference.container_duration_seconds,
   supplied_duration:analysis.supplied_analysis.duration,
   tempo:analysis.tempo_review,
-  style:score.style,direction:score.direction,seed:score.seed,sections:score.sections,accents:score.accents,breaths:score.breaths,
+  style:score.style,direction:score.direction,seed:score.seed,sections:score.sections,accents:score.accents,gestures:score.gestures??[],breaths:score.breaths,
+  physical_calibration:{ordinary_rain_unchanged:true,music_gain:{background:1.4,rain:2.6,cluster:2.6,accent:3.2,gesture:1.7},expression_default:1},
   demo:score.recommended_demo,alternate:score.alternate_demo,
   highlighted_events:scheduler.events.filter(e=>e.time>=score.recommended_demo.start&&e.time<score.recommended_demo.end).length,
   event_count:scheduler.events.length,event_fingerprint:createHash('sha256').update(JSON.stringify(scheduler.events)).digest('hex'),
@@ -42,13 +43,14 @@ const lines=['# Music score validation','',
 for(const r of records)lines.push(`| ${r.position} | ${r.title} | ${r.reference_duration.toFixed(3)}s | ${r.observed_playlist_item.video_id} | ${r.observed_playlist_item.duration_seconds}s | ${r.style} | ${r.event_count} / ${r.highlighted_events} |`);
 lines.push('','The ID column follows the supplied map and reviewed exact-ID aliases. Runtime uses the manifest, not title matching or position guesses. Whole-second metadata rounding is allowed up to 1.25s; material version changes are held. The strict release check still requires full recording verification.','',
  '## Priority pass','',
- 'Logic1000 remains quiet from 124.55 to 127.90 seconds, then its measured 128.1974-second arrival introduces irregular 2–4 impact groups. Places Remember Events uses a spatially separated double arrival in its early excerpt. Sun Tickles has two small asymmetric paired glints. Marumari uses its earlier proven window. Recovery raises both force and density through the rise. Continuum flows softly without a beat grid. Bromine repeatedly stops rain entirely. Seefeel reforms localized showers; Other Joe gathers fine streams; by the rain uses tighter needle clusters.','');
+ 'Logic1000 keeps restrained texture from 124.55s, clears space during 126.90–127.617s, then its proven 127.617-second arrival introduces irregular 2–4 impact groups. A fresh 10ms decoded MP3 envelope confirms an 8.66× riser-to-arrival energy jump; the old 128.1974s accent was a later transient. Places Remember Events answers separated showers with a compact dispersed burst. Sun Tickles keeps its small asymmetric paired glints. Marumari adds physical C/X phrase gestures and its later dramatic clearing/accent; Recovery gives its rise a more immediate density/force lift. Continuum has broad harmonic arrivals with drifting echoes. Bromine retains complete gaps. Seefeel reforms localized showers; Other Joe gathers fine streams; by the rain uses selected needle bursts. Music-only physical calibration restores legibility under Gentle motion without changing ordinary rain, shaders or the solver.','');
 for(const r of records){
  lines.push(`## ${r.position}. ${r.title}${r.priority?' — priority':''}`,'',r.direction,'',
   `Reference: ${r.reference_duration.toFixed(6)}s. YouTube match: **${r.source_match}**. Observed item: \`${r.observed_playlist_item.video_id}\`; metadata duration ${r.observed_playlist_item.duration_seconds}s. Demo: ${time(r.demo.start)}–${time(r.demo.end)} (${r.highlighted_events} physical drops).`,
   `Deterministic song seed: ${r.seed}; score event count ${r.event_count}.`,
   `Sections: ${r.sections.map(s=>`${time(s.start)}–${time(s.end)} ${s.name}, density ${s.density.join('→')}/s, force ${s.force.join('→')}, radius ${s.scale.join('→')}, groups ${s.cluster.count.join('–')} (${Math.round(s.cluster.probability*100)}%)`).join('; ')}.`,
   `Selected accents: ${r.accents.map(a=>`${time(a.time)} ${a.type} ×${a.count}, force ${a.force}, scale ${a.scale}`).join('; ')||'none'}.`,
+  `Occasional physical gestures: ${r.gestures.map(g=>`${time(g.time)} ${g.path.toUpperCase()}, force ${g.force}, scale ${g.scale}`).join('; ')||'none'}.`,
   `Breathing: ${r.breaths.length} explicit intervals. Placement: ${r.sections[0].spatial.language}; no manually keyed coordinates.`,
   `Refinements/discrepancies: ${r.discrepancies.join(' ')}`,'');
 }

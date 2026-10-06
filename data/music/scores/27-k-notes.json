@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "27-k-notes",
   "seed": 475642250,
   "title": "K-Notes",
-  "artist": "",
+  "artist": "Kedr Livanskiy",
   "duration": 195.989388,
   "style": "energetic / bouncy",
   "direction": "One of the clearer high-energy demo candidates. Use compact clusters, quick alternation across the surface, and a few stronger anchors. Keep it playful, not aggressive.",
@@ -24,8 +24,8 @@
         0.35
       ],
       "force": [
-        0.531,
-        0.5605
+        0.6046,
+        0.6046
       ],
       "scale": [
         0.7882,
@@ -65,8 +65,8 @@
         0.59
       ],
       "force": [
-        0.5428,
-        0.5723
+        0.6046,
+        0.6617
       ],
       "scale": [
         0.8122,
@@ -106,8 +106,8 @@
         0.76
       ],
       "force": [
-        0.5546,
-        0.5841
+        0.6617,
+        0.6953
       ],
       "scale": [
         0.8114,
@@ -147,8 +147,8 @@
         0.46
       ],
       "force": [
-        0.5664,
-        0.5959
+        0.6953,
+        0.6326
       ],
       "scale": [
         0.8068,
@@ -188,8 +188,8 @@
         0.83
       ],
       "force": [
-        0.5782,
-        0.6077
+        0.6326,
+        0.708
       ],
       "scale": [
         0.8092,
@@ -229,8 +229,8 @@
         0.61
       ],
       "force": [
-        0.59,
-        0.6195
+        0.708,
+        0.6659
       ],
       "scale": [
         0.8181,
@@ -270,8 +270,8 @@
         0.23
       ],
       "force": [
-        0.6018,
-        0.6313
+        0.6659,
+        0.5683
       ],
       "scale": [
         0.8055,
@@ -338,6 +338,7 @@
       "note": "Selected phrase arrival near 132s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 18.76,
@@ -384,7 +385,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/26",

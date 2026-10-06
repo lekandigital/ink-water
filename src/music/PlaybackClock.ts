@@ -17,7 +17,7 @@ export class PlaybackClock{
     if(!Number.isFinite(time)||!Number.isFinite(now))return;
     const elapsed=(now-this.previousWall)/1000;
     const delta=this.previousRaw===undefined?0:time-this.previousRaw;
-    this.discontinuity=this.previousRaw!==undefined&&(delta<-.12||delta>Math.max(.65,elapsed*rate+.35));
+    this.discontinuity=this.previousRaw!==undefined&&(delta<-.045||delta>Math.max(.24,elapsed*rate+.18));
     if(this.discontinuity||!playing)this.monotone=time;
     this.running=playing&&(this.previousRaw===undefined||delta>.002);
     this.anchor=time;this.wall=now;this.previousRaw=time;this.previousWall=now;

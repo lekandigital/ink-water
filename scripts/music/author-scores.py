@@ -83,6 +83,9 @@ def nearest_onset(analysis, time, radius=1.4):
 
 def compile_scores():
     c = json.loads((ROOT/'data/music/source/ink-water-32-track-choreography.json').read_text())
+    manifest_path=ROOT/'data/music/manifest.json'
+    existing=json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    saved={t['id']:t for t in existing.get('tracks',[])}
     profiles = {r[0]:r for r in ROWS}
     tracks = []
     artists = {1:'Other Joe',2:'Logic1000',3:'Salamanda',4:'Buttechno & TRIS',5:'Seefeel',7:'Lusine',
@@ -104,7 +107,8 @@ def compile_scores():
             target=densities[i]; previous=densities[max(0,i-1)]
             sections.append({'name':f'{language}: '+('opening' if i==0 else 'release' if i==6 else f'phrase {i}'),
                 'start':start,'end':end,'density':[previous,target],
-                'force':[round(force*(.90+.12*i/6),4),round(force*(.95+.12*i/6),4)],
+                'force':[round(force*(.70+.50*(previous/max(densities))**.5),4),
+                         round(force*(.70+.50*(target/max(densities))**.5),4)],
                 'scale':[size,size], 'background':background,
                 'cluster':{'probability':chance,'count':count,'spacing':spacing,'radius': .17 if language!='showers' else .26},
                 'spatial':{'language':language,'spread':spread,'wander':wander,'focus':[0,0]},
@@ -131,16 +135,40 @@ def compile_scores():
             for time in ([1.3,7.2] if index==15 else [7.2,14.5]):
                 o=nearest_onset(a,time,.8)
                 if o:accents.append({'time':o['time'],'type':'solitary','force':force,'scale':scale,'count':1,'spacing':.5,'anticipation':.8,'quiet':.9,'note':'A deliberate soft opening mark, followed by space.'})
+        refinements=['Duration uses decoded reference samples; supplied highlight is unchanged.',
+                     'Selected arrivals use independently measured attacks; density remains authored.',
+                     'Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.']
+        gestures=[]
+        def mark(at,kind,f,z,count=1,spacing=.25,anticipation=.5,quiet=.7,note=''):
+            o=nearest_onset(a,at,.18)
+            if o:accents.append({'time':o['time'],'type':kind,'force':f,'scale':z,'count':count,'spacing':spacing,
+                                'anticipation':anticipation,'quiet':quiet,'note':note})
+        def gesture(at,key,f,z,spread,note):
+            o=nearest_onset(a,at,.18)
+            if o:gestures.append({'time':o['time'],'path':key,'force':f,'scale':z,'spread':spread,'note':note})
         if index==2:
-            # Flagship excerpt: restraint from 124.55, then actual 128.1974s
-            # arrival gives the groups structure. This is unique to Logic1000.
-            breaths.append({'start':124.55,'end':127.90,'amount':.10,'note':'Restrain the opening of the supplied flagship excerpt.'})
-            arrival=nearest_onset(a,128.1974,.3)
+            # The demo transcript's 127.617s arrival, independently checked
+            # against the decoded 10ms MP3 envelope (8.66x energy jump).
+            # 128.1974s is a later loud attack, not the structural entrance.
+            breaths += [{'start':124.55,'end':126.90,'amount':.20,'note':'Restrained texture before the flagship riser.'},
+                        {'start':126.90,'end':127.617,'amount':0,'note':'Anticipation lets the structural arrival land clearly.'}]
+            mark(123.1586,'fleck',.28,.75,1,.25,.25,.4,'A light preparatory impact gives the authentic pre-roll a visible first frame.')
+            mark(124.8305,'fleck',.30,.74,1,.25,.25,.4,'One quiet opening fleck: restrained texture, not completely dead water.')
+            arrival=nearest_onset(a,127.617,.15)
             if arrival:
-                sections[3]['end']=arrival['time']; sections[4]['start']=arrival['time']
-                sections[4]['density']=[.79,.65]
+                sections[3]['end']=127.617; sections[4]['start']=127.617
+                sections[4]['density']=[.88,.65];sections[4]['force']=[.79,.70]
                 for accent in accents:
-                    if abs(accent['time']-128)<2:accent.update(time=arrival['time'],force=.98,scale=1.18,quiet=.95,anticipation=1.1)
+                    if abs(accent['time']-128)<2:accent.update(time=127.617,force=1.08,scale=1.18,quiet=.95,anticipation=1.1,
+                        note='The proven demo arrival, confirmed by decoded reference energy; not the later maximum transient.')
+                breaths.append({'start':133.55,'end':134.25,'amount':.12,'note':'A small clearing inside the structured rain, not a constant wall.'})
+                refinements.append('Demo transcript corrects the main arrival to 127.617s; decoded MP3 jump starts around 127.597s and peaks at 127.617s. The old 128.1974s event was late.')
+        if index==1:
+            mark(137.9498,'glint',.46,.56,3,.13,.28,.45,'One fine separated shower inside the dense mist; force stays modest.')
+        if index==4:
+            mark(181.2317,'glint',.43,.51,3,.09,.35,.65,'A selected needle burst, then release; not every percussion hit.')
+        if index==5:
+            mark(57.4694,'glint',.61,.82,2,.31,.65,.8,'Two spatially separate showers reform in the uncanny highlight.')
         if index==29:
             breaths += [{'start':s['start']+(s['end']-s['start'])*p,'end':min(s['end'],s['start']+(s['end']-s['start'])*p+4.3),
                          'amount':0,'note':'Negative space is part of this track’s language.'} for s in sections for p in [.27,.79]]
@@ -149,6 +177,7 @@ def compile_scores():
             # Logic1000 increase. One compact asymmetric double arrival.
             o=nearest_onset(a,25.75,.2)
             if o:accents.append({'time':o['time'],'type':'split','force':.45,'scale':.62,'count':2,'spacing':0,'anticipation':.4,'quiet':.65,'note':'Two spatially separate impacts in the preferred early window.'})
+            mark(30.6968,'glint',.38,.53,3,.085,.25,.5,'A short dispersed technical answer to the separated pair.')
         if index==3:
             # Two tiny asymmetric glints make the charming early excerpt read;
             # restrained chance rain alone left this fixed seed too empty.
@@ -159,19 +188,31 @@ def compile_scores():
                     'note':'A small asymmetric paired glint in the preferred early window.'})
         if index==20:
             for s in sections[1:3]:s['force']=[.50,.78]
+            sections[2]['density']=[.88,.73];sections[2]['force']=[.80,.90]
+            mark(91.8117,'arrival',.64,.98,2,.40,.45,.7,'A rounded answering pair after the cinematic arrival.')
+            breaths.append({'start':93.2,'end':94.4,'amount':.18,'note':'The rise briefly opens out so its larger waves can breathe.'})
+            gesture(201.25,'c',.26,.64,.90,'A single curved physical sweep at the later crest, followed by open water.')
+        if index==18:
+            mark(118.422,'arrival',.93,1.13,1,.25,1.15,.95,'The dramatic later Marumari accent from the earlier prototype, with a clearing before it.')
+            gesture(41.657,'c',.28,.64,.82,'A physical C at the proven launch phrase, using the existing deterministic touch path.')
+            gesture(44.211,'x',.23,.61,.76,'A rare crossing gesture at the next proven phrase; each sample enters through rain.')
+            refinements.append('The supplied demo transcript informed C/X phrase gestures and the later ~118.422s breathing/accent moment; gestures are physical rain samples, not drawn overlays.')
+        if index==21:
+            mark(132.7949,'arrival',.43,1.04,1,.25,.65,.65,'A broad harmonic arrival; flowing rain remains soft and unquantized.')
+            mark(136.0225,'glint',.26,.73,2,.52,.3,.35,'Two small drifting echoes after the sustained arrival.')
         if index==8:
             for s in sections[:3]:s['scale']=[.78,.91]
             sections[4]['scale']=[1.02,1.17];sections[5]['scale']=[1.17,1.08]
+            gesture(sections[5]['start']+2,'/',.25,.65,.85,'One slash-shaped physical sweep in the late gathered section; no repetitive letter motif.')
         if index==17:
             for i,s in enumerate(sections):s['cluster']['probability']=min(.85,.35+i*.085)
-        score={'schema_version':1,'track_id':tid,'seed':int.from_bytes(hashlib.sha256(('ink-water-weather-v1:'+tid).encode()).digest()[:4],'little'),
-            'title':track['title'].removesuffix('(1)').strip(),'artist':artists.get(index,''),'duration':duration,
+        score={'schema_version':2,'track_id':tid,'seed':int.from_bytes(hashlib.sha256(('ink-water-weather-v1:'+tid).encode()).digest()[:4],'little'),
+            'title':track['title'].removesuffix('(1)').strip(),'artist':saved.get(tid,{}).get('artist') or artists.get(index,''),'duration':duration,
             'style':track['choreography_style'],'direction':track['choreography_notes'],
             'authored_density':track['rain_density'],'authored_force':track['impact_force'],
             'recommended_demo':track['recommended_highlight'],'alternate_demo':track['alternate_highlight'],
-            'sections':sections,'accents':sorted(accents,key=lambda x:x['time']), 'breaths':sorted(breaths,key=lambda x:x['start']),
-            'refinements':['Duration uses decoded reference samples; supplied highlight is unchanged.',
-                           'Selected arrivals use independently measured attacks; density remains authored.'],
+            'sections':sections,'accents':sorted(accents,key=lambda x:x['time']),'gestures':sorted(gestures,key=lambda x:x['time']),
+            'breaths':sorted(breaths,key=lambda x:x['start']),'refinements':refinements,
             'provenance':{'choreography':f'source/ink-water-32-track-choreography.json#tracks/{index-1}',
                           'analysis':f'analysis/{tid}.json','reference_sha256':a['reference']['sha256']}}
         helper.write(ROOT/'data/music/scores'/f'{tid}.json',score)
@@ -181,14 +222,18 @@ def compile_scores():
                        'source':None,'source_status':'awaiting-supplied-source-map'})
     manifest={'schema_version':1,'title':'Ink Water — authored weather','preferred_tone':'green-light',
               'playlist_id':'PLTab0IXtn0Nw','order':[helper.track_id(c['tracks'][i-1]) for i in c['playlist_order_indices']], 'tracks':tracks}
-    path=ROOT/'data/music/manifest.json'
+    path=manifest_path
     # Regenerating artistic data must not erase subsequently supplied mappings.
     if path.exists():
         old=json.loads(path.read_text());manifest['playlist_id']=old.get('playlist_id')
         sources={t['id']:t for t in old['tracks']}
         for t in tracks:
+            # Retain mapping/version review metadata added after authoring.
+            for key,value in sources.get(t['id'],{}).items():
+                if key not in t:t[key]=value
             if sources.get(t['id'],{}).get('source'):
                 t['source']=sources[t['id']]['source'];t['source_status']=sources[t['id']]['source_status']
+                if sources[t['id']].get('alternate_sources'):t['alternate_sources']=sources[t['id']]['alternate_sources']
                 if sources[t['id']].get('artist'):t['artist']=sources[t['id']]['artist']
     helper.write(path,manifest)
     print('32 full-song authored scores; cinematic order and all supplied highlights retained.')

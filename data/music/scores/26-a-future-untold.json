@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "track_id": "26-a-future-untold",
   "seed": 2945104710,
   "title": "A Future Untold",
-  "artist": "",
+  "artist": "Shabaka",
   "duration": 202.723265,
   "style": "breath / phrase-led",
   "direction": "Map musical phrases to broad rain gestures: one larger soft impact can mark a phrase entrance, followed by sparse smaller echoes. Do not chase individual notes.",
@@ -24,8 +24,8 @@
         0.1
       ],
       "force": [
-        0.414,
-        0.437
+        0.4595,
+        0.4595
       ],
       "scale": [
         1.0464,
@@ -65,8 +65,8 @@
         0.19
       ],
       "force": [
-        0.4232,
-        0.4462
+        0.4595,
+        0.5115
       ],
       "scale": [
         1.0183,
@@ -106,8 +106,8 @@
         0.26
       ],
       "force": [
-        0.4324,
-        0.4554
+        0.5115,
+        0.5436
       ],
       "scale": [
         1.0129,
@@ -147,8 +147,8 @@
         0.16
       ],
       "force": [
-        0.4416,
-        0.4646
+        0.5436,
+        0.4959
       ],
       "scale": [
         1.0065,
@@ -188,8 +188,8 @@
         0.28
       ],
       "force": [
-        0.4508,
-        0.4738
+        0.4959,
+        0.552
       ],
       "scale": [
         1.0202,
@@ -229,8 +229,8 @@
         0.18
       ],
       "force": [
-        0.46,
-        0.483
+        0.552,
+        0.5064
       ],
       "scale": [
         1.0308,
@@ -270,8 +270,8 @@
         0.09
       ],
       "force": [
-        0.4692,
-        0.4922
+        0.5064,
+        0.4524
       ],
       "scale": [
         1.0288,
@@ -338,6 +338,7 @@
       "note": "Selected phrase arrival near 176s; measured attack, not every transient."
     }
   ],
+  "gestures": [],
   "breaths": [
     {
       "start": 5.36,
@@ -384,7 +385,8 @@
   ],
   "refinements": [
     "Duration uses decoded reference samples; supplied highlight is unchanged.",
-    "Selected arrivals use independently measured attacks; density remains authored."
+    "Selected arrivals use independently measured attacks; density remains authored.",
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/25",
