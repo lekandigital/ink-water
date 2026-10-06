@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "title": "Ink Water — authored weather",
+  "preferred_tone": "green-light",
+  "playlist_id": "PLTab0IXtn0Nw",
+  "order": [
+    "15-190304-05",
+    "19-an-unopened-letter",
+    "21-continuum-3",
+    "10-sun-arcs-laraaji-remix",
+    "03-sun-tickles",
+    "18-birch-beer-forest",
+    "09-places-remember-events",
+    "01-inhale-the-mist",
+    "02-fused-dj-kicks",
+    "07-lusine-without-a-plan",
+    "20-recovery",
+    "05-time-to-find-me-afx-fast-mix",
+    "29-bromine-yamaneko-s-irusu-mix",
+    "04-by-the-rain",
+    "08-memory-of-a-memory",
+    "06-pop-4",
+    "17-i",
+    "27-k-notes",
+    "23-lights-on-the-vibe",
+    "24-heal",
+    "26-a-future-untold",
+    "30-in-memory",
+    "25-the-dance-no-2",
+    "12-wilson-tanner-blush",
+    "13-argento-sabbia-su-sabbia",
+    "14-slipping-fingers-through-curls",
+    "11-remember",
+    "28-wildflower-wood",
+    "16-gaganbadiba",
+    "22-rider",
+    "31-unknown",
+    "32-da-du-dah-onome-remix-feat-nyron-higor"
+  ],
+  "tracks": [
+    {
+      "id": "01-inhale-the-mist",
+      "index": 1,
+      "title": "inhale the Mist",
+      "artist": "Other Joe",
+      "duration": 256.36898,
+      "score": "scores/01-inhale-the-mist.json",
+      "analysis": "analysis/01-inhale-the-mist.json",
+      "reference_sha256": "1040425982023532a13c55b25543e28d4815e29f85ffded3275dfaa22305658b",
+      "recommended_demo": {
+        "start": 133.73,
+        "end": 146.23
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "02-fused-dj-kicks",
+      "index": 2,
+      "title": "fused (DJ-Kicks)",
+      "artist": "Logic1000",
+      "duration": 210.693333,
+      "score": "scores/02-fused-dj-kicks.json",
+      "analysis": "analysis/02-fused-dj-kicks.json",
+      "reference_sha256": "5d3053b7bbd3785702152a15875395f104bf201c462b3112de0e6e65af134179",
+      "recommended_demo": {
+        "start": 124.55,
+        "end": 137.05
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "03-sun-tickles",
+      "index": 3,
+      "title": "Sun Tickles",
+      "artist": "Salamanda",
+      "duration": 271.807347,
+      "score": "scores/03-sun-tickles.json",
+      "analysis": "analysis/03-sun-tickles.json",
+      "reference_sha256": "0b3caf970ff79aa4db2dd8f347fa76e09f6fa13fd09cc3b45cb308fd67cdeb2d",
+      "recommended_demo": {
+        "start": 24.84,
+        "end": 37.34
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "04-by-the-rain",
+      "index": 4,
+      "title": "by the rain",
+      "artist": "Buttechno & TRIS",
+      "duration": 235.102132,
+      "score": "scores/04-by-the-rain.json",
+      "analysis": "analysis/04-by-the-rain.json",
+      "reference_sha256": "e15f1ea705746249ad85eca8645e53d29d0bf57065faaa04a5f69286bb6b3d03",
+      "recommended_demo": {
+        "start": 179.65,
+        "end": 192.15
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "05-time-to-find-me-afx-fast-mix",
+      "index": 5,
+      "title": "Time to Find Me (AFX Fast Mix)",
+      "artist": "Seefeel",
+      "duration": 457.0,
+      "score": "scores/05-time-to-find-me-afx-fast-mix.json",
+      "analysis": "analysis/05-time-to-find-me-afx-fast-mix.json",
+      "reference_sha256": "cd207f79d271be4a10f171e8dca6f0cb562c612ffdf0657e396b9a187f02dc00",
+      "recommended_demo": {
+        "start": 51.52,
+        "end": 64.02
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "06-pop-4",
+      "index": 6,
+      "title": "Pop 4",
+      "artist": "",
+      "duration": 568.346667,
+      "score": "scores/06-pop-4.json",
+      "analysis": "analysis/06-pop-4.json",
+      "reference_sha256": "a63cbdb9a1f08ab371e7e3f860571a05ac1d29d3e989088b7e73c6644c110d7c",
+      "recommended_demo": {
+        "start": 36.29,
+        "end": 48.79
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "07-lusine-without-a-plan",
+      "index": 7,
+      "title": "Lusine - Without a Plan",
+      "artist": "Lusine",
+      "duration": 258.263946,
+      "score": "scores/07-lusine-without-a-plan.json",
+      "analysis": "analysis/07-lusine-without-a-plan.json",
+      "reference_sha256": "6fa0f46b78b76cbbb6db5085e7b5ef6bdbe50e1f7b483c54eaa238ce2060eaca",
+      "recommended_demo": {
+        "start": 96.77,
+        "end": 109.27
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "08-memory-of-a-memory",
+      "index": 8,
+      "title": "memory of a memory",
+      "artist": "",
+      "duration": 251.701859,
+      "score": "scores/08-memory-of-a-memory.json",
+      "analysis": "analysis/08-memory-of-a-memory.json",
+      "reference_sha256": "3258c794acbe5c61d5430174bb1eab714043c2d78703d0a444909f98576e0986",
+      "recommended_demo": {
+        "start": 212.8,
+        "end": 225.3
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "09-places-remember-events",
+      "index": 9,
+      "title": "Places Remember Events",
+      "artist": "Eerie Enterprise",
+      "duration": 234.352925,
+      "score": "scores/09-places-remember-events.json",
+      "analysis": "analysis/09-places-remember-events.json",
+      "reference_sha256": "19030841cd13468e4fd28e029b8f01517f5e8877f1af34f624e05d63b31f8c44",
+      "recommended_demo": {
+        "start": 19.5,
+        "end": 32.0
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "10-sun-arcs-laraaji-remix",
+      "index": 10,
+      "title": "Sun Arcs (Laraaji Remix)",
+      "artist": "",
+      "duration": 252.0,
+      "score": "scores/10-sun-arcs-laraaji-remix.json",
+      "analysis": "analysis/10-sun-arcs-laraaji-remix.json",
+      "reference_sha256": "bd6691a91511e92cf0c07ecc4d41b978f1968c8d1271f67a58d70bb7306fd434",
+      "recommended_demo": {
+        "start": 27.78,
+        "end": 40.28
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "11-remember",
+      "index": 11,
+      "title": "Remember",
+      "artist": "",
+      "duration": 133.907483,
+      "score": "scores/11-remember.json",
+      "analysis": "analysis/11-remember.json",
+      "reference_sha256": "910ec9e8e35296fa03c7f56fc3c60689b6252607da7076d32af479c1252b33c1",
+      "recommended_demo": {
+        "start": 78.4,
+        "end": 90.9
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "12-wilson-tanner-blush",
+      "index": 12,
+      "title": "Wilson Tanner - Blush",
+      "artist": "Wilson Tanner",
+      "duration": 230.464036,
+      "score": "scores/12-wilson-tanner-blush.json",
+      "analysis": "analysis/12-wilson-tanner-blush.json",
+      "reference_sha256": "a8cd30d8658ae2c150609ead176e187305eac4b158b2ec84a189d052f5d23c01",
+      "recommended_demo": {
+        "start": 167.78,
+        "end": 180.28
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "13-argento-sabbia-su-sabbia",
+      "index": 13,
+      "title": "Argento - Sabbia Su Sabbia",
+      "artist": "Argento",
+      "duration": 208.469388,
+      "score": "scores/13-argento-sabbia-su-sabbia.json",
+      "analysis": "analysis/13-argento-sabbia-su-sabbia.json",
+      "reference_sha256": "c276c2f16b19b91ffa4455fd9a8b02bc7e0d007037b704694ae835a8412e09ff",
+      "recommended_demo": {
+        "start": 118.5,
+        "end": 131.0
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "14-slipping-fingers-through-curls",
+      "index": 14,
+      "title": "Slipping Fingers Through Curls",
+      "artist": "",
+      "duration": 217.528254,
+      "score": "scores/14-slipping-fingers-through-curls.json",
+      "analysis": "analysis/14-slipping-fingers-through-curls.json",
+      "reference_sha256": "ad3f816a6ea65e51acc6343d3b6416bfaf0f68359f2e3b0fb1c5d494f8486000",
+      "recommended_demo": {
+        "start": 122.75,
+        "end": 135.25
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "15-190304-05",
+      "index": 15,
+      "title": "190304-05",
+      "artist": "",
+      "duration": 153.333333,
+      "score": "scores/15-190304-05.json",
+      "analysis": "analysis/15-190304-05.json",
+      "reference_sha256": "60d1c610d31e665fe3a169a0dfd0018a971cd1c009ae1ef9b4a617a98bb33fbf",
+      "recommended_demo": {
+        "start": 0.0,
+        "end": 12.5
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "16-gaganbadiba",
+      "index": 16,
+      "title": "Gagánbadibá",
+      "artist": "",
+      "duration": 259.088254,
+      "score": "scores/16-gaganbadiba.json",
+      "analysis": "analysis/16-gaganbadiba.json",
+      "reference_sha256": "f85eaa1fc84f54fab365ac4241a58b89fae6b9b10f16f2f4738e385edc80e58f",
+      "recommended_demo": {
+        "start": 144.93,
+        "end": 157.43
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "17-i",
+      "index": 17,
+      "title": "I",
+      "artist": "",
+      "duration": 480.96,
+      "score": "scores/17-i.json",
+      "analysis": "analysis/17-i.json",
+      "reference_sha256": "ee6a96065453389d11041bebd0bb1d23186741ef918a74c2735ab12ae7dbb42b",
+      "recommended_demo": {
+        "start": 316.06,
+        "end": 328.56
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "18-birch-beer-forest",
+      "index": 18,
+      "title": "birch beer forest",
+      "artist": "Marumari",
+      "duration": 211.440998,
+      "score": "scores/18-birch-beer-forest.json",
+      "analysis": "analysis/18-birch-beer-forest.json",
+      "reference_sha256": "6a4ddb1673f4d87a746b1a7397fa0f9956dd0944b37f723416c4c358a78c90ec",
+      "recommended_demo": {
+        "start": 35.73,
+        "end": 48.23
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "19-an-unopened-letter",
+      "index": 19,
+      "title": "An Unopened Letter",
+      "artist": "",
+      "duration": 173.522721,
+      "score": "scores/19-an-unopened-letter.json",
+      "analysis": "analysis/19-an-unopened-letter.json",
+      "reference_sha256": "7a9bc8453621a30705bad5f7158cad9d3205b431dad8c6f46007ef53c1f39e75",
+      "recommended_demo": {
+        "start": 68.99,
+        "end": 81.49
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "20-recovery",
+      "index": 20,
+      "title": "Recovery",
+      "artist": "Rival Consoles",
+      "duration": 291.015692,
+      "score": "scores/20-recovery.json",
+      "analysis": "analysis/20-recovery.json",
+      "reference_sha256": "d85efcb43135a5b3d635825334b531757063f5ee5fce38fe3a625df991f24f1c",
+      "recommended_demo": {
+        "start": 82.66,
+        "end": 95.16
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "21-continuum-3",
+      "index": 21,
+      "title": "Continuum 3",
+      "artist": "Nala Sinephro",
+      "duration": 247.538866,
+      "score": "scores/21-continuum-3.json",
+      "analysis": "analysis/21-continuum-3.json",
+      "reference_sha256": "4890b68d9c64c7f930f264d0e00f25dda9b83cd16ce5ceb5bd2c210ed26ac8c9",
+      "recommended_demo": {
+        "start": 126.11,
+        "end": 138.61
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "22-rider",
+      "index": 22,
+      "title": "Rider",
+      "artist": "",
+      "duration": 170.362902,
+      "score": "scores/22-rider.json",
+      "analysis": "analysis/22-rider.json",
+      "reference_sha256": "a054a876158ca80fdd65a1078bec215591de3539943eb8250c07912075c501ca",
+      "recommended_demo": {
+        "start": 103.49,
+        "end": 115.99
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "23-lights-on-the-vibe",
+      "index": 23,
+      "title": "Lights On the Vibe",
+      "artist": "",
+      "duration": 461.647528,
+      "score": "scores/23-lights-on-the-vibe.json",
+      "analysis": "analysis/23-lights-on-the-vibe.json",
+      "reference_sha256": "612353173c863a57607f717460f17a282cba2df9219466f31100576c7651fa42",
+      "recommended_demo": {
+        "start": 86.46,
+        "end": 98.96
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "24-heal",
+      "index": 24,
+      "title": "Heal",
+      "artist": "",
+      "duration": 410.635828,
+      "score": "scores/24-heal.json",
+      "analysis": "analysis/24-heal.json",
+      "reference_sha256": "ea403bdbbdc2de89d132a73d7ac480080d50c894fe3a328210dac257f05de484",
+      "recommended_demo": {
+        "start": 188.83,
+        "end": 201.33
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "25-the-dance-no-2",
+      "index": 25,
+      "title": "The Dance No. 2",
+      "artist": "",
+      "duration": 582.733333,
+      "score": "scores/25-the-dance-no-2.json",
+      "analysis": "analysis/25-the-dance-no-2.json",
+      "reference_sha256": "28e6a3a1d973b1a992503d41247578fcda4aef82a4433b467175f455b55dc686",
+      "recommended_demo": {
+        "start": 6.72,
+        "end": 19.22
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "26-a-future-untold",
+      "index": 26,
+      "title": "A Future Untold",
+      "artist": "",
+      "duration": 202.723265,
+      "score": "scores/26-a-future-untold.json",
+      "analysis": "analysis/26-a-future-untold.json",
+      "reference_sha256": "c29889eda3e8a6978b82601d518338e65221faee058b1e022ee522560a600819",
+      "recommended_demo": {
+        "start": 98.56,
+        "end": 111.06
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "27-k-notes",
+      "index": 27,
+      "title": "K-Notes",
+      "artist": "",
+      "duration": 195.989388,
+      "score": "scores/27-k-notes.json",
+      "analysis": "analysis/27-k-notes.json",
+      "reference_sha256": "9770ee72a4c8bda355809ac0d735742b49dad15378efb837521c54d85d4407b2",
+      "recommended_demo": {
+        "start": 26.43,
+        "end": 38.93
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "28-wildflower-wood",
+      "index": 28,
+      "title": "Wildflower Wood",
+      "artist": "",
+      "duration": 226.64,
+      "score": "scores/28-wildflower-wood.json",
+      "analysis": "analysis/28-wildflower-wood.json",
+      "reference_sha256": "bbb2c0157734755d9a5227afd3cb23536fb005a1aeaced592003bf8702843d9c",
+      "recommended_demo": {
+        "start": 135.74,
+        "end": 148.24
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "29-bromine-yamaneko-s-irusu-mix",
+      "index": 29,
+      "title": "Bromine (Yamaneko's Irusu Mix)",
+      "artist": "Chevel",
+      "duration": 539.70839,
+      "score": "scores/29-bromine-yamaneko-s-irusu-mix.json",
+      "analysis": "analysis/29-bromine-yamaneko-s-irusu-mix.json",
+      "reference_sha256": "55c07b6c1f7e5550b0612e110f5dd7c5610854cf6eb4fa616463a025a4978ff2",
+      "recommended_demo": {
+        "start": 71.68,
+        "end": 84.18
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "30-in-memory",
+      "index": 30,
+      "title": "In Memory",
+      "artist": "",
+      "duration": 209.660136,
+      "score": "scores/30-in-memory.json",
+      "analysis": "analysis/30-in-memory.json",
+      "reference_sha256": "1bdbabc5cf9d57942ae041b6515a63ec75743e1ca0aefc6bb6733211539e382f",
+      "recommended_demo": {
+        "start": 121.86,
+        "end": 134.36
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "31-unknown",
+      "index": 31,
+      "title": "Unknown",
+      "artist": "",
+      "duration": 422.0,
+      "score": "scores/31-unknown.json",
+      "analysis": "analysis/31-unknown.json",
+      "reference_sha256": "d2380cd6770b6720473ada58b8539d4d530b9d4bf38bfcfd6b099406ac09363f",
+      "recommended_demo": {
+        "start": 320.32,
+        "end": 332.82
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    },
+    {
+      "id": "32-da-du-dah-onome-remix-feat-nyron-higor",
+      "index": 32,
+      "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+      "artist": "",
+      "duration": 223.565079,
+      "score": "scores/32-da-du-dah-onome-remix-feat-nyron-higor.json",
+      "analysis": "analysis/32-da-du-dah-onome-remix-feat-nyron-higor.json",
+      "reference_sha256": "f1b9c56f63408291c855fc0b53e34d5fe4b5f58f37866228427721e374c68913",
+      "recommended_demo": {
+        "start": 62.05,
+        "end": 74.55
+      },
+      "source": null,
+      "source_status": "awaiting-supplied-source-map"
+    }
+  ]
+}

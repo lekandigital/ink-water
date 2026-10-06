@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "track_id": "08-memory-of-a-memory",
+  "seed": 1607012503,
+  "title": "memory of a memory",
+  "artist": "",
+  "duration": 251.701859,
+  "style": "cinematic / late swell",
+  "direction": "Favor a late-build choreography: sparse medium drops grow into paired and triplet clusters, then one or two larger soft impacts. Preserve the emotional swell rather than following every transient.",
+  "authored_density": "medium→dense",
+  "authored_force": "medium-large",
+  "recommended_demo": {
+    "start": 212.8,
+    "end": 225.3
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "gather: opening",
+      "start": 0,
+      "end": 36.0,
+      "density": [
+        0.12,
+        0.12
+      ],
+      "force": [
+        0.621,
+        0.6555
+      ],
+      "scale": [
+        0.78,
+        0.91
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    },
+    {
+      "name": "gather: phrase 1",
+      "start": 36.0,
+      "end": 104.0,
+      "density": [
+        0.12,
+        0.21
+      ],
+      "force": [
+        0.6348,
+        0.6693
+      ],
+      "scale": [
+        0.78,
+        0.91
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    },
+    {
+      "name": "gather: phrase 2",
+      "start": 104.0,
+      "end": 124.0,
+      "density": [
+        0.21,
+        0.32
+      ],
+      "force": [
+        0.6486,
+        0.6831
+      ],
+      "scale": [
+        0.78,
+        0.91
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    },
+    {
+      "name": "gather: phrase 3",
+      "start": 124.0,
+      "end": 200.0,
+      "density": [
+        0.32,
+        0.45
+      ],
+      "force": [
+        0.6624,
+        0.6969
+      ],
+      "scale": [
+        0.9985,
+        0.9985
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    },
+    {
+      "name": "gather: phrase 4",
+      "start": 200.0,
+      "end": 216.0,
+      "density": [
+        0.45,
+        0.68
+      ],
+      "force": [
+        0.6762,
+        0.7107
+      ],
+      "scale": [
+        1.02,
+        1.17
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    },
+    {
+      "name": "gather: phrase 5",
+      "start": 216.0,
+      "end": 232.0,
+      "density": [
+        0.68,
+        0.84
+      ],
+      "force": [
+        0.69,
+        0.7245
+      ],
+      "scale": [
+        1.17,
+        1.08
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    },
+    {
+      "name": "gather: release",
+      "start": 232.0,
+      "end": 251.701859,
+      "density": [
+        0.84,
+        0.3
+      ],
+      "force": [
+        0.7038,
+        0.7383
+      ],
+      "scale": [
+        1.0274,
+        1.0274
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.66,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "gather",
+        "spread": 0.86,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.16,
+      "note": "Groups gather through the rise, then release into wider space."
+    }
+  ],
+  "accents": [
+    {
+      "time": 199.9006,
+      "type": "arrival",
+      "force": 0.9471,
+      "scale": 1.231,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 200s; measured attack, not every transient."
+    },
+    {
+      "time": 216.1313,
+      "type": "arrival",
+      "force": 0.957,
+      "scale": 1.2409,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 216s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/7",
+    "analysis": "analysis/08-memory-of-a-memory.json",
+    "reference_sha256": "3258c794acbe5c61d5430174bb1eab714043c2d78703d0a444909f98576e0986"
+  }
+}

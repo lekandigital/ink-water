@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "track_id": "24-heal",
+  "seed": 2272366731,
+  "title": "Heal",
+  "artist": "",
+  "duration": 410.635828,
+  "style": "haze / pulse",
+  "direction": "Maintain a soft background field and let stronger pulses briefly raise density. Avoid sharp, frequent accents. The rain should feel suspended in a larger atmosphere.",
+  "authored_density": "medium",
+  "authored_force": "soft-medium",
+  "recommended_demo": {
+    "start": 188.83,
+    "end": 201.33
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "haze: opening",
+      "start": 0,
+      "end": 20.0,
+      "density": [
+        0.17,
+        0.17
+      ],
+      "force": [
+        0.342,
+        0.361
+      ],
+      "scale": [
+        0.896,
+        0.896
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    },
+    {
+      "name": "haze: phrase 1",
+      "start": 20.0,
+      "end": 36.0,
+      "density": [
+        0.17,
+        0.28
+      ],
+      "force": [
+        0.3496,
+        0.3686
+      ],
+      "scale": [
+        0.9209,
+        0.9209
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    },
+    {
+      "name": "haze: phrase 2",
+      "start": 36.0,
+      "end": 104.0,
+      "density": [
+        0.28,
+        0.34
+      ],
+      "force": [
+        0.3572,
+        0.3762
+      ],
+      "scale": [
+        0.9243,
+        0.9243
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    },
+    {
+      "name": "haze: phrase 3",
+      "start": 104.0,
+      "end": 128.0,
+      "density": [
+        0.34,
+        0.23
+      ],
+      "force": [
+        0.3648,
+        0.3838
+      ],
+      "scale": [
+        0.9219,
+        0.9219
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    },
+    {
+      "name": "haze: phrase 4",
+      "start": 128.0,
+      "end": 192.0,
+      "density": [
+        0.23,
+        0.43
+      ],
+      "force": [
+        0.3724,
+        0.3914
+      ],
+      "scale": [
+        0.9209,
+        0.9209
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    },
+    {
+      "name": "haze: phrase 5",
+      "start": 192.0,
+      "end": 400.0,
+      "density": [
+        0.43,
+        0.3
+      ],
+      "force": [
+        0.38,
+        0.399
+      ],
+      "scale": [
+        0.9229,
+        0.9229
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    },
+    {
+      "name": "haze: release",
+      "start": 400.0,
+      "end": 410.635828,
+      "density": [
+        0.3,
+        0.12
+      ],
+      "force": [
+        0.3876,
+        0.4066
+      ],
+      "scale": [
+        0.9037,
+        0.9037
+      ],
+      "background": 0.12,
+      "cluster": {
+        "probability": 0.28,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.43,
+          0.92
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "haze",
+        "spread": 0.94,
+        "wander": 0.29,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.11,
+      "note": "A faint continuous field, gently lifted by a few broad pulses."
+    }
+  ],
+  "accents": [
+    {
+      "time": 128.0116,
+      "type": "arrival",
+      "force": 0.5433,
+      "scale": 1.1395,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 128s; measured attack, not every transient."
+    },
+    {
+      "time": 191.9361,
+      "type": "arrival",
+      "force": 0.5176,
+      "scale": 1.1138,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 192s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/23",
+    "analysis": "analysis/24-heal.json",
+    "reference_sha256": "ea403bdbbdc2de89d132a73d7ac480080d50c894fe3a328210dac257f05de484"
+  }
+}

@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "track_id": "28-wildflower-wood",
+  "seed": 3048215528,
+  "title": "Wildflower Wood",
+  "artist": "",
+  "duration": 226.64,
+  "style": "dream / environmental",
+  "direction": "Use soft scattered rain with occasional slow clusters. Let spatial placement wander naturally across the surface, like weather moving through a landscape.",
+  "authored_density": "low-medium",
+  "authored_force": "soft",
+  "recommended_demo": {
+    "start": 135.74,
+    "end": 148.24
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "drift: opening",
+      "start": 0,
+      "end": 24.0,
+      "density": [
+        0.13,
+        0.13
+      ],
+      "force": [
+        0.261,
+        0.2755
+      ],
+      "scale": [
+        0.9411,
+        0.9411
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    },
+    {
+      "name": "drift: phrase 1",
+      "start": 24.0,
+      "end": 76.0,
+      "density": [
+        0.13,
+        0.23
+      ],
+      "force": [
+        0.2668,
+        0.2813
+      ],
+      "scale": [
+        0.938,
+        0.938
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    },
+    {
+      "name": "drift: phrase 2",
+      "start": 76.0,
+      "end": 92.0,
+      "density": [
+        0.23,
+        0.31
+      ],
+      "force": [
+        0.2726,
+        0.2871
+      ],
+      "scale": [
+        0.9202,
+        0.9202
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    },
+    {
+      "name": "drift: phrase 3",
+      "start": 92.0,
+      "end": 140.0,
+      "density": [
+        0.31,
+        0.2
+      ],
+      "force": [
+        0.2784,
+        0.2929
+      ],
+      "scale": [
+        0.9169,
+        0.9169
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    },
+    {
+      "name": "drift: phrase 4",
+      "start": 140.0,
+      "end": 168.0,
+      "density": [
+        0.2,
+        0.36
+      ],
+      "force": [
+        0.2842,
+        0.2987
+      ],
+      "scale": [
+        0.9124,
+        0.9124
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    },
+    {
+      "name": "drift: phrase 5",
+      "start": 168.0,
+      "end": 216.0,
+      "density": [
+        0.36,
+        0.27
+      ],
+      "force": [
+        0.29,
+        0.3045
+      ],
+      "scale": [
+        0.9368,
+        0.9368
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    },
+    {
+      "name": "drift: release",
+      "start": 216.0,
+      "end": 226.64,
+      "density": [
+        0.27,
+        0.12
+      ],
+      "force": [
+        0.2958,
+        0.3103
+      ],
+      "scale": [
+        0.9474,
+        0.9474
+      ],
+      "background": 0.045,
+      "cluster": {
+        "probability": 0.25,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.48,
+          1.05
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "drift",
+        "spread": 0.91,
+        "wander": 0.3,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Broad softly wandering weather, with long continuous envelopes."
+    }
+  ],
+  "accents": [
+    {
+      "time": 92.0903,
+      "type": "arrival",
+      "force": 0.4479,
+      "scale": 1.1774,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 92s; measured attack, not every transient."
+    },
+    {
+      "time": 138.925,
+      "type": "arrival",
+      "force": 0.4506,
+      "scale": 1.1801,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 140s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/27",
+    "analysis": "analysis/28-wildflower-wood.json",
+    "reference_sha256": "bbb2c0157734755d9a5227afd3cb23536fb005a1aeaced592003bf8702843d9c"
+  }
+}

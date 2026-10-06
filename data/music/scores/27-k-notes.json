@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "track_id": "27-k-notes",
+  "seed": 475642250,
+  "title": "K-Notes",
+  "artist": "",
+  "duration": 195.989388,
+  "style": "energetic / bouncy",
+  "direction": "One of the clearer high-energy demo candidates. Use compact clusters, quick alternation across the surface, and a few stronger anchors. Keep it playful, not aggressive.",
+  "authored_density": "medium-high",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 26.43,
+    "end": 38.93
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "alternate: opening",
+      "start": 0,
+      "end": 28.0,
+      "density": [
+        0.35,
+        0.35
+      ],
+      "force": [
+        0.531,
+        0.5605
+      ],
+      "scale": [
+        0.7882,
+        0.7882
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    },
+    {
+      "name": "alternate: phrase 1",
+      "start": 28.0,
+      "end": 44.0,
+      "density": [
+        0.35,
+        0.59
+      ],
+      "force": [
+        0.5428,
+        0.5723
+      ],
+      "scale": [
+        0.8122,
+        0.8122
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    },
+    {
+      "name": "alternate: phrase 2",
+      "start": 44.0,
+      "end": 96.0,
+      "density": [
+        0.59,
+        0.76
+      ],
+      "force": [
+        0.5546,
+        0.5841
+      ],
+      "scale": [
+        0.8114,
+        0.8114
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    },
+    {
+      "name": "alternate: phrase 3",
+      "start": 96.0,
+      "end": 112.0,
+      "density": [
+        0.76,
+        0.46
+      ],
+      "force": [
+        0.5664,
+        0.5959
+      ],
+      "scale": [
+        0.8068,
+        0.8068
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    },
+    {
+      "name": "alternate: phrase 4",
+      "start": 112.0,
+      "end": 132.0,
+      "density": [
+        0.46,
+        0.83
+      ],
+      "force": [
+        0.5782,
+        0.6077
+      ],
+      "scale": [
+        0.8092,
+        0.8092
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    },
+    {
+      "name": "alternate: phrase 5",
+      "start": 132.0,
+      "end": 160.0,
+      "density": [
+        0.83,
+        0.61
+      ],
+      "force": [
+        0.59,
+        0.6195
+      ],
+      "scale": [
+        0.8181,
+        0.8181
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    },
+    {
+      "name": "alternate: release",
+      "start": 160.0,
+      "end": 195.989388,
+      "density": [
+        0.61,
+        0.23
+      ],
+      "force": [
+        0.6018,
+        0.6313
+      ],
+      "scale": [
+        0.8055,
+        0.8055
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.12,
+          0.31
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "alternate",
+        "spread": 0.83,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Compact groups alternate across the surface, with a few anchors."
+    }
+  ],
+  "accents": [
+    {
+      "time": 28.1426,
+      "type": "arrival",
+      "force": 0.7978,
+      "scale": 0.9689,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 28s; measured attack, not every transient."
+    },
+    {
+      "time": 96.6879,
+      "type": "arrival",
+      "force": 0.8536,
+      "scale": 1.0247,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 96s; measured attack, not every transient."
+    },
+    {
+      "time": 132.4698,
+      "type": "arrival",
+      "force": 0.7966,
+      "scale": 0.9677,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 132s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 18.76,
+      "end": 19.96,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 35.52,
+      "end": 36.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 78.84,
+      "end": 80.6184,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 103.52,
+      "end": 104.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 125.4,
+      "end": 126.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 145.16,
+      "end": 146.36,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 184.1129,
+      "end": 185.3437,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/26",
+    "analysis": "analysis/27-k-notes.json",
+    "reference_sha256": "9770ee72a4c8bda355809ac0d735742b49dad15378efb837521c54d85d4407b2"
+  }
+}

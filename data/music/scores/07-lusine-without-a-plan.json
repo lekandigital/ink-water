@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "track_id": "07-lusine-without-a-plan",
+  "seed": 167229160,
+  "title": "Lusine - Without a Plan",
+  "artist": "Lusine",
+  "duration": 258.263946,
+  "style": "pattern-building / melodic",
+  "direction": "Use moderate repeating cluster shapes, but vary their spacing and location. Let section changes alter density more than force. Keep enough silence for the ripple interference to read.",
+  "authored_density": "medium",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 96.77,
+    "end": 109.27
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "motif: opening",
+      "start": 0,
+      "end": 16.0,
+      "density": [
+        0.22,
+        0.22
+      ],
+      "force": [
+        0.513,
+        0.5415
+      ],
+      "scale": [
+        0.8704,
+        0.8704
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 1",
+      "start": 16.0,
+      "end": 48.0,
+      "density": [
+        0.22,
+        0.43
+      ],
+      "force": [
+        0.5244,
+        0.5529
+      ],
+      "scale": [
+        0.9082,
+        0.9082
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 2",
+      "start": 48.0,
+      "end": 84.0,
+      "density": [
+        0.43,
+        0.55
+      ],
+      "force": [
+        0.5358,
+        0.5643
+      ],
+      "scale": [
+        0.9057,
+        0.9057
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 3",
+      "start": 84.0,
+      "end": 112.0,
+      "density": [
+        0.55,
+        0.36
+      ],
+      "force": [
+        0.5472,
+        0.5757
+      ],
+      "scale": [
+        0.8932,
+        0.8932
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 4",
+      "start": 112.0,
+      "end": 156.0,
+      "density": [
+        0.36,
+        0.58
+      ],
+      "force": [
+        0.5586,
+        0.5871
+      ],
+      "scale": [
+        0.9053,
+        0.9053
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 5",
+      "start": 156.0,
+      "end": 244.0,
+      "density": [
+        0.58,
+        0.44
+      ],
+      "force": [
+        0.57,
+        0.5985
+      ],
+      "scale": [
+        0.8906,
+        0.8906
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: release",
+      "start": 244.0,
+      "end": 258.263946,
+      "density": [
+        0.44,
+        0.2
+      ],
+      "force": [
+        0.5814,
+        0.6099
+      ],
+      "scale": [
+        0.8864,
+        0.8864
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.22,
+          0.52
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    }
+  ],
+  "accents": [
+    {
+      "time": 48.9477,
+      "type": "arrival",
+      "force": 0.8521,
+      "scale": 1.1564,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 48s; measured attack, not every transient."
+    },
+    {
+      "time": 111.688,
+      "type": "arrival",
+      "force": 0.8025,
+      "scale": 1.1068,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 112s; measured attack, not every transient."
+    },
+    {
+      "time": 155.6898,
+      "type": "arrival",
+      "force": 0.81,
+      "scale": 1.1143,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 156s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 10.72,
+      "end": 11.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 31.04,
+      "end": 32.24,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 72.12,
+      "end": 73.416,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 97.16,
+      "end": 98.36,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 141.48,
+      "end": 143.064,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 197.36,
+      "end": 200.528,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 253.5568,
+      "end": 254.7568,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/6",
+    "analysis": "analysis/07-lusine-without-a-plan.json",
+    "reference_sha256": "6fa0f46b78b76cbbb6db5085e7b5ef6bdbe50e1f7b483c54eaa238ce2060eaca"
+  }
+}

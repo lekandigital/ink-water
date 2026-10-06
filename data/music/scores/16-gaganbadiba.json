@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "track_id": "16-gaganbadiba",
+  "seed": 2863453103,
+  "title": "Gagánbadibá",
+  "artist": "",
+  "duration": 259.088254,
+  "style": "organic / rhythmic",
+  "direction": "Follow broad rhythmic phrases rather than individual percussion. Use warm, rounded clusters and keep forces moderate. Because the track carries its own cultural/lyrical identity, avoid turning it into a flashy visualizer.",
+  "authored_density": "medium",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 144.93,
+    "end": 157.43
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "rounded: opening",
+      "start": 0,
+      "end": 84.0,
+      "density": [
+        0.23,
+        0.23
+      ],
+      "force": [
+        0.495,
+        0.5225
+      ],
+      "scale": [
+        1.0131,
+        1.0131
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 1",
+      "start": 84.0,
+      "end": 132.0,
+      "density": [
+        0.23,
+        0.37
+      ],
+      "force": [
+        0.506,
+        0.5335
+      ],
+      "scale": [
+        0.9998,
+        0.9998
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 2",
+      "start": 132.0,
+      "end": 148.0,
+      "density": [
+        0.37,
+        0.55
+      ],
+      "force": [
+        0.517,
+        0.5445
+      ],
+      "scale": [
+        1.0112,
+        1.0112
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 3",
+      "start": 148.0,
+      "end": 172.0,
+      "density": [
+        0.55,
+        0.42
+      ],
+      "force": [
+        0.528,
+        0.5555
+      ],
+      "scale": [
+        0.9962,
+        0.9962
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 4",
+      "start": 172.0,
+      "end": 216.0,
+      "density": [
+        0.42,
+        0.62
+      ],
+      "force": [
+        0.539,
+        0.5665
+      ],
+      "scale": [
+        1.0048,
+        1.0048
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 5",
+      "start": 216.0,
+      "end": 236.0,
+      "density": [
+        0.62,
+        0.47
+      ],
+      "force": [
+        0.55,
+        0.5775
+      ],
+      "scale": [
+        0.9997,
+        0.9997
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: release",
+      "start": 236.0,
+      "end": 259.088254,
+      "density": [
+        0.47,
+        0.2
+      ],
+      "force": [
+        0.561,
+        0.5885
+      ],
+      "scale": [
+        1.0203,
+        1.0203
+      ],
+      "background": 0.03,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.25,
+          0.58
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    }
+  ],
+  "accents": [
+    {
+      "time": 131.4714,
+      "type": "arrival",
+      "force": 0.8114,
+      "scale": 1.2725,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 132s; measured attack, not every transient."
+    },
+    {
+      "time": 148.1898,
+      "type": "arrival",
+      "force": 0.7789,
+      "scale": 1.24,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 148s; measured attack, not every transient."
+    },
+    {
+      "time": 216.3171,
+      "type": "arrival",
+      "force": 0.8034,
+      "scale": 1.2645,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 216s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 56.28,
+      "end": 59.0016,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 106.56,
+      "end": 108.1152,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 142.72,
+      "end": 143.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 159.28,
+      "end": 160.48,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 201.48,
+      "end": 202.9056,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 225.4,
+      "end": 226.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 251.4691,
+      "end": 252.6691,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/15",
+    "analysis": "analysis/16-gaganbadiba.json",
+    "reference_sha256": "f85eaa1fc84f54fab365ac4241a58b89fae6b9b10f16f2f4738e385edc80e58f"
+  }
+}

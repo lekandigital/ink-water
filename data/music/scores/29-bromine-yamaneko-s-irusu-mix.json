@@ -1,0 +1,467 @@
+{
+  "schema_version": 1,
+  "track_id": "29-bromine-yamaneko-s-irusu-mix",
+  "seed": 1683823654,
+  "title": "Bromine (Yamaneko's Irusu Mix)",
+  "artist": "Chevel",
+  "duration": 539.70839,
+  "style": "weightless / negative space",
+  "direction": "Exploit silence. Let drops arrive in small groups, then disappear completely for short stretches. Use faint background texture only when necessary. The absences are part of the choreography.",
+  "authored_density": "low-medium",
+  "authored_force": "light",
+  "recommended_demo": {
+    "start": 71.68,
+    "end": 84.18
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "negative: opening",
+      "start": 0,
+      "end": 76.0,
+      "density": [
+        0.09,
+        0.09
+      ],
+      "force": [
+        0.261,
+        0.2755
+      ],
+      "scale": [
+        0.7229,
+        0.7229
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    },
+    {
+      "name": "negative: phrase 1",
+      "start": 76.0,
+      "end": 124.0,
+      "density": [
+        0.09,
+        0.24
+      ],
+      "force": [
+        0.2668,
+        0.2813
+      ],
+      "scale": [
+        0.7207,
+        0.7207
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    },
+    {
+      "name": "negative: phrase 2",
+      "start": 124.0,
+      "end": 180.0,
+      "density": [
+        0.24,
+        0.29
+      ],
+      "force": [
+        0.2726,
+        0.2871
+      ],
+      "scale": [
+        0.7295,
+        0.7295
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    },
+    {
+      "name": "negative: phrase 3",
+      "start": 180.0,
+      "end": 232.0,
+      "density": [
+        0.29,
+        0.12
+      ],
+      "force": [
+        0.2784,
+        0.2929
+      ],
+      "scale": [
+        0.7204,
+        0.7204
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    },
+    {
+      "name": "negative: phrase 4",
+      "start": 232.0,
+      "end": 248.0,
+      "density": [
+        0.12,
+        0.23
+      ],
+      "force": [
+        0.2842,
+        0.2987
+      ],
+      "scale": [
+        0.7213,
+        0.7213
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    },
+    {
+      "name": "negative: phrase 5",
+      "start": 248.0,
+      "end": 436.0,
+      "density": [
+        0.23,
+        0.27
+      ],
+      "force": [
+        0.29,
+        0.3045
+      ],
+      "scale": [
+        0.7167,
+        0.7167
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    },
+    {
+      "name": "negative: release",
+      "start": 436.0,
+      "end": 539.70839,
+      "density": [
+        0.27,
+        0.105
+      ],
+      "force": [
+        0.2958,
+        0.3103
+      ],
+      "scale": [
+        0.7229,
+        0.7229
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.32,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "negative",
+        "spread": 0.92,
+        "wander": 0.22,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.38,
+      "note": "Small groups disappear completely; the absences are authored."
+    }
+  ],
+  "accents": [
+    {
+      "time": 77.1135,
+      "type": "arrival",
+      "force": 0.4238,
+      "scale": 0.8937,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 76s; measured attack, not every transient."
+    },
+    {
+      "time": 231.6655,
+      "type": "arrival",
+      "force": 0.4073,
+      "scale": 0.8772,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 232s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 20.520000000000003,
+      "end": 24.820000000000004,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 50.92,
+      "end": 56.1184,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 60.040000000000006,
+      "end": 64.34,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 88.96000000000001,
+      "end": 93.26,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 98.56,
+      "end": 101.8432,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 113.92,
+      "end": 118.22,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 139.12,
+      "end": 143.42000000000002,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 161.52,
+      "end": 165.3504,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 168.24,
+      "end": 172.54000000000002,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 194.04,
+      "end": 198.34,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 204.44,
+      "end": 207.9968,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 221.07999999999998,
+      "end": 225.38,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 236.32,
+      "end": 240.62,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 242.72,
+      "end": 243.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 244.64,
+      "end": 248.0,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 298.76,
+      "end": 303.06,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 336.36,
+      "end": 341.86,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 396.52,
+      "end": 400.82,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 464.0012653,
+      "end": 468.3012653,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    },
+    {
+      "start": 505.4846,
+      "end": 510.9846,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 517.9296281000001,
+      "end": 522.2296281,
+      "amount": 0,
+      "note": "Negative space is part of this track’s language."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/28",
+    "analysis": "analysis/29-bromine-yamaneko-s-irusu-mix.json",
+    "reference_sha256": "55c07b6c1f7e5550b0612e110f5dd7c5610854cf6eb4fa616463a025a4978ff2"
+  }
+}

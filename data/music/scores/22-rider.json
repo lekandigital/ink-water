@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "22-rider",
+  "seed": 2063287608,
+  "title": "Rider",
+  "artist": "",
+  "duration": 170.362902,
+  "style": "crisp / rhythmic",
+  "direction": "Use clean short clusters and sharper spatial changes. Keep one recurring motif in the rain pattern so the choreography feels intentional, then break it at the section transition.",
+  "authored_density": "medium-high",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 103.49,
+    "end": 115.99
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "motif: opening",
+      "start": 0,
+      "end": 28.0,
+      "density": [
+        0.29,
+        0.29
+      ],
+      "force": [
+        0.522,
+        0.551
+      ],
+      "scale": [
+        0.7908,
+        0.7908
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 1",
+      "start": 28.0,
+      "end": 48.0,
+      "density": [
+        0.29,
+        0.51
+      ],
+      "force": [
+        0.5336,
+        0.5626
+      ],
+      "scale": [
+        0.7807,
+        0.7807
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 2",
+      "start": 48.0,
+      "end": 72.0,
+      "density": [
+        0.51,
+        0.66
+      ],
+      "force": [
+        0.5452,
+        0.5742
+      ],
+      "scale": [
+        0.7847,
+        0.7847
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 3",
+      "start": 72.0,
+      "end": 92.0,
+      "density": [
+        0.66,
+        0.4
+      ],
+      "force": [
+        0.5568,
+        0.5858
+      ],
+      "scale": [
+        0.7881,
+        0.7881
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 4",
+      "start": 92.0,
+      "end": 120.0,
+      "density": [
+        0.4,
+        0.64
+      ],
+      "force": [
+        0.5684,
+        0.5974
+      ],
+      "scale": [
+        0.7783,
+        0.7783
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 5",
+      "start": 120.0,
+      "end": 160.0,
+      "density": [
+        0.64,
+        0.43
+      ],
+      "force": [
+        0.58,
+        0.609
+      ],
+      "scale": [
+        0.7831,
+        0.7831
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: release",
+      "start": 160.0,
+      "end": 170.362902,
+      "density": [
+        0.43,
+        0.16
+      ],
+      "force": [
+        0.5916,
+        0.6206
+      ],
+      "scale": [
+        0.794,
+        0.794
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.74,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.1,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.2,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    }
+  ],
+  "accents": [
+    {
+      "time": 71.6568,
+      "type": "arrival",
+      "force": 0.8613,
+      "scale": 1.0105,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 72s; measured attack, not every transient."
+    },
+    {
+      "time": 119.5595,
+      "type": "arrival",
+      "force": 0.8528,
+      "scale": 1.002,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 120s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 18.76,
+      "end": 19.96,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 37.4,
+      "end": 38.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 64.08,
+      "end": 65.28,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 81.4,
+      "end": 82.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 110.76,
+      "end": 111.96,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 138.8,
+      "end": 140.24,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 166.9431,
+      "end": 168.1431,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/21",
+    "analysis": "analysis/22-rider.json",
+    "reference_sha256": "a054a876158ca80fdd65a1078bec215591de3539943eb8250c07912075c501ca"
+  }
+}

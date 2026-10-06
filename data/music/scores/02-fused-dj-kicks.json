@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "track_id": "02-fused-dj-kicks",
+  "seed": 357903480,
+  "title": "fused (DJ-Kicks)",
+  "artist": "Logic1000",
+  "duration": 210.693333,
+  "style": "pattern-building",
+  "direction": "Flagship sync candidate. Hold the first ~2 seconds relatively restrained, then let the major transition around 2:06–2:08 cause the rainfall to acquire obvious structure. Use 2–4 drop clusters, selected stronger impacts, and breathing room. Never map every drum hit.",
+  "authored_density": "sparse→dense",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 124.55,
+    "end": 137.05
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "cells: opening",
+      "start": 0,
+      "end": 40.0,
+      "density": [
+        0.09,
+        0.09
+      ],
+      "force": [
+        0.594,
+        0.627
+      ],
+      "scale": [
+        0.9495,
+        0.9495
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    },
+    {
+      "name": "cells: phrase 1",
+      "start": 40.0,
+      "end": 80.0,
+      "density": [
+        0.09,
+        0.28
+      ],
+      "force": [
+        0.6072,
+        0.6402
+      ],
+      "scale": [
+        0.9452,
+        0.9452
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    },
+    {
+      "name": "cells: phrase 2",
+      "start": 80.0,
+      "end": 108.0,
+      "density": [
+        0.28,
+        0.38
+      ],
+      "force": [
+        0.6204,
+        0.6534
+      ],
+      "scale": [
+        0.9542,
+        0.9542
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    },
+    {
+      "name": "cells: phrase 3",
+      "start": 108.0,
+      "end": 128.1974,
+      "density": [
+        0.38,
+        0.16
+      ],
+      "force": [
+        0.6336,
+        0.6666
+      ],
+      "scale": [
+        0.9435,
+        0.9435
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    },
+    {
+      "name": "cells: phrase 4",
+      "start": 128.1974,
+      "end": 148.0,
+      "density": [
+        0.79,
+        0.65
+      ],
+      "force": [
+        0.6468,
+        0.6798
+      ],
+      "scale": [
+        0.9553,
+        0.9553
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    },
+    {
+      "name": "cells: phrase 5",
+      "start": 148.0,
+      "end": 168.0,
+      "density": [
+        0.65,
+        0.47
+      ],
+      "force": [
+        0.66,
+        0.693
+      ],
+      "scale": [
+        0.9497,
+        0.9497
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    },
+    {
+      "name": "cells: release",
+      "start": 168.0,
+      "end": 210.693333,
+      "density": [
+        0.47,
+        0.2
+      ],
+      "force": [
+        0.6732,
+        0.7062
+      ],
+      "scale": [
+        0.947,
+        0.947
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.77,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "cells",
+        "spread": 0.74,
+        "wander": 0.18,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Irregular 2–4 drop groups occupy different cells, with air between them."
+    }
+  ],
+  "accents": [
+    {
+      "time": 40.0312,
+      "type": "arrival",
+      "force": 0.914,
+      "scale": 1.1322,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 40s; measured attack, not every transient."
+    },
+    {
+      "time": 128.1974,
+      "type": "arrival",
+      "force": 0.98,
+      "scale": 1.18,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 1.1,
+      "quiet": 0.95,
+      "note": "Selected phrase arrival near 128s; measured attack, not every transient."
+    },
+    {
+      "time": 147.795,
+      "type": "arrival",
+      "force": 0.9558,
+      "scale": 1.174,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 148s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 26.8,
+      "end": 28.384,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 58.8,
+      "end": 60.384,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 98.76,
+      "end": 99.96,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 117.4,
+      "end": 118.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 124.55,
+      "end": 127.9,
+      "amount": 0.1,
+      "note": "Restrain the opening of the supplied flagship excerpt."
+    },
+    {
+      "start": 141.4,
+      "end": 142.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 157.4,
+      "end": 158.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 196.6045,
+      "end": 198.2952,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/1",
+    "analysis": "analysis/02-fused-dj-kicks.json",
+    "reference_sha256": "5d3053b7bbd3785702152a15875395f104bf201c462b3112de0e6e65af134179"
+  }
+}

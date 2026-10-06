@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "track_id": "01-inhale-the-mist",
+  "seed": 2828421508,
+  "title": "inhale the Mist",
+  "artist": "Other Joe",
+  "duration": 256.36898,
+  "style": "dense / technical mist",
+  "direction": "Begin with fine scattered impacts, then let the rain organize into irregular clusters around the structural change near 2:16. Keep drops small and numerous; use only a few stronger accents. It should feel like pressure gathering in mist, not percussion visualization.",
+  "authored_density": "medium→dense",
+  "authored_force": "light-medium",
+  "recommended_demo": {
+    "start": 133.73,
+    "end": 146.23
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "streams: opening",
+      "start": 0,
+      "end": 48.0,
+      "density": [
+        0.4,
+        0.4
+      ],
+      "force": [
+        0.432,
+        0.456
+      ],
+      "scale": [
+        0.6046,
+        0.6046
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 1",
+      "start": 48.0,
+      "end": 92.0,
+      "density": [
+        0.4,
+        0.62
+      ],
+      "force": [
+        0.4416,
+        0.4656
+      ],
+      "scale": [
+        0.6134,
+        0.6134
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 2",
+      "start": 92.0,
+      "end": 116.0,
+      "density": [
+        0.62,
+        0.73
+      ],
+      "force": [
+        0.4512,
+        0.4752
+      ],
+      "scale": [
+        0.6135,
+        0.6135
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 3",
+      "start": 116.0,
+      "end": 136.0,
+      "density": [
+        0.73,
+        0.48
+      ],
+      "force": [
+        0.4608,
+        0.4848
+      ],
+      "scale": [
+        0.6037,
+        0.6037
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 4",
+      "start": 136.0,
+      "end": 184.0,
+      "density": [
+        0.48,
+        0.95
+      ],
+      "force": [
+        0.4704,
+        0.4944
+      ],
+      "scale": [
+        0.6013,
+        0.6013
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 5",
+      "start": 184.0,
+      "end": 228.0,
+      "density": [
+        0.95,
+        0.68
+      ],
+      "force": [
+        0.48,
+        0.504
+      ],
+      "scale": [
+        0.5979,
+        0.5979
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: release",
+      "start": 228.0,
+      "end": 256.36898,
+      "density": [
+        0.68,
+        0.28
+      ],
+      "force": [
+        0.4896,
+        0.5136
+      ],
+      "scale": [
+        0.5901,
+        0.5901
+      ],
+      "background": 0.1,
+      "cluster": {
+        "probability": 0.7,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.09,
+          0.23
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.1,
+      "note": "Independent fine streams; complexity comes from superposition."
+    }
+  ],
+  "accents": [
+    {
+      "time": 91.5331,
+      "type": "arrival",
+      "force": 0.742,
+      "scale": 0.8138,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 92s; measured attack, not every transient."
+    },
+    {
+      "time": 137.2532,
+      "type": "arrival",
+      "force": 0.7324,
+      "scale": 0.8042,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 136s; measured attack, not every transient."
+    },
+    {
+      "time": 183.6698,
+      "type": "arrival",
+      "force": 0.6529,
+      "scale": 0.7247,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 184s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/0",
+    "analysis": "analysis/01-inhale-the-mist.json",
+    "reference_sha256": "1040425982023532a13c55b25543e28d4815e29f85ffded3275dfaa22305658b"
+  }
+}

@@ -1,0 +1,3620 @@
+{
+  "tracks": [
+    {
+      "index": 1,
+      "file": "01 - inhale the Mist.mp3",
+      "duration": 256.369,
+      "tempo_estimate": 170.45,
+      "onset_density_per_min": 183.25,
+      "dynamic_range_proxy": 0.301,
+      "brightness_proxy": 0.463,
+      "section_boundaries": [
+        48.0,
+        92.0,
+        116.0,
+        136.0,
+        184.0,
+        228.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 3.648,
+          "strength": 1.0
+        },
+        {
+          "time": 15.072,
+          "strength": 1.0
+        },
+        {
+          "time": 15.968,
+          "strength": 1.0
+        },
+        {
+          "time": 16.512,
+          "strength": 1.0
+        },
+        {
+          "time": 17.216,
+          "strength": 1.0
+        },
+        {
+          "time": 17.92,
+          "strength": 1.0
+        },
+        {
+          "time": 19.36,
+          "strength": 1.0
+        },
+        {
+          "time": 20.096,
+          "strength": 1.0
+        },
+        {
+          "time": 21.152,
+          "strength": 1.0
+        },
+        {
+          "time": 21.696,
+          "strength": 1.0
+        },
+        {
+          "time": 22.208,
+          "strength": 1.0
+        },
+        {
+          "time": 22.944,
+          "strength": 1.0
+        },
+        {
+          "time": 24.0,
+          "strength": 1.0
+        },
+        {
+          "time": 221.152,
+          "strength": 1.0
+        },
+        {
+          "time": 221.696,
+          "strength": 1.0
+        },
+        {
+          "time": 222.944,
+          "strength": 1.0
+        },
+        {
+          "time": 225.088,
+          "strength": 1.0
+        },
+        {
+          "time": 225.792,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 133.728,
+          "end": 146.228,
+          "score": 1.6881
+        },
+        {
+          "start": 190.4,
+          "end": 202.9,
+          "score": 1.6273
+        },
+        {
+          "start": 88.256,
+          "end": 100.756,
+          "score": 1.559
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.428,
+        "mean_onset": 0.25,
+        "mean_brightness": 0.463
+      }
+    },
+    {
+      "index": 2,
+      "file": "02 - fused (DJ-Kicks).mp3",
+      "duration": 210.693,
+      "tempo_estimate": 64.66,
+      "onset_density_per_min": 174.0,
+      "dynamic_range_proxy": 0.285,
+      "brightness_proxy": 0.357,
+      "section_boundaries": [
+        40.0,
+        80.0,
+        108.0,
+        128.0,
+        148.0,
+        168.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 20.416,
+          "strength": 1.0
+        },
+        {
+          "time": 21.184,
+          "strength": 1.0
+        },
+        {
+          "time": 24.096,
+          "strength": 1.0
+        },
+        {
+          "time": 25.312,
+          "strength": 1.0
+        },
+        {
+          "time": 26.528,
+          "strength": 1.0
+        },
+        {
+          "time": 27.616,
+          "strength": 1.0
+        },
+        {
+          "time": 186.368,
+          "strength": 1.0
+        },
+        {
+          "time": 186.944,
+          "strength": 1.0
+        },
+        {
+          "time": 187.872,
+          "strength": 1.0
+        },
+        {
+          "time": 188.8,
+          "strength": 1.0
+        },
+        {
+          "time": 189.408,
+          "strength": 1.0
+        },
+        {
+          "time": 190.624,
+          "strength": 1.0
+        },
+        {
+          "time": 191.232,
+          "strength": 1.0
+        },
+        {
+          "time": 191.84,
+          "strength": 1.0
+        },
+        {
+          "time": 192.768,
+          "strength": 1.0
+        },
+        {
+          "time": 193.696,
+          "strength": 1.0
+        },
+        {
+          "time": 194.784,
+          "strength": 1.0
+        },
+        {
+          "time": 195.52,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 124.32,
+          "end": 136.82,
+          "score": 1.4454
+        },
+        {
+          "start": 74.368,
+          "end": 86.868,
+          "score": 1.4135
+        },
+        {
+          "start": 142.912,
+          "end": 155.412,
+          "score": 1.4009
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.339,
+        "mean_onset": 0.184,
+        "mean_brightness": 0.357
+      }
+    },
+    {
+      "index": 3,
+      "file": "03 - Sun Tickles.mp3",
+      "duration": 271.807,
+      "tempo_estimate": 117.19,
+      "onset_density_per_min": 187.41,
+      "dynamic_range_proxy": 0.269,
+      "brightness_proxy": 0.473,
+      "section_boundaries": [
+        24.0,
+        92.0,
+        132.0,
+        156.0,
+        200.0,
+        232.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 22.304,
+          "strength": 1.0
+        },
+        {
+          "time": 22.816,
+          "strength": 1.0
+        },
+        {
+          "time": 25.12,
+          "strength": 1.0
+        },
+        {
+          "time": 137.248,
+          "strength": 1.0
+        },
+        {
+          "time": 137.824,
+          "strength": 1.0
+        },
+        {
+          "time": 138.464,
+          "strength": 1.0
+        },
+        {
+          "time": 139.328,
+          "strength": 1.0
+        },
+        {
+          "time": 139.872,
+          "strength": 1.0
+        },
+        {
+          "time": 140.576,
+          "strength": 1.0
+        },
+        {
+          "time": 141.44,
+          "strength": 1.0
+        },
+        {
+          "time": 142.208,
+          "strength": 1.0
+        },
+        {
+          "time": 142.816,
+          "strength": 1.0
+        },
+        {
+          "time": 151.2,
+          "strength": 1.0
+        },
+        {
+          "time": 151.744,
+          "strength": 1.0
+        },
+        {
+          "time": 152.256,
+          "strength": 1.0
+        },
+        {
+          "time": 153.312,
+          "strength": 1.0
+        },
+        {
+          "time": 154.208,
+          "strength": 1.0
+        },
+        {
+          "time": 267.36,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 83.776,
+          "end": 96.276,
+          "score": 1.8289
+        },
+        {
+          "start": 141.792,
+          "end": 154.292,
+          "score": 1.5838
+        },
+        {
+          "start": 127.904,
+          "end": 140.404,
+          "score": 1.5834
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.362,
+        "mean_onset": 0.274,
+        "mean_brightness": 0.473
+      }
+    },
+    {
+      "index": 4,
+      "file": "04 - by the rain.mp3",
+      "duration": 235.102,
+      "tempo_estimate": 98.68,
+      "onset_density_per_min": 194.21,
+      "dynamic_range_proxy": 0.238,
+      "brightness_proxy": 0.49,
+      "section_boundaries": [
+        12.0,
+        40.0,
+        80.0,
+        104.0,
+        156.0,
+        208.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 27.744,
+          "strength": 1.0
+        },
+        {
+          "time": 28.352,
+          "strength": 1.0
+        },
+        {
+          "time": 29.376,
+          "strength": 1.0
+        },
+        {
+          "time": 29.984,
+          "strength": 1.0
+        },
+        {
+          "time": 31.008,
+          "strength": 1.0
+        },
+        {
+          "time": 31.616,
+          "strength": 1.0
+        },
+        {
+          "time": 32.32,
+          "strength": 1.0
+        },
+        {
+          "time": 33.248,
+          "strength": 1.0
+        },
+        {
+          "time": 34.272,
+          "strength": 1.0
+        },
+        {
+          "time": 34.88,
+          "strength": 1.0
+        },
+        {
+          "time": 35.904,
+          "strength": 1.0
+        },
+        {
+          "time": 36.512,
+          "strength": 1.0
+        },
+        {
+          "time": 37.536,
+          "strength": 1.0
+        },
+        {
+          "time": 39.168,
+          "strength": 1.0
+        },
+        {
+          "time": 39.776,
+          "strength": 1.0
+        },
+        {
+          "time": 206.72,
+          "strength": 1.0
+        },
+        {
+          "time": 207.328,
+          "strength": 1.0
+        },
+        {
+          "time": 208.256,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 179.648,
+          "end": 192.148,
+          "score": 1.556
+        },
+        {
+          "start": 49.056,
+          "end": 61.556,
+          "score": 1.52
+        },
+        {
+          "start": 127.456,
+          "end": 139.956,
+          "score": 1.5193
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.251,
+        "mean_onset": 0.185,
+        "mean_brightness": 0.49
+      }
+    },
+    {
+      "index": 5,
+      "file": "05 - Time to Find Me (AFX Fast Mix).mp3",
+      "duration": 457.0,
+      "tempo_estimate": 144.23,
+      "onset_density_per_min": 180.26,
+      "dynamic_range_proxy": 0.276,
+      "brightness_proxy": 0.384,
+      "section_boundaries": [
+        44.0,
+        280.0,
+        328.0,
+        368.0,
+        396.0,
+        448.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 0.8,
+          "strength": 1.0
+        },
+        {
+          "time": 1.376,
+          "strength": 1.0
+        },
+        {
+          "time": 2.624,
+          "strength": 1.0
+        },
+        {
+          "time": 3.616,
+          "strength": 1.0
+        },
+        {
+          "time": 4.864,
+          "strength": 1.0
+        },
+        {
+          "time": 5.856,
+          "strength": 1.0
+        },
+        {
+          "time": 8.096,
+          "strength": 1.0
+        },
+        {
+          "time": 8.8,
+          "strength": 1.0
+        },
+        {
+          "time": 159.648,
+          "strength": 1.0
+        },
+        {
+          "time": 165.536,
+          "strength": 1.0
+        },
+        {
+          "time": 166.24,
+          "strength": 1.0
+        },
+        {
+          "time": 166.816,
+          "strength": 1.0
+        },
+        {
+          "time": 167.36,
+          "strength": 1.0
+        },
+        {
+          "time": 168.064,
+          "strength": 1.0
+        },
+        {
+          "time": 169.056,
+          "strength": 1.0
+        },
+        {
+          "time": 443.552,
+          "strength": 1.0
+        },
+        {
+          "time": 444.672,
+          "strength": 1.0
+        },
+        {
+          "time": 445.792,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 51.52,
+          "end": 64.02,
+          "score": 1.398
+        },
+        {
+          "start": 285.376,
+          "end": 297.876,
+          "score": 1.3819
+        },
+        {
+          "start": 246.624,
+          "end": 259.124,
+          "score": 1.3779
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.501,
+        "mean_onset": 0.221,
+        "mean_brightness": 0.384
+      }
+    },
+    {
+      "index": 6,
+      "file": "06 - Pop 4.mp3",
+      "duration": 568.347,
+      "tempo_estimate": 117.19,
+      "onset_density_per_min": 216.63,
+      "dynamic_range_proxy": 0.262,
+      "brightness_proxy": 0.46,
+      "section_boundaries": [
+        16.0,
+        40.0,
+        332.0,
+        380.0,
+        468.0,
+        556.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 17.376,
+          "strength": 1.0
+        },
+        {
+          "time": 18.4,
+          "strength": 1.0
+        },
+        {
+          "time": 19.392,
+          "strength": 1.0
+        },
+        {
+          "time": 19.904,
+          "strength": 1.0
+        },
+        {
+          "time": 20.896,
+          "strength": 1.0
+        },
+        {
+          "time": 21.408,
+          "strength": 1.0
+        },
+        {
+          "time": 22.4,
+          "strength": 1.0
+        },
+        {
+          "time": 22.912,
+          "strength": 1.0
+        },
+        {
+          "time": 23.424,
+          "strength": 1.0
+        },
+        {
+          "time": 24.416,
+          "strength": 1.0
+        },
+        {
+          "time": 24.928,
+          "strength": 1.0
+        },
+        {
+          "time": 25.44,
+          "strength": 1.0
+        },
+        {
+          "time": 540.768,
+          "strength": 1.0
+        },
+        {
+          "time": 541.28,
+          "strength": 1.0
+        },
+        {
+          "time": 542.272,
+          "strength": 1.0
+        },
+        {
+          "time": 543.296,
+          "strength": 1.0
+        },
+        {
+          "time": 544.288,
+          "strength": 1.0
+        },
+        {
+          "time": 547.328,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 36.288,
+          "end": 48.788,
+          "score": 1.4837
+        },
+        {
+          "start": 109.088,
+          "end": 121.588,
+          "score": 1.4664
+        },
+        {
+          "start": 178.528,
+          "end": 191.028,
+          "score": 1.4662
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.496,
+        "mean_onset": 0.345,
+        "mean_brightness": 0.46
+      }
+    },
+    {
+      "index": 7,
+      "file": "07 - Lusine - Without a Plan.mp3",
+      "duration": 258.264,
+      "tempo_estimate": 156.25,
+      "onset_density_per_min": 176.33,
+      "dynamic_range_proxy": 0.263,
+      "brightness_proxy": 0.437,
+      "section_boundaries": [
+        16.0,
+        48.0,
+        84.0,
+        112.0,
+        156.0,
+        244.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 16.16,
+          "strength": 1.0
+        },
+        {
+          "time": 16.928,
+          "strength": 1.0
+        },
+        {
+          "time": 18.176,
+          "strength": 1.0
+        },
+        {
+          "time": 18.912,
+          "strength": 1.0
+        },
+        {
+          "time": 28.16,
+          "strength": 1.0
+        },
+        {
+          "time": 28.928,
+          "strength": 1.0
+        },
+        {
+          "time": 30.176,
+          "strength": 1.0
+        },
+        {
+          "time": 30.912,
+          "strength": 1.0
+        },
+        {
+          "time": 32.16,
+          "strength": 1.0
+        },
+        {
+          "time": 32.928,
+          "strength": 1.0
+        },
+        {
+          "time": 34.176,
+          "strength": 1.0
+        },
+        {
+          "time": 34.912,
+          "strength": 1.0
+        },
+        {
+          "time": 36.16,
+          "strength": 1.0
+        },
+        {
+          "time": 36.928,
+          "strength": 1.0
+        },
+        {
+          "time": 38.176,
+          "strength": 1.0
+        },
+        {
+          "time": 226.912,
+          "strength": 1.0
+        },
+        {
+          "time": 228.16,
+          "strength": 1.0
+        },
+        {
+          "time": 230.912,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 96.768,
+          "end": 109.268,
+          "score": 1.4841
+        },
+        {
+          "start": 154.56,
+          "end": 167.06,
+          "score": 1.4838
+        },
+        {
+          "start": 170.464,
+          "end": 182.964,
+          "score": 1.4718
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.48,
+        "mean_onset": 0.238,
+        "mean_brightness": 0.437
+      }
+    },
+    {
+      "index": 8,
+      "file": "08 - memory of a memory.mp3",
+      "duration": 251.702,
+      "tempo_estimate": 133.93,
+      "onset_density_per_min": 184.74,
+      "dynamic_range_proxy": 0.257,
+      "brightness_proxy": 0.511,
+      "section_boundaries": [
+        36.0,
+        104.0,
+        124.0,
+        200.0,
+        216.0,
+        232.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 89.312,
+          "strength": 1.0
+        },
+        {
+          "time": 90.08,
+          "strength": 1.0
+        },
+        {
+          "time": 91.296,
+          "strength": 1.0
+        },
+        {
+          "time": 92.48,
+          "strength": 1.0
+        },
+        {
+          "time": 93.376,
+          "strength": 1.0
+        },
+        {
+          "time": 94.112,
+          "strength": 1.0
+        },
+        {
+          "time": 98.176,
+          "strength": 1.0
+        },
+        {
+          "time": 99.36,
+          "strength": 1.0
+        },
+        {
+          "time": 100.128,
+          "strength": 1.0
+        },
+        {
+          "time": 100.704,
+          "strength": 1.0
+        },
+        {
+          "time": 103.584,
+          "strength": 1.0
+        },
+        {
+          "time": 124.96,
+          "strength": 1.0
+        },
+        {
+          "time": 128.48,
+          "strength": 1.0
+        },
+        {
+          "time": 129.088,
+          "strength": 1.0
+        },
+        {
+          "time": 129.696,
+          "strength": 1.0
+        },
+        {
+          "time": 138.08,
+          "strength": 1.0
+        },
+        {
+          "time": 220.544,
+          "strength": 1.0
+        },
+        {
+          "time": 221.28,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 212.8,
+          "end": 225.3,
+          "score": 1.7038
+        },
+        {
+          "start": 183.904,
+          "end": 196.404,
+          "score": 1.6793
+        },
+        {
+          "start": 155.008,
+          "end": 167.508,
+          "score": 1.605
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.4,
+        "mean_onset": 0.355,
+        "mean_brightness": 0.511
+      }
+    },
+    {
+      "index": 9,
+      "file": "09 - Places Remember Events.mp3",
+      "duration": 234.353,
+      "tempo_estimate": 170.45,
+      "onset_density_per_min": 179.22,
+      "dynamic_range_proxy": 0.319,
+      "brightness_proxy": 0.414,
+      "section_boundaries": [
+        24.0,
+        64.0,
+        112.0,
+        136.0,
+        204.0,
+        224.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 9.856,
+          "strength": 1.0
+        },
+        {
+          "time": 24.512,
+          "strength": 1.0
+        },
+        {
+          "time": 27.328,
+          "strength": 1.0
+        },
+        {
+          "time": 29.632,
+          "strength": 1.0
+        },
+        {
+          "time": 30.144,
+          "strength": 1.0
+        },
+        {
+          "time": 31.04,
+          "strength": 1.0
+        },
+        {
+          "time": 32.096,
+          "strength": 1.0
+        },
+        {
+          "time": 32.8,
+          "strength": 1.0
+        },
+        {
+          "time": 33.504,
+          "strength": 1.0
+        },
+        {
+          "time": 35.808,
+          "strength": 1.0
+        },
+        {
+          "time": 36.32,
+          "strength": 1.0
+        },
+        {
+          "time": 208.032,
+          "strength": 1.0
+        },
+        {
+          "time": 208.928,
+          "strength": 1.0
+        },
+        {
+          "time": 210.848,
+          "strength": 1.0
+        },
+        {
+          "time": 213.152,
+          "strength": 1.0
+        },
+        {
+          "time": 214.208,
+          "strength": 1.0
+        },
+        {
+          "time": 222.144,
+          "strength": 1.0
+        },
+        {
+          "time": 225.504,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 131.936,
+          "end": 144.436,
+          "score": 1.4794
+        },
+        {
+          "start": 179.872,
+          "end": 192.372,
+          "score": 1.4763
+        },
+        {
+          "start": 190.624,
+          "end": 203.124,
+          "score": 1.4465
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.464,
+        "mean_onset": 0.211,
+        "mean_brightness": 0.414
+      }
+    },
+    {
+      "index": 10,
+      "file": "10 - Sun Arcs (Laraaji Remix).mp3",
+      "duration": 252.0,
+      "tempo_estimate": 187.5,
+      "onset_density_per_min": 195.24,
+      "dynamic_range_proxy": 0.284,
+      "brightness_proxy": 0.588,
+      "section_boundaries": [
+        8.0,
+        52.0,
+        152.0,
+        200.0,
+        216.0,
+        244.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 14.848,
+          "strength": 1.0
+        },
+        {
+          "time": 15.84,
+          "strength": 1.0
+        },
+        {
+          "time": 16.384,
+          "strength": 1.0
+        },
+        {
+          "time": 16.992,
+          "strength": 1.0
+        },
+        {
+          "time": 18.304,
+          "strength": 1.0
+        },
+        {
+          "time": 19.84,
+          "strength": 1.0
+        },
+        {
+          "time": 20.512,
+          "strength": 1.0
+        },
+        {
+          "time": 21.376,
+          "strength": 1.0
+        },
+        {
+          "time": 22.144,
+          "strength": 1.0
+        },
+        {
+          "time": 22.88,
+          "strength": 1.0
+        },
+        {
+          "time": 23.68,
+          "strength": 1.0
+        },
+        {
+          "time": 24.416,
+          "strength": 1.0
+        },
+        {
+          "time": 25.248,
+          "strength": 1.0
+        },
+        {
+          "time": 26.24,
+          "strength": 1.0
+        },
+        {
+          "time": 27.424,
+          "strength": 1.0
+        },
+        {
+          "time": 142.944,
+          "strength": 1.0
+        },
+        {
+          "time": 143.616,
+          "strength": 1.0
+        },
+        {
+          "time": 144.256,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 27.776,
+          "end": 40.276,
+          "score": 1.8606
+        },
+        {
+          "start": 4.256,
+          "end": 16.756,
+          "score": 1.8382
+        },
+        {
+          "start": 132.832,
+          "end": 145.332,
+          "score": 1.7752
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.461,
+        "mean_onset": 0.398,
+        "mean_brightness": 0.588
+      }
+    },
+    {
+      "index": 11,
+      "file": "11 - Remember.mp3",
+      "duration": 133.907,
+      "tempo_estimate": 133.93,
+      "onset_density_per_min": 152.79,
+      "dynamic_range_proxy": 0.306,
+      "brightness_proxy": 0.35,
+      "section_boundaries": [
+        16.0,
+        32.0,
+        52.0,
+        72.0,
+        88.0,
+        116.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 0.288,
+          "strength": 1.0
+        },
+        {
+          "time": 1.216,
+          "strength": 1.0
+        },
+        {
+          "time": 4.0,
+          "strength": 1.0
+        },
+        {
+          "time": 4.928,
+          "strength": 1.0
+        },
+        {
+          "time": 29.824,
+          "strength": 1.0
+        },
+        {
+          "time": 30.752,
+          "strength": 1.0
+        },
+        {
+          "time": 33.536,
+          "strength": 1.0
+        },
+        {
+          "time": 34.464,
+          "strength": 1.0
+        },
+        {
+          "time": 37.248,
+          "strength": 1.0
+        },
+        {
+          "time": 38.144,
+          "strength": 1.0
+        },
+        {
+          "time": 40.928,
+          "strength": 1.0
+        },
+        {
+          "time": 41.824,
+          "strength": 1.0
+        },
+        {
+          "time": 108.288,
+          "strength": 1.0
+        },
+        {
+          "time": 109.344,
+          "strength": 1.0
+        },
+        {
+          "time": 111.968,
+          "strength": 1.0
+        },
+        {
+          "time": 127.648,
+          "strength": 1.0
+        },
+        {
+          "time": 129.536,
+          "strength": 1.0
+        },
+        {
+          "time": 130.432,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 78.4,
+          "end": 90.9,
+          "score": 1.6518
+        },
+        {
+          "start": 41.888,
+          "end": 54.388,
+          "score": 1.6006
+        },
+        {
+          "start": 104.16,
+          "end": 116.66,
+          "score": 1.5974
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.361,
+        "mean_onset": 0.267,
+        "mean_brightness": 0.35
+      }
+    },
+    {
+      "index": 12,
+      "file": "12 - Wilson Tanner - Blush.mp3",
+      "duration": 230.464,
+      "tempo_estimate": 66.96,
+      "onset_density_per_min": 190.83,
+      "dynamic_range_proxy": 0.277,
+      "brightness_proxy": 0.42,
+      "section_boundaries": [
+        56.0,
+        108.0,
+        128.0,
+        144.0,
+        172.0,
+        220.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 0.288,
+          "strength": 1.0
+        },
+        {
+          "time": 2.08,
+          "strength": 1.0
+        },
+        {
+          "time": 3.872,
+          "strength": 1.0
+        },
+        {
+          "time": 5.632,
+          "strength": 1.0
+        },
+        {
+          "time": 7.392,
+          "strength": 1.0
+        },
+        {
+          "time": 9.216,
+          "strength": 1.0
+        },
+        {
+          "time": 10.976,
+          "strength": 1.0
+        },
+        {
+          "time": 25.184,
+          "strength": 1.0
+        },
+        {
+          "time": 26.944,
+          "strength": 1.0
+        },
+        {
+          "time": 28.736,
+          "strength": 1.0
+        },
+        {
+          "time": 29.6,
+          "strength": 1.0
+        },
+        {
+          "time": 30.528,
+          "strength": 1.0
+        },
+        {
+          "time": 31.392,
+          "strength": 1.0
+        },
+        {
+          "time": 32.288,
+          "strength": 1.0
+        },
+        {
+          "time": 34.048,
+          "strength": 1.0
+        },
+        {
+          "time": 207.424,
+          "strength": 1.0
+        },
+        {
+          "time": 208.288,
+          "strength": 1.0
+        },
+        {
+          "time": 224.288,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 167.776,
+          "end": 180.276,
+          "score": 1.5755
+        },
+        {
+          "start": 110.88,
+          "end": 123.38,
+          "score": 1.553
+        },
+        {
+          "start": 53.984,
+          "end": 66.484,
+          "score": 1.5508
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.33,
+        "mean_onset": 0.217,
+        "mean_brightness": 0.42
+      }
+    },
+    {
+      "index": 13,
+      "file": "13 - Argento - Sabbia Su Sabbia.mp3",
+      "duration": 208.469,
+      "tempo_estimate": 133.93,
+      "onset_density_per_min": 166.93,
+      "dynamic_range_proxy": 0.248,
+      "brightness_proxy": 0.306,
+      "section_boundaries": [
+        20.0,
+        80.0,
+        112.0,
+        148.0,
+        172.0,
+        200.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 12.832,
+          "strength": 1.0
+        },
+        {
+          "time": 13.568,
+          "strength": 1.0
+        },
+        {
+          "time": 17.536,
+          "strength": 1.0
+        },
+        {
+          "time": 18.56,
+          "strength": 1.0
+        },
+        {
+          "time": 19.456,
+          "strength": 1.0
+        },
+        {
+          "time": 21.664,
+          "strength": 1.0
+        },
+        {
+          "time": 89.888,
+          "strength": 1.0
+        },
+        {
+          "time": 94.752,
+          "strength": 1.0
+        },
+        {
+          "time": 177.984,
+          "strength": 1.0
+        },
+        {
+          "time": 178.72,
+          "strength": 1.0
+        },
+        {
+          "time": 179.296,
+          "strength": 1.0
+        },
+        {
+          "time": 181.792,
+          "strength": 1.0
+        },
+        {
+          "time": 182.688,
+          "strength": 1.0
+        },
+        {
+          "time": 193.568,
+          "strength": 1.0
+        },
+        {
+          "time": 195.04,
+          "strength": 1.0
+        },
+        {
+          "time": 195.904,
+          "strength": 1.0
+        },
+        {
+          "time": 196.8,
+          "strength": 1.0
+        },
+        {
+          "time": 197.376,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 118.496,
+          "end": 130.996,
+          "score": 1.4771
+        },
+        {
+          "start": 87.808,
+          "end": 100.308,
+          "score": 1.443
+        },
+        {
+          "start": 184.8,
+          "end": 197.3,
+          "score": 1.4426
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.575,
+        "mean_onset": 0.286,
+        "mean_brightness": 0.306
+      }
+    },
+    {
+      "index": 14,
+      "file": "14 - Slipping Fingers Through Curls.mp3",
+      "duration": 217.528,
+      "tempo_estimate": 60.48,
+      "onset_density_per_min": 214.04,
+      "dynamic_range_proxy": 0.251,
+      "brightness_proxy": 0.413,
+      "section_boundaries": [
+        8.0,
+        52.0,
+        136.0,
+        164.0,
+        180.0,
+        204.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 1.504,
+          "strength": 1.0
+        },
+        {
+          "time": 12.448,
+          "strength": 1.0
+        },
+        {
+          "time": 13.024,
+          "strength": 1.0
+        },
+        {
+          "time": 13.952,
+          "strength": 1.0
+        },
+        {
+          "time": 16.512,
+          "strength": 1.0
+        },
+        {
+          "time": 17.984,
+          "strength": 1.0
+        },
+        {
+          "time": 18.688,
+          "strength": 1.0
+        },
+        {
+          "time": 19.488,
+          "strength": 1.0
+        },
+        {
+          "time": 20.352,
+          "strength": 1.0
+        },
+        {
+          "time": 21.056,
+          "strength": 1.0
+        },
+        {
+          "time": 22.016,
+          "strength": 1.0
+        },
+        {
+          "time": 23.136,
+          "strength": 1.0
+        },
+        {
+          "time": 24.0,
+          "strength": 1.0
+        },
+        {
+          "time": 193.376,
+          "strength": 1.0
+        },
+        {
+          "time": 194.272,
+          "strength": 1.0
+        },
+        {
+          "time": 195.776,
+          "strength": 1.0
+        },
+        {
+          "time": 197.248,
+          "strength": 1.0
+        },
+        {
+          "time": 198.752,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 122.752,
+          "end": 135.252,
+          "score": 1.6246
+        },
+        {
+          "start": 52.864,
+          "end": 65.364,
+          "score": 1.5328
+        },
+        {
+          "start": 149.408,
+          "end": 161.908,
+          "score": 1.5308
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.634,
+        "mean_onset": 0.355,
+        "mean_brightness": 0.413
+      }
+    },
+    {
+      "index": 15,
+      "file": "15 - 190304-05.mp3",
+      "duration": 153.333,
+      "tempo_estimate": 187.5,
+      "onset_density_per_min": 192.52,
+      "dynamic_range_proxy": 0.269,
+      "brightness_proxy": 0.532,
+      "section_boundaries": [
+        20.0,
+        36.0,
+        60.0,
+        76.0,
+        124.0,
+        140.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 1.408,
+          "strength": 1.0
+        },
+        {
+          "time": 1.984,
+          "strength": 1.0
+        },
+        {
+          "time": 11.36,
+          "strength": 1.0
+        },
+        {
+          "time": 12.0,
+          "strength": 1.0
+        },
+        {
+          "time": 13.056,
+          "strength": 1.0
+        },
+        {
+          "time": 14.336,
+          "strength": 1.0
+        },
+        {
+          "time": 14.976,
+          "strength": 1.0
+        },
+        {
+          "time": 16.0,
+          "strength": 1.0
+        },
+        {
+          "time": 16.704,
+          "strength": 1.0
+        },
+        {
+          "time": 17.664,
+          "strength": 1.0
+        },
+        {
+          "time": 18.304,
+          "strength": 1.0
+        },
+        {
+          "time": 19.776,
+          "strength": 1.0
+        },
+        {
+          "time": 20.8,
+          "strength": 1.0
+        },
+        {
+          "time": 22.688,
+          "strength": 1.0
+        },
+        {
+          "time": 23.232,
+          "strength": 1.0
+        },
+        {
+          "time": 113.504,
+          "strength": 1.0
+        },
+        {
+          "time": 115.872,
+          "strength": 1.0
+        },
+        {
+          "time": 117.824,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 0.0,
+          "end": 12.5,
+          "score": 1.6849
+        },
+        {
+          "start": 43.232,
+          "end": 55.732,
+          "score": 1.6234
+        },
+        {
+          "start": 10.976,
+          "end": 23.476,
+          "score": 1.5792
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.414,
+        "mean_onset": 0.306,
+        "mean_brightness": 0.532
+      }
+    },
+    {
+      "index": 16,
+      "file": "16 - Gaga\u0301nbadiba\u0301.mp3",
+      "duration": 259.088,
+      "tempo_estimate": 156.25,
+      "onset_density_per_min": 196.84,
+      "dynamic_range_proxy": 0.278,
+      "brightness_proxy": 0.463,
+      "section_boundaries": [
+        84.0,
+        132.0,
+        148.0,
+        172.0,
+        216.0,
+        236.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 0.32,
+          "strength": 1.0
+        },
+        {
+          "time": 1.44,
+          "strength": 1.0
+        },
+        {
+          "time": 1.984,
+          "strength": 1.0
+        },
+        {
+          "time": 3.584,
+          "strength": 1.0
+        },
+        {
+          "time": 5.056,
+          "strength": 1.0
+        },
+        {
+          "time": 101.408,
+          "strength": 1.0
+        },
+        {
+          "time": 102.048,
+          "strength": 1.0
+        },
+        {
+          "time": 102.944,
+          "strength": 1.0
+        },
+        {
+          "time": 103.808,
+          "strength": 1.0
+        },
+        {
+          "time": 104.96,
+          "strength": 1.0
+        },
+        {
+          "time": 105.824,
+          "strength": 1.0
+        },
+        {
+          "time": 107.008,
+          "strength": 1.0
+        },
+        {
+          "time": 107.904,
+          "strength": 1.0
+        },
+        {
+          "time": 108.544,
+          "strength": 1.0
+        },
+        {
+          "time": 109.056,
+          "strength": 1.0
+        },
+        {
+          "time": 116.32,
+          "strength": 1.0
+        },
+        {
+          "time": 244.16,
+          "strength": 1.0
+        },
+        {
+          "time": 249.376,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 144.928,
+          "end": 157.428,
+          "score": 1.7413
+        },
+        {
+          "start": 168.896,
+          "end": 181.396,
+          "score": 1.6173
+        },
+        {
+          "start": 152.992,
+          "end": 165.492,
+          "score": 1.5812
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.479,
+        "mean_onset": 0.286,
+        "mean_brightness": 0.463
+      }
+    },
+    {
+      "index": 17,
+      "file": "17 - I.mp3",
+      "duration": 480.96,
+      "tempo_estimate": 156.25,
+      "onset_density_per_min": 195.61,
+      "dynamic_range_proxy": 0.269,
+      "brightness_proxy": 0.497,
+      "section_boundaries": [
+        168.0,
+        212.0,
+        256.0,
+        308.0,
+        416.0,
+        460.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 34.048,
+          "strength": 1.0
+        },
+        {
+          "time": 47.232,
+          "strength": 1.0
+        },
+        {
+          "time": 50.752,
+          "strength": 1.0
+        },
+        {
+          "time": 56.224,
+          "strength": 1.0
+        },
+        {
+          "time": 68.352,
+          "strength": 1.0
+        },
+        {
+          "time": 69.664,
+          "strength": 1.0
+        },
+        {
+          "time": 71.488,
+          "strength": 1.0
+        },
+        {
+          "time": 73.312,
+          "strength": 1.0
+        },
+        {
+          "time": 83.488,
+          "strength": 1.0
+        },
+        {
+          "time": 84.928,
+          "strength": 1.0
+        },
+        {
+          "time": 93.664,
+          "strength": 1.0
+        },
+        {
+          "time": 104.096,
+          "strength": 1.0
+        },
+        {
+          "time": 107.616,
+          "strength": 1.0
+        },
+        {
+          "time": 108.8,
+          "strength": 1.0
+        },
+        {
+          "time": 111.136,
+          "strength": 1.0
+        },
+        {
+          "time": 112.96,
+          "strength": 1.0
+        },
+        {
+          "time": 114.016,
+          "strength": 1.0
+        },
+        {
+          "time": 469.952,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 316.064,
+          "end": 328.564,
+          "score": 1.5957
+        },
+        {
+          "start": 304.192,
+          "end": 316.692,
+          "score": 1.5764
+        },
+        {
+          "start": 224.0,
+          "end": 236.5,
+          "score": 1.5689
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.401,
+        "mean_onset": 0.232,
+        "mean_brightness": 0.497
+      }
+    },
+    {
+      "index": 18,
+      "file": "18 - birch beer forest.mp3",
+      "duration": 211.441,
+      "tempo_estimate": 104.17,
+      "onset_density_per_min": 182.18,
+      "dynamic_range_proxy": 0.289,
+      "brightness_proxy": 0.398,
+      "section_boundaries": [
+        20.0,
+        36.0,
+        136.0,
+        160.0,
+        180.0,
+        200.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 36.448,
+          "strength": 1.0
+        },
+        {
+          "time": 37.024,
+          "strength": 1.0
+        },
+        {
+          "time": 37.568,
+          "strength": 1.0
+        },
+        {
+          "time": 38.144,
+          "strength": 1.0
+        },
+        {
+          "time": 38.72,
+          "strength": 1.0
+        },
+        {
+          "time": 39.296,
+          "strength": 1.0
+        },
+        {
+          "time": 79.104,
+          "strength": 1.0
+        },
+        {
+          "time": 79.648,
+          "strength": 1.0
+        },
+        {
+          "time": 80.224,
+          "strength": 1.0
+        },
+        {
+          "time": 80.8,
+          "strength": 1.0
+        },
+        {
+          "time": 81.376,
+          "strength": 1.0
+        },
+        {
+          "time": 83.648,
+          "strength": 1.0
+        },
+        {
+          "time": 93.312,
+          "strength": 1.0
+        },
+        {
+          "time": 93.888,
+          "strength": 1.0
+        },
+        {
+          "time": 94.432,
+          "strength": 1.0
+        },
+        {
+          "time": 95.008,
+          "strength": 1.0
+        },
+        {
+          "time": 102.4,
+          "strength": 1.0
+        },
+        {
+          "time": 102.976,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 115.136,
+          "end": 127.636,
+          "score": 1.667
+        },
+        {
+          "start": 150.976,
+          "end": 163.476,
+          "score": 1.6311
+        },
+        {
+          "start": 130.592,
+          "end": 143.092,
+          "score": 1.5628
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.559,
+        "mean_onset": 0.347,
+        "mean_brightness": 0.398
+      }
+    },
+    {
+      "index": 19,
+      "file": "19 - An Unopened Letter.mp3",
+      "duration": 173.523,
+      "tempo_estimate": 81.52,
+      "onset_density_per_min": 185.68,
+      "dynamic_range_proxy": 0.296,
+      "brightness_proxy": 0.455,
+      "section_boundaries": [
+        20.0,
+        48.0,
+        80.0,
+        100.0,
+        120.0,
+        148.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 35.424,
+          "strength": 1.0
+        },
+        {
+          "time": 37.12,
+          "strength": 1.0
+        },
+        {
+          "time": 37.664,
+          "strength": 1.0
+        },
+        {
+          "time": 38.4,
+          "strength": 1.0
+        },
+        {
+          "time": 39.136,
+          "strength": 1.0
+        },
+        {
+          "time": 40.608,
+          "strength": 1.0
+        },
+        {
+          "time": 41.344,
+          "strength": 1.0
+        },
+        {
+          "time": 42.24,
+          "strength": 1.0
+        },
+        {
+          "time": 42.976,
+          "strength": 1.0
+        },
+        {
+          "time": 43.744,
+          "strength": 1.0
+        },
+        {
+          "time": 44.256,
+          "strength": 1.0
+        },
+        {
+          "time": 44.992,
+          "strength": 1.0
+        },
+        {
+          "time": 45.696,
+          "strength": 1.0
+        },
+        {
+          "time": 47.2,
+          "strength": 1.0
+        },
+        {
+          "time": 50.368,
+          "strength": 1.0
+        },
+        {
+          "time": 61.44,
+          "strength": 1.0
+        },
+        {
+          "time": 61.952,
+          "strength": 1.0
+        },
+        {
+          "time": 63.456,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 68.992,
+          "end": 81.492,
+          "score": 1.6472
+        },
+        {
+          "start": 57.344,
+          "end": 69.844,
+          "score": 1.5532
+        },
+        {
+          "start": 80.864,
+          "end": 93.364,
+          "score": 1.5492
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.391,
+        "mean_onset": 0.251,
+        "mean_brightness": 0.455
+      }
+    },
+    {
+      "index": 20,
+      "file": "20 - Recovery.mp3",
+      "duration": 291.016,
+      "tempo_estimate": 78.12,
+      "onset_density_per_min": 243.7,
+      "dynamic_range_proxy": 0.313,
+      "brightness_proxy": 0.356,
+      "section_boundaries": [
+        56.0,
+        88.0,
+        124.0,
+        184.0,
+        200.0,
+        272.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 29.376,
+          "strength": 1.0
+        },
+        {
+          "time": 47.36,
+          "strength": 1.0
+        },
+        {
+          "time": 53.568,
+          "strength": 1.0
+        },
+        {
+          "time": 54.144,
+          "strength": 1.0
+        },
+        {
+          "time": 54.912,
+          "strength": 1.0
+        },
+        {
+          "time": 61.312,
+          "strength": 1.0
+        },
+        {
+          "time": 65.952,
+          "strength": 1.0
+        },
+        {
+          "time": 78.336,
+          "strength": 1.0
+        },
+        {
+          "time": 78.912,
+          "strength": 1.0
+        },
+        {
+          "time": 272.288,
+          "strength": 1.0
+        },
+        {
+          "time": 273.056,
+          "strength": 1.0
+        },
+        {
+          "time": 273.824,
+          "strength": 1.0
+        },
+        {
+          "time": 274.592,
+          "strength": 1.0
+        },
+        {
+          "time": 275.776,
+          "strength": 1.0
+        },
+        {
+          "time": 276.352,
+          "strength": 1.0
+        },
+        {
+          "time": 276.928,
+          "strength": 1.0
+        },
+        {
+          "time": 277.696,
+          "strength": 1.0
+        },
+        {
+          "time": 278.368,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 82.656,
+          "end": 95.156,
+          "score": 1.6712
+        },
+        {
+          "start": 112.0,
+          "end": 124.5,
+          "score": 1.5853
+        },
+        {
+          "start": 94.08,
+          "end": 106.58,
+          "score": 1.5452
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.369,
+        "mean_onset": 0.212,
+        "mean_brightness": 0.356
+      }
+    },
+    {
+      "index": 21,
+      "file": "21 - Continuum 3(1).mp3",
+      "duration": 247.539,
+      "tempo_estimate": 75.0,
+      "onset_density_per_min": 176.21,
+      "dynamic_range_proxy": 0.28,
+      "brightness_proxy": 0.473,
+      "section_boundaries": [
+        24.0,
+        44.0,
+        68.0,
+        108.0,
+        204.0,
+        224.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 23.936,
+          "strength": 1.0
+        },
+        {
+          "time": 26.88,
+          "strength": 1.0
+        },
+        {
+          "time": 29.92,
+          "strength": 1.0
+        },
+        {
+          "time": 122.56,
+          "strength": 1.0
+        },
+        {
+          "time": 130.368,
+          "strength": 1.0
+        },
+        {
+          "time": 131.264,
+          "strength": 1.0
+        },
+        {
+          "time": 131.776,
+          "strength": 1.0
+        },
+        {
+          "time": 132.48,
+          "strength": 1.0
+        },
+        {
+          "time": 133.216,
+          "strength": 1.0
+        },
+        {
+          "time": 133.728,
+          "strength": 1.0
+        },
+        {
+          "time": 134.368,
+          "strength": 1.0
+        },
+        {
+          "time": 135.2,
+          "strength": 1.0
+        },
+        {
+          "time": 136.0,
+          "strength": 1.0
+        },
+        {
+          "time": 136.864,
+          "strength": 1.0
+        },
+        {
+          "time": 137.92,
+          "strength": 1.0
+        },
+        {
+          "time": 145.184,
+          "strength": 1.0
+        },
+        {
+          "time": 145.728,
+          "strength": 1.0
+        },
+        {
+          "time": 236.192,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 126.112,
+          "end": 138.612,
+          "score": 1.8782
+        },
+        {
+          "start": 150.304,
+          "end": 162.804,
+          "score": 1.7789
+        },
+        {
+          "start": 103.712,
+          "end": 116.212,
+          "score": 1.7533
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.336,
+        "mean_onset": 0.31,
+        "mean_brightness": 0.473
+      }
+    },
+    {
+      "index": 22,
+      "file": "22 - Rider.mp3",
+      "duration": 170.363,
+      "tempo_estimate": 125.0,
+      "onset_density_per_min": 223.99,
+      "dynamic_range_proxy": 0.297,
+      "brightness_proxy": 0.428,
+      "section_boundaries": [
+        28.0,
+        48.0,
+        72.0,
+        92.0,
+        120.0,
+        160.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 0.992,
+          "strength": 1.0
+        },
+        {
+          "time": 4.864,
+          "strength": 1.0
+        },
+        {
+          "time": 5.824,
+          "strength": 1.0
+        },
+        {
+          "time": 16.48,
+          "strength": 1.0
+        },
+        {
+          "time": 17.44,
+          "strength": 1.0
+        },
+        {
+          "time": 21.792,
+          "strength": 1.0
+        },
+        {
+          "time": 24.224,
+          "strength": 1.0
+        },
+        {
+          "time": 25.184,
+          "strength": 1.0
+        },
+        {
+          "time": 26.176,
+          "strength": 1.0
+        },
+        {
+          "time": 150.016,
+          "strength": 1.0
+        },
+        {
+          "time": 150.976,
+          "strength": 1.0
+        },
+        {
+          "time": 151.712,
+          "strength": 1.0
+        },
+        {
+          "time": 152.448,
+          "strength": 1.0
+        },
+        {
+          "time": 153.408,
+          "strength": 1.0
+        },
+        {
+          "time": 154.848,
+          "strength": 1.0
+        },
+        {
+          "time": 155.584,
+          "strength": 1.0
+        },
+        {
+          "time": 156.32,
+          "strength": 1.0
+        },
+        {
+          "time": 157.28,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 103.488,
+          "end": 115.988,
+          "score": 1.6385
+        },
+        {
+          "start": 118.944,
+          "end": 131.444,
+          "score": 1.6023
+        },
+        {
+          "start": 41.888,
+          "end": 54.388,
+          "score": 1.5294
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.445,
+        "mean_onset": 0.277,
+        "mean_brightness": 0.428
+      }
+    },
+    {
+      "index": 23,
+      "file": "23 - Lights On the Vibe.mp3",
+      "duration": 461.648,
+      "tempo_estimate": 85.23,
+      "onset_density_per_min": 187.29,
+      "dynamic_range_proxy": 0.276,
+      "brightness_proxy": 0.399,
+      "section_boundaries": [
+        12.0,
+        84.0,
+        112.0,
+        192.0,
+        212.0,
+        248.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 16.352,
+          "strength": 1.0
+        },
+        {
+          "time": 22.848,
+          "strength": 1.0
+        },
+        {
+          "time": 24.576,
+          "strength": 1.0
+        },
+        {
+          "time": 25.28,
+          "strength": 1.0
+        },
+        {
+          "time": 25.984,
+          "strength": 1.0
+        },
+        {
+          "time": 26.688,
+          "strength": 1.0
+        },
+        {
+          "time": 27.392,
+          "strength": 1.0
+        },
+        {
+          "time": 28.096,
+          "strength": 1.0
+        },
+        {
+          "time": 28.8,
+          "strength": 1.0
+        },
+        {
+          "time": 29.504,
+          "strength": 1.0
+        },
+        {
+          "time": 30.208,
+          "strength": 1.0
+        },
+        {
+          "time": 30.912,
+          "strength": 1.0
+        },
+        {
+          "time": 31.616,
+          "strength": 1.0
+        },
+        {
+          "time": 32.992,
+          "strength": 1.0
+        },
+        {
+          "time": 35.104,
+          "strength": 1.0
+        },
+        {
+          "time": 35.808,
+          "strength": 1.0
+        },
+        {
+          "time": 438.432,
+          "strength": 1.0
+        },
+        {
+          "time": 444.032,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 86.464,
+          "end": 98.964,
+          "score": 1.5751
+        },
+        {
+          "start": 243.712,
+          "end": 256.212,
+          "score": 1.5115
+        },
+        {
+          "start": 354.816,
+          "end": 367.316,
+          "score": 1.4927
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.467,
+        "mean_onset": 0.232,
+        "mean_brightness": 0.399
+      }
+    },
+    {
+      "index": 24,
+      "file": "24 - Heal.mp3",
+      "duration": 410.636,
+      "tempo_estimate": 75.0,
+      "onset_density_per_min": 236.27,
+      "dynamic_range_proxy": 0.256,
+      "brightness_proxy": 0.413,
+      "section_boundaries": [
+        20.0,
+        36.0,
+        104.0,
+        128.0,
+        192.0,
+        400.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 17.184,
+          "strength": 1.0
+        },
+        {
+          "time": 17.984,
+          "strength": 1.0
+        },
+        {
+          "time": 18.784,
+          "strength": 1.0
+        },
+        {
+          "time": 20.384,
+          "strength": 1.0
+        },
+        {
+          "time": 21.568,
+          "strength": 1.0
+        },
+        {
+          "time": 22.368,
+          "strength": 1.0
+        },
+        {
+          "time": 23.168,
+          "strength": 1.0
+        },
+        {
+          "time": 23.968,
+          "strength": 1.0
+        },
+        {
+          "time": 25.184,
+          "strength": 1.0
+        },
+        {
+          "time": 26.368,
+          "strength": 1.0
+        },
+        {
+          "time": 27.168,
+          "strength": 1.0
+        },
+        {
+          "time": 27.968,
+          "strength": 1.0
+        },
+        {
+          "time": 28.768,
+          "strength": 1.0
+        },
+        {
+          "time": 29.568,
+          "strength": 1.0
+        },
+        {
+          "time": 30.368,
+          "strength": 1.0
+        },
+        {
+          "time": 32.384,
+          "strength": 1.0
+        },
+        {
+          "time": 389.568,
+          "strength": 1.0
+        },
+        {
+          "time": 395.168,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 188.832,
+          "end": 201.332,
+          "score": 1.6575
+        },
+        {
+          "start": 110.432,
+          "end": 122.932,
+          "score": 1.4983
+        },
+        {
+          "start": 345.184,
+          "end": 357.684,
+          "score": 1.4346
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.498,
+        "mean_onset": 0.3,
+        "mean_brightness": 0.413
+      }
+    },
+    {
+      "index": 25,
+      "file": "25 - The Dance No. 2.mp3",
+      "duration": 582.733,
+      "tempo_estimate": 75.0,
+      "onset_density_per_min": 201.91,
+      "dynamic_range_proxy": 0.244,
+      "brightness_proxy": 0.465,
+      "section_boundaries": [
+        12.0,
+        208.0,
+        268.0,
+        400.0,
+        416.0,
+        556.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 8.704,
+          "strength": 1.0
+        },
+        {
+          "time": 18.048,
+          "strength": 1.0
+        },
+        {
+          "time": 19.136,
+          "strength": 1.0
+        },
+        {
+          "time": 19.68,
+          "strength": 1.0
+        },
+        {
+          "time": 20.224,
+          "strength": 1.0
+        },
+        {
+          "time": 20.768,
+          "strength": 1.0
+        },
+        {
+          "time": 21.28,
+          "strength": 1.0
+        },
+        {
+          "time": 21.952,
+          "strength": 1.0
+        },
+        {
+          "time": 22.624,
+          "strength": 1.0
+        },
+        {
+          "time": 23.392,
+          "strength": 1.0
+        },
+        {
+          "time": 23.936,
+          "strength": 1.0
+        },
+        {
+          "time": 24.48,
+          "strength": 1.0
+        },
+        {
+          "time": 25.568,
+          "strength": 1.0
+        },
+        {
+          "time": 26.368,
+          "strength": 1.0
+        },
+        {
+          "time": 28.256,
+          "strength": 1.0
+        },
+        {
+          "time": 548.288,
+          "strength": 1.0
+        },
+        {
+          "time": 552.48,
+          "strength": 1.0
+        },
+        {
+          "time": 554.048,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 6.72,
+          "end": 19.22,
+          "score": 1.6677
+        },
+        {
+          "start": 75.936,
+          "end": 88.436,
+          "score": 1.647
+        },
+        {
+          "start": 136.192,
+          "end": 148.692,
+          "score": 1.621
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.606,
+        "mean_onset": 0.408,
+        "mean_brightness": 0.465
+      }
+    },
+    {
+      "index": 26,
+      "file": "26 - A Future Untold.mp3",
+      "duration": 202.723,
+      "tempo_estimate": 156.25,
+      "onset_density_per_min": 213.69,
+      "dynamic_range_proxy": 0.263,
+      "brightness_proxy": 0.476,
+      "section_boundaries": [
+        8.0,
+        52.0,
+        76.0,
+        136.0,
+        176.0,
+        192.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 29.504,
+          "strength": 1.0
+        },
+        {
+          "time": 30.848,
+          "strength": 1.0
+        },
+        {
+          "time": 31.84,
+          "strength": 1.0
+        },
+        {
+          "time": 84.0,
+          "strength": 1.0
+        },
+        {
+          "time": 85.536,
+          "strength": 1.0
+        },
+        {
+          "time": 87.136,
+          "strength": 1.0
+        },
+        {
+          "time": 87.744,
+          "strength": 1.0
+        },
+        {
+          "time": 93.248,
+          "strength": 1.0
+        },
+        {
+          "time": 94.08,
+          "strength": 1.0
+        },
+        {
+          "time": 95.328,
+          "strength": 1.0
+        },
+        {
+          "time": 96.256,
+          "strength": 1.0
+        },
+        {
+          "time": 97.28,
+          "strength": 1.0
+        },
+        {
+          "time": 97.984,
+          "strength": 1.0
+        },
+        {
+          "time": 105.504,
+          "strength": 1.0
+        },
+        {
+          "time": 108.16,
+          "strength": 1.0
+        },
+        {
+          "time": 191.392,
+          "strength": 1.0
+        },
+        {
+          "time": 193.248,
+          "strength": 1.0
+        },
+        {
+          "time": 193.888,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 98.56,
+          "end": 111.06,
+          "score": 1.9683
+        },
+        {
+          "start": 143.136,
+          "end": 155.636,
+          "score": 1.808
+        },
+        {
+          "start": 82.88,
+          "end": 95.38,
+          "score": 1.753
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.47,
+        "mean_onset": 0.46,
+        "mean_brightness": 0.476
+      }
+    },
+    {
+      "index": 27,
+      "file": "27 - K-Notes.mp3",
+      "duration": 195.989,
+      "tempo_estimate": 85.23,
+      "onset_density_per_min": 198.07,
+      "dynamic_range_proxy": 0.36,
+      "brightness_proxy": 0.491,
+      "section_boundaries": [
+        28.0,
+        44.0,
+        96.0,
+        112.0,
+        132.0,
+        160.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 29.728,
+          "strength": 1.0
+        },
+        {
+          "time": 31.584,
+          "strength": 1.0
+        },
+        {
+          "time": 33.44,
+          "strength": 1.0
+        },
+        {
+          "time": 35.744,
+          "strength": 1.0
+        },
+        {
+          "time": 99.904,
+          "strength": 1.0
+        },
+        {
+          "time": 100.704,
+          "strength": 1.0
+        },
+        {
+          "time": 101.76,
+          "strength": 1.0
+        },
+        {
+          "time": 105.44,
+          "strength": 1.0
+        },
+        {
+          "time": 106.24,
+          "strength": 1.0
+        },
+        {
+          "time": 108.096,
+          "strength": 1.0
+        },
+        {
+          "time": 108.672,
+          "strength": 1.0
+        },
+        {
+          "time": 173.28,
+          "strength": 1.0
+        },
+        {
+          "time": 174.176,
+          "strength": 1.0
+        },
+        {
+          "time": 174.88,
+          "strength": 1.0
+        },
+        {
+          "time": 175.584,
+          "strength": 1.0
+        },
+        {
+          "time": 176.384,
+          "strength": 1.0
+        },
+        {
+          "time": 176.96,
+          "strength": 1.0
+        },
+        {
+          "time": 187.104,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 26.432,
+          "end": 38.932,
+          "score": 1.6069
+        },
+        {
+          "start": 159.488,
+          "end": 171.988,
+          "score": 1.5577
+        },
+        {
+          "start": 111.552,
+          "end": 124.052,
+          "score": 1.5548
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.466,
+        "mean_onset": 0.238,
+        "mean_brightness": 0.491
+      }
+    },
+    {
+      "index": 28,
+      "file": "28 - Wildflower Wood.mp3",
+      "duration": 226.64,
+      "tempo_estimate": 98.68,
+      "onset_density_per_min": 202.26,
+      "dynamic_range_proxy": 0.263,
+      "brightness_proxy": 0.479,
+      "section_boundaries": [
+        24.0,
+        76.0,
+        92.0,
+        140.0,
+        168.0,
+        216.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 1.824,
+          "strength": 1.0
+        },
+        {
+          "time": 4.48,
+          "strength": 1.0
+        },
+        {
+          "time": 6.88,
+          "strength": 1.0
+        },
+        {
+          "time": 16.832,
+          "strength": 1.0
+        },
+        {
+          "time": 18.944,
+          "strength": 1.0
+        },
+        {
+          "time": 19.808,
+          "strength": 1.0
+        },
+        {
+          "time": 21.888,
+          "strength": 1.0
+        },
+        {
+          "time": 22.464,
+          "strength": 1.0
+        },
+        {
+          "time": 23.072,
+          "strength": 1.0
+        },
+        {
+          "time": 27.936,
+          "strength": 1.0
+        },
+        {
+          "time": 28.8,
+          "strength": 1.0
+        },
+        {
+          "time": 203.712,
+          "strength": 1.0
+        },
+        {
+          "time": 204.96,
+          "strength": 1.0
+        },
+        {
+          "time": 207.392,
+          "strength": 1.0
+        },
+        {
+          "time": 208.256,
+          "strength": 1.0
+        },
+        {
+          "time": 208.832,
+          "strength": 1.0
+        },
+        {
+          "time": 211.2,
+          "strength": 1.0
+        },
+        {
+          "time": 211.808,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 135.744,
+          "end": 148.244,
+          "score": 1.7881
+        },
+        {
+          "start": 87.136,
+          "end": 99.636,
+          "score": 1.7133
+        },
+        {
+          "start": 159.488,
+          "end": 171.988,
+          "score": 1.7073
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.545,
+        "mean_onset": 0.299,
+        "mean_brightness": 0.479
+      }
+    },
+    {
+      "index": 29,
+      "file": "29 - Bromine (Yamaneko's Irusu Mix).mp3",
+      "duration": 539.708,
+      "tempo_estimate": 81.52,
+      "onset_density_per_min": 206.11,
+      "dynamic_range_proxy": 0.287,
+      "brightness_proxy": 0.42,
+      "section_boundaries": [
+        76.0,
+        124.0,
+        180.0,
+        232.0,
+        248.0,
+        436.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 18.048,
+          "strength": 1.0
+        },
+        {
+          "time": 20.736,
+          "strength": 1.0
+        },
+        {
+          "time": 21.44,
+          "strength": 1.0
+        },
+        {
+          "time": 22.048,
+          "strength": 1.0
+        },
+        {
+          "time": 23.232,
+          "strength": 1.0
+        },
+        {
+          "time": 25.024,
+          "strength": 1.0
+        },
+        {
+          "time": 237.92,
+          "strength": 1.0
+        },
+        {
+          "time": 238.656,
+          "strength": 1.0
+        },
+        {
+          "time": 239.84,
+          "strength": 1.0
+        },
+        {
+          "time": 247.584,
+          "strength": 1.0
+        },
+        {
+          "time": 250.24,
+          "strength": 1.0
+        },
+        {
+          "time": 261.92,
+          "strength": 1.0
+        },
+        {
+          "time": 262.592,
+          "strength": 1.0
+        },
+        {
+          "time": 263.808,
+          "strength": 1.0
+        },
+        {
+          "time": 264.512,
+          "strength": 1.0
+        },
+        {
+          "time": 265.024,
+          "strength": 1.0
+        },
+        {
+          "time": 266.816,
+          "strength": 1.0
+        },
+        {
+          "time": 267.68,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 71.68,
+          "end": 84.18,
+          "score": 2.05
+        },
+        {
+          "start": 36.064,
+          "end": 48.564,
+          "score": 1.8989
+        },
+        {
+          "start": 408.352,
+          "end": 420.852,
+          "score": 1.8892
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.444,
+        "mean_onset": 0.441,
+        "mean_brightness": 0.42
+      }
+    },
+    {
+      "index": 30,
+      "file": "30 - In Memory.mp3",
+      "duration": 209.66,
+      "tempo_estimate": 125.0,
+      "onset_density_per_min": 189.74,
+      "dynamic_range_proxy": 0.289,
+      "brightness_proxy": 0.45,
+      "section_boundaries": [
+        28.0,
+        44.0,
+        60.0,
+        96.0,
+        112.0,
+        188.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 46.08,
+          "strength": 1.0
+        },
+        {
+          "time": 50.72,
+          "strength": 1.0
+        },
+        {
+          "time": 58.528,
+          "strength": 1.0
+        },
+        {
+          "time": 59.744,
+          "strength": 1.0
+        },
+        {
+          "time": 60.48,
+          "strength": 1.0
+        },
+        {
+          "time": 61.696,
+          "strength": 1.0
+        },
+        {
+          "time": 62.432,
+          "strength": 1.0
+        },
+        {
+          "time": 63.392,
+          "strength": 1.0
+        },
+        {
+          "time": 184.864,
+          "strength": 1.0
+        },
+        {
+          "time": 185.728,
+          "strength": 1.0
+        },
+        {
+          "time": 186.336,
+          "strength": 1.0
+        },
+        {
+          "time": 187.68,
+          "strength": 1.0
+        },
+        {
+          "time": 188.288,
+          "strength": 1.0
+        },
+        {
+          "time": 189.248,
+          "strength": 1.0
+        },
+        {
+          "time": 189.984,
+          "strength": 1.0
+        },
+        {
+          "time": 191.2,
+          "strength": 1.0
+        },
+        {
+          "time": 191.936,
+          "strength": 1.0
+        },
+        {
+          "time": 193.536,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 121.856,
+          "end": 134.356,
+          "score": 1.6122
+        },
+        {
+          "start": 71.008,
+          "end": 83.508,
+          "score": 1.5842
+        },
+        {
+          "start": 172.48,
+          "end": 184.98,
+          "score": 1.5581
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.43,
+        "mean_onset": 0.263,
+        "mean_brightness": 0.45
+      }
+    },
+    {
+      "index": 31,
+      "file": "31 - Unknown.mp3",
+      "duration": 422.0,
+      "tempo_estimate": 60.48,
+      "onset_density_per_min": 180.14,
+      "dynamic_range_proxy": 0.298,
+      "brightness_proxy": 0.369,
+      "section_boundaries": [
+        64.0,
+        148.0,
+        228.0,
+        292.0,
+        308.0,
+        392.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 5.472,
+          "strength": 1.0
+        },
+        {
+          "time": 10.496,
+          "strength": 1.0
+        },
+        {
+          "time": 28.0,
+          "strength": 1.0
+        },
+        {
+          "time": 33.728,
+          "strength": 1.0
+        },
+        {
+          "time": 36.352,
+          "strength": 1.0
+        },
+        {
+          "time": 36.992,
+          "strength": 1.0
+        },
+        {
+          "time": 37.728,
+          "strength": 1.0
+        },
+        {
+          "time": 38.464,
+          "strength": 1.0
+        },
+        {
+          "time": 39.968,
+          "strength": 1.0
+        },
+        {
+          "time": 40.736,
+          "strength": 1.0
+        },
+        {
+          "time": 367.232,
+          "strength": 1.0
+        },
+        {
+          "time": 367.968,
+          "strength": 1.0
+        },
+        {
+          "time": 368.736,
+          "strength": 1.0
+        },
+        {
+          "time": 369.728,
+          "strength": 1.0
+        },
+        {
+          "time": 370.72,
+          "strength": 1.0
+        },
+        {
+          "time": 371.232,
+          "strength": 1.0
+        },
+        {
+          "time": 371.744,
+          "strength": 1.0
+        },
+        {
+          "time": 378.144,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 320.32,
+          "end": 332.82,
+          "score": 1.6615
+        },
+        {
+          "start": 224.224,
+          "end": 236.724,
+          "score": 1.5996
+        },
+        {
+          "start": 160.832,
+          "end": 173.332,
+          "score": 1.5281
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.481,
+        "mean_onset": 0.194,
+        "mean_brightness": 0.369
+      }
+    },
+    {
+      "index": 32,
+      "file": "32 - Da Du Dah (Onome Remix) [feat. Nyron Higor].mp3",
+      "duration": 223.565,
+      "tempo_estimate": 55.15,
+      "onset_density_per_min": 142.51,
+      "dynamic_range_proxy": 0.272,
+      "brightness_proxy": 0.41,
+      "section_boundaries": [
+        24.0,
+        60.0,
+        88.0,
+        120.0,
+        164.0,
+        208.0
+      ],
+      "strong_onsets": [
+        {
+          "time": 2.272,
+          "strength": 1.0
+        },
+        {
+          "time": 2.912,
+          "strength": 1.0
+        },
+        {
+          "time": 4.0,
+          "strength": 1.0
+        },
+        {
+          "time": 4.928,
+          "strength": 1.0
+        },
+        {
+          "time": 5.856,
+          "strength": 1.0
+        },
+        {
+          "time": 19.776,
+          "strength": 1.0
+        },
+        {
+          "time": 20.704,
+          "strength": 1.0
+        },
+        {
+          "time": 21.312,
+          "strength": 1.0
+        },
+        {
+          "time": 22.08,
+          "strength": 1.0
+        },
+        {
+          "time": 23.168,
+          "strength": 1.0
+        },
+        {
+          "time": 23.776,
+          "strength": 1.0
+        },
+        {
+          "time": 24.704,
+          "strength": 1.0
+        },
+        {
+          "time": 25.632,
+          "strength": 1.0
+        },
+        {
+          "time": 27.04,
+          "strength": 1.0
+        },
+        {
+          "time": 28.128,
+          "strength": 1.0
+        },
+        {
+          "time": 28.736,
+          "strength": 1.0
+        },
+        {
+          "time": 31.968,
+          "strength": 1.0
+        },
+        {
+          "time": 204.864,
+          "strength": 1.0
+        }
+      ],
+      "candidate_windows": [
+        {
+          "start": 62.048,
+          "end": 74.548,
+          "score": 1.4368
+        },
+        {
+          "start": 181.888,
+          "end": 194.388,
+          "score": 1.3355
+        },
+        {
+          "start": 152.096,
+          "end": 164.596,
+          "score": 1.3237
+        }
+      ],
+      "summary_features": {
+        "mean_energy": 0.367,
+        "mean_onset": 0.172,
+        "mean_brightness": 0.41
+      }
+    }
+  ]
+}

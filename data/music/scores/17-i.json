@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "track_id": "17-i",
+  "seed": 1140821188,
+  "title": "I",
+  "artist": "",
+  "duration": 480.96,
+  "style": "polyrhythmic / accumulative",
+  "direction": "Build layers. Start with a few independent drop streams, then add overlapping cluster patterns as the polyrhythm thickens. Keep individual drops modest so complexity comes from superposition, not force.",
+  "authored_density": "medium→high",
+  "authored_force": "light-medium",
+  "recommended_demo": {
+    "start": 316.06,
+    "end": 328.56
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "streams: opening",
+      "start": 0,
+      "end": 168.0,
+      "density": [
+        0.19,
+        0.19
+      ],
+      "force": [
+        0.387,
+        0.4085
+      ],
+      "scale": [
+        0.6125,
+        0.6125
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.35,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 1",
+      "start": 168.0,
+      "end": 212.0,
+      "density": [
+        0.19,
+        0.32
+      ],
+      "force": [
+        0.3956,
+        0.4171
+      ],
+      "scale": [
+        0.6142,
+        0.6142
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.435,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 2",
+      "start": 212.0,
+      "end": 256.0,
+      "density": [
+        0.32,
+        0.44
+      ],
+      "force": [
+        0.4042,
+        0.4257
+      ],
+      "scale": [
+        0.6156,
+        0.6156
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.52,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 3",
+      "start": 256.0,
+      "end": 308.0,
+      "density": [
+        0.44,
+        0.56
+      ],
+      "force": [
+        0.4128,
+        0.4343
+      ],
+      "scale": [
+        0.6153,
+        0.6153
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.605,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 4",
+      "start": 308.0,
+      "end": 416.0,
+      "density": [
+        0.56,
+        0.76
+      ],
+      "force": [
+        0.4214,
+        0.4429
+      ],
+      "scale": [
+        0.6219,
+        0.6219
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.69,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: phrase 5",
+      "start": 416.0,
+      "end": 460.0,
+      "density": [
+        0.76,
+        0.63
+      ],
+      "force": [
+        0.43,
+        0.4515
+      ],
+      "scale": [
+        0.6191,
+        0.6191
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.775,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    },
+    {
+      "name": "streams: release",
+      "start": 460.0,
+      "end": 480.96,
+      "density": [
+        0.63,
+        0.28
+      ],
+      "force": [
+        0.4386,
+        0.4601
+      ],
+      "scale": [
+        0.6125,
+        0.6125
+      ],
+      "background": 0.04,
+      "cluster": {
+        "probability": 0.85,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.11,
+          0.33
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "streams",
+        "spread": 0.86,
+        "wander": 0.14,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Independent fine streams; complexity comes from superposition."
+    }
+  ],
+  "accents": [
+    {
+      "time": 211.9982,
+      "type": "arrival",
+      "force": 0.6381,
+      "scale": 0.801,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 212s; measured attack, not every transient."
+    },
+    {
+      "time": 307.9895,
+      "type": "arrival",
+      "force": 0.6182,
+      "scale": 0.7811,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 308s; measured attack, not every transient."
+    },
+    {
+      "time": 415.9855,
+      "type": "arrival",
+      "force": 0.6571,
+      "scale": 0.82,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 416s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/16",
+    "analysis": "analysis/17-i.json",
+    "reference_sha256": "ee6a96065453389d11041bebd0bb1d23186741ef918a74c2735ab12ae7dbb42b"
+  }
+}

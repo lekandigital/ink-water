@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "inspected_date": "2026-10-06",
+  "playlist_id": "PLTab0IXtn0Nw",
+  "title": "ink water",
+  "method": "YouTube playlist metadata via yt-dlp; no media published",
+  "mapping_status": "inventory-only; supplied source map is missing",
+  "priority_indices": [
+    2,
+    9,
+    3,
+    5,
+    1,
+    4,
+    18,
+    20,
+    21,
+    29
+  ],
+  "entries": [
+    {
+      "position": 1,
+      "video_id": "lipZU8lu07M",
+      "youtube_title": "190304-05",
+      "duration_seconds": 154,
+      "availability": null
+    },
+    {
+      "position": 2,
+      "video_id": "ARAbv66v7mQ",
+      "youtube_title": "Dorian Concept - 'An Unopened Letter' (featuring Bibio) (Official Video)",
+      "duration_seconds": 174,
+      "availability": null
+    },
+    {
+      "position": 3,
+      "video_id": "Gx41vYzyPZo",
+      "youtube_title": "Continuum 3",
+      "duration_seconds": 248,
+      "availability": null
+    },
+    {
+      "position": 4,
+      "video_id": "syHJjj3w-Vw",
+      "youtube_title": "Sun Arcs (Laraaji Remix)",
+      "duration_seconds": 252,
+      "availability": null
+    },
+    {
+      "position": 5,
+      "video_id": "lrAWkOGkpBw",
+      "youtube_title": "Sun Tickles",
+      "duration_seconds": 272,
+      "availability": null
+    },
+    {
+      "position": 6,
+      "video_id": "cuzGVxJ-cq4",
+      "youtube_title": "Marumari - \"birch beer forest\" (Official Music Video)",
+      "duration_seconds": 212,
+      "availability": null
+    },
+    {
+      "position": 7,
+      "video_id": "nAQ3OAL5g7Q",
+      "youtube_title": "Places Remember Events",
+      "duration_seconds": 235,
+      "availability": null
+    },
+    {
+      "position": 8,
+      "video_id": "ScLX_1GnP60",
+      "youtube_title": "inhale the Mist",
+      "duration_seconds": 257,
+      "availability": null
+    },
+    {
+      "position": 9,
+      "video_id": "lp8EkhoCCnI",
+      "youtube_title": "fused (DJ-Kicks)",
+      "duration_seconds": 211,
+      "availability": null
+    },
+    {
+      "position": 10,
+      "video_id": "IwMeQgVCdR4",
+      "youtube_title": "Lusine - Without a Plan",
+      "duration_seconds": 259,
+      "availability": null
+    },
+    {
+      "position": 11,
+      "video_id": "mpHVqod6mB8",
+      "youtube_title": "Rival Consoles - Recovery",
+      "duration_seconds": 292,
+      "availability": null
+    },
+    {
+      "position": 12,
+      "video_id": "c9cIQb5x7OA",
+      "youtube_title": "Time to Find Me (AFX Fast Mix)",
+      "duration_seconds": 457,
+      "availability": null
+    },
+    {
+      "position": 13,
+      "video_id": "L70WRWg-ADQ",
+      "youtube_title": "Bromine (Yamaneko's Irusu Mix)",
+      "duration_seconds": 540,
+      "availability": null
+    },
+    {
+      "position": 14,
+      "video_id": "cadA-49BZl8",
+      "youtube_title": "by the rain",
+      "duration_seconds": 236,
+      "availability": null
+    },
+    {
+      "position": 15,
+      "video_id": "ARJZ2rPuIyU",
+      "youtube_title": "memory of a memory",
+      "duration_seconds": 252,
+      "availability": null
+    },
+    {
+      "position": 16,
+      "video_id": "LR_Mj5ydbs0",
+      "youtube_title": "Pop 4",
+      "duration_seconds": 569,
+      "availability": null
+    },
+    {
+      "position": 17,
+      "video_id": "tiHr1bDEJIw",
+      "youtube_title": "I",
+      "duration_seconds": 481,
+      "availability": null
+    },
+    {
+      "position": 18,
+      "video_id": "PkHYFkyfMCs",
+      "youtube_title": "Kedr Livanskiy - K-Notes (Official Video)",
+      "duration_seconds": 196,
+      "availability": null
+    },
+    {
+      "position": 19,
+      "video_id": "RhePGWq5HV4",
+      "youtube_title": "The Solid Doctor - Lights On The Vibe",
+      "duration_seconds": 462,
+      "availability": null
+    },
+    {
+      "position": 20,
+      "video_id": "nVbFCQWbvCs",
+      "youtube_title": "Heal",
+      "duration_seconds": 411,
+      "availability": null
+    },
+    {
+      "position": 21,
+      "video_id": "PudxQucb3Js",
+      "youtube_title": "A Future Untold",
+      "duration_seconds": 203,
+      "availability": null
+    },
+    {
+      "position": 22,
+      "video_id": "Zk82i2lCi-k",
+      "youtube_title": "In Memory",
+      "duration_seconds": 210,
+      "availability": null
+    },
+    {
+      "position": 23,
+      "video_id": "FwTN4sb7CGI",
+      "youtube_title": "The Dance No. 2",
+      "duration_seconds": 583,
+      "availability": null
+    },
+    {
+      "position": 24,
+      "video_id": "CPedgWtRqBQ",
+      "youtube_title": "Wilson Tanner - Blush",
+      "duration_seconds": 231,
+      "availability": null
+    },
+    {
+      "position": 25,
+      "video_id": "MebRRX-als0",
+      "youtube_title": "Argento - Sabbia Su Sabbia",
+      "duration_seconds": 209,
+      "availability": null
+    },
+    {
+      "position": 26,
+      "video_id": "hZr5uVPocps",
+      "youtube_title": "Slipping Fingers Through Curls",
+      "duration_seconds": 218,
+      "availability": null
+    },
+    {
+      "position": 27,
+      "video_id": "MCAIoBcV91I",
+      "youtube_title": "Remember",
+      "duration_seconds": 134,
+      "availability": null
+    },
+    {
+      "position": 28,
+      "video_id": "50yPEiqOa2o",
+      "youtube_title": "Wildflower Wood",
+      "duration_seconds": 227,
+      "availability": null
+    },
+    {
+      "position": 29,
+      "video_id": "J9a5uO54h-4",
+      "youtube_title": "Andy Palacio & The Garifuna Collective - Gaganbadibà (Take Advice) [Punta Rock - World]",
+      "duration_seconds": 260,
+      "availability": null
+    },
+    {
+      "position": 30,
+      "video_id": "jGIKgJ9MzfE",
+      "youtube_title": "DEAR DRIVER",
+      "duration_seconds": 171,
+      "availability": null
+    },
+    {
+      "position": 31,
+      "video_id": "Rvr1EsKYQZI",
+      "youtube_title": "Unknown",
+      "duration_seconds": 422,
+      "availability": null
+    },
+    {
+      "position": 32,
+      "video_id": "Hax9dZ5QATE",
+      "youtube_title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+      "duration_seconds": 224,
+      "availability": null
+    }
+  ]
+}

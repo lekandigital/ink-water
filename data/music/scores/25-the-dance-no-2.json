@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "track_id": "25-the-dance-no-2",
+  "seed": 201256372,
+  "title": "The Dance No. 2",
+  "artist": "",
+  "duration": 582.733333,
+  "style": "ritual / spacious",
+  "direction": "Use the opening. A few deliberate drops with long decay, occasional paired events, and restrained force. Let the surface remain mostly open.",
+  "authored_density": "low",
+  "authored_force": "soft-medium",
+  "recommended_demo": {
+    "start": 6.72,
+    "end": 19.22
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "suspended: opening",
+      "start": 0,
+      "end": 12.0,
+      "density": [
+        0.07,
+        0.07
+      ],
+      "force": [
+        0.333,
+        0.3515
+      ],
+      "scale": [
+        1.057,
+        1.057
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 1",
+      "start": 12.0,
+      "end": 208.0,
+      "density": [
+        0.07,
+        0.12
+      ],
+      "force": [
+        0.3404,
+        0.3589
+      ],
+      "scale": [
+        1.0529,
+        1.0529
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 2",
+      "start": 208.0,
+      "end": 268.0,
+      "density": [
+        0.12,
+        0.08
+      ],
+      "force": [
+        0.3478,
+        0.3663
+      ],
+      "scale": [
+        1.0589,
+        1.0589
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 3",
+      "start": 268.0,
+      "end": 400.0,
+      "density": [
+        0.08,
+        0.13
+      ],
+      "force": [
+        0.3552,
+        0.3737
+      ],
+      "scale": [
+        1.0588,
+        1.0588
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 4",
+      "start": 400.0,
+      "end": 416.0,
+      "density": [
+        0.13,
+        0.09
+      ],
+      "force": [
+        0.3626,
+        0.3811
+      ],
+      "scale": [
+        1.0482,
+        1.0482
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 5",
+      "start": 416.0,
+      "end": 556.0,
+      "density": [
+        0.09,
+        0.14
+      ],
+      "force": [
+        0.37,
+        0.3885
+      ],
+      "scale": [
+        1.0513,
+        1.0513
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: release",
+      "start": 556.0,
+      "end": 582.733333,
+      "density": [
+        0.14,
+        0.055
+      ],
+      "force": [
+        0.3774,
+        0.3959
+      ],
+      "scale": [
+        1.0519,
+        1.0519
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.17,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.65,
+          1.5
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.36,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    }
+  ],
+  "accents": [
+    {
+      "time": 7.6161,
+      "type": "solitary",
+      "force": 0.37,
+      "scale": 1.09,
+      "count": 1,
+      "spacing": 0.5,
+      "anticipation": 0.8,
+      "quiet": 0.9,
+      "note": "A deliberate soft opening mark, followed by space."
+    },
+    {
+      "time": 12.0744,
+      "type": "arrival",
+      "force": 0.5014,
+      "scale": 1.2881,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 12s; measured attack, not every transient."
+    },
+    {
+      "time": 14.2571,
+      "type": "solitary",
+      "force": 0.37,
+      "scale": 1.09,
+      "count": 1,
+      "spacing": 0.5,
+      "anticipation": 0.8,
+      "quiet": 0.9,
+      "note": "A deliberate soft opening mark, followed by space."
+    },
+    {
+      "time": 415.8926,
+      "type": "arrival",
+      "force": 0.5009,
+      "scale": 1.2876,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 416s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 8.04,
+      "end": 9.24,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 104.12,
+      "end": 109.62,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 248.2,
+      "end": 252.088,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 330.04,
+      "end": 335.54,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 410.72,
+      "end": 411.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 481.8,
+      "end": 487.3,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 573.9113,
+      "end": 575.6437,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/24",
+    "analysis": "analysis/25-the-dance-no-2.json",
+    "reference_sha256": "28e6a3a1d973b1a992503d41247578fcda4aef82a4433b467175f455b55dc686"
+  }
+}

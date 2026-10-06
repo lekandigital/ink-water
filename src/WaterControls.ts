@@ -14,6 +14,7 @@ type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void};
 // commit state once; GPU work runs later, outside the checkbox's click transaction.
 export class WaterControls{
   readonly state:WaterSettings=startupSettings();
+  toneWasChosen=false;
   hooks:Hooks={change:()=>{},clear:()=>{},gesture:()=>{}};
   private savedCaustics:boolean|undefined;
   private diagnostics:Record<string,unknown>={ready:false,renderRevision:0};
@@ -44,7 +45,7 @@ export class WaterControls{
     });
     this.sync();
   }
-  change(input:Record<string,unknown>){
+  change(input:Record<string,unknown>,chooseTone=true){
     // Validate the entire update before touching any state.
     for(const key of Object.keys(input))if(!Object.hasOwn(this.state,key))throw new Error('Unknown setting: '+key);
     for(const key of [...switchKeys,'paused','sourceGeometry'])if(input[key]!==undefined&&typeof input[key]!=='boolean')throw new Error(key+' must be boolean.');
@@ -62,10 +63,11 @@ export class WaterControls{
       this.savedCaustics=undefined;
     }
     if(updates.caustics===true){updates.causticRipples=false;this.savedCaustics=undefined;}
+    if(updates.tone!==undefined&&chooseTone)this.toneWasChosen=true;
     Object.assign(this.state,updates);
     this.sync();this.hooks.change();
   }
-  reset(){Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();this.hooks.change();}
+  reset(){Object.assign(this.state,startupSettings());this.toneWasChosen=false;this.savedCaustics=undefined;this.sync();this.hooks.change();}
   toggleVisibility(){
     const hidden=document.body.classList.toggle('controls-hidden');
     $('toggle-controls').setAttribute('aria-expanded',String(!hidden));

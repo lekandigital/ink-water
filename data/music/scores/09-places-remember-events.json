@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "track_id": "09-places-remember-events",
+  "seed": 827887656,
+  "title": "Places Remember Events",
+  "artist": "Eerie Enterprise",
+  "duration": 234.352925,
+  "style": "technical / intricate",
+  "direction": "Use a strange, precise rain language: fine irregular clusters, occasional simultaneous impacts in separate regions, and brief silences. The early window is the stronger concise demo; the later window has higher measured contrast.",
+  "authored_density": "medium-high",
+  "authored_force": "light-medium",
+  "recommended_demo": {
+    "start": 19.5,
+    "end": 32.0
+  },
+  "alternate_demo": {
+    "start": 131.94,
+    "end": 144.44
+  },
+  "sections": [
+    {
+      "name": "split: opening",
+      "start": 0,
+      "end": 24.0,
+      "density": [
+        0.39,
+        0.39
+      ],
+      "force": [
+        0.414,
+        0.437
+      ],
+      "scale": [
+        0.5933,
+        0.5933
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    },
+    {
+      "name": "split: phrase 1",
+      "start": 24.0,
+      "end": 64.0,
+      "density": [
+        0.39,
+        0.66
+      ],
+      "force": [
+        0.4232,
+        0.4462
+      ],
+      "scale": [
+        0.596,
+        0.596
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    },
+    {
+      "name": "split: phrase 2",
+      "start": 64.0,
+      "end": 112.0,
+      "density": [
+        0.66,
+        0.82
+      ],
+      "force": [
+        0.4324,
+        0.4554
+      ],
+      "scale": [
+        0.5848,
+        0.5848
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    },
+    {
+      "name": "split: phrase 3",
+      "start": 112.0,
+      "end": 136.0,
+      "density": [
+        0.82,
+        0.49
+      ],
+      "force": [
+        0.4416,
+        0.4646
+      ],
+      "scale": [
+        0.5884,
+        0.5884
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    },
+    {
+      "name": "split: phrase 4",
+      "start": 136.0,
+      "end": 204.0,
+      "density": [
+        0.49,
+        0.94
+      ],
+      "force": [
+        0.4508,
+        0.4738
+      ],
+      "scale": [
+        0.5824,
+        0.5824
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    },
+    {
+      "name": "split: phrase 5",
+      "start": 204.0,
+      "end": 224.0,
+      "density": [
+        0.94,
+        0.62
+      ],
+      "force": [
+        0.46,
+        0.483
+      ],
+      "scale": [
+        0.5992,
+        0.5992
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    },
+    {
+      "name": "split: release",
+      "start": 224.0,
+      "end": 234.352925,
+      "density": [
+        0.62,
+        0.24
+      ],
+      "force": [
+        0.4692,
+        0.4922
+      ],
+      "scale": [
+        0.5841,
+        0.5841
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.79,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.08,
+          0.27
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "split",
+        "spread": 0.91,
+        "wander": 0.13,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Fine simultaneous showers in separated regions, then brief silence."
+    }
+  ],
+  "accents": [
+    {
+      "time": 24.5203,
+      "type": "arrival",
+      "force": 0.6855,
+      "scale": 0.7607,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 24s; measured attack, not every transient."
+    },
+    {
+      "time": 25.7509,
+      "type": "split",
+      "force": 0.45,
+      "scale": 0.62,
+      "count": 2,
+      "spacing": 0,
+      "anticipation": 0.4,
+      "quiet": 0.65,
+      "note": "Two spatially separate impacts in the preferred early window."
+    },
+    {
+      "time": 136.0457,
+      "type": "arrival",
+      "force": 0.6772,
+      "scale": 0.7524,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 136s; measured attack, not every transient."
+    },
+    {
+      "time": 202.7566,
+      "type": "arrival",
+      "force": 0.7011,
+      "scale": 0.7763,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 204s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 16.08,
+      "end": 17.28,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 42.8,
+      "end": 44.528,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 96.16,
+      "end": 98.2336,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 123.28,
+      "end": 124.48,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 181.56,
+      "end": 184.4976,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 213.4,
+      "end": 214.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 230.9365,
+      "end": 232.1365,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/8",
+    "analysis": "analysis/09-places-remember-events.json",
+    "reference_sha256": "19030841cd13468e4fd28e029b8f01517f5e8877f1af34f624e05d63b31f8c44"
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "track_id": "18-birch-beer-forest",
+  "seed": 3098539203,
+  "title": "birch beer forest",
+  "artist": "Marumari",
+  "duration": 211.440998,
+  "style": "digital-organic / playful",
+  "direction": "Use the earlier proven window for the short demo. Mix small irregular impacts with occasional medium accents, letting the rain feel both organic and sequenced. Keep the later high-contrast window as an alternate.",
+  "authored_density": "medium",
+  "authored_force": "light-medium",
+  "recommended_demo": {
+    "start": 35.73,
+    "end": 48.23
+  },
+  "alternate_demo": {
+    "start": 115.14,
+    "end": 127.64
+  },
+  "sections": [
+    {
+      "name": "glints: opening",
+      "start": 0,
+      "end": 20.0,
+      "density": [
+        0.13,
+        0.13
+      ],
+      "force": [
+        0.441,
+        0.4655
+      ],
+      "scale": [
+        0.7674,
+        0.7674
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 1",
+      "start": 20.0,
+      "end": 36.0,
+      "density": [
+        0.13,
+        0.38
+      ],
+      "force": [
+        0.4508,
+        0.4753
+      ],
+      "scale": [
+        0.7617,
+        0.7617
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 2",
+      "start": 36.0,
+      "end": 136.0,
+      "density": [
+        0.38,
+        0.55
+      ],
+      "force": [
+        0.4606,
+        0.4851
+      ],
+      "scale": [
+        0.7747,
+        0.7747
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 3",
+      "start": 136.0,
+      "end": 160.0,
+      "density": [
+        0.55,
+        0.62
+      ],
+      "force": [
+        0.4704,
+        0.4949
+      ],
+      "scale": [
+        0.7695,
+        0.7695
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 4",
+      "start": 160.0,
+      "end": 180.0,
+      "density": [
+        0.62,
+        0.44
+      ],
+      "force": [
+        0.4802,
+        0.5047
+      ],
+      "scale": [
+        0.7789,
+        0.7789
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 5",
+      "start": 180.0,
+      "end": 200.0,
+      "density": [
+        0.44,
+        0.32
+      ],
+      "force": [
+        0.49,
+        0.5145
+      ],
+      "scale": [
+        0.7694,
+        0.7694
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: release",
+      "start": 200.0,
+      "end": 211.440998,
+      "density": [
+        0.32,
+        0.14
+      ],
+      "force": [
+        0.4998,
+        0.5243
+      ],
+      "scale": [
+        0.7781,
+        0.7781
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.63,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.18,
+          0.47
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    }
+  ],
+  "accents": [
+    {
+      "time": 36.4553,
+      "type": "arrival",
+      "force": 0.7145,
+      "scale": 0.9734,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 36s; measured attack, not every transient."
+    },
+    {
+      "time": 135.9993,
+      "type": "arrival",
+      "force": 0.72,
+      "scale": 0.9789,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 136s; measured attack, not every transient."
+    },
+    {
+      "time": 180.3494,
+      "type": "arrival",
+      "force": 0.7278,
+      "scale": 0.9867,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 180s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 13.4,
+      "end": 14.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 27.52,
+      "end": 28.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 103.0,
+      "end": 106.42,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 147.28,
+      "end": 148.48,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 173.4,
+      "end": 174.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 189.4,
+      "end": 190.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 207.6655,
+      "end": 208.8655,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/17",
+    "analysis": "analysis/18-birch-beer-forest.json",
+    "reference_sha256": "6a4ddb1673f4d87a746b1a7397fa0f9956dd0944b37f723416c4c358a78c90ec"
+  }
+}

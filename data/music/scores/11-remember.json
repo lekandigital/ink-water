@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "track_id": "11-remember",
+  "seed": 1009114009,
+  "title": "Remember",
+  "artist": "",
+  "duration": 133.907483,
+  "style": "melodic / restrained",
+  "direction": "The intro is aesthetically interesting, so keep it as an alternate capture. For the stronger full-song passage, use a restrained pulse of small-to-medium impacts with long enough gaps to preserve the melody.",
+  "authored_density": "low-medium",
+  "authored_force": "light-medium",
+  "recommended_demo": {
+    "start": 78.4,
+    "end": 90.9
+  },
+  "alternate_demo": {
+    "start": 0.0,
+    "end": 12.5
+  },
+  "sections": [
+    {
+      "name": "motif: opening",
+      "start": 0,
+      "end": 16.0,
+      "density": [
+        0.17,
+        0.17
+      ],
+      "force": [
+        0.405,
+        0.4275
+      ],
+      "scale": [
+        0.9172,
+        0.9172
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 1",
+      "start": 16.0,
+      "end": 32.0,
+      "density": [
+        0.17,
+        0.28
+      ],
+      "force": [
+        0.414,
+        0.4365
+      ],
+      "scale": [
+        0.9175,
+        0.9175
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 2",
+      "start": 32.0,
+      "end": 52.0,
+      "density": [
+        0.28,
+        0.21
+      ],
+      "force": [
+        0.423,
+        0.4455
+      ],
+      "scale": [
+        0.917,
+        0.917
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 3",
+      "start": 52.0,
+      "end": 72.0,
+      "density": [
+        0.21,
+        0.33
+      ],
+      "force": [
+        0.432,
+        0.4545
+      ],
+      "scale": [
+        0.9204,
+        0.9204
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 4",
+      "start": 72.0,
+      "end": 88.0,
+      "density": [
+        0.33,
+        0.38
+      ],
+      "force": [
+        0.441,
+        0.4635
+      ],
+      "scale": [
+        0.9042,
+        0.9042
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: phrase 5",
+      "start": 88.0,
+      "end": 116.0,
+      "density": [
+        0.38,
+        0.23
+      ],
+      "force": [
+        0.45,
+        0.4725
+      ],
+      "scale": [
+        0.9181,
+        0.9181
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    },
+    {
+      "name": "motif: release",
+      "start": 116.0,
+      "end": 133.907483,
+      "density": [
+        0.23,
+        0.12
+      ],
+      "force": [
+        0.459,
+        0.4815
+      ],
+      "scale": [
+        0.915,
+        0.915
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.31,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "motif",
+        "spread": 0.76,
+        "wander": 0.19,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+    }
+  ],
+  "accents": [
+    {
+      "time": 71.7264,
+      "type": "arrival",
+      "force": 0.6789,
+      "scale": 1.1452,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 72s; measured attack, not every transient."
+    },
+    {
+      "time": 88.0036,
+      "type": "arrival",
+      "force": 0.6983,
+      "scale": 1.1646,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 88s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 10.72,
+      "end": 11.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 23.52,
+      "end": 24.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 45.4,
+      "end": 46.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 61.4,
+      "end": 62.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 82.72,
+      "end": 83.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 101.16,
+      "end": 102.672,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 127.998,
+      "end": 129.198,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/10",
+    "analysis": "analysis/11-remember.json",
+    "reference_sha256": "910ec9e8e35296fa03c7f56fc3c60689b6252607da7076d32af479c1252b33c1"
+  }
+}

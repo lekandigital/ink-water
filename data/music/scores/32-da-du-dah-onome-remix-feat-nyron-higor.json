@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "track_id": "32-da-du-dah-onome-remix-feat-nyron-higor",
+  "seed": 3264905271,
+  "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+  "artist": "",
+  "duration": 223.565079,
+  "style": "organic groove / closing release",
+  "direction": "Use loose, human-feeling rhythmic clusters with gentle asymmetry. Keep the choreography warm and flowing; avoid quantizing the rain too tightly.",
+  "authored_density": "medium",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 62.05,
+    "end": 74.55
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "rounded: opening",
+      "start": 0,
+      "end": 24.0,
+      "density": [
+        0.25,
+        0.25
+      ],
+      "force": [
+        0.486,
+        0.513
+      ],
+      "scale": [
+        0.9688,
+        0.9688
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 1",
+      "start": 24.0,
+      "end": 60.0,
+      "density": [
+        0.25,
+        0.42
+      ],
+      "force": [
+        0.4968,
+        0.5238
+      ],
+      "scale": [
+        0.982,
+        0.982
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 2",
+      "start": 60.0,
+      "end": 88.0,
+      "density": [
+        0.42,
+        0.59
+      ],
+      "force": [
+        0.5076,
+        0.5346
+      ],
+      "scale": [
+        0.971,
+        0.971
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 3",
+      "start": 88.0,
+      "end": 120.0,
+      "density": [
+        0.59,
+        0.48
+      ],
+      "force": [
+        0.5184,
+        0.5454
+      ],
+      "scale": [
+        0.9868,
+        0.9868
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 4",
+      "start": 120.0,
+      "end": 164.0,
+      "density": [
+        0.48,
+        0.53
+      ],
+      "force": [
+        0.5292,
+        0.5562
+      ],
+      "scale": [
+        0.9734,
+        0.9734
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 5",
+      "start": 164.0,
+      "end": 208.0,
+      "density": [
+        0.53,
+        0.32
+      ],
+      "force": [
+        0.54,
+        0.567
+      ],
+      "scale": [
+        0.9703,
+        0.9703
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: release",
+      "start": 208.0,
+      "end": 223.565079,
+      "density": [
+        0.32,
+        0.08
+      ],
+      "force": [
+        0.5508,
+        0.5778
+      ],
+      "scale": [
+        0.9913,
+        0.9913
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.62,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.27,
+          0.63
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.17,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    }
+  ],
+  "accents": [
+    {
+      "time": 59.8378,
+      "type": "arrival",
+      "force": 0.7917,
+      "scale": 1.2191,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 60s; measured attack, not every transient."
+    },
+    {
+      "time": 120.3026,
+      "type": "arrival",
+      "force": 0.7951,
+      "scale": 1.2225,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 120s; measured attack, not every transient."
+    },
+    {
+      "time": 164.8385,
+      "type": "arrival",
+      "force": 0.784,
+      "scale": 1.2114,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 164s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/31",
+    "analysis": "analysis/32-da-du-dah-onome-remix-feat-nyron-higor.json",
+    "reference_sha256": "f1b9c56f63408291c855fc0b53e34d5fe4b5f58f37866228427721e374c68913"
+  }
+}

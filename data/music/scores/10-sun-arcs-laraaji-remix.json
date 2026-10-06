@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "track_id": "10-sun-arcs-laraaji-remix",
+  "seed": 2402321929,
+  "title": "Sun Arcs (Laraaji Remix)",
+  "artist": "",
+  "duration": 252.0,
+  "style": "shimmer / atmospheric",
+  "direction": "Use widely spaced small drops, occasional paired glints, and slow background activity. Let shimmering passages increase spatial spread rather than simply density.",
+  "authored_density": "low-medium",
+  "authored_force": "light",
+  "recommended_demo": {
+    "start": 27.78,
+    "end": 40.28
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "glints: opening",
+      "start": 0,
+      "end": 8.0,
+      "density": [
+        0.14,
+        0.14
+      ],
+      "force": [
+        0.243,
+        0.2565
+      ],
+      "scale": [
+        0.5563,
+        0.5563
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 1",
+      "start": 8.0,
+      "end": 52.0,
+      "density": [
+        0.14,
+        0.24
+      ],
+      "force": [
+        0.2484,
+        0.2619
+      ],
+      "scale": [
+        0.5491,
+        0.5491
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 2",
+      "start": 52.0,
+      "end": 152.0,
+      "density": [
+        0.24,
+        0.31
+      ],
+      "force": [
+        0.2538,
+        0.2673
+      ],
+      "scale": [
+        0.5547,
+        0.5547
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 3",
+      "start": 152.0,
+      "end": 200.0,
+      "density": [
+        0.31,
+        0.22
+      ],
+      "force": [
+        0.2592,
+        0.2727
+      ],
+      "scale": [
+        0.558,
+        0.558
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 4",
+      "start": 200.0,
+      "end": 216.0,
+      "density": [
+        0.22,
+        0.36
+      ],
+      "force": [
+        0.2646,
+        0.2781
+      ],
+      "scale": [
+        0.5572,
+        0.5572
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 5",
+      "start": 216.0,
+      "end": 244.0,
+      "density": [
+        0.36,
+        0.26
+      ],
+      "force": [
+        0.27,
+        0.2835
+      ],
+      "scale": [
+        0.5749,
+        0.5749
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: release",
+      "start": 244.0,
+      "end": 252.0,
+      "density": [
+        0.26,
+        0.12
+      ],
+      "force": [
+        0.2754,
+        0.2889
+      ],
+      "scale": [
+        0.5539,
+        0.5539
+      ],
+      "background": 0.06,
+      "cluster": {
+        "probability": 0.26,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.38,
+          0.82
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.08,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    }
+  ],
+  "accents": [
+    {
+      "time": 52.1985,
+      "type": "arrival",
+      "force": 0.3711,
+      "scale": 0.6792,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 52s; measured attack, not every transient."
+    },
+    {
+      "time": 214.8775,
+      "type": "arrival",
+      "force": 0.3766,
+      "scale": 0.6847,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 216s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/9",
+    "analysis": "analysis/10-sun-arcs-laraaji-remix.json",
+    "reference_sha256": "bd6691a91511e92cf0c07ecc4d41b978f1968c8d1271f67a58d70bb7306fd434"
+  }
+}

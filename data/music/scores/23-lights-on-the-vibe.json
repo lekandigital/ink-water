@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "23-lights-on-the-vibe",
+  "seed": 1584413354,
+  "title": "Lights On the Vibe",
+  "artist": "",
+  "duration": 461.647528,
+  "style": "warm / downtempo",
+  "direction": "Use relaxed, rounded drops and slow cluster entrances. Favor warmth and spacing over technical precision. Good candidate for a long site session rather than a flagship viral clip.",
+  "authored_density": "low-medium",
+  "authored_force": "soft-medium",
+  "recommended_demo": {
+    "start": 86.46,
+    "end": 98.96
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "rounded: opening",
+      "start": 0,
+      "end": 12.0,
+      "density": [
+        0.14,
+        0.14
+      ],
+      "force": [
+        0.396,
+        0.418
+      ],
+      "scale": [
+        1.0446,
+        1.0446
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 1",
+      "start": 12.0,
+      "end": 84.0,
+      "density": [
+        0.14,
+        0.25
+      ],
+      "force": [
+        0.4048,
+        0.4268
+      ],
+      "scale": [
+        1.0743,
+        1.0743
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 2",
+      "start": 84.0,
+      "end": 112.0,
+      "density": [
+        0.25,
+        0.34
+      ],
+      "force": [
+        0.4136,
+        0.4356
+      ],
+      "scale": [
+        1.056,
+        1.056
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 3",
+      "start": 112.0,
+      "end": 192.0,
+      "density": [
+        0.34,
+        0.24
+      ],
+      "force": [
+        0.4224,
+        0.4444
+      ],
+      "scale": [
+        1.0563,
+        1.0563
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 4",
+      "start": 192.0,
+      "end": 212.0,
+      "density": [
+        0.24,
+        0.37
+      ],
+      "force": [
+        0.4312,
+        0.4532
+      ],
+      "scale": [
+        1.0365,
+        1.0365
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: phrase 5",
+      "start": 212.0,
+      "end": 248.0,
+      "density": [
+        0.37,
+        0.29
+      ],
+      "force": [
+        0.44,
+        0.462
+      ],
+      "scale": [
+        1.0604,
+        1.0604
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    },
+    {
+      "name": "rounded: release",
+      "start": 248.0,
+      "end": 461.647528,
+      "density": [
+        0.29,
+        0.13
+      ],
+      "force": [
+        0.4488,
+        0.4708
+      ],
+      "scale": [
+        1.0565,
+        1.0565
+      ],
+      "background": 0.025,
+      "cluster": {
+        "probability": 0.32,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.38,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "rounded",
+        "spread": 0.79,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.19,
+      "note": "Warm rounded clusters with loose asymmetry and unhurried entrances."
+    }
+  ],
+  "accents": [
+    {
+      "time": 83.499,
+      "type": "arrival",
+      "force": 0.6399,
+      "scale": 1.2967,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 84s; measured attack, not every transient."
+    },
+    {
+      "time": 213.1824,
+      "type": "arrival",
+      "force": 0.6575,
+      "scale": 1.3143,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 212s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 8.04,
+      "end": 9.24,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 45.84,
+      "end": 48.3024,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 102.76,
+      "end": 103.96,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 149.6,
+      "end": 152.336,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 205.4,
+      "end": 206.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 228.92,
+      "end": 230.1512,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 391.1438,
+      "end": 396.6438,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/22",
+    "analysis": "analysis/23-lights-on-the-vibe.json",
+    "reference_sha256": "612353173c863a57607f717460f17a282cba2df9219466f31100576c7651fa42"
+  }
+}

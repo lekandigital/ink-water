@@ -29,6 +29,7 @@
     <div class="identity"><h1>Ink Water</h1><span class="byline">A water study</span></div>
     <div class="header-actions">
       <span class="view-label">Seen from above</span>
+      <button id="music-open" class="plain-button" type="button" aria-expanded="false" aria-controls="music-panel">Music</button>
       <button id="pause" class="plain-button" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span></button>
       <button id="toggle-controls" class="plain-button" type="button" aria-expanded="false" aria-controls="controls">Show controls</button>
     </div>
@@ -132,6 +133,23 @@
       <button id="clear" class="clear-button" type="button">Still the water</button>
       <p class="experiment-note">Bitmap experiments layer over ordinary water and its projected caustics. Print experiments are a separate treatment. Dreamy and Subtle can be combined. C, X and / replay fixed touch paths.</p>
       <details class="about"><summary>About this study</summary><p>Simulated water, drawn instead of rendered, seen straight down. The water comes from Evan Wallace's <a href="https://madebyevan.com/webgl-water/" target="_blank" rel="noopener noreferrer">WebGL Water</a> (2010), by way of Yong Su's <a href="https://github.com/jeantimex/threejs-water" target="_blank" rel="noopener noreferrer">Three.js port</a>; Ink Water draws it.</p><p>Each impact creates a group of concentric waves that travels outward and fades. Open edges absorb outgoing waves instead of sending them back. Hairline ripples keep complete strokes; switch them off for the artistic contours and bitmap etching texture. Original shows the simulated surface.</p><p>The print experiments can be combined. Bitmap ripples and Texture reveal replace the stroke with marks; Printed paper and Refract the print add texture. Switch the experiments off to return to the existing drawing.</p><p>Projected caustics are refracted light below the water, so their brightest points need not match the ripple crests. Overhead light reduces the sideways shift. Align glow to ripples is a separate artistic surface effect. Original always uses the projected light. Two faint lines on the floor show the surface bending the view.</p><p>A heightfield wave model with refraction and caustics. It does not simulate breaking waves, spray or full fluid flow.</p><p>WebGL Water: Evan Wallace, 2010. Three.js port: Yong Su (jeantimex), 2026. Drawing and interaction: Ink Water. <a href="./LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>.</p></details>
+    </aside>
+    <aside id="music-panel" class="music-panel" aria-label="Music and authored rain" hidden>
+      <div class="music-heading"><span class="music-eyebrow">Authored weather</span><button id="music-close" type="button" class="plain-button" aria-label="Close music">Close</button></div>
+      <div class="now-playing"><h2 id="music-title">Ink Water playlist</h2><span id="music-artist"></span><span id="music-position">32 tracks</span></div>
+      <div id="youtube-frame" class="youtube-frame"><p>Music makes its own weather.</p></div>
+      <audio id="music-local-audio" controls preload="metadata" hidden></audio>
+      <div class="music-transport"><button id="music-previous" type="button" aria-label="Previous track">Previous</button><button id="music-play" type="button">Play playlist</button><button id="music-pause" type="button">Pause</button><button id="music-next" type="button" aria-label="Next track">Next</button></div>
+      <div class="music-timeline"><span id="music-time">0:00</span><button id="music-restart" type="button">Restart</button><button id="music-highlight" type="button">Highlight</button><button id="music-sync" type="button" aria-pressed="true">Rain sync on</button></div>
+      <p id="music-status" class="music-status" role="status" aria-live="polite">Ready</p>
+      <p id="music-playlist-note" class="music-status"></p>
+      <details class="music-validation"><summary>Playback source check</summary><pre id="music-source-report">Playlist IDs are checked when YouTube loads.</pre></details>
+      <p id="music-weather" class="music-weather">Each song has its own authored weather.</p>
+      <details class="music-selection"><summary>Choose a track or playlist</summary>
+        <label for="music-track">Track</label><select id="music-track" aria-label="Choose track"></select>
+        <form id="music-playlist-form"><label for="music-playlist-id">YouTube playlist</label><div class="playlist-entry"><input id="music-playlist-id" type="text" placeholder="Playlist URL or ID" autocomplete="off"><button type="submit">Load</button></div></form>
+      </details>
+      <div id="music-dev" class="music-dev" hidden><label for="music-local-files">Reference recordings<input id="music-local-files" type="file" accept=".mp3,audio/mpeg" multiple></label><small>Choose the numbered MP3s. Files stay in this browser.</small></div>
     </aside>
   </main>
   <footer class="footnote"><span id="interaction-hint">Touch the water. Leave a ripple.</span><span class="keyboard-hint"><kbd>Space</kbd> pause <span class="footer-separator">/</span> <kbd>H</kbd> controls <span class="footer-separator">·</span> <kbd>C</kbd> <kbd>X</kbd> <kbd>/</kbd> gestures</span></footer>

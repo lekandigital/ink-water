@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "12-wilson-tanner-blush",
+  "seed": 1307006045,
+  "title": "Wilson Tanner - Blush",
+  "artist": "Wilson Tanner",
+  "duration": 230.464036,
+  "style": "soft / suspended",
+  "direction": "Sparse choreography. Use isolated soft impacts and a faint background drizzle only when the energy supports it. Let rings overlap slowly instead of creating busy clusters.",
+  "authored_density": "low",
+  "authored_force": "soft",
+  "recommended_demo": {
+    "start": 167.78,
+    "end": 180.28
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "suspended: opening",
+      "start": 0,
+      "end": 56.0,
+      "density": [
+        0.07,
+        0.07
+      ],
+      "force": [
+        0.243,
+        0.2565
+      ],
+      "scale": [
+        1.0228,
+        1.0228
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 1",
+      "start": 56.0,
+      "end": 108.0,
+      "density": [
+        0.07,
+        0.15
+      ],
+      "force": [
+        0.2484,
+        0.2619
+      ],
+      "scale": [
+        1.0094,
+        1.0094
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 2",
+      "start": 108.0,
+      "end": 128.0,
+      "density": [
+        0.15,
+        0.12
+      ],
+      "force": [
+        0.2538,
+        0.2673
+      ],
+      "scale": [
+        1.0049,
+        1.0049
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 3",
+      "start": 128.0,
+      "end": 144.0,
+      "density": [
+        0.12,
+        0.19
+      ],
+      "force": [
+        0.2592,
+        0.2727
+      ],
+      "scale": [
+        1.0056,
+        1.0056
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 4",
+      "start": 144.0,
+      "end": 172.0,
+      "density": [
+        0.19,
+        0.22
+      ],
+      "force": [
+        0.2646,
+        0.2781
+      ],
+      "scale": [
+        1.0148,
+        1.0148
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: phrase 5",
+      "start": 172.0,
+      "end": 220.0,
+      "density": [
+        0.22,
+        0.15
+      ],
+      "force": [
+        0.27,
+        0.2835
+      ],
+      "scale": [
+        1.0036,
+        1.0036
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    },
+    {
+      "name": "suspended: release",
+      "start": 220.0,
+      "end": 230.464036,
+      "density": [
+        0.15,
+        0.06
+      ],
+      "force": [
+        0.2754,
+        0.2889
+      ],
+      "scale": [
+        1.0118,
+        1.0118
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.12,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.5,
+          1.2
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "suspended",
+        "spread": 0.85,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.28,
+      "note": "Mostly open water; soft solitary drops and occasional slow pairs."
+    }
+  ],
+  "accents": [
+    {
+      "time": 128.3367,
+      "type": "arrival",
+      "force": 0.3904,
+      "scale": 1.2295,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 128s; measured attack, not every transient."
+    },
+    {
+      "time": 170.9685,
+      "type": "arrival",
+      "force": 0.3959,
+      "scale": 1.235,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 172s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 37.52,
+      "end": 40.3424,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 80.44,
+      "end": 83.0608,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 121.4,
+      "end": 122.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 135.52,
+      "end": 136.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 162.76,
+      "end": 164.1712,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 194.56,
+      "end": 196.9792,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 227.0109,
+      "end": 228.2109,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/11",
+    "analysis": "analysis/12-wilson-tanner-blush.json",
+    "reference_sha256": "a8cd30d8658ae2c150609ead176e187305eac4b158b2ec84a189d052f5d23c01"
+  }
+}

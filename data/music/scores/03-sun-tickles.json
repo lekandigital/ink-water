@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "track_id": "03-sun-tickles",
+  "seed": 2844696453,
+  "title": "Sun Tickles",
+  "artist": "Salamanda",
+  "duration": 271.807347,
+  "style": "playful / patterned",
+  "direction": "Use small, bright-feeling pinprick impacts in asymmetric groups. Keep the water lively rather than heavy. The earlier 0:24.8 window is the more charming short demo; the ~1:24 window is the higher-contrast machine candidate.",
+  "authored_density": "light→medium",
+  "authored_force": "light",
+  "recommended_demo": {
+    "start": 24.84,
+    "end": 37.34
+  },
+  "alternate_demo": {
+    "start": 83.78,
+    "end": 96.28
+  },
+  "sections": [
+    {
+      "name": "glints: opening",
+      "start": 0,
+      "end": 24.0,
+      "density": [
+        0.16,
+        0.16
+      ],
+      "force": [
+        0.324,
+        0.342
+      ],
+      "scale": [
+        0.6082,
+        0.6082
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 1",
+      "start": 24.0,
+      "end": 92.0,
+      "density": [
+        0.16,
+        0.36
+      ],
+      "force": [
+        0.3312,
+        0.3492
+      ],
+      "scale": [
+        0.6077,
+        0.6077
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 2",
+      "start": 92.0,
+      "end": 132.0,
+      "density": [
+        0.36,
+        0.29
+      ],
+      "force": [
+        0.3384,
+        0.3564
+      ],
+      "scale": [
+        0.6096,
+        0.6096
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 3",
+      "start": 132.0,
+      "end": 156.0,
+      "density": [
+        0.29,
+        0.42
+      ],
+      "force": [
+        0.3456,
+        0.3636
+      ],
+      "scale": [
+        0.6027,
+        0.6027
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 4",
+      "start": 156.0,
+      "end": 200.0,
+      "density": [
+        0.42,
+        0.24
+      ],
+      "force": [
+        0.3528,
+        0.3708
+      ],
+      "scale": [
+        0.6018,
+        0.6018
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: phrase 5",
+      "start": 200.0,
+      "end": 232.0,
+      "density": [
+        0.24,
+        0.35
+      ],
+      "force": [
+        0.36,
+        0.378
+      ],
+      "scale": [
+        0.6038,
+        0.6038
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    },
+    {
+      "name": "glints: release",
+      "start": 232.0,
+      "end": 271.807347,
+      "density": [
+        0.35,
+        0.15
+      ],
+      "force": [
+        0.3672,
+        0.3852
+      ],
+      "scale": [
+        0.606,
+        0.606
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.65,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.14,
+          0.42
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "glints",
+        "spread": 0.92,
+        "wander": 0.27,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.18,
+      "note": "Asymmetric pinpricks and widely separated paired glints."
+    }
+  ],
+  "accents": [
+    {
+      "time": 24.4274,
+      "type": "arrival",
+      "force": 0.5839,
+      "scale": 0.8177,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 24s; measured attack, not every transient."
+    },
+    {
+      "time": 27.3995,
+      "type": "glint",
+      "force": 0.28,
+      "scale": 0.49,
+      "count": 2,
+      "spacing": 0.23,
+      "anticipation": 0.25,
+      "quiet": 0.4,
+      "note": "A small asymmetric paired glint in the preferred early window."
+    },
+    {
+      "time": 34.5513,
+      "type": "glint",
+      "force": 0.28,
+      "scale": 0.49,
+      "count": 2,
+      "spacing": 0.39,
+      "anticipation": 0.25,
+      "quiet": 0.4,
+      "note": "A small asymmetric paired glint in the preferred early window."
+    },
+    {
+      "time": 131.007,
+      "type": "arrival",
+      "force": 0.581,
+      "scale": 0.8148,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 132s; measured attack, not every transient."
+    },
+    {
+      "time": 200.9455,
+      "type": "arrival",
+      "force": 0.5413,
+      "scale": 0.7751,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 200s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 16.08,
+      "end": 17.28,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 55.96,
+      "end": 58.1632,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 118.8,
+      "end": 120.096,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 143.28,
+      "end": 144.48,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 185.48,
+      "end": 186.9056,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 215.04,
+      "end": 216.24,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 258.6709,
+      "end": 259.9607,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/2",
+    "analysis": "analysis/03-sun-tickles.json",
+    "reference_sha256": "0b3caf970ff79aa4db2dd8f347fa76e09f6fa13fd09cc3b45cb308fd67cdeb2d"
+  }
+}

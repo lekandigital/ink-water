@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "track_id": "21-continuum-3",
+  "seed": 4193532708,
+  "title": "Continuum 3",
+  "artist": "Nala Sinephro",
+  "duration": 247.538866,
+  "style": "flowing / harmonic",
+  "direction": "Use graceful density curves, not a beat grid. Let arpeggiated activity produce more small drops while sustained moments pull back. The earlier 1:22.69 window remains a tested visual alternate.",
+  "authored_density": "low→medium",
+  "authored_force": "soft-medium",
+  "recommended_demo": {
+    "start": 126.11,
+    "end": 138.61
+  },
+  "alternate_demo": {
+    "start": 82.69,
+    "end": 95.19
+  },
+  "sections": [
+    {
+      "name": "flow: opening",
+      "start": 0,
+      "end": 24.0,
+      "density": [
+        0.15,
+        0.15
+      ],
+      "force": [
+        0.315,
+        0.3325
+      ],
+      "scale": [
+        0.8632,
+        0.8632
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    },
+    {
+      "name": "flow: phrase 1",
+      "start": 24.0,
+      "end": 44.0,
+      "density": [
+        0.15,
+        0.35
+      ],
+      "force": [
+        0.322,
+        0.3395
+      ],
+      "scale": [
+        0.9112,
+        0.9112
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    },
+    {
+      "name": "flow: phrase 2",
+      "start": 44.0,
+      "end": 68.0,
+      "density": [
+        0.35,
+        0.17
+      ],
+      "force": [
+        0.329,
+        0.3465
+      ],
+      "scale": [
+        0.9046,
+        0.9046
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    },
+    {
+      "name": "flow: phrase 3",
+      "start": 68.0,
+      "end": 108.0,
+      "density": [
+        0.17,
+        0.28
+      ],
+      "force": [
+        0.336,
+        0.3535
+      ],
+      "scale": [
+        0.8907,
+        0.8907
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    },
+    {
+      "name": "flow: phrase 4",
+      "start": 108.0,
+      "end": 204.0,
+      "density": [
+        0.28,
+        0.43
+      ],
+      "force": [
+        0.343,
+        0.3605
+      ],
+      "scale": [
+        0.8832,
+        0.8832
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    },
+    {
+      "name": "flow: phrase 5",
+      "start": 204.0,
+      "end": 224.0,
+      "density": [
+        0.43,
+        0.26
+      ],
+      "force": [
+        0.35,
+        0.3675
+      ],
+      "scale": [
+        0.8556,
+        0.8556
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    },
+    {
+      "name": "flow: release",
+      "start": 224.0,
+      "end": 247.538866,
+      "density": [
+        0.26,
+        0.15
+      ],
+      "force": [
+        0.357,
+        0.3745
+      ],
+      "scale": [
+        0.889,
+        0.889
+      ],
+      "background": 0.05,
+      "cluster": {
+        "probability": 0.24,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.52,
+          1.12
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "flow",
+        "spread": 0.91,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.14,
+      "note": "Graceful moving density curves; sustained passages pull back."
+    }
+  ],
+  "accents": [
+    {
+      "time": 23.9862,
+      "type": "arrival",
+      "force": 0.5715,
+      "scale": 1.1492,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 24s; measured attack, not every transient."
+    },
+    {
+      "time": 107.578,
+      "type": "arrival",
+      "force": 0.5375,
+      "scale": 1.1152,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 108s; measured attack, not every transient."
+    },
+    {
+      "time": 204.8232,
+      "type": "arrival",
+      "force": 0.5714,
+      "scale": 1.1491,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 204s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/20",
+    "analysis": "analysis/21-continuum-3.json",
+    "reference_sha256": "4890b68d9c64c7f930f264d0e00f25dda9b83cd16ce5ceb5bd2c210ed26ac8c9"
+  }
+}

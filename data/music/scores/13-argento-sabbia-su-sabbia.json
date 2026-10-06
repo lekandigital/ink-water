@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "13-argento-sabbia-su-sabbia",
+  "seed": 2913894809,
+  "title": "Argento - Sabbia Su Sabbia",
+  "artist": "Argento",
+  "duration": 208.469388,
+  "style": "dry / granular atmosphere",
+  "direction": "Use tiny granular clusters with broad spatial distribution and low force. Occasional denser moments can resemble grains briefly becoming rain, but keep the surface readable.",
+  "authored_density": "low-medium",
+  "authored_force": "light",
+  "recommended_demo": {
+    "start": 118.5,
+    "end": 131.0
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "granules: opening",
+      "start": 0,
+      "end": 20.0,
+      "density": [
+        0.2,
+        0.2
+      ],
+      "force": [
+        0.27,
+        0.285
+      ],
+      "scale": [
+        0.4743,
+        0.4743
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    },
+    {
+      "name": "granules: phrase 1",
+      "start": 20.0,
+      "end": 80.0,
+      "density": [
+        0.2,
+        0.34
+      ],
+      "force": [
+        0.276,
+        0.291
+      ],
+      "scale": [
+        0.4743,
+        0.4743
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    },
+    {
+      "name": "granules: phrase 2",
+      "start": 80.0,
+      "end": 112.0,
+      "density": [
+        0.34,
+        0.39
+      ],
+      "force": [
+        0.282,
+        0.297
+      ],
+      "scale": [
+        0.4706,
+        0.4706
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    },
+    {
+      "name": "granules: phrase 3",
+      "start": 112.0,
+      "end": 148.0,
+      "density": [
+        0.39,
+        0.31
+      ],
+      "force": [
+        0.288,
+        0.303
+      ],
+      "scale": [
+        0.4661,
+        0.4661
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    },
+    {
+      "name": "granules: phrase 4",
+      "start": 148.0,
+      "end": 172.0,
+      "density": [
+        0.31,
+        0.48
+      ],
+      "force": [
+        0.294,
+        0.309
+      ],
+      "scale": [
+        0.4685,
+        0.4685
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    },
+    {
+      "name": "granules: phrase 5",
+      "start": 172.0,
+      "end": 200.0,
+      "density": [
+        0.48,
+        0.35
+      ],
+      "force": [
+        0.3,
+        0.315
+      ],
+      "scale": [
+        0.469,
+        0.469
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    },
+    {
+      "name": "granules: release",
+      "start": 200.0,
+      "end": 208.469388,
+      "density": [
+        0.35,
+        0.16
+      ],
+      "force": [
+        0.306,
+        0.321
+      ],
+      "scale": [
+        0.452,
+        0.452
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.5,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.13,
+          0.37
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "granules",
+        "spread": 0.95,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.22,
+      "note": "Tiny widely distributed granular groups at very low force."
+    }
+  ],
+  "accents": [
+    {
+      "time": 80.341,
+      "type": "arrival",
+      "force": 0.4712,
+      "scale": 0.6208,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 80s; measured attack, not every transient."
+    },
+    {
+      "time": 148.004,
+      "type": "arrival",
+      "force": 0.4833,
+      "scale": 0.6329,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 148s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 13.4,
+      "end": 14.6,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 48.2,
+      "end": 50.576,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 101.44,
+      "end": 102.7072,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 128.92,
+      "end": 130.3456,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 164.08,
+      "end": 165.28,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 185.16,
+      "end": 186.36,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 205.6745,
+      "end": 206.8745,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/12",
+    "analysis": "analysis/13-argento-sabbia-su-sabbia.json",
+    "reference_sha256": "c276c2f16b19b91ffa4455fd9a8b02bc7e0d007037b704694ae835a8412e09ff"
+  }
+}

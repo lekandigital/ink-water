@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "30-in-memory",
+  "seed": 2911471511,
+  "title": "In Memory",
+  "artist": "",
+  "duration": 209.660136,
+  "style": "memory / dynamic",
+  "direction": "Use medium-weight impacts and shifting cluster sizes. Let transitions change both density and spatial focus so the surface seems to remember earlier disturbances.",
+  "authored_density": "medium",
+  "authored_force": "medium",
+  "recommended_demo": {
+    "start": 121.86,
+    "end": 134.36
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "memory: opening",
+      "start": 0,
+      "end": 28.0,
+      "density": [
+        0.24,
+        0.24
+      ],
+      "force": [
+        0.513,
+        0.5415
+      ],
+      "scale": [
+        0.9537,
+        0.9537
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    },
+    {
+      "name": "memory: phrase 1",
+      "start": 28.0,
+      "end": 44.0,
+      "density": [
+        0.24,
+        0.39
+      ],
+      "force": [
+        0.5244,
+        0.5529
+      ],
+      "scale": [
+        0.9701,
+        0.9701
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    },
+    {
+      "name": "memory: phrase 2",
+      "start": 44.0,
+      "end": 60.0,
+      "density": [
+        0.39,
+        0.53
+      ],
+      "force": [
+        0.5358,
+        0.5643
+      ],
+      "scale": [
+        0.9638,
+        0.9638
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    },
+    {
+      "name": "memory: phrase 3",
+      "start": 60.0,
+      "end": 96.0,
+      "density": [
+        0.53,
+        0.31
+      ],
+      "force": [
+        0.5472,
+        0.5757
+      ],
+      "scale": [
+        0.9544,
+        0.9544
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    },
+    {
+      "name": "memory: phrase 4",
+      "start": 96.0,
+      "end": 112.0,
+      "density": [
+        0.31,
+        0.61
+      ],
+      "force": [
+        0.5586,
+        0.5871
+      ],
+      "scale": [
+        0.9679,
+        0.9679
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    },
+    {
+      "name": "memory: phrase 5",
+      "start": 112.0,
+      "end": 188.0,
+      "density": [
+        0.61,
+        0.42
+      ],
+      "force": [
+        0.57,
+        0.5985
+      ],
+      "scale": [
+        0.9363,
+        0.9363
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    },
+    {
+      "name": "memory: release",
+      "start": 188.0,
+      "end": 209.660136,
+      "density": [
+        0.42,
+        0.16
+      ],
+      "force": [
+        0.5814,
+        0.6099
+      ],
+      "scale": [
+        0.9287,
+        0.9287
+      ],
+      "background": 0.015,
+      "cluster": {
+        "probability": 0.61,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.18,
+          0.46
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "memory",
+        "spread": 0.79,
+        "wander": 0.21,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Return to earlier spatial regions while changing density and group size."
+    }
+  ],
+  "accents": [
+    {
+      "time": 60.7434,
+      "type": "arrival",
+      "force": 0.8287,
+      "scale": 1.192,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 60s; measured attack, not every transient."
+    },
+    {
+      "time": 111.479,
+      "type": "arrival",
+      "force": 0.8246,
+      "scale": 1.1879,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 112s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 18.76,
+      "end": 19.9696,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 35.52,
+      "end": 36.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 54.72,
+      "end": 55.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 76.92,
+      "end": 78.4752,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 106.72,
+      "end": 107.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 147.72,
+      "end": 151.0032,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 202.5123,
+      "end": 203.7123,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/29",
+    "analysis": "analysis/30-in-memory.json",
+    "reference_sha256": "1bdbabc5cf9d57942ae041b6515a63ec75743e1ca0aefc6bb6733211539e382f"
+  }
+}

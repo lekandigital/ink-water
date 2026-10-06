@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "track_id": "05-time-to-find-me-afx-fast-mix",
+  "seed": 2659712989,
+  "title": "Time to Find Me (AFX Fast Mix)",
+  "artist": "Seefeel",
+  "duration": 457.0,
+  "style": "textural / uncanny",
+  "direction": "Treat the texture as a moving field: showers appear, thin out, then re-form elsewhere. Use asymmetric spatial clusters and deliberate holes. This should feel alien and tactile rather than metronomic.",
+  "authored_density": "medium",
+  "authored_force": "light-medium",
+  "recommended_demo": {
+    "start": 51.52,
+    "end": 64.02
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "showers: opening",
+      "start": 0,
+      "end": 44.0,
+      "density": [
+        0.28,
+        0.28
+      ],
+      "force": [
+        0.405,
+        0.4275
+      ],
+      "scale": [
+        0.7483,
+        0.7483
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    },
+    {
+      "name": "showers: phrase 1",
+      "start": 44.0,
+      "end": 280.0,
+      "density": [
+        0.28,
+        0.47
+      ],
+      "force": [
+        0.414,
+        0.4365
+      ],
+      "scale": [
+        0.7421,
+        0.7421
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    },
+    {
+      "name": "showers: phrase 2",
+      "start": 280.0,
+      "end": 328.0,
+      "density": [
+        0.47,
+        0.36
+      ],
+      "force": [
+        0.423,
+        0.4455
+      ],
+      "scale": [
+        0.7392,
+        0.7392
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    },
+    {
+      "name": "showers: phrase 3",
+      "start": 328.0,
+      "end": 368.0,
+      "density": [
+        0.36,
+        0.62
+      ],
+      "force": [
+        0.432,
+        0.4545
+      ],
+      "scale": [
+        0.734,
+        0.734
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    },
+    {
+      "name": "showers: phrase 4",
+      "start": 368.0,
+      "end": 396.0,
+      "density": [
+        0.62,
+        0.29
+      ],
+      "force": [
+        0.441,
+        0.4635
+      ],
+      "scale": [
+        0.739,
+        0.739
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    },
+    {
+      "name": "showers: phrase 5",
+      "start": 396.0,
+      "end": 448.0,
+      "density": [
+        0.29,
+        0.48
+      ],
+      "force": [
+        0.45,
+        0.4725
+      ],
+      "scale": [
+        0.738,
+        0.738
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    },
+    {
+      "name": "showers: release",
+      "start": 448.0,
+      "end": 457.0,
+      "density": [
+        0.48,
+        0.13
+      ],
+      "force": [
+        0.459,
+        0.4815
+      ],
+      "scale": [
+        0.7364,
+        0.7364
+      ],
+      "background": 0.02,
+      "cluster": {
+        "probability": 0.67,
+        "count": [
+          2,
+          4
+        ],
+        "spacing": [
+          0.1,
+          0.38
+        ],
+        "radius": 0.26
+      },
+      "spatial": {
+        "language": "showers",
+        "spread": 0.88,
+        "wander": 0.2,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.24,
+      "note": "Localized showers reform elsewhere; leave deliberate spatial holes."
+    }
+  ],
+  "accents": [
+    {
+      "time": 44.0018,
+      "type": "arrival",
+      "force": 0.6491,
+      "scale": 0.9148,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 44s; measured attack, not every transient."
+    },
+    {
+      "time": 328.8874,
+      "type": "arrival",
+      "force": 0.6427,
+      "scale": 0.9084,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 328s; measured attack, not every transient."
+    },
+    {
+      "time": 397.3166,
+      "type": "arrival",
+      "force": 0.6169,
+      "scale": 0.8826,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 396s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 29.48,
+      "end": 31.3808,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 154.92,
+      "end": 160.42,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 312.16,
+      "end": 314.2336,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 346.8,
+      "end": 348.528,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 386.76,
+      "end": 387.9696,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 420.44,
+      "end": 422.6864,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 454.03,
+      "end": 455.23,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/4",
+    "analysis": "analysis/05-time-to-find-me-afx-fast-mix.json",
+    "reference_sha256": "cd207f79d271be4a10f171e8dca6f0cb562c612ffdf0657e396b9a187f02dc00"
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "track_id": "26-a-future-untold",
+  "seed": 2945104710,
+  "title": "A Future Untold",
+  "artist": "",
+  "duration": 202.723265,
+  "style": "breath / phrase-led",
+  "direction": "Map musical phrases to broad rain gestures: one larger soft impact can mark a phrase entrance, followed by sparse smaller echoes. Do not chase individual notes.",
+  "authored_density": "low-medium",
+  "authored_force": "medium-soft",
+  "recommended_demo": {
+    "start": 98.56,
+    "end": 111.06
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "echo: opening",
+      "start": 0,
+      "end": 8.0,
+      "density": [
+        0.1,
+        0.1
+      ],
+      "force": [
+        0.414,
+        0.437
+      ],
+      "scale": [
+        1.0464,
+        1.0464
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    },
+    {
+      "name": "echo: phrase 1",
+      "start": 8.0,
+      "end": 52.0,
+      "density": [
+        0.1,
+        0.19
+      ],
+      "force": [
+        0.4232,
+        0.4462
+      ],
+      "scale": [
+        1.0183,
+        1.0183
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    },
+    {
+      "name": "echo: phrase 2",
+      "start": 52.0,
+      "end": 76.0,
+      "density": [
+        0.19,
+        0.26
+      ],
+      "force": [
+        0.4324,
+        0.4554
+      ],
+      "scale": [
+        1.0129,
+        1.0129
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    },
+    {
+      "name": "echo: phrase 3",
+      "start": 76.0,
+      "end": 136.0,
+      "density": [
+        0.26,
+        0.16
+      ],
+      "force": [
+        0.4416,
+        0.4646
+      ],
+      "scale": [
+        1.0065,
+        1.0065
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    },
+    {
+      "name": "echo: phrase 4",
+      "start": 136.0,
+      "end": 176.0,
+      "density": [
+        0.16,
+        0.28
+      ],
+      "force": [
+        0.4508,
+        0.4738
+      ],
+      "scale": [
+        1.0202,
+        1.0202
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    },
+    {
+      "name": "echo: phrase 5",
+      "start": 176.0,
+      "end": 192.0,
+      "density": [
+        0.28,
+        0.18
+      ],
+      "force": [
+        0.46,
+        0.483
+      ],
+      "scale": [
+        1.0308,
+        1.0308
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    },
+    {
+      "name": "echo: release",
+      "start": 192.0,
+      "end": 202.723265,
+      "density": [
+        0.18,
+        0.09
+      ],
+      "force": [
+        0.4692,
+        0.4922
+      ],
+      "scale": [
+        1.0288,
+        1.0288
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.46,
+        "count": [
+          2,
+          3
+        ],
+        "spacing": [
+          0.45,
+          0.98
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "echo",
+        "spread": 0.78,
+        "wander": 0.24,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.3,
+      "note": "Phrase entrances followed by smaller, softer physical echoes."
+    }
+  ],
+  "accents": [
+    {
+      "time": 50.9446,
+      "type": "arrival",
+      "force": 0.7022,
+      "scale": 1.3084,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 52s; measured attack, not every transient."
+    },
+    {
+      "time": 76.0918,
+      "type": "arrival",
+      "force": 0.6529,
+      "scale": 1.2591,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 76s; measured attack, not every transient."
+    },
+    {
+      "time": 176.1466,
+      "type": "arrival",
+      "force": 0.6586,
+      "scale": 1.2648,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 176s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 5.36,
+      "end": 6.56,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 28.68,
+      "end": 31.056,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 68.08,
+      "end": 69.376,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 104.2,
+      "end": 107.44,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 162.8,
+      "end": 164.96,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 183.52,
+      "end": 184.72,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 199.1846,
+      "end": 200.3846,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/25",
+    "analysis": "analysis/26-a-future-untold.json",
+    "reference_sha256": "c29889eda3e8a6978b82601d518338e65221faee058b1e022ee522560a600819"
+  }
+}

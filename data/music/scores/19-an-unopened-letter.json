@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "19-an-unopened-letter",
+  "seed": 3795392773,
+  "title": "An Unopened Letter",
+  "artist": "",
+  "duration": 173.522721,
+  "style": "handmade / miniature",
+  "direction": "Use small hand-placed-feeling clusters and soft isolated impacts. Avoid continuous rain. The motion should feel like a sketch becoming animated.",
+  "authored_density": "low-medium",
+  "authored_force": "light",
+  "recommended_demo": {
+    "start": 68.99,
+    "end": 81.49
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "miniature: opening",
+      "start": 0,
+      "end": 20.0,
+      "density": [
+        0.1,
+        0.1
+      ],
+      "force": [
+        0.288,
+        0.304
+      ],
+      "scale": [
+        0.7856,
+        0.7856
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 1",
+      "start": 20.0,
+      "end": 48.0,
+      "density": [
+        0.1,
+        0.22
+      ],
+      "force": [
+        0.2944,
+        0.3104
+      ],
+      "scale": [
+        0.795,
+        0.795
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 2",
+      "start": 48.0,
+      "end": 80.0,
+      "density": [
+        0.22,
+        0.16
+      ],
+      "force": [
+        0.3008,
+        0.3168
+      ],
+      "scale": [
+        0.7872,
+        0.7872
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 3",
+      "start": 80.0,
+      "end": 100.0,
+      "density": [
+        0.16,
+        0.29
+      ],
+      "force": [
+        0.3072,
+        0.3232
+      ],
+      "scale": [
+        0.7922,
+        0.7922
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 4",
+      "start": 100.0,
+      "end": 120.0,
+      "density": [
+        0.29,
+        0.19
+      ],
+      "force": [
+        0.3136,
+        0.3296
+      ],
+      "scale": [
+        0.8008,
+        0.8008
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 5",
+      "start": 120.0,
+      "end": 148.0,
+      "density": [
+        0.19,
+        0.24
+      ],
+      "force": [
+        0.32,
+        0.336
+      ],
+      "scale": [
+        0.7964,
+        0.7964
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: release",
+      "start": 148.0,
+      "end": 173.522721,
+      "density": [
+        0.24,
+        0.08
+      ],
+      "force": [
+        0.3264,
+        0.3424
+      ],
+      "scale": [
+        0.8012,
+        0.8012
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.42,
+        "count": [
+          1,
+          3
+        ],
+        "spacing": [
+          0.28,
+          0.75
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    }
+  ],
+  "accents": [
+    {
+      "time": 80.3643,
+      "type": "arrival",
+      "force": 0.4715,
+      "scale": 0.9953,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 80s; measured attack, not every transient."
+    },
+    {
+      "time": 119.6524,
+      "type": "arrival",
+      "force": 0.5231,
+      "scale": 1.0469,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 120s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 13.4,
+      "end": 14.66,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 33.16,
+      "end": 34.924,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 69.44,
+      "end": 71.456,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 89.4,
+      "end": 90.66,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 113.4,
+      "end": 114.66,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 133.16,
+      "end": 134.924,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 165.1002,
+      "end": 166.7082,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/18",
+    "analysis": "analysis/19-an-unopened-letter.json",
+    "reference_sha256": "7a9bc8453621a30705bad5f7158cad9d3205b431dad8c6f46007ef53c1f39e75"
+  }
+}

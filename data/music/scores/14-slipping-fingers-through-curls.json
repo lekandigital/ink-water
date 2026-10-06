@@ -1,0 +1,383 @@
+{
+  "schema_version": 1,
+  "track_id": "14-slipping-fingers-through-curls",
+  "seed": 171314827,
+  "title": "Slipping Fingers Through Curls",
+  "artist": "",
+  "duration": 217.528254,
+  "style": "tactile / collage",
+  "direction": "Use irregular microdrops, paired events and long gaps. The choreography should feel close and tactile, almost like marks appearing on paper, not like weather.",
+  "authored_density": "low-medium",
+  "authored_force": "light",
+  "recommended_demo": {
+    "start": 122.75,
+    "end": 135.25
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "miniature: opening",
+      "start": 0,
+      "end": 8.0,
+      "density": [
+        0.09,
+        0.09
+      ],
+      "force": [
+        0.297,
+        0.3135
+      ],
+      "scale": [
+        0.7539,
+        0.7539
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 1",
+      "start": 8.0,
+      "end": 52.0,
+      "density": [
+        0.09,
+        0.21
+      ],
+      "force": [
+        0.3036,
+        0.3201
+      ],
+      "scale": [
+        0.7558,
+        0.7558
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 2",
+      "start": 52.0,
+      "end": 136.0,
+      "density": [
+        0.21,
+        0.14
+      ],
+      "force": [
+        0.3102,
+        0.3267
+      ],
+      "scale": [
+        0.748,
+        0.748
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 3",
+      "start": 136.0,
+      "end": 164.0,
+      "density": [
+        0.14,
+        0.28
+      ],
+      "force": [
+        0.3168,
+        0.3333
+      ],
+      "scale": [
+        0.7379,
+        0.7379
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 4",
+      "start": 164.0,
+      "end": 180.0,
+      "density": [
+        0.28,
+        0.17
+      ],
+      "force": [
+        0.3234,
+        0.3399
+      ],
+      "scale": [
+        0.7433,
+        0.7433
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: phrase 5",
+      "start": 180.0,
+      "end": 204.0,
+      "density": [
+        0.17,
+        0.23
+      ],
+      "force": [
+        0.33,
+        0.3465
+      ],
+      "scale": [
+        0.7447,
+        0.7447
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    },
+    {
+      "name": "miniature: release",
+      "start": 204.0,
+      "end": 217.528254,
+      "density": [
+        0.23,
+        0.09
+      ],
+      "force": [
+        0.3366,
+        0.3531
+      ],
+      "scale": [
+        0.7338,
+        0.7338
+      ],
+      "background": 0.0,
+      "cluster": {
+        "probability": 0.4,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.32,
+          0.85
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "miniature",
+        "spread": 0.64,
+        "wander": 0.15,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.35,
+      "note": "Close hand-marked feeling: isolated drops, pairs and long gaps."
+    }
+  ],
+  "accents": [
+    {
+      "time": 137.2764,
+      "type": "arrival",
+      "force": 0.4702,
+      "scale": 0.9215,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 136s; measured attack, not every transient."
+    },
+    {
+      "time": 180.7906,
+      "type": "arrival",
+      "force": 0.5217,
+      "scale": 0.973,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 180s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [
+    {
+      "start": 5.36,
+      "end": 6.56,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 28.68,
+      "end": 31.452,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 108.28,
+      "end": 113.572,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 149.16,
+      "end": 150.924,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 174.72,
+      "end": 175.92,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 191.28,
+      "end": 192.792,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    },
+    {
+      "start": 213.0639,
+      "end": 214.2639,
+      "amount": 0,
+      "note": "Authored room for decay and interference."
+    }
+  ],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/13",
+    "analysis": "analysis/14-slipping-fingers-through-curls.json",
+    "reference_sha256": "ad3f816a6ea65e51acc6343d3b6416bfaf0f68359f2e3b0fb1c5d494f8486000"
+  }
+}

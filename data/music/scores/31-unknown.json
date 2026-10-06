@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "track_id": "31-unknown",
+  "seed": 431077791,
+  "title": "Unknown",
+  "artist": "",
+  "duration": 422.0,
+  "style": "long-form / slow pressure",
+  "direction": "Use broad slow-building rain fields with infrequent stronger impacts. This is more about gradual pressure and release than transient matching.",
+  "authored_density": "low-medium",
+  "authored_force": "medium-soft",
+  "recommended_demo": {
+    "start": 320.32,
+    "end": 332.82
+  },
+  "alternate_demo": null,
+  "sections": [
+    {
+      "name": "pressure: opening",
+      "start": 0,
+      "end": 64.0,
+      "density": [
+        0.12,
+        0.12
+      ],
+      "force": [
+        0.405,
+        0.4275
+      ],
+      "scale": [
+        1.1162,
+        1.1162
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    },
+    {
+      "name": "pressure: phrase 1",
+      "start": 64.0,
+      "end": 148.0,
+      "density": [
+        0.12,
+        0.2
+      ],
+      "force": [
+        0.414,
+        0.4365
+      ],
+      "scale": [
+        1.0934,
+        1.0934
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    },
+    {
+      "name": "pressure: phrase 2",
+      "start": 148.0,
+      "end": 228.0,
+      "density": [
+        0.2,
+        0.29
+      ],
+      "force": [
+        0.423,
+        0.4455
+      ],
+      "scale": [
+        1.0971,
+        1.0971
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    },
+    {
+      "name": "pressure: phrase 3",
+      "start": 228.0,
+      "end": 292.0,
+      "density": [
+        0.29,
+        0.22
+      ],
+      "force": [
+        0.432,
+        0.4545
+      ],
+      "scale": [
+        1.0949,
+        1.0949
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    },
+    {
+      "name": "pressure: phrase 4",
+      "start": 292.0,
+      "end": 308.0,
+      "density": [
+        0.22,
+        0.41
+      ],
+      "force": [
+        0.441,
+        0.4635
+      ],
+      "scale": [
+        1.1093,
+        1.1093
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    },
+    {
+      "name": "pressure: phrase 5",
+      "start": 308.0,
+      "end": 392.0,
+      "density": [
+        0.41,
+        0.32
+      ],
+      "force": [
+        0.45,
+        0.4725
+      ],
+      "scale": [
+        1.1075,
+        1.1075
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    },
+    {
+      "name": "pressure: release",
+      "start": 392.0,
+      "end": 422.0,
+      "density": [
+        0.32,
+        0.12
+      ],
+      "force": [
+        0.459,
+        0.4815
+      ],
+      "scale": [
+        1.0953,
+        1.0953
+      ],
+      "background": 0.065,
+      "cluster": {
+        "probability": 0.21,
+        "count": [
+          1,
+          2
+        ],
+        "spacing": [
+          0.55,
+          1.15
+        ],
+        "radius": 0.17
+      },
+      "spatial": {
+        "language": "pressure",
+        "spread": 0.92,
+        "wander": 0.31,
+        "focus": [
+          0,
+          0
+        ]
+      },
+      "breathing": 0.12,
+      "note": "Slow broad pressure and release; rare stronger, soft impacts."
+    }
+  ],
+  "accents": [
+    {
+      "time": 291.2479,
+      "type": "arrival",
+      "force": 0.6834,
+      "scale": 1.3739,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 292s; measured attack, not every transient."
+    },
+    {
+      "time": 307.9663,
+      "type": "arrival",
+      "force": 0.623,
+      "scale": 1.3135,
+      "count": 1,
+      "spacing": 0.25,
+      "anticipation": 0.65,
+      "quiet": 0.72,
+      "note": "Selected phrase arrival near 308s; measured attack, not every transient."
+    }
+  ],
+  "breaths": [],
+  "refinements": [
+    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Selected arrivals use independently measured attacks; density remains authored."
+  ],
+  "provenance": {
+    "choreography": "source/ink-water-32-track-choreography.json#tracks/30",
+    "analysis": "analysis/31-unknown.json",
+    "reference_sha256": "d2380cd6770b6720473ada58b8539d4d530b9d4bf38bfcfd6b099406ac09363f"
+  }
+}

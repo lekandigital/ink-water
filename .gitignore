@@ -5,3 +5,12 @@ node_modules/
 dist/
 .vercel/
 .capture/
+.music-local/
+**/*.mp3
+**/*.wav
+**/*.flac
+**/*.m4a
+**/*.ogg
+**/*.aac
+__pycache__/
+*.pyc

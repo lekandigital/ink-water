@@ -1,0 +1,1470 @@
+{
+  "version": 1,
+  "purpose": "Ink Water playlist choreography planning. Machine measurements are evidence; choreography fields are authored interpretation.",
+  "analysis_method": {
+    "audio": "Full MP3s, mono 8 kHz analysis pass for energy, spectral flux/onsets, spectral centroid, tempo proxy, dynamic range, section-change detection, and 12.5 s candidate windows.",
+    "important_note": "Tempo estimates may be half/double-time for ambient or polyrhythmic music and should not be used as literal beat-to-drop clocks.",
+    "choreography_principle": "Music controls rain scheduling/density/force/clustering only. Every visible ripple should still enter the existing physical rain path."
+  },
+  "playlist_order_indices": [
+    15,
+    19,
+    21,
+    10,
+    3,
+    18,
+    9,
+    1,
+    2,
+    7,
+    20,
+    5,
+    29,
+    4,
+    8,
+    6,
+    17,
+    27,
+    23,
+    24,
+    26,
+    30,
+    25,
+    12,
+    13,
+    14,
+    11,
+    28,
+    16,
+    22,
+    31,
+    32
+  ],
+  "playlist_order_titles": [
+    "190304-05",
+    "An Unopened Letter",
+    "Continuum 3(1)",
+    "Sun Arcs (Laraaji Remix)",
+    "Sun Tickles",
+    "birch beer forest",
+    "Places Remember Events",
+    "inhale the Mist",
+    "fused (DJ-Kicks)",
+    "Lusine - Without a Plan",
+    "Recovery",
+    "Time to Find Me (AFX Fast Mix)",
+    "Bromine (Yamaneko's Irusu Mix)",
+    "by the rain",
+    "memory of a memory",
+    "Pop 4",
+    "I",
+    "K-Notes",
+    "Lights On the Vibe",
+    "Heal",
+    "A Future Untold",
+    "In Memory",
+    "The Dance No. 2",
+    "Wilson Tanner - Blush",
+    "Argento - Sabbia Su Sabbia",
+    "Slipping Fingers Through Curls",
+    "Remember",
+    "Wildflower Wood",
+    "Gaga\u0301nbadiba\u0301",
+    "Rider",
+    "Unknown",
+    "Da Du Dah (Onome Remix) [feat. Nyron Higor]"
+  ],
+  "tracks": [
+    {
+      "index": 1,
+      "title": "inhale the Mist",
+      "duration_seconds": 256.369,
+      "tempo_estimate_bpm": 170.45,
+      "onset_density_per_minute": 183.25,
+      "dynamic_range_proxy": 0.301,
+      "brightness_proxy": 0.463,
+      "detected_section_boundaries_seconds": [
+        48.0,
+        92.0,
+        116.0,
+        136.0,
+        184.0,
+        228.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 133.728,
+          "end": 146.228,
+          "score": 1.6881
+        },
+        {
+          "start": 190.4,
+          "end": 202.9,
+          "score": 1.6273
+        },
+        {
+          "start": 88.256,
+          "end": 100.756,
+          "score": 1.559
+        }
+      ],
+      "choreography_style": "dense / technical mist",
+      "recommended_highlight": {
+        "start": 133.73,
+        "end": 146.23
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium\u2192dense",
+      "impact_force": "light-medium",
+      "choreography_notes": "Begin with fine scattered impacts, then let the rain organize into irregular clusters around the structural change near 2:16. Keep drops small and numerous; use only a few stronger accents. It should feel like pressure gathering in mist, not percussion visualization."
+    },
+    {
+      "index": 2,
+      "title": "fused (DJ-Kicks)",
+      "duration_seconds": 210.693,
+      "tempo_estimate_bpm": 64.66,
+      "onset_density_per_minute": 174.0,
+      "dynamic_range_proxy": 0.285,
+      "brightness_proxy": 0.357,
+      "detected_section_boundaries_seconds": [
+        40.0,
+        80.0,
+        108.0,
+        128.0,
+        148.0,
+        168.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 124.32,
+          "end": 136.82,
+          "score": 1.4454
+        },
+        {
+          "start": 74.368,
+          "end": 86.868,
+          "score": 1.4135
+        },
+        {
+          "start": 142.912,
+          "end": 155.412,
+          "score": 1.4009
+        }
+      ],
+      "choreography_style": "pattern-building",
+      "recommended_highlight": {
+        "start": 124.55,
+        "end": 137.05
+      },
+      "alternate_highlight": null,
+      "rain_density": "sparse\u2192dense",
+      "impact_force": "medium",
+      "choreography_notes": "Flagship sync candidate. Hold the first ~2 seconds relatively restrained, then let the major transition around 2:06\u20132:08 cause the rainfall to acquire obvious structure. Use 2\u20134 drop clusters, selected stronger impacts, and breathing room. Never map every drum hit."
+    },
+    {
+      "index": 3,
+      "title": "Sun Tickles",
+      "duration_seconds": 271.807,
+      "tempo_estimate_bpm": 117.19,
+      "onset_density_per_minute": 187.41,
+      "dynamic_range_proxy": 0.269,
+      "brightness_proxy": 0.473,
+      "detected_section_boundaries_seconds": [
+        24.0,
+        92.0,
+        132.0,
+        156.0,
+        200.0,
+        232.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 83.776,
+          "end": 96.276,
+          "score": 1.8289
+        },
+        {
+          "start": 141.792,
+          "end": 154.292,
+          "score": 1.5838
+        },
+        {
+          "start": 127.904,
+          "end": 140.404,
+          "score": 1.5834
+        }
+      ],
+      "choreography_style": "playful / patterned",
+      "recommended_highlight": {
+        "start": 24.84,
+        "end": 37.34
+      },
+      "alternate_highlight": {
+        "start": 83.78,
+        "end": 96.28
+      },
+      "rain_density": "light\u2192medium",
+      "impact_force": "light",
+      "choreography_notes": "Use small, bright-feeling pinprick impacts in asymmetric groups. Keep the water lively rather than heavy. The earlier 0:24.8 window is the more charming short demo; the ~1:24 window is the higher-contrast machine candidate."
+    },
+    {
+      "index": 4,
+      "title": "by the rain",
+      "duration_seconds": 235.102,
+      "tempo_estimate_bpm": 98.68,
+      "onset_density_per_minute": 194.21,
+      "dynamic_range_proxy": 0.238,
+      "brightness_proxy": 0.49,
+      "detected_section_boundaries_seconds": [
+        12.0,
+        40.0,
+        80.0,
+        104.0,
+        156.0,
+        208.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 179.648,
+          "end": 192.148,
+          "score": 1.556
+        },
+        {
+          "start": 49.056,
+          "end": 61.556,
+          "score": 1.52
+        },
+        {
+          "start": 127.456,
+          "end": 139.956,
+          "score": 1.5193
+        }
+      ],
+      "choreography_style": "fast / needle rain",
+      "recommended_highlight": {
+        "start": 179.65,
+        "end": 192.15
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium-high",
+      "impact_force": "light-medium",
+      "choreography_notes": "Let the title idea stay implicit. Use fast, narrow clusters and short lulls, with one or two heavier low-frequency accents. Avoid a literal wall of rain and avoid beat-for-drop mapping."
+    },
+    {
+      "index": 5,
+      "title": "Time to Find Me (AFX Fast Mix)",
+      "duration_seconds": 457.0,
+      "tempo_estimate_bpm": 144.23,
+      "onset_density_per_minute": 180.26,
+      "dynamic_range_proxy": 0.276,
+      "brightness_proxy": 0.384,
+      "detected_section_boundaries_seconds": [
+        44.0,
+        280.0,
+        328.0,
+        368.0,
+        396.0,
+        448.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 51.52,
+          "end": 64.02,
+          "score": 1.398
+        },
+        {
+          "start": 285.376,
+          "end": 297.876,
+          "score": 1.3819
+        },
+        {
+          "start": 246.624,
+          "end": 259.124,
+          "score": 1.3779
+        }
+      ],
+      "choreography_style": "textural / uncanny",
+      "recommended_highlight": {
+        "start": 51.52,
+        "end": 64.02
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium",
+      "impact_force": "light-medium",
+      "choreography_notes": "Treat the texture as a moving field: showers appear, thin out, then re-form elsewhere. Use asymmetric spatial clusters and deliberate holes. This should feel alien and tactile rather than metronomic."
+    },
+    {
+      "index": 6,
+      "title": "Pop 4",
+      "duration_seconds": 568.347,
+      "tempo_estimate_bpm": 117.19,
+      "onset_density_per_minute": 216.63,
+      "dynamic_range_proxy": 0.262,
+      "brightness_proxy": 0.46,
+      "detected_section_boundaries_seconds": [
+        16.0,
+        40.0,
+        332.0,
+        380.0,
+        468.0,
+        556.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 36.288,
+          "end": 48.788,
+          "score": 1.4837
+        },
+        {
+          "start": 109.088,
+          "end": 121.588,
+          "score": 1.4664
+        },
+        {
+          "start": 178.528,
+          "end": 191.028,
+          "score": 1.4662
+        }
+      ],
+      "choreography_style": "atmospheric / long-form",
+      "recommended_highlight": {
+        "start": 36.29,
+        "end": 48.79
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "soft",
+      "choreography_notes": "Use broad, soft drizzle with slow density swells. Large isolated impacts should be rare. The rain should feel like weather emerging through a continuous field, not like discrete musical notation."
+    },
+    {
+      "index": 7,
+      "title": "Lusine - Without a Plan",
+      "duration_seconds": 258.264,
+      "tempo_estimate_bpm": 156.25,
+      "onset_density_per_minute": 176.33,
+      "dynamic_range_proxy": 0.263,
+      "brightness_proxy": 0.437,
+      "detected_section_boundaries_seconds": [
+        16.0,
+        48.0,
+        84.0,
+        112.0,
+        156.0,
+        244.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 96.768,
+          "end": 109.268,
+          "score": 1.4841
+        },
+        {
+          "start": 154.56,
+          "end": 167.06,
+          "score": 1.4838
+        },
+        {
+          "start": 170.464,
+          "end": 182.964,
+          "score": 1.4718
+        }
+      ],
+      "choreography_style": "pattern-building / melodic",
+      "recommended_highlight": {
+        "start": 96.77,
+        "end": 109.27
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium",
+      "impact_force": "medium",
+      "choreography_notes": "Use moderate repeating cluster shapes, but vary their spacing and location. Let section changes alter density more than force. Keep enough silence for the ripple interference to read."
+    },
+    {
+      "index": 8,
+      "title": "memory of a memory",
+      "duration_seconds": 251.702,
+      "tempo_estimate_bpm": 133.93,
+      "onset_density_per_minute": 184.74,
+      "dynamic_range_proxy": 0.257,
+      "brightness_proxy": 0.511,
+      "detected_section_boundaries_seconds": [
+        36.0,
+        104.0,
+        124.0,
+        200.0,
+        216.0,
+        232.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 212.8,
+          "end": 225.3,
+          "score": 1.7038
+        },
+        {
+          "start": 183.904,
+          "end": 196.404,
+          "score": 1.6793
+        },
+        {
+          "start": 155.008,
+          "end": 167.508,
+          "score": 1.605
+        }
+      ],
+      "choreography_style": "cinematic / late swell",
+      "recommended_highlight": {
+        "start": 212.8,
+        "end": 225.3
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium\u2192dense",
+      "impact_force": "medium-large",
+      "choreography_notes": "Favor a late-build choreography: sparse medium drops grow into paired and triplet clusters, then one or two larger soft impacts. Preserve the emotional swell rather than following every transient."
+    },
+    {
+      "index": 9,
+      "title": "Places Remember Events",
+      "duration_seconds": 234.353,
+      "tempo_estimate_bpm": 170.45,
+      "onset_density_per_minute": 179.22,
+      "dynamic_range_proxy": 0.319,
+      "brightness_proxy": 0.414,
+      "detected_section_boundaries_seconds": [
+        24.0,
+        64.0,
+        112.0,
+        136.0,
+        204.0,
+        224.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 131.936,
+          "end": 144.436,
+          "score": 1.4794
+        },
+        {
+          "start": 179.872,
+          "end": 192.372,
+          "score": 1.4763
+        },
+        {
+          "start": 190.624,
+          "end": 203.124,
+          "score": 1.4465
+        }
+      ],
+      "choreography_style": "technical / intricate",
+      "recommended_highlight": {
+        "start": 19.5,
+        "end": 32.0
+      },
+      "alternate_highlight": {
+        "start": 131.94,
+        "end": 144.44
+      },
+      "rain_density": "medium-high",
+      "impact_force": "light-medium",
+      "choreography_notes": "Use a strange, precise rain language: fine irregular clusters, occasional simultaneous impacts in separate regions, and brief silences. The early window is the stronger concise demo; the later window has higher measured contrast."
+    },
+    {
+      "index": 10,
+      "title": "Sun Arcs (Laraaji Remix)",
+      "duration_seconds": 252.0,
+      "tempo_estimate_bpm": 187.5,
+      "onset_density_per_minute": 195.24,
+      "dynamic_range_proxy": 0.284,
+      "brightness_proxy": 0.588,
+      "detected_section_boundaries_seconds": [
+        8.0,
+        52.0,
+        152.0,
+        200.0,
+        216.0,
+        244.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 27.776,
+          "end": 40.276,
+          "score": 1.8606
+        },
+        {
+          "start": 4.256,
+          "end": 16.756,
+          "score": 1.8382
+        },
+        {
+          "start": 132.832,
+          "end": 145.332,
+          "score": 1.7752
+        }
+      ],
+      "choreography_style": "shimmer / atmospheric",
+      "recommended_highlight": {
+        "start": 27.78,
+        "end": 40.28
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "light",
+      "choreography_notes": "Use widely spaced small drops, occasional paired glints, and slow background activity. Let shimmering passages increase spatial spread rather than simply density."
+    },
+    {
+      "index": 11,
+      "title": "Remember",
+      "duration_seconds": 133.907,
+      "tempo_estimate_bpm": 133.93,
+      "onset_density_per_minute": 152.79,
+      "dynamic_range_proxy": 0.306,
+      "brightness_proxy": 0.35,
+      "detected_section_boundaries_seconds": [
+        16.0,
+        32.0,
+        52.0,
+        72.0,
+        88.0,
+        116.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 78.4,
+          "end": 90.9,
+          "score": 1.6518
+        },
+        {
+          "start": 41.888,
+          "end": 54.388,
+          "score": 1.6006
+        },
+        {
+          "start": 104.16,
+          "end": 116.66,
+          "score": 1.5974
+        }
+      ],
+      "choreography_style": "melodic / restrained",
+      "recommended_highlight": {
+        "start": 78.4,
+        "end": 90.9
+      },
+      "alternate_highlight": {
+        "start": 0.0,
+        "end": 12.5
+      },
+      "rain_density": "low-medium",
+      "impact_force": "light-medium",
+      "choreography_notes": "The intro is aesthetically interesting, so keep it as an alternate capture. For the stronger full-song passage, use a restrained pulse of small-to-medium impacts with long enough gaps to preserve the melody."
+    },
+    {
+      "index": 12,
+      "title": "Wilson Tanner - Blush",
+      "duration_seconds": 230.464,
+      "tempo_estimate_bpm": 66.96,
+      "onset_density_per_minute": 190.83,
+      "dynamic_range_proxy": 0.277,
+      "brightness_proxy": 0.42,
+      "detected_section_boundaries_seconds": [
+        56.0,
+        108.0,
+        128.0,
+        144.0,
+        172.0,
+        220.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 167.776,
+          "end": 180.276,
+          "score": 1.5755
+        },
+        {
+          "start": 110.88,
+          "end": 123.38,
+          "score": 1.553
+        },
+        {
+          "start": 53.984,
+          "end": 66.484,
+          "score": 1.5508
+        }
+      ],
+      "choreography_style": "soft / suspended",
+      "recommended_highlight": {
+        "start": 167.78,
+        "end": 180.28
+      },
+      "alternate_highlight": null,
+      "rain_density": "low",
+      "impact_force": "soft",
+      "choreography_notes": "Sparse choreography. Use isolated soft impacts and a faint background drizzle only when the energy supports it. Let rings overlap slowly instead of creating busy clusters."
+    },
+    {
+      "index": 13,
+      "title": "Argento - Sabbia Su Sabbia",
+      "duration_seconds": 208.469,
+      "tempo_estimate_bpm": 133.93,
+      "onset_density_per_minute": 166.93,
+      "dynamic_range_proxy": 0.248,
+      "brightness_proxy": 0.306,
+      "detected_section_boundaries_seconds": [
+        20.0,
+        80.0,
+        112.0,
+        148.0,
+        172.0,
+        200.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 118.496,
+          "end": 130.996,
+          "score": 1.4771
+        },
+        {
+          "start": 87.808,
+          "end": 100.308,
+          "score": 1.443
+        },
+        {
+          "start": 184.8,
+          "end": 197.3,
+          "score": 1.4426
+        }
+      ],
+      "choreography_style": "dry / granular atmosphere",
+      "recommended_highlight": {
+        "start": 118.5,
+        "end": 131.0
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "light",
+      "choreography_notes": "Use tiny granular clusters with broad spatial distribution and low force. Occasional denser moments can resemble grains briefly becoming rain, but keep the surface readable."
+    },
+    {
+      "index": 14,
+      "title": "Slipping Fingers Through Curls",
+      "duration_seconds": 217.528,
+      "tempo_estimate_bpm": 60.48,
+      "onset_density_per_minute": 214.04,
+      "dynamic_range_proxy": 0.251,
+      "brightness_proxy": 0.413,
+      "detected_section_boundaries_seconds": [
+        8.0,
+        52.0,
+        136.0,
+        164.0,
+        180.0,
+        204.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 122.752,
+          "end": 135.252,
+          "score": 1.6246
+        },
+        {
+          "start": 52.864,
+          "end": 65.364,
+          "score": 1.5328
+        },
+        {
+          "start": 149.408,
+          "end": 161.908,
+          "score": 1.5308
+        }
+      ],
+      "choreography_style": "tactile / collage",
+      "recommended_highlight": {
+        "start": 122.75,
+        "end": 135.25
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "light",
+      "choreography_notes": "Use irregular microdrops, paired events and long gaps. The choreography should feel close and tactile, almost like marks appearing on paper, not like weather."
+    },
+    {
+      "index": 15,
+      "title": "190304-05",
+      "duration_seconds": 153.333,
+      "tempo_estimate_bpm": 187.5,
+      "onset_density_per_minute": 192.52,
+      "dynamic_range_proxy": 0.269,
+      "brightness_proxy": 0.532,
+      "detected_section_boundaries_seconds": [
+        20.0,
+        36.0,
+        60.0,
+        76.0,
+        124.0,
+        140.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 0.0,
+          "end": 12.5,
+          "score": 1.6849
+        },
+        {
+          "start": 43.232,
+          "end": 55.732,
+          "score": 1.6234
+        },
+        {
+          "start": 10.976,
+          "end": 23.476,
+          "score": 1.5792
+        }
+      ],
+      "choreography_style": "minimal / intimate",
+      "recommended_highlight": {
+        "start": 0.0,
+        "end": 12.5
+      },
+      "alternate_highlight": null,
+      "rain_density": "very low",
+      "impact_force": "soft",
+      "choreography_notes": "Use the opening. Almost still water, isolated soft drops, occasional pairs, and substantial breathing room. This track should demonstrate that music sync can be subtle."
+    },
+    {
+      "index": 16,
+      "title": "Gaga\u0301nbadiba\u0301",
+      "duration_seconds": 259.088,
+      "tempo_estimate_bpm": 156.25,
+      "onset_density_per_minute": 196.84,
+      "dynamic_range_proxy": 0.278,
+      "brightness_proxy": 0.463,
+      "detected_section_boundaries_seconds": [
+        84.0,
+        132.0,
+        148.0,
+        172.0,
+        216.0,
+        236.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 144.928,
+          "end": 157.428,
+          "score": 1.7413
+        },
+        {
+          "start": 168.896,
+          "end": 181.396,
+          "score": 1.6173
+        },
+        {
+          "start": 152.992,
+          "end": 165.492,
+          "score": 1.5812
+        }
+      ],
+      "choreography_style": "organic / rhythmic",
+      "recommended_highlight": {
+        "start": 144.93,
+        "end": 157.43
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium",
+      "impact_force": "medium",
+      "choreography_notes": "Follow broad rhythmic phrases rather than individual percussion. Use warm, rounded clusters and keep forces moderate. Because the track carries its own cultural/lyrical identity, avoid turning it into a flashy visualizer."
+    },
+    {
+      "index": 17,
+      "title": "I",
+      "duration_seconds": 480.96,
+      "tempo_estimate_bpm": 156.25,
+      "onset_density_per_minute": 195.61,
+      "dynamic_range_proxy": 0.269,
+      "brightness_proxy": 0.497,
+      "detected_section_boundaries_seconds": [
+        168.0,
+        212.0,
+        256.0,
+        308.0,
+        416.0,
+        460.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 316.064,
+          "end": 328.564,
+          "score": 1.5957
+        },
+        {
+          "start": 304.192,
+          "end": 316.692,
+          "score": 1.5764
+        },
+        {
+          "start": 224.0,
+          "end": 236.5,
+          "score": 1.5689
+        }
+      ],
+      "choreography_style": "polyrhythmic / accumulative",
+      "recommended_highlight": {
+        "start": 316.06,
+        "end": 328.56
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium\u2192high",
+      "impact_force": "light-medium",
+      "choreography_notes": "Build layers. Start with a few independent drop streams, then add overlapping cluster patterns as the polyrhythm thickens. Keep individual drops modest so complexity comes from superposition, not force."
+    },
+    {
+      "index": 18,
+      "title": "birch beer forest",
+      "duration_seconds": 211.441,
+      "tempo_estimate_bpm": 104.17,
+      "onset_density_per_minute": 182.18,
+      "dynamic_range_proxy": 0.289,
+      "brightness_proxy": 0.398,
+      "detected_section_boundaries_seconds": [
+        20.0,
+        36.0,
+        136.0,
+        160.0,
+        180.0,
+        200.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 115.136,
+          "end": 127.636,
+          "score": 1.667
+        },
+        {
+          "start": 150.976,
+          "end": 163.476,
+          "score": 1.6311
+        },
+        {
+          "start": 130.592,
+          "end": 143.092,
+          "score": 1.5628
+        }
+      ],
+      "choreography_style": "digital-organic / playful",
+      "recommended_highlight": {
+        "start": 35.73,
+        "end": 48.23
+      },
+      "alternate_highlight": {
+        "start": 115.14,
+        "end": 127.64
+      },
+      "rain_density": "medium",
+      "impact_force": "light-medium",
+      "choreography_notes": "Use the earlier proven window for the short demo. Mix small irregular impacts with occasional medium accents, letting the rain feel both organic and sequenced. Keep the later high-contrast window as an alternate."
+    },
+    {
+      "index": 19,
+      "title": "An Unopened Letter",
+      "duration_seconds": 173.523,
+      "tempo_estimate_bpm": 81.52,
+      "onset_density_per_minute": 185.68,
+      "dynamic_range_proxy": 0.296,
+      "brightness_proxy": 0.455,
+      "detected_section_boundaries_seconds": [
+        20.0,
+        48.0,
+        80.0,
+        100.0,
+        120.0,
+        148.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 68.992,
+          "end": 81.492,
+          "score": 1.6472
+        },
+        {
+          "start": 57.344,
+          "end": 69.844,
+          "score": 1.5532
+        },
+        {
+          "start": 80.864,
+          "end": 93.364,
+          "score": 1.5492
+        }
+      ],
+      "choreography_style": "handmade / miniature",
+      "recommended_highlight": {
+        "start": 68.99,
+        "end": 81.49
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "light",
+      "choreography_notes": "Use small hand-placed-feeling clusters and soft isolated impacts. Avoid continuous rain. The motion should feel like a sketch becoming animated."
+    },
+    {
+      "index": 20,
+      "title": "Recovery",
+      "duration_seconds": 291.016,
+      "tempo_estimate_bpm": 78.12,
+      "onset_density_per_minute": 243.7,
+      "dynamic_range_proxy": 0.313,
+      "brightness_proxy": 0.356,
+      "detected_section_boundaries_seconds": [
+        56.0,
+        88.0,
+        124.0,
+        184.0,
+        200.0,
+        272.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 82.656,
+          "end": 95.156,
+          "score": 1.6712
+        },
+        {
+          "start": 112.0,
+          "end": 124.5,
+          "score": 1.5853
+        },
+        {
+          "start": 94.08,
+          "end": 106.58,
+          "score": 1.5452
+        }
+      ],
+      "choreography_style": "cinematic / propulsive",
+      "recommended_highlight": {
+        "start": 82.66,
+        "end": 95.16
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium\u2192high",
+      "impact_force": "medium",
+      "choreography_notes": "Begin controlled, then increase density and force together through the rise. Use larger impacts sparingly at major phrase arrivals. This can look cinematic without becoming generic."
+    },
+    {
+      "index": 21,
+      "title": "Continuum 3(1)",
+      "duration_seconds": 247.539,
+      "tempo_estimate_bpm": 75.0,
+      "onset_density_per_minute": 176.21,
+      "dynamic_range_proxy": 0.28,
+      "brightness_proxy": 0.473,
+      "detected_section_boundaries_seconds": [
+        24.0,
+        44.0,
+        68.0,
+        108.0,
+        204.0,
+        224.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 126.112,
+          "end": 138.612,
+          "score": 1.8782
+        },
+        {
+          "start": 150.304,
+          "end": 162.804,
+          "score": 1.7789
+        },
+        {
+          "start": 103.712,
+          "end": 116.212,
+          "score": 1.7533
+        }
+      ],
+      "choreography_style": "flowing / harmonic",
+      "recommended_highlight": {
+        "start": 126.11,
+        "end": 138.61
+      },
+      "alternate_highlight": {
+        "start": 82.69,
+        "end": 95.19
+      },
+      "rain_density": "low\u2192medium",
+      "impact_force": "soft-medium",
+      "choreography_notes": "Use graceful density curves, not a beat grid. Let arpeggiated activity produce more small drops while sustained moments pull back. The earlier 1:22.69 window remains a tested visual alternate."
+    },
+    {
+      "index": 22,
+      "title": "Rider",
+      "duration_seconds": 170.363,
+      "tempo_estimate_bpm": 125.0,
+      "onset_density_per_minute": 223.99,
+      "dynamic_range_proxy": 0.297,
+      "brightness_proxy": 0.428,
+      "detected_section_boundaries_seconds": [
+        28.0,
+        48.0,
+        72.0,
+        92.0,
+        120.0,
+        160.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 103.488,
+          "end": 115.988,
+          "score": 1.6385
+        },
+        {
+          "start": 118.944,
+          "end": 131.444,
+          "score": 1.6023
+        },
+        {
+          "start": 41.888,
+          "end": 54.388,
+          "score": 1.5294
+        }
+      ],
+      "choreography_style": "crisp / rhythmic",
+      "recommended_highlight": {
+        "start": 103.49,
+        "end": 115.99
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium-high",
+      "impact_force": "medium",
+      "choreography_notes": "Use clean short clusters and sharper spatial changes. Keep one recurring motif in the rain pattern so the choreography feels intentional, then break it at the section transition."
+    },
+    {
+      "index": 23,
+      "title": "Lights On the Vibe",
+      "duration_seconds": 461.648,
+      "tempo_estimate_bpm": 85.23,
+      "onset_density_per_minute": 187.29,
+      "dynamic_range_proxy": 0.276,
+      "brightness_proxy": 0.399,
+      "detected_section_boundaries_seconds": [
+        12.0,
+        84.0,
+        112.0,
+        192.0,
+        212.0,
+        248.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 86.464,
+          "end": 98.964,
+          "score": 1.5751
+        },
+        {
+          "start": 243.712,
+          "end": 256.212,
+          "score": 1.5115
+        },
+        {
+          "start": 354.816,
+          "end": 367.316,
+          "score": 1.4927
+        }
+      ],
+      "choreography_style": "warm / downtempo",
+      "recommended_highlight": {
+        "start": 86.46,
+        "end": 98.96
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "soft-medium",
+      "choreography_notes": "Use relaxed, rounded drops and slow cluster entrances. Favor warmth and spacing over technical precision. Good candidate for a long site session rather than a flagship viral clip."
+    },
+    {
+      "index": 24,
+      "title": "Heal",
+      "duration_seconds": 410.636,
+      "tempo_estimate_bpm": 75.0,
+      "onset_density_per_minute": 236.27,
+      "dynamic_range_proxy": 0.256,
+      "brightness_proxy": 0.413,
+      "detected_section_boundaries_seconds": [
+        20.0,
+        36.0,
+        104.0,
+        128.0,
+        192.0,
+        400.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 188.832,
+          "end": 201.332,
+          "score": 1.6575
+        },
+        {
+          "start": 110.432,
+          "end": 122.932,
+          "score": 1.4983
+        },
+        {
+          "start": 345.184,
+          "end": 357.684,
+          "score": 1.4346
+        }
+      ],
+      "choreography_style": "haze / pulse",
+      "recommended_highlight": {
+        "start": 188.83,
+        "end": 201.33
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium",
+      "impact_force": "soft-medium",
+      "choreography_notes": "Maintain a soft background field and let stronger pulses briefly raise density. Avoid sharp, frequent accents. The rain should feel suspended in a larger atmosphere."
+    },
+    {
+      "index": 25,
+      "title": "The Dance No. 2",
+      "duration_seconds": 582.733,
+      "tempo_estimate_bpm": 75.0,
+      "onset_density_per_minute": 201.91,
+      "dynamic_range_proxy": 0.244,
+      "brightness_proxy": 0.465,
+      "detected_section_boundaries_seconds": [
+        12.0,
+        208.0,
+        268.0,
+        400.0,
+        416.0,
+        556.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 6.72,
+          "end": 19.22,
+          "score": 1.6677
+        },
+        {
+          "start": 75.936,
+          "end": 88.436,
+          "score": 1.647
+        },
+        {
+          "start": 136.192,
+          "end": 148.692,
+          "score": 1.621
+        }
+      ],
+      "choreography_style": "ritual / spacious",
+      "recommended_highlight": {
+        "start": 6.72,
+        "end": 19.22
+      },
+      "alternate_highlight": null,
+      "rain_density": "low",
+      "impact_force": "soft-medium",
+      "choreography_notes": "Use the opening. A few deliberate drops with long decay, occasional paired events, and restrained force. Let the surface remain mostly open."
+    },
+    {
+      "index": 26,
+      "title": "A Future Untold",
+      "duration_seconds": 202.723,
+      "tempo_estimate_bpm": 156.25,
+      "onset_density_per_minute": 213.69,
+      "dynamic_range_proxy": 0.263,
+      "brightness_proxy": 0.476,
+      "detected_section_boundaries_seconds": [
+        8.0,
+        52.0,
+        76.0,
+        136.0,
+        176.0,
+        192.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 98.56,
+          "end": 111.06,
+          "score": 1.9683
+        },
+        {
+          "start": 143.136,
+          "end": 155.636,
+          "score": 1.808
+        },
+        {
+          "start": 82.88,
+          "end": 95.38,
+          "score": 1.753
+        }
+      ],
+      "choreography_style": "breath / phrase-led",
+      "recommended_highlight": {
+        "start": 98.56,
+        "end": 111.06
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "medium-soft",
+      "choreography_notes": "Map musical phrases to broad rain gestures: one larger soft impact can mark a phrase entrance, followed by sparse smaller echoes. Do not chase individual notes."
+    },
+    {
+      "index": 27,
+      "title": "K-Notes",
+      "duration_seconds": 195.989,
+      "tempo_estimate_bpm": 85.23,
+      "onset_density_per_minute": 198.07,
+      "dynamic_range_proxy": 0.36,
+      "brightness_proxy": 0.491,
+      "detected_section_boundaries_seconds": [
+        28.0,
+        44.0,
+        96.0,
+        112.0,
+        132.0,
+        160.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 26.432,
+          "end": 38.932,
+          "score": 1.6069
+        },
+        {
+          "start": 159.488,
+          "end": 171.988,
+          "score": 1.5577
+        },
+        {
+          "start": 111.552,
+          "end": 124.052,
+          "score": 1.5548
+        }
+      ],
+      "choreography_style": "energetic / bouncy",
+      "recommended_highlight": {
+        "start": 26.43,
+        "end": 38.93
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium-high",
+      "impact_force": "medium",
+      "choreography_notes": "One of the clearer high-energy demo candidates. Use compact clusters, quick alternation across the surface, and a few stronger anchors. Keep it playful, not aggressive."
+    },
+    {
+      "index": 28,
+      "title": "Wildflower Wood",
+      "duration_seconds": 226.64,
+      "tempo_estimate_bpm": 98.68,
+      "onset_density_per_minute": 202.26,
+      "dynamic_range_proxy": 0.263,
+      "brightness_proxy": 0.479,
+      "detected_section_boundaries_seconds": [
+        24.0,
+        76.0,
+        92.0,
+        140.0,
+        168.0,
+        216.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 135.744,
+          "end": 148.244,
+          "score": 1.7881
+        },
+        {
+          "start": 87.136,
+          "end": 99.636,
+          "score": 1.7133
+        },
+        {
+          "start": 159.488,
+          "end": 171.988,
+          "score": 1.7073
+        }
+      ],
+      "choreography_style": "dream / environmental",
+      "recommended_highlight": {
+        "start": 135.74,
+        "end": 148.24
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "soft",
+      "choreography_notes": "Use soft scattered rain with occasional slow clusters. Let spatial placement wander naturally across the surface, like weather moving through a landscape."
+    },
+    {
+      "index": 29,
+      "title": "Bromine (Yamaneko's Irusu Mix)",
+      "duration_seconds": 539.708,
+      "tempo_estimate_bpm": 81.52,
+      "onset_density_per_minute": 206.11,
+      "dynamic_range_proxy": 0.287,
+      "brightness_proxy": 0.42,
+      "detected_section_boundaries_seconds": [
+        76.0,
+        124.0,
+        180.0,
+        232.0,
+        248.0,
+        436.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 71.68,
+          "end": 84.18,
+          "score": 2.05
+        },
+        {
+          "start": 36.064,
+          "end": 48.564,
+          "score": 1.8989
+        },
+        {
+          "start": 408.352,
+          "end": 420.852,
+          "score": 1.8892
+        }
+      ],
+      "choreography_style": "weightless / negative space",
+      "recommended_highlight": {
+        "start": 71.68,
+        "end": 84.18
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "light",
+      "choreography_notes": "Exploit silence. Let drops arrive in small groups, then disappear completely for short stretches. Use faint background texture only when necessary. The absences are part of the choreography."
+    },
+    {
+      "index": 30,
+      "title": "In Memory",
+      "duration_seconds": 209.66,
+      "tempo_estimate_bpm": 125.0,
+      "onset_density_per_minute": 189.74,
+      "dynamic_range_proxy": 0.289,
+      "brightness_proxy": 0.45,
+      "detected_section_boundaries_seconds": [
+        28.0,
+        44.0,
+        60.0,
+        96.0,
+        112.0,
+        188.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 121.856,
+          "end": 134.356,
+          "score": 1.6122
+        },
+        {
+          "start": 71.008,
+          "end": 83.508,
+          "score": 1.5842
+        },
+        {
+          "start": 172.48,
+          "end": 184.98,
+          "score": 1.5581
+        }
+      ],
+      "choreography_style": "memory / dynamic",
+      "recommended_highlight": {
+        "start": 121.86,
+        "end": 134.36
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium",
+      "impact_force": "medium",
+      "choreography_notes": "Use medium-weight impacts and shifting cluster sizes. Let transitions change both density and spatial focus so the surface seems to remember earlier disturbances."
+    },
+    {
+      "index": 31,
+      "title": "Unknown",
+      "duration_seconds": 422.0,
+      "tempo_estimate_bpm": 60.48,
+      "onset_density_per_minute": 180.14,
+      "dynamic_range_proxy": 0.298,
+      "brightness_proxy": 0.369,
+      "detected_section_boundaries_seconds": [
+        64.0,
+        148.0,
+        228.0,
+        292.0,
+        308.0,
+        392.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 320.32,
+          "end": 332.82,
+          "score": 1.6615
+        },
+        {
+          "start": 224.224,
+          "end": 236.724,
+          "score": 1.5996
+        },
+        {
+          "start": 160.832,
+          "end": 173.332,
+          "score": 1.5281
+        }
+      ],
+      "choreography_style": "long-form / slow pressure",
+      "recommended_highlight": {
+        "start": 320.32,
+        "end": 332.82
+      },
+      "alternate_highlight": null,
+      "rain_density": "low-medium",
+      "impact_force": "medium-soft",
+      "choreography_notes": "Use broad slow-building rain fields with infrequent stronger impacts. This is more about gradual pressure and release than transient matching."
+    },
+    {
+      "index": 32,
+      "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+      "duration_seconds": 223.565,
+      "tempo_estimate_bpm": 55.15,
+      "onset_density_per_minute": 142.51,
+      "dynamic_range_proxy": 0.272,
+      "brightness_proxy": 0.41,
+      "detected_section_boundaries_seconds": [
+        24.0,
+        60.0,
+        88.0,
+        120.0,
+        164.0,
+        208.0
+      ],
+      "machine_candidate_windows": [
+        {
+          "start": 62.048,
+          "end": 74.548,
+          "score": 1.4368
+        },
+        {
+          "start": 181.888,
+          "end": 194.388,
+          "score": 1.3355
+        },
+        {
+          "start": 152.096,
+          "end": 164.596,
+          "score": 1.3237
+        }
+      ],
+      "choreography_style": "organic groove / closing release",
+      "recommended_highlight": {
+        "start": 62.05,
+        "end": 74.55
+      },
+      "alternate_highlight": null,
+      "rain_density": "medium",
+      "impact_force": "medium",
+      "choreography_notes": "Use loose, human-feeling rhythmic clusters with gentle asymmetry. Keep the choreography warm and flowing; avoid quantizing the rain too tightly."
+    }
+  ]
+}
