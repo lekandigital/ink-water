@@ -14,7 +14,7 @@ assert.equal(initial.hideSunDisc,true,'Latest preference hides the reflected sun
 assert.equal(initial.dreamyRainSpeed,true,'Configuration A enables the independent rain clock');
 assert.equal(initial.bitmapTones,true);assert.equal(initial.gentleMotion,true);assert.equal(initial.shortReferenceLines,true);
 const ids=[...document.querySelectorAll('[id]')].map(e=>e.id);assert.equal(new Set(ids).size,ids.length,'IDs must be unique');
-assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples','caustics','lightAzimuth','lightElevation','causticsStrength','rain','rainRate','dropSize','paused','waveSpeed','rippleScale','rainForce','touchForce'].map(k=>[k,initial[k]])),{mode:'etching',tone:'night',lineWeight:.68,hairlineRipples:false,caustics:true,lightAzimuth:170,lightElevation:90,causticsStrength:2,rain:true,rainRate:.2,dropSize:.038,paused:false,waveSpeed:1,rippleScale:1,rainForce:.0095,touchForce:.02});
+assert.deepEqual(Object.fromEntries(['mode','tone','lineWeight','hairlineRipples','caustics','lightAzimuth','lightElevation','causticsStrength','rain','rainRate','dropSize','paused','waveSpeed','rippleScale','rainForce','touchForce'].map(k=>[k,initial[k]])),{mode:'etching',tone:'paper',lineWeight:.68,hairlineRipples:false,caustics:true,lightAzimuth:170,lightElevation:90,causticsStrength:2,rain:true,rainRate:.2,dropSize:.038,paused:false,waveSpeed:1,rippleScale:1,rainForce:.0095,touchForce:.02});
 const $=id=>document.getElementById(id);
 const keyFor=id=>id.replace(/-([a-z])/g,(_,c)=>c.toUpperCase());
 let changes=0,clears=0;controls.hooks={change:()=>changes++,clear:()=>clears++,gesture:()=>{}};

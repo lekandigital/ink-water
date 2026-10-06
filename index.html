@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#161616">
+  <meta name="theme-color" content="#AACDB3">
   <meta name="description" content="Simulated water, drawn instead of rendered. A real-time heightfield water study in etching, graphite, ink and bitmap texture.">
   <title>Ink Water — a water study</title>
   <link rel="canonical" href="https://demo.1001ud.me/ink-water/">
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="Simulated water, drawn instead of rendered.">
   <meta name="twitter:image" content="https://demo.1001ud.me/ink-water/social.jpg">
   <meta name="twitter:image:alt" content="Contour lines of a C-shaped wave drawn in white ink on dark paper">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23f5f5f5'/%3E%3Cg fill='none' stroke='%23252525'%3E%3Cellipse cx='20' cy='20' rx='15' ry='11'/%3E%3Cellipse cx='20' cy='20' rx='10' ry='7'/%3E%3Cellipse cx='20' cy='20' rx='5' ry='3'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23aacdb3'/%3E%3Cg fill='none' stroke='%2312472f'%3E%3Cellipse cx='20' cy='20' rx='15' ry='11'/%3E%3Cellipse cx='20' cy='20' rx='10' ry='7'/%3E%3Cellipse cx='20' cy='20' rx='5' ry='3'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="stylesheet" href="./style.css">
 </head>
-<body data-tone="night" class="controls-hidden">
+<body data-tone="paper" class="controls-hidden">
   <header class="masthead">
     <div class="identity"><h1>Ink Water</h1><span class="byline">A water study</span></div>
     <div class="header-actions">
@@ -48,11 +48,11 @@
           <button type="button" data-mode="original" aria-pressed="false"><span class="style-mark original-mark" aria-hidden="true">◌</span>Original</button>
         </div>
       </fieldset>
-      <fieldset id="tone-field"><legend>Paper</legend>
+      <fieldset id="tone-field"><legend>Color · Solid Doctor</legend>
         <div class="tone-row">
-          <button type="button" data-tone="paper" aria-pressed="false"><span class="tone-swatch paper-swatch" aria-hidden="true"></span>Light</button>
-          <button type="button" data-tone="silver" aria-pressed="false"><span class="tone-swatch silver-swatch" aria-hidden="true"></span>Silver</button>
-          <button type="button" data-tone="night" aria-pressed="true"><span class="tone-swatch night-swatch" aria-hidden="true"></span>Dark</button>
+          <button type="button" data-tone="paper" aria-pressed="true"><span class="tone-swatch paper-swatch" aria-hidden="true"></span>Light</button>
+          <button type="button" data-tone="silver" aria-pressed="false"><span class="tone-swatch silver-swatch" aria-hidden="true"></span>Sage</button>
+          <button type="button" data-tone="night" aria-pressed="false"><span class="tone-swatch night-swatch" aria-hidden="true"></span>Dark</button>
         </div>
       </fieldset>
       <div class="range-control" id="weight-control"><label for="line-weight">Line weight <output id="weight-value" for="line-weight">Fine</output></label><input id="line-weight" type="range" min="0.35" max="1.25" step="0.01" value="0.68"></div>

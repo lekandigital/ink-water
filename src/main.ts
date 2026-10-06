@@ -340,6 +340,8 @@ class Puddle {
     this.prepareMotion();
     const {mode,tone,lineWeight,sourceGeometry,hairlineRipples,caustics}=this.state;
     document.body.dataset.tone=tone;
+    const themeColor=document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if(themeColor)themeColor.content='#'+tones[tone].paper.toString(16).padStart(6,'0');
     applyDrawingTone(this.drawing.uniforms.paper.value,this.drawing.uniforms.ink.value,tone);
     this.drawing.uniforms.mode.value=modes[mode];this.drawing.uniforms.lineWeight.value=lineWeight;
     this.drawing.uniforms.sourceGeometry.value=sourceGeometry;

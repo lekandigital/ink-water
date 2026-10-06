@@ -6,7 +6,7 @@ export type Mode='ink-wash'|'etching'|'graphite'|'original';
 // Source physics defaults live in WaterMotion; source lighting in AppearanceExperiments.
 export function startupSettings(){return {
   ...experimentDefaults,...motionDefaults,
-  mode:'etching' as Mode,tone:'night' as Tone,lineWeight:.68,
+  mode:'etching' as Mode,tone:'paper' as Tone,lineWeight:.68,
   hairlineRipples:false,caustics:true,sourceGeometry:true,
   lightAzimuth:170,lightElevation:90,causticsStrength:2,
   bitmapTones:true,hideSunDisc:true,gentleMotion:true,dreamyRainSpeed:true,
