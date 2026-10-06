@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "playlist_id": "PLTab0IXtn0Nw",
+  "note": "Explicit upload adjustments reviewed against the supplied identity map and playlist metadata. These are duration checks, not proof of recording equivalence. The original supplied map is preserved unchanged.",
+  "alternate_sources": [
+    {"track_index": 3, "primary_video_id": "62Zeu3jBs_I", "video_id": "lrAWkOGkpBw", "source_start_seconds": 0, "validation_status": "duration-only", "note": "The current playlist uses this Sun Tickles upload (272s). Preserve the supplied primary upload as well; full audio version verification remains pending."},
+    {"track_index": 21, "primary_video_id": "IyvqVDAGU0s", "video_id": "Gx41vYzyPZo", "source_start_seconds": 0, "validation_status": "duration-only", "note": "Standalone Continuum 3 (248s). This ID starts at 0; the supplied album ID retains its 854s offset. Full audio version verification remains pending."}
+  ],
+  "mismatches": [
+    {"track_index": 22, "video_id": "jGIKgJ9MzfE", "validation_status": "mismatch", "note": "The supplied Rider — Niko Demus source resolves to DEAR DRIVER — NICO in the playlist metadata. Its authored score is held until this source is corrected or the recording is explicitly verified."}
+  ]
+}

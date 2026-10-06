@@ -2,7 +2,7 @@ import {MusicRainEngine} from './MusicRainEngine';
 import {PlaybackClock} from './PlaybackClock';
 import {PlaylistSession} from './PlaylistSession';
 import {loadYouTubeAPI,YouTubePlayback,type YouTubeSnapshot} from './YouTubePlayback';
-import {clamp,parsePlaylistId,validateManifest,validatePlaylist,type MusicManifest,type MusicRainClock,type MusicTrack,type RainScore} from './MusicScore';
+import {clamp,parsePlaylistId,validateManifest,validatePlaylist,playbackSources,type MusicManifest,type MusicRainClock,type MusicTrack,type RainScore} from './MusicScore';
 
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const label=(seconds:number)=>{const n=Math.max(0,Math.floor(seconds));return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;};
@@ -50,9 +50,10 @@ export class PlaylistMusic implements MusicRainClock{
   private referencePlaying=false;
 
   constructor(private hooks:Hooks,readonly captureMode=false){
-    $('music-open').addEventListener('click',()=>{if(this.active)this.setExpanded(!this.expanded);else void this.open();});
+    $('music-open').addEventListener('click',()=>{if(this.active)this.setExpanded(!this.expanded);else void this.play();});
     $('music-expand').addEventListener('click',()=>this.setExpanded(!this.expanded));
-    $('music-close').addEventListener('click',()=>this.close());
+    $('music-close').addEventListener('click',()=>this.setExpanded(false));
+    $('music-stop').addEventListener('click',()=>this.close());
     $('music-play').addEventListener('click',()=>{if(this.transportPlaying())this.pause();else void this.play();});
     $('music-next').addEventListener('click',()=>{void this.next();});
     $('music-previous').addEventListener('click',()=>{void this.previous();});
@@ -89,6 +90,20 @@ export class PlaylistMusic implements MusicRainClock{
     const playing=this.transportPlaying();$('music-play').textContent=playing?'Pause':'Play';
     $('music-play').setAttribute('aria-label',playing?'Pause music':'Play playlist');
   }
+  private syncRainNotice(){
+    const notice=$('music-rain-state');notice.hidden=this.transport==='none';
+    const ready=!!this.engine.scheduler&&(this.transport==='capture'||this.matchedVideo)&&!this.sourceMismatch;
+    notice.textContent=!this.syncRain?'Rain sync off':this.sourceMismatch?'Source mismatch · rain sync off':
+      this.transport==='youtube'&&this.snapshot&&!this.matchedVideo?'No rain score for this video':
+      !ready?'Loading rain score…':this.snapshot?.state===3?'Buffering · rain waiting':this.isPlaying()?'Music rain synced':'Music rain paused';
+    this.hooks.publish({musicRainReady:ready,musicRainPlaying:this.isPlaying(),musicSourceMismatch:this.sourceMismatch});
+  }
+  private syncArtwork(videoId=''){
+    const image=$<HTMLImageElement>('music-art-image'),show=/^[A-Za-z0-9_-]{11}$/.test(videoId);
+    image.hidden=!show;$('music-art-placeholder').hidden=show;
+    if(show&&image.dataset.video!==videoId){image.dataset.video=videoId;image.src=`https://i.ytimg.com/vi/${videoId}/default.jpg`;}
+    if(!show){delete image.dataset.video;image.removeAttribute('src');}
+  }
   async open(){
     const opening=++this.opening;this.active=true;this.sync();this.status('Loading authored weather…');
     try{await this.assets();if(!this.active||opening!==this.opening)return;this.progress();
@@ -105,12 +120,14 @@ export class PlaylistMusic implements MusicRainClock{
   }
   private sync(){
     $('music-panel').hidden=!this.active;$('music-open').setAttribute('aria-expanded',String(this.active));
+    $('music-open').textContent=this.active?'Music':'Play music';$('music-open').setAttribute('aria-label',this.active?'Expand or minimize music':'Play music');
     $('music-panel').classList.toggle('is-expanded',this.expanded);
     $('music-details').hidden=!this.expanded;
     $('music-status').classList.toggle('visually-hidden',!this.expanded);
-    $('music-expand').setAttribute('aria-expanded',String(this.expanded));$('music-expand').textContent=this.expanded?'Collapse':'Expand';
+    $('music-expand').setAttribute('aria-expanded',String(this.expanded));$('music-expand').textContent=this.expanded?'Minimize':'Expand';$('music-close').hidden=!this.expanded;
     $('music-sync').setAttribute('aria-pressed',String(this.syncRain));$('music-sync').textContent=this.syncRain?'Rain sync on':'Rain sync off';
-    $('youtube-frame').hidden=this.transport!=='youtube';this.syncPlaybackButton();
+    $('youtube-frame').hidden=this.transport!=='youtube';this.syncPlaybackButton();this.syncRainNotice();
+    if(this.transport!=='youtube')this.syncArtwork();
     // A playing YouTube embed is destroyed before this wrapper can be hidden.
     this.hooks.publish({musicEnabled:this.enabled,musicTransport:this.transport,musicPanelExpanded:this.expanded});
   }
@@ -137,7 +154,7 @@ export class PlaylistMusic implements MusicRainClock{
         if(playlistId){this.validatingPlaylist=playlistId;this.player.loadPlaylistId(playlistId);this.status('Checking playlist video IDs…');}
         else this.status('Enter the YouTube playlist ID to begin.');
       },sample:snapshot=>this.youTubeSample(snapshot),error:code=>this.youTubeError(code),
-      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.status('Playback was blocked. Press play in the visible YouTube player.');},
+      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.syncRainNotice();this.status('Playback was blocked. Press play in the visible YouTube player.');},
     });
   }
   async loadPlaylist(value:string){
@@ -151,6 +168,7 @@ export class PlaylistMusic implements MusicRainClock{
   }
   private youTubeSample(snapshot:YouTubeSnapshot){
     if(!this.active||this.transport!=='youtube'||!this.session)return;
+    this.syncArtwork(snapshot.videoId);
     if(this.validatingPlaylist){
       if(!snapshot.playlist.length)return;
       const complete=this.session.manifest.tracks.every(t=>t.source);
@@ -160,6 +178,7 @@ export class PlaylistMusic implements MusicRainClock{
       this.playlistNote=!complete?'Source map is missing; no video identities will be guessed.':result.unknown.length||result.missing.length||result.duplicate.length?
         `Playlist differences: ${result.missing.length} missing, ${result.unknown.length} unexpected, ${result.duplicate.length} duplicates.`:
         result.orderMatches?'':'YouTube order differs from the intended cinematic order. Song scores stay unchanged.';
+      if(result.mismatched.length)this.playlistNote+=` ${result.mismatched.length} upload has a recording mismatch; its rain score is held.`;
       $('music-playlist-note').textContent=this.playlistNote;
       const names=new Map(this.session.tracks.map(t=>[t.id,t.title]));
       $('music-source-report').textContent=[
@@ -168,6 +187,7 @@ export class PlaylistMusic implements MusicRainClock{
         'Missing expected: '+(complete?result.missing.map(id=>names.get(id)).join(', ')||'none':'pending supplied identity map'),
         'Unexpected IDs: '+(complete?result.unknown.join(', ')||'none':'pending supplied identity map'),
         'Duplicate IDs: '+(result.duplicate.join(', ')||'none'),
+        'Recording mismatches: '+(result.mismatched.join(', ')||'none'),
         'Order differences: '+(complete?result.orderDifferences.map(d=>`${d.position}: ${names.get(d.expected??'')??'—'} → ${names.get(d.actual??'')??d.videoId??'—'}`).join('; ')||'none':'cannot compare without the source map'),
         'Unavailable/private: reported when YouTube rejects an item; omitted entries appear as missing',
         'Actual video IDs:\n'+snapshot.playlist.map((id,i)=>`${i+1}. ${id}`).join('\n'),
@@ -181,7 +201,7 @@ export class PlaylistMusic implements MusicRainClock{
     }
     this.nativeIndex=snapshot.index;this.nativeVideos=snapshot.playlist.length?snapshot.playlist:this.nativeVideos;
     const track=this.session.identify(snapshot.videoId,-1);
-    this.snapshot=snapshot;this.rate=snapshot.rate;this.matchedVideo=!!track;this.syncPlaybackButton();
+    this.snapshot=snapshot;this.rate=snapshot.rate;this.matchedVideo=!!track;this.syncPlaybackButton();this.syncRainNotice();
     if(!track){if(snapshot.videoId){
       ++this.revision;this.pendingTrack=undefined;this.engine.clearScore();
       this.clock.sample(snapshot.time,performance.now(),snapshot.state===1,snapshot.rate);
@@ -194,7 +214,7 @@ export class PlaylistMusic implements MusicRainClock{
       this.hooks.publish({musicUnmappedVideo:snapshot.videoId,musicPlaying:this.transportPlaying(),musicRainPlaying:false,musicTime:snapshot.time});
     }return;}
     if(this.pendingTrack&&this.pendingTrack!==track.id)return;
-    if(track.id!==this.session.current.id||(!this.engine.scheduler&&!this.pendingTrack)){
+    if(track.id!==this.session.current.id||track.source?.video_id!==this.session.current.source?.video_id||(!this.engine.scheduler&&!this.pendingTrack)){
       // Native YouTube next/previous controls also follow exact video identity.
       this.pendingOffset=true;this.sourceMismatch=false;void this.activateScore(track,0);
     }
@@ -204,7 +224,7 @@ export class PlaylistMusic implements MusicRainClock{
       if(Math.abs(snapshot.time-track.source.source_start_seconds)>.2){this.player!.port.seekTo(track.source.source_start_seconds,true);this.clock.reset(track.source.source_start_seconds,performance.now());this.rebase();return;}
     }
     if(track.source?.validation_status==='mismatch'||this.session.durationMismatch(snapshot.duration)){
-      this.sourceMismatch=true;this.status('This upload’s effective duration differs from the reference. Rain sync paused; replace its source mapping.');
+      this.sourceMismatch=true;this.status(track.source?.validation_status==='mismatch'?'This upload’s identity does not match the authored track. Rain sync is held; check its source mapping.':'This upload’s effective duration differs from the reference. Rain sync paused; replace its source mapping.');
     }
     this.clock.sample(snapshot.time,performance.now(),snapshot.state===1,snapshot.rate);
     if(this.clock.discontinuity)this.rebase();
@@ -213,7 +233,7 @@ export class PlaylistMusic implements MusicRainClock{
     if(this.awaitingEnd&&this.awaitingEnd!==track.id){this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);}
     if(snapshot.state===1&&this.session.atEnd(snapshot.time)){void this.next();return;}
     if(!this.sourceMismatch)this.status(snapshot.state===1?'Playing':snapshot.state===3?'Buffering — rain holds':snapshot.state===2?'Paused':'Ready — press play');
-    this.progress();
+    this.syncRainNotice();this.progress();
   }
   private scheduleEnded(trackId:string){
     if(this.awaitingEnd===trackId)return;this.awaitingEnd=trackId;
@@ -222,7 +242,7 @@ export class PlaylistMusic implements MusicRainClock{
     this.endTimer=window.setTimeout(()=>{if(this.active&&this.awaitingEnd===trackId&&this.session?.current.id===trackId){this.awaitingEnd=undefined;void this.next();}},350);
   }
   private youTubeError(code:number){
-    this.snapshot=undefined;this.engine.clearScore();this.syncPlaybackButton();
+    this.snapshot=undefined;this.engine.clearScore();this.syncPlaybackButton();this.syncRainNotice();
     if([100,101,150].includes(code)&&this.session){
       const actualIndex=this.pendingNativeIndex??this.player?.port.getPlaylistIndex()??this.nativeIndex;
       if(actualIndex>=0)this.nativeIndex=actualIndex;
@@ -236,9 +256,9 @@ export class PlaylistMusic implements MusicRainClock{
   }
   private async activateScore(track:MusicTrack,time:number){
     const revision=++this.revision;this.pendingTrack=track.id;this.engine.clearScore();
-    this.session!.select(this.session!.tracks.findIndex(t=>t.id===track.id));this.progress();
+    this.session!.select(this.session!.tracks.findIndex(t=>t.id===track.id),track.source??undefined);this.progress();
     try{const score=await this.score(track);if(!this.active||revision!==this.revision)return;
-      this.engine.setScore(score,this.pendingTrack===track.id?time:this.currentTime());this.pendingTrack=undefined;this.rebase();this.progress();
+      this.engine.setScore(score,this.pendingTrack===track.id?time:this.currentTime());this.pendingTrack=undefined;this.rebase();this.syncRainNotice();this.progress();
     }catch(error){if(revision===this.revision){this.pendingTrack=undefined;this.status(error instanceof Error?error.message:'Score could not load.');}}
   }
   async select(id:string,play:boolean){
@@ -247,7 +267,7 @@ export class PlaylistMusic implements MusicRainClock{
     const target=this.session!.tracks[index];
     if(this.transport==='youtube'&&this.player){
       if(!target.source)throw new Error('This track has no supplied YouTube source mapping.');
-      const native=this.nativeVideos.indexOf(target.source.video_id);
+      const native=this.nativeVideos.findIndex(id=>playbackSources(target).some(source=>source.video_id===id));
       if(native<0)throw new Error('This track is missing from the YouTube playlist.');
       this.moveToNative(native,play);return;
     }
@@ -283,7 +303,7 @@ export class PlaylistMusic implements MusicRainClock{
   pause(){
     if(this.transport==='youtube')this.player?.port.pauseVideo();
     else if(this.transport==='capture'){this.referenceStart=this.currentTime();this.referencePlaying=false;}
-    if(this.snapshot)this.snapshot={...this.snapshot,state:2};this.rebase();this.syncPlaybackButton();this.status('Paused');
+    if(this.snapshot)this.snapshot={...this.snapshot,state:2};this.rebase();this.syncPlaybackButton();this.syncRainNotice();this.status('Paused');
   }
   seek(time:number){
     if(!this.session||this.pendingTrack||this.pendingNativeIndex!==undefined||(this.transport==='youtube'&&(!this.snapshot||!this.matchedVideo)))return;time=clamp(time,0,this.session.current.duration);

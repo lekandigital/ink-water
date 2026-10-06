@@ -1,0 +1,197 @@
+{
+  "note": "YouTube sources supplied by the user. Continuum 3 points into a full-album video beginning at 14:14, so the app should support per-track source_start_seconds or replace it later with a standalone upload.",
+  "tracks": [
+    {
+      "index": 1,
+      "title": "inhale the Mist — Other Joe",
+      "youtube_url": "https://www.youtube.com/watch?v=ScLX_1GnP60",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 2,
+      "title": "fused (DJ-Kicks) — Logic1000",
+      "youtube_url": "https://www.youtube.com/watch?v=lp8EkhoCCnI",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 3,
+      "title": "Sun Tickles — Salamanda",
+      "youtube_url": "https://www.youtube.com/watch?v=62Zeu3jBs_I",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 4,
+      "title": "by the rain — Buttechno & TRIS",
+      "youtube_url": "https://www.youtube.com/watch?v=cadA-49BZl8",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 5,
+      "title": "Time to Find Me (AFX Fast Mix) — Seefeel",
+      "youtube_url": "https://www.youtube.com/watch?v=c9cIQb5x7OA",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 6,
+      "title": "Pop 4 — GAS",
+      "youtube_url": "https://www.youtube.com/watch?v=LR_Mj5ydbs0",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 7,
+      "title": "Without a Plan — Lusine",
+      "youtube_url": "https://www.youtube.com/watch?v=IwMeQgVCdR4",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 8,
+      "title": "memory of a memory — mu tate & Ben Bondy",
+      "youtube_url": "https://www.youtube.com/watch?v=ARJZ2rPuIyU",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 9,
+      "title": "Places Remember Events — Eerie Enterprise",
+      "youtube_url": "https://www.youtube.com/watch?v=nAQ3OAL5g7Q",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 10,
+      "title": "Sun Arcs (Laraaji Remix) — Blue Lake",
+      "youtube_url": "https://www.youtube.com/watch?v=syHJjj3w-Vw",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 11,
+      "title": "Remember — Sofii",
+      "youtube_url": "https://www.youtube.com/watch?v=MCAIoBcV91I",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 12,
+      "title": "Blush — Wilson Tanner",
+      "youtube_url": "https://www.youtube.com/watch?v=CPedgWtRqBQ",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 13,
+      "title": "Sabbia Su Sabbia — Argento",
+      "youtube_url": "https://www.youtube.com/watch?v=MebRRX-als0",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 14,
+      "title": "Slipping Fingers Through Curls — J",
+      "youtube_url": "https://www.youtube.com/watch?v=hZr5uVPocps",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 15,
+      "title": "190304-05 — Hideyuki Hashimoto",
+      "youtube_url": "https://www.youtube.com/watch?v=lipZU8lu07M",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 16,
+      "title": "Gagánbadibá — Andy Palacio & The Garifuna Collective",
+      "youtube_url": "https://www.youtube.com/watch?v=J9a5uO54h-4",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 17,
+      "title": "I — Oren Ambarchi",
+      "youtube_url": "https://www.youtube.com/watch?v=tiHr1bDEJIw",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 18,
+      "title": "birch beer forest — Marumari",
+      "youtube_url": "https://www.youtube.com/watch?v=cuzGVxJ-cq4",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 19,
+      "title": "An Unopened Letter — Dorian Concept & Bibio",
+      "youtube_url": "https://www.youtube.com/watch?v=ARAbv66v7mQ",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 20,
+      "title": "Recovery — Rival Consoles",
+      "youtube_url": "https://www.youtube.com/watch?v=mpHVqod6mB8",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 21,
+      "title": "Continuum 3 — Nala Sinephro",
+      "youtube_url": "https://www.youtube.com/watch?v=IyvqVDAGU0s&t=854s",
+      "source_start_seconds": 854
+    },
+    {
+      "index": 22,
+      "title": "Rider — Niko Demus",
+      "youtube_url": "https://www.youtube.com/watch?v=jGIKgJ9MzfE",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 23,
+      "title": "Lights On the Vibe — The Solid Doctor",
+      "youtube_url": "https://www.youtube.com/watch?v=RhePGWq5HV4",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 24,
+      "title": "Heal — Space Ghost",
+      "youtube_url": "https://www.youtube.com/watch?v=nVbFCQWbvCs",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 25,
+      "title": "The Dance No. 2 — Laraaji",
+      "youtube_url": "https://www.youtube.com/watch?v=FwTN4sb7CGI",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 26,
+      "title": "A Future Untold — Shabaka",
+      "youtube_url": "https://www.youtube.com/watch?v=PudxQucb3Js",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 27,
+      "title": "K-Notes — Kedr Livanskiy",
+      "youtube_url": "https://www.youtube.com/watch?v=PkHYFkyfMCs",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 28,
+      "title": "Wildflower Wood — The Seven Fields of Aphelion",
+      "youtube_url": "https://www.youtube.com/watch?v=50yPEiqOa2o",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 29,
+      "title": "Bromine (Yamaneko's Irusu Mix) — Chevel",
+      "youtube_url": "https://www.youtube.com/watch?v=L70WRWg-ADQ",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 30,
+      "title": "In Memory — RONA.",
+      "youtube_url": "https://www.youtube.com/watch?v=Zk82i2lCi-k",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 31,
+      "title": "Unknown — WAARI",
+      "youtube_url": "https://www.youtube.com/watch?v=Rvr1EsKYQZI",
+      "source_start_seconds": 0
+    },
+    {
+      "index": 32,
+      "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor] — Kokoroko",
+      "youtube_url": "https://www.youtube.com/watch?v=Hax9dZ5QATE",
+      "source_start_seconds": 0
+    }
+  ]
+}

@@ -76,6 +76,15 @@ controls.reset();input('caustic-ripples',true);assert.equal(controls.state.caust
 for(const id of ['bitmap-tones','caustic-reveal','drifting-grain','soft-diffusion']){input(id,true);assert.equal(controls.state.caustics,true);assert.ok(['bitmapRipples','textureReveal','printedPaper','textureRefraction'].every(k=>!controls.state[k]));}
 input('aligned-caustics',true);input('overhead-light',true);input('light-azimuth',43);assert.equal(controls.state.alignedCaustics,true);assert.equal(controls.state.overheadLight,true,'Light sliders must not reset switches');
 function keypress(key,target=document.body,code=''){const e=new window.Event('keydown',{bubbles:true,cancelable:true});Object.assign(e,{key,code,repeat:false});target.dispatchEvent(e);assert.ok(e.defaultPrevented);}
+for(const button of document.querySelectorAll('button')){
+ const before={...controls.state};keypress(' ',button,'Space');
+ assert.deepEqual(controls.state,{...before,paused:!before.paused},'Focused Space may only change pause: '+(button.id||button.textContent));
+ const held=new window.Event('keydown',{bubbles:true,cancelable:true});Object.assign(held,{key:' ',code:'Space',repeat:true});button.dispatchEvent(held);
+ assert.equal(held.defaultPrevented,true);assert.equal(controls.state.paused,!before.paused,'Held Space cannot toggle repeatedly');
+ const up=new window.Event('keyup',{bubbles:true,cancelable:true});Object.assign(up,{key:' ',code:'Space'});button.dispatchEvent(up);
+ assert.equal(up.defaultPrevented,true,'Cancel native Space activation on key-up too');
+ keypress(' ',button,'Space');assert.deepEqual(controls.state,before);
+}
 controls.reset();keypress(' ',$('bitmap-tones'),'Space');assert.equal(controls.state.paused,true);keypress(' ',$('wave-speed'),'Space');assert.equal(controls.state.paused,false);assert.ok(document.body.classList.contains('controls-hidden'),'Controls start hidden');assert.equal($('toggle-controls').textContent,'Show controls');keypress('h');assert.ok(!document.body.classList.contains('controls-hidden'));assert.equal($('toggle-controls').textContent,'Hide controls');keypress('h');assert.ok(document.body.classList.contains('controls-hidden'));
 controls.change({dreamy:true,subtle:true,waveSpeed:.7,tone:'night'});const stillSettings={...controls.state};$('clear').click();assert.equal(clears,1);assert.deepEqual(controls.state,stillSettings,'Still only invokes wave clearing');$('reset-defaults').click();assert.deepEqual(controls.state,initial,'Defaults must restore the separate startup preset');
 const beforeInvalid={...controls.state};assert.throws(()=>controls.change({tone:'night',touchForce:NaN}));assert.deepEqual(controls.state,beforeInvalid,'Settings updates must be atomic');

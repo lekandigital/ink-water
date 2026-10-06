@@ -9,13 +9,14 @@ export type RainScore={schema_version:1;track_id:string;seed:number;title:string
 export type PlaybackSource={video_id:string;source_start_seconds:number;source_end_seconds?:number;
   effective_duration_seconds?:number;validation_status:'verified'|'duration-only'|'unverified'|'mismatch';note?:string};
 export type MusicTrack={id:string;index:number;title:string;artist:string;duration:number;score:string;analysis:string;
-  reference_sha256:string;recommended_demo:{start:number;end:number};source:PlaybackSource|null;source_status:string};
+  reference_sha256:string;recommended_demo:{start:number;end:number};source:PlaybackSource|null;alternate_sources?:PlaybackSource[];source_status:string};
 export type MusicManifest={schema_version:1;title:string;preferred_tone:'green-light';playlist_id:string|null;order:string[];tracks:MusicTrack[]};
 export type MusicRainDrop={time:number;force:number;scale:number;position:Pair;seed:number;kind:'rain'|'cluster'|'accent'|'background'};
 export type PlaybackSample={trackId:string;time:number;playing:boolean;seeking?:boolean};
 export interface MusicRainClock{readonly enabled:boolean;updateMusicRain():MusicRainDrop[];setSimulationPaused(paused:boolean):void;rebase():void;}
 export const finite=(n:unknown):n is number=>typeof n==='number'&&Number.isFinite(n);
 export const clamp=(n:number,a:number,b:number)=>Math.max(a,Math.min(b,n));
+export const playbackSources=(track:MusicTrack)=>track.source?[track.source,...(track.alternate_sources??[])]:[];
 export function upperBound<T>(items:ReadonlyArray<T>,time:number,value:(item:T)=>number){
   let lo=0,hi=items.length;while(lo<hi){const m=(lo+hi)>>>1;if(value(items[m])<=time)lo=m+1;else hi=m;}return lo;
 }
@@ -50,10 +51,12 @@ export function validateManifest(manifest:MusicManifest,requireSources=false){
   for(const t of manifest.tracks){
     check(/^[0-9]{2}-[a-z0-9-]+$/.test(t.id)&&t.score===`scores/${t.id}.json`&&range(t.duration,.1,7200)&&/^[a-f0-9]{64}$/.test(t.reference_sha256),'Invalid track metadata.');
     if(!t.source){check(!requireSources,'Playback sources are incomplete: supply the YouTube source map.');continue;}
-    const s=t.source;
-    check(/^[A-Za-z0-9_-]{11}$/.test(s.video_id)&&range(s.source_start_seconds,0,86400),'Invalid YouTube mapping.');
-    check(s.source_end_seconds===undefined||(finite(s.source_end_seconds)&&s.source_end_seconds>s.source_start_seconds),'Invalid source end boundary.');
-    check(!videos.has(s.video_id),'Video IDs must identify one recording unambiguously.');videos.add(s.video_id);
+    for(const s of playbackSources(t)){
+      check(/^[A-Za-z0-9_-]{11}$/.test(s.video_id)&&range(s.source_start_seconds,0,86400),'Invalid YouTube mapping.');
+      check(s.source_end_seconds===undefined||(finite(s.source_end_seconds)&&s.source_end_seconds>s.source_start_seconds),'Invalid source end boundary.');
+      check(['verified','duration-only','unverified','mismatch'].includes(s.validation_status),'Invalid source validation status.');
+      check(!videos.has(s.video_id),'Video IDs must identify one recording unambiguously.');videos.add(s.video_id);
+    }
   }
 }
 
@@ -66,7 +69,7 @@ export function parsePlaylistId(value:string){
 }
 
 export function validatePlaylist(manifest:MusicManifest,videoIds:string[]){
-  const mapped=new Map(manifest.tracks.filter(t=>t.source).map(t=>[t.source!.video_id,t.id]));
+  const mapped=new Map(manifest.tracks.flatMap(t=>playbackSources(t).map(s=>[s.video_id,t.id] as const)));
   const ids=videoIds.map(id=>mapped.get(id));
   const unknown=videoIds.filter(id=>!mapped.has(id));
   const missing=manifest.order.filter(id=>!ids.includes(id));
@@ -74,7 +77,8 @@ export function validatePlaylist(manifest:MusicManifest,videoIds:string[]){
   const orderDifferences=Array.from({length:Math.max(ids.length,manifest.order.length)},(_,position)=>({
     position:position+1,expected:manifest.order[position]??null,actual:ids[position]??null,videoId:videoIds[position]??null,
   })).filter(item=>item.expected!==item.actual);
-  return {unknown,missing,duplicate,orderMatches:ids.length===manifest.order.length&&ids.every((id,i)=>id===manifest.order[i]),
+  const mismatched=videoIds.filter(videoId=>manifest.tracks.some(t=>playbackSources(t).some(s=>s.video_id===videoId&&s.validation_status==='mismatch')));
+  return {unknown,missing,duplicate,mismatched,orderMatches:ids.length===manifest.order.length&&ids.every((id,i)=>id===manifest.order[i]),
     orderDifferences,mappedOrder:ids.filter((id):id is string=>id!==undefined)};
 }
 

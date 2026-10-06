@@ -51,8 +51,15 @@
         "start": 133.73,
         "end": 146.23
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "ScLX_1GnP60",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 257,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "inhale the Mist"
     },
     {
       "id": "02-fused-dj-kicks",
@@ -67,8 +74,15 @@
         "start": 124.55,
         "end": 137.05
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "lp8EkhoCCnI",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 211,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "fused (DJ-Kicks)"
     },
     {
       "id": "03-sun-tickles",
@@ -83,8 +97,22 @@
         "start": 24.84,
         "end": 37.34
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "62Zeu3jBs_I",
+        "source_start_seconds": 0,
+        "validation_status": "unverified"
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Sun Tickles",
+      "alternate_sources": [
+        {
+          "video_id": "lrAWkOGkpBw",
+          "source_start_seconds": 0,
+          "validation_status": "duration-only",
+          "note": "The current playlist uses this Sun Tickles upload (272s). Preserve the supplied primary upload as well; full audio version verification remains pending.",
+          "effective_duration_seconds": 272
+        }
+      ]
     },
     {
       "id": "04-by-the-rain",
@@ -99,8 +127,15 @@
         "start": 179.65,
         "end": 192.15
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "cadA-49BZl8",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 236,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "by the rain"
     },
     {
       "id": "05-time-to-find-me-afx-fast-mix",
@@ -115,14 +150,21 @@
         "start": 51.52,
         "end": 64.02
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "c9cIQb5x7OA",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 457,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Time to Find Me (AFX Fast Mix)"
     },
     {
       "id": "06-pop-4",
       "index": 6,
       "title": "Pop 4",
-      "artist": "",
+      "artist": "GAS",
       "duration": 568.346667,
       "score": "scores/06-pop-4.json",
       "analysis": "analysis/06-pop-4.json",
@@ -131,8 +173,15 @@
         "start": 36.29,
         "end": 48.79
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "LR_Mj5ydbs0",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 569,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Pop 4"
     },
     {
       "id": "07-lusine-without-a-plan",
@@ -147,14 +196,21 @@
         "start": 96.77,
         "end": 109.27
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "IwMeQgVCdR4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 259,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Lusine - Without a Plan"
     },
     {
       "id": "08-memory-of-a-memory",
       "index": 8,
       "title": "memory of a memory",
-      "artist": "",
+      "artist": "mu tate & Ben Bondy",
       "duration": 251.701859,
       "score": "scores/08-memory-of-a-memory.json",
       "analysis": "analysis/08-memory-of-a-memory.json",
@@ -163,8 +219,15 @@
         "start": 212.8,
         "end": 225.3
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "ARJZ2rPuIyU",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 252,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "memory of a memory"
     },
     {
       "id": "09-places-remember-events",
@@ -179,14 +242,21 @@
         "start": 19.5,
         "end": 32.0
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "nAQ3OAL5g7Q",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 235,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Places Remember Events"
     },
     {
       "id": "10-sun-arcs-laraaji-remix",
       "index": 10,
       "title": "Sun Arcs (Laraaji Remix)",
-      "artist": "",
+      "artist": "Blue Lake",
       "duration": 252.0,
       "score": "scores/10-sun-arcs-laraaji-remix.json",
       "analysis": "analysis/10-sun-arcs-laraaji-remix.json",
@@ -195,14 +265,21 @@
         "start": 27.78,
         "end": 40.28
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "syHJjj3w-Vw",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 252,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Sun Arcs (Laraaji Remix)"
     },
     {
       "id": "11-remember",
       "index": 11,
       "title": "Remember",
-      "artist": "",
+      "artist": "Sofii",
       "duration": 133.907483,
       "score": "scores/11-remember.json",
       "analysis": "analysis/11-remember.json",
@@ -211,8 +288,15 @@
         "start": 78.4,
         "end": 90.9
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "MCAIoBcV91I",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 134,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Remember"
     },
     {
       "id": "12-wilson-tanner-blush",
@@ -227,8 +311,15 @@
         "start": 167.78,
         "end": 180.28
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "CPedgWtRqBQ",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 231,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Wilson Tanner - Blush"
     },
     {
       "id": "13-argento-sabbia-su-sabbia",
@@ -243,14 +334,21 @@
         "start": 118.5,
         "end": 131.0
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "MebRRX-als0",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 209,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Argento - Sabbia Su Sabbia"
     },
     {
       "id": "14-slipping-fingers-through-curls",
       "index": 14,
       "title": "Slipping Fingers Through Curls",
-      "artist": "",
+      "artist": "J",
       "duration": 217.528254,
       "score": "scores/14-slipping-fingers-through-curls.json",
       "analysis": "analysis/14-slipping-fingers-through-curls.json",
@@ -259,14 +357,21 @@
         "start": 122.75,
         "end": 135.25
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "hZr5uVPocps",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 218,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Slipping Fingers Through Curls"
     },
     {
       "id": "15-190304-05",
       "index": 15,
       "title": "190304-05",
-      "artist": "",
+      "artist": "Hideyuki Hashimoto",
       "duration": 153.333333,
       "score": "scores/15-190304-05.json",
       "analysis": "analysis/15-190304-05.json",
@@ -275,14 +380,21 @@
         "start": 0.0,
         "end": 12.5
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "lipZU8lu07M",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 154,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "190304-05"
     },
     {
       "id": "16-gaganbadiba",
       "index": 16,
       "title": "Gagánbadibá",
-      "artist": "",
+      "artist": "Andy Palacio & The Garifuna Collective",
       "duration": 259.088254,
       "score": "scores/16-gaganbadiba.json",
       "analysis": "analysis/16-gaganbadiba.json",
@@ -291,14 +403,21 @@
         "start": 144.93,
         "end": 157.43
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "J9a5uO54h-4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 260,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Gagánbadibá"
     },
     {
       "id": "17-i",
       "index": 17,
       "title": "I",
-      "artist": "",
+      "artist": "Oren Ambarchi",
       "duration": 480.96,
       "score": "scores/17-i.json",
       "analysis": "analysis/17-i.json",
@@ -307,8 +426,15 @@
         "start": 316.06,
         "end": 328.56
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "tiHr1bDEJIw",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 481,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "I"
     },
     {
       "id": "18-birch-beer-forest",
@@ -323,14 +449,21 @@
         "start": 35.73,
         "end": 48.23
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "cuzGVxJ-cq4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 212,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "birch beer forest"
     },
     {
       "id": "19-an-unopened-letter",
       "index": 19,
       "title": "An Unopened Letter",
-      "artist": "",
+      "artist": "Dorian Concept & Bibio",
       "duration": 173.522721,
       "score": "scores/19-an-unopened-letter.json",
       "analysis": "analysis/19-an-unopened-letter.json",
@@ -339,8 +472,15 @@
         "start": 68.99,
         "end": 81.49
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "ARAbv66v7mQ",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 174,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "An Unopened Letter"
     },
     {
       "id": "20-recovery",
@@ -355,8 +495,15 @@
         "start": 82.66,
         "end": 95.16
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "mpHVqod6mB8",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 292,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Recovery"
     },
     {
       "id": "21-continuum-3",
@@ -371,14 +518,29 @@
         "start": 126.11,
         "end": 138.61
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "IyvqVDAGU0s",
+        "source_start_seconds": 854,
+        "validation_status": "unverified",
+        "source_end_seconds": 1101.538866
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Continuum 3",
+      "alternate_sources": [
+        {
+          "video_id": "Gx41vYzyPZo",
+          "source_start_seconds": 0,
+          "validation_status": "duration-only",
+          "note": "Standalone Continuum 3 (248s). This ID starts at 0; the supplied album ID retains its 854s offset. Full audio version verification remains pending.",
+          "effective_duration_seconds": 248
+        }
+      ]
     },
     {
       "id": "22-rider",
       "index": 22,
       "title": "Rider",
-      "artist": "",
+      "artist": "Niko Demus",
       "duration": 170.362902,
       "score": "scores/22-rider.json",
       "analysis": "analysis/22-rider.json",
@@ -387,14 +549,21 @@
         "start": 103.49,
         "end": 115.99
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "jGIKgJ9MzfE",
+        "source_start_seconds": 0,
+        "validation_status": "mismatch",
+        "effective_duration_seconds": 171,
+        "note": "The supplied Rider — Niko Demus source resolves to DEAR DRIVER — NICO in the playlist metadata. Its authored score is held until this source is corrected or the recording is explicitly verified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Rider"
     },
     {
       "id": "23-lights-on-the-vibe",
       "index": 23,
       "title": "Lights On the Vibe",
-      "artist": "",
+      "artist": "The Solid Doctor",
       "duration": 461.647528,
       "score": "scores/23-lights-on-the-vibe.json",
       "analysis": "analysis/23-lights-on-the-vibe.json",
@@ -403,14 +572,21 @@
         "start": 86.46,
         "end": 98.96
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "RhePGWq5HV4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 462,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Lights On the Vibe"
     },
     {
       "id": "24-heal",
       "index": 24,
       "title": "Heal",
-      "artist": "",
+      "artist": "Space Ghost",
       "duration": 410.635828,
       "score": "scores/24-heal.json",
       "analysis": "analysis/24-heal.json",
@@ -419,14 +595,21 @@
         "start": 188.83,
         "end": 201.33
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "nVbFCQWbvCs",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 411,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Heal"
     },
     {
       "id": "25-the-dance-no-2",
       "index": 25,
       "title": "The Dance No. 2",
-      "artist": "",
+      "artist": "Laraaji",
       "duration": 582.733333,
       "score": "scores/25-the-dance-no-2.json",
       "analysis": "analysis/25-the-dance-no-2.json",
@@ -435,14 +618,21 @@
         "start": 6.72,
         "end": 19.22
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "FwTN4sb7CGI",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 583,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "The Dance No. 2"
     },
     {
       "id": "26-a-future-untold",
       "index": 26,
       "title": "A Future Untold",
-      "artist": "",
+      "artist": "Shabaka",
       "duration": 202.723265,
       "score": "scores/26-a-future-untold.json",
       "analysis": "analysis/26-a-future-untold.json",
@@ -451,14 +641,21 @@
         "start": 98.56,
         "end": 111.06
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "PudxQucb3Js",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 203,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "A Future Untold"
     },
     {
       "id": "27-k-notes",
       "index": 27,
       "title": "K-Notes",
-      "artist": "",
+      "artist": "Kedr Livanskiy",
       "duration": 195.989388,
       "score": "scores/27-k-notes.json",
       "analysis": "analysis/27-k-notes.json",
@@ -467,14 +664,21 @@
         "start": 26.43,
         "end": 38.93
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "PkHYFkyfMCs",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 196,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "K-Notes"
     },
     {
       "id": "28-wildflower-wood",
       "index": 28,
       "title": "Wildflower Wood",
-      "artist": "",
+      "artist": "The Seven Fields of Aphelion",
       "duration": 226.64,
       "score": "scores/28-wildflower-wood.json",
       "analysis": "analysis/28-wildflower-wood.json",
@@ -483,8 +687,15 @@
         "start": 135.74,
         "end": 148.24
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "50yPEiqOa2o",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 227,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Wildflower Wood"
     },
     {
       "id": "29-bromine-yamaneko-s-irusu-mix",
@@ -499,14 +710,21 @@
         "start": 71.68,
         "end": 84.18
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "L70WRWg-ADQ",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 540,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Bromine (Yamaneko's Irusu Mix)"
     },
     {
       "id": "30-in-memory",
       "index": 30,
       "title": "In Memory",
-      "artist": "",
+      "artist": "RONA.",
       "duration": 209.660136,
       "score": "scores/30-in-memory.json",
       "analysis": "analysis/30-in-memory.json",
@@ -515,14 +733,21 @@
         "start": 121.86,
         "end": 134.36
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "Zk82i2lCi-k",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 210,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "In Memory"
     },
     {
       "id": "31-unknown",
       "index": 31,
       "title": "Unknown",
-      "artist": "",
+      "artist": "WAARI",
       "duration": 422.0,
       "score": "scores/31-unknown.json",
       "analysis": "analysis/31-unknown.json",
@@ -531,14 +756,21 @@
         "start": 320.32,
         "end": 332.82
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "Rvr1EsKYQZI",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 422,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Unknown"
     },
     {
       "id": "32-da-du-dah-onome-remix-feat-nyron-higor",
       "index": 32,
       "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
-      "artist": "",
+      "artist": "Kokoroko",
       "duration": 223.565079,
       "score": "scores/32-da-du-dah-onome-remix-feat-nyron-higor.json",
       "analysis": "analysis/32-da-du-dah-onome-remix-feat-nyron-higor.json",
@@ -547,8 +779,15 @@
         "start": 62.05,
         "end": 74.55
       },
-      "source": null,
-      "source_status": "awaiting-supplied-source-map"
+      "source": {
+        "video_id": "Hax9dZ5QATE",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 224,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "source_status": "supplied-source-map",
+      "expected_version": "Da Du Dah (Onome Remix) [feat. Nyron Higor]"
     }
   ]
 }

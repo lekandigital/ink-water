@@ -12,21 +12,22 @@ Music mode replaces **rain scheduling**. Each emitted event goes through `Puddle
 
 `data/music/manifest.json` separates score identity, cinematic order and playback source. The order is exactly `playlist_order_indices` from the authored choreography. Changing the order never rewrites a score or its seed. Analysis records and local audio do not ship in `dist`; only the manifest and authored scores do.
 
-## Production source verification — currently blocked
+## Production identities and recording verification
 
-The attachment named `ink-water-youtube-source-map.json` was not available. Every production `source` is therefore deliberately `null`. A playlist inventory in `analysis/youtube-playlist-inventory.json` records the 32 IDs YouTube returned on 2026-10-06; **it is not a song mapping**, and runtime playback does not use it to assign scores. No title matching or positional identity guessing is performed.
+The supplied `ink-water-youtube-source-map.json` has been recovered and imported. The original is preserved byte-for-byte in `data/music/source/`. All 32 numbered tracks have explicit primary IDs. `analysis/youtube-playlist-inventory.json` records the IDs and duration metadata returned on 2026-10-06; runtime never uses that inventory to assign scores. Reviewed exact-ID adjustments live separately in `source/playlist-source-adjustments.json`. No fuzzy title matching or positional identity guessing is performed.
 
-The current playlist's position 30 is **DEAR DRIVER — NICO**, while the authored order expects **Rider**. Its duration is similar, which cannot establish recording identity. Position 3 is a standalone **Continuum 3**, whereas the earlier source description used an album video at 854 seconds. Do not copy that old offset to a different video. YouTube metadata was available, but media retrieval was blocked; recording equivalence remains unverified for all 32 sources. Full local reference analysis is complete.
+The supplied Rider ID `jGIKgJ9MzfE` resolves to **DEAR DRIVER — NICO** in the playlist. That source is marked `mismatch`: playback remains available, but the Rider score is held. Sun Tickles also explicitly maps to current upload `lrAWkOGkpBw`, retaining supplied `62Zeu3jBs_I`. Continuum 3 also maps to standalone `Gx41vYzyPZo` at **0s**, while supplied album `IyvqVDAGU0s` retains **854s** and its reference-length end boundary. With those two aliases, the current playlist matches the cinematic identity order. YouTube metadata was available, but media retrieval was blocked; full recording equivalence remains unverified. Duration-only matches permit this preview's rain; they are not full recording verification.
 
 Import the actual explicit map:
 
 ```sh
 python3 scripts/music/import-source-map.py /path/to/ink-water-youtube-source-map.json
+python3 scripts/music/reconcile-playlist-sources.py
 npm run music:release-check
 npm run music:report
 ```
 
-The importer accepts a `tracks` or `sources` array with 32 entries, identified by `track_id` or original numbered `track_index`/`index`. It preserves the original input byte-for-byte and fails atomically on unknown identities, duplicate IDs or invalid offsets. It never matches titles. One normalized entry is:
+The importer accepts a `tracks` or `sources` array with 32 entries, identified by `track_id` or original numbered `track_index`/`index`. Sources can contain `video_id` or the supplied HTTPS `youtube_url`. It preserves the original byte-for-byte and fails atomically on unknown identities, duplicate IDs or invalid offsets. `--check` validates without writing. It never matches titles. One normalized entry is:
 
 ```json
 {
@@ -42,7 +43,7 @@ The importer accepts a `tracks` or `sources` array with 32 entries, identified b
 }
 ```
 
-The example describes the **older album-offset architecture**, not a claim about the current upload. Use its actual mapping and measured offset. Mark `verified` only after checking recording/version and timing against the reference; a duration-only match stays `duration-only`. A source marked `mismatch`, or with a materially different effective duration, holds musical rain while allowing playback. `music:release-check` requires all 32 mappings and verified versions; it currently fails and must pass before release/merge.
+The example describes the supplied album source; the current playlist uses its separately mapped standalone upload. Mark `verified` only after checking recording/version and timing against the reference; a duration-only match stays `duration-only`. A `mismatch` source or materially different effective duration holds rain while allowing playback. Whole-second YouTube duration rounding is allowed up to 1.25s. `music:release-check` requires all primary and alternate versions to be verified; it currently fails and must pass before release/merge.
 
 ## YouTube playlist integration
 
@@ -50,9 +51,15 @@ The default playlist is `PLTab0IXtn0Nw`. After an explicit Play click, the app l
 
 At readiness, `getPlaylist()` supplies actual video IDs. The app compares them to the explicit source manifest and reports missing expected tracks, unexpected IDs, duplicate IDs and exact order differences in “Playback source check” and the published state. The cinematic order stays unchanged. Reorder YouTube later without changing scores: current **video identity**, not queue position or title, chooses its score.
 
-Music opens as a small translucent card with Play/Pause, Next, elapsed/total time and Expand. Before Play there is no empty video rectangle. Once connected, compact mode keeps a visible 200×200 YouTube viewport; Expand enlarges the player and reveals track selection, previous/restart/highlight, rain sync and source diagnostics. Only the surrounding card is translucent; the iframe is opaque and unobscured. Expansion never recreates the player, resets its clock or changes water settings. Details scroll independently so they cannot scroll the player out of the card.
+Music has one clear entry: **Play music** opens and starts the native playlist in one user action. The resting view is a slim translucent bar with a 52px square song thumbnail, title/artist, Play/Pause, Next, time and Expand. There is no empty video rectangle before playback. The artwork follows the actual video ID. YouTube's live viewport remains visible in a separate 200×200 pane immediately above the bar; the tiny artwork is not a shrunken or hidden live player.
 
-The header Music button expands/collapses an open card. “Stop and hide music” destroys the embed before hiding it. `H` hides the water controls without hiding a playing YouTube player. YouTube does not permit invisible/background-only playback; the compact card is the smallest visible alternative. Capture URLs disallow YouTube playback. Autoplay blocking asks the user to press the actual player's Play control. Errors 100/101/150 mark the actual rejected video unavailable and advance through the native playlist; omitted private items appear as missing expected IDs. Other errors are shown without fabricating rain. At the last item the playlist ends cleanly; Play returns to its first item. The native End event is allowed to settle before any manual advance to avoid double skipping.
+Expanded mode brings the native video into the card, with one playlist selector and Previous/Restart. Additional rain/source/playlist controls sit behind **More**. The close icon minimizes without stopping playback. **Stop and close music** under More destroys the embed before hiding it. Both compact and expanded views rest under the water, with mostly transparent paper and a 65% video image. Hover or keyboard focus removes the refraction and restores crisp, opaque interaction. The same native iframe remains in place through minimize/expand cycles; no overlay blocks it and its pixels are never copied.
+
+`MusicWaterPresentation` makes the resting card appear submerged like the existing underwater reference lines. A read-only shader reconstructs the displayed physical water normals, performs air-to-water refraction toward the floor, and projects the difference from still water into a bounded displacement map. An asynchronous 80×80 GPU read (at most 20Hz, one in flight) supplies an SVG displacement filter for the original DOM/iframe. The displayed field includes independently clocked Dreamy rain and full-speed touch. This is a presentation bridge, with no independent wave animation or solver feedback. Hover/keyboard focus, reduced motion and capture bypass it; Music Off performs no additional GPU work. If readback fails, controls remain usable without refraction.
+
+The compact rain-status line distinguishes synchronization from pause, buffering, missing score and recording mismatch. Play does not invent an impact during an authored breathing space.
+
+The header Music button expands/minimizes an already playing bar. The close icon also minimizes; only the separate Stop command destroys playback. `H` hides the water controls without hiding a playing YouTube player. YouTube does not permit invisible/background-only playback; the compact card is the smallest visible alternative. Capture URLs disallow YouTube playback. Autoplay blocking asks the user to press the actual player's Play control. Errors 100/101/150 mark the actual rejected video unavailable and advance through the native playlist; omitted private items appear as missing expected IDs. Other errors are shown without fabricating rain. At the last item the playlist ends cleanly; Play returns to its first item. The native End event is allowed to settle before any manual advance to avoid double skipping.
 
 Official API and embed requirements: https://developers.google.com/youtube/iframe_api_reference
 Player visibility/background-playback policy: https://developers.google.com/youtube/terms/developer-policies
@@ -61,7 +68,7 @@ Player visibility/background-playback policy: https://developers.google.com/yout
 
 `RainScheduler.updateMusicRain(currentTime)` is independent of any player. The scheduler plans reproducible generative events from the song seed, using event-local randomness rather than a global RNG. It uses a cursor/binary search for seeks. Forward seeks discard missed events; backward seeks make future events eligible again. Discontinuous clock jumps never emit a backlog. Existing waves are preserved across seek or track change.
 
-`MusicRainEngine` owns the current score. A track change clears only pending scheduling, not water. Async score loading is revision guarded; late samples from the previous native item cannot resurrect that score. Pause/buffering stops new events and rebases the cursor. Music pause lets existing waves decay normally; the existing Space/water pause freezes the simulation and pauses/resumes the music transport as well.
+`MusicRainEngine` owns the current score. A track change clears only pending scheduling, not water. Async score loading is revision guarded; late samples from the previous native item cannot resurrect that score. Pause/buffering stops new events and rebases the cursor. Music pause lets existing waves decay normally; the existing Space/water pause freezes the simulation and pauses/resumes the music transport as well. Space is captured before focused controls on both key-down and key-up, so it cannot activate a selected button; held Space toggles only once. Text-entry spaces remain available. Pause changes notify playback immediately, independently of GPU initialization or the next animation frame.
 
 YouTube `currentTime` is the master clock. `PlaybackClock` anchors each 80ms sample and interpolates for at most 120ms; an unchanged/stalled sample stops extrapolation. It never accumulates a separate song timer. Playback-rate changes, native seeks, buffering and visibility changes reconcile to the player.
 
@@ -77,7 +84,7 @@ The runtime seeks to the source start on native item changes and advances manual
 
 ## Normal water and tones
 
-Music starts Off. Opening, playing, expanding, collapsing or closing Music never changes the current palette. The existing default remains Dark/comic bitmap. A five-swatch Color picker is always available outside the technical controls; it and the existing Paper row share the same `WaterControls` state and stay synchronized. All five palettes work in and out of music mode. The manifest's preferred tone is an artistic recommendation, not an automatic UI override. Music does not reset switches, lighting, motion controls, rain force, touch force, camera, render modes or geometry. Rain Sync Off resumes normal rain scheduling while audio can continue. Closing Music leaves ordinary Ink Water behavior intact. Still the water clears waves only; it does not restart the song or reset settings.
+Music starts Off. Opening, playing, expanding, collapsing or closing Music never changes the current palette. The existing default remains Dark/comic bitmap. A five-swatch Color picker and an Etched / Ink / Graphite / Real row beneath it are available outside the technical panel; they share `WaterControls` state with the Paper/Drawing rows and stay synchronized. All five palettes work in and out of music mode. The manifest's preferred tone is an artistic recommendation, not an automatic override. Music does not reset switches, lighting, motion controls, force, camera or geometry. Rain Sync Off resumes normal rain scheduling while audio continues. Closing Music leaves ordinary behavior intact. Still the water clears waves only, without restarting the song or resetting settings.
 
 ## Reference recordings and development
 
@@ -118,6 +125,7 @@ npm run music:report
 ```sh
 node scripts/verify-music-physical.mjs /tmp/music-impulses.json
 python3 scripts/verify-music-gpu.py /tmp/music-impulses.json
+python3 scripts/verify-music-refraction.py
 ```
 
 See `docs/music-validation.md` and `.json` for every track's durations, sections, accents, generative parameters, event counts, demo windows and outstanding source discrepancies.

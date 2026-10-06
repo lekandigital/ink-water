@@ -1,17 +1,25 @@
 {
   "schema_version": 1,
   "playlist_id": "PLTab0IXtn0Nw",
-  "source_mapping_complete": false,
-  "validation_scope": "All 32 local MP3s decoded and analyzed. YouTube ID inventory obtained; exact source map missing and media equivalence unverified.",
+  "source_mapping_complete": true,
+  "validation_scope": "All 32 local MP3s decoded and analyzed. Supplied exact-ID source map imported, with two reviewed aliases. Rider metadata mismatch holds its score. Full YouTube recording equivalence remains unverified.",
   "tracks": [
     {
       "position": 1,
       "track_id": "15-190304-05",
       "title": "190304-05",
-      "artist": "",
+      "artist": "Hideyuki Hashimoto",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "lipZU8lu07M",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "lipZU8lu07M",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 154,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 1,
         "video_id": "lipZU8lu07M",
@@ -19,7 +27,7 @@
         "duration_seconds": 154,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 153.333333,
       "container_duration": 153.36,
@@ -536,10 +544,18 @@
       "position": 2,
       "track_id": "19-an-unopened-letter",
       "title": "An Unopened Letter",
-      "artist": "",
+      "artist": "Dorian Concept & Bibio",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "ARAbv66v7mQ",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "ARAbv66v7mQ",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 174,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 2,
         "video_id": "ARAbv66v7mQ",
@@ -547,7 +563,7 @@
         "duration_seconds": 174,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 173.522721,
       "container_duration": 173.568,
@@ -1075,8 +1091,23 @@
       "title": "Continuum 3",
       "artist": "Nala Sinephro",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "Gx41vYzyPZo",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "IyvqVDAGU0s",
+        "source_start_seconds": 854,
+        "validation_status": "unverified",
+        "source_end_seconds": 1101.538866
+      },
+      "alternate_sources": [
+        {
+          "video_id": "Gx41vYzyPZo",
+          "source_start_seconds": 0,
+          "validation_status": "duration-only",
+          "note": "Standalone Continuum 3 (248s). This ID starts at 0; the supplied album ID retains its 854s offset. Full audio version verification remains pending.",
+          "effective_duration_seconds": 248
+        }
+      ],
       "observed_playlist_item": {
         "position": 3,
         "video_id": "Gx41vYzyPZo",
@@ -1084,7 +1115,7 @@
         "duration_seconds": 248,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 247.538866,
       "container_duration": 247.584,
@@ -1615,17 +1646,25 @@
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
         "Selected arrivals use independently measured attacks; density remains authored.",
-        "Playlist position 3 is a standalone Continuum 3 upload; do not carry over the old 854s album offset without its authoritative mapping."
+        "Standalone Gx41vYzyPZo uses offset 0; supplied album IyvqVDAGU0s retains 854s."
       ]
     },
     {
       "position": 4,
       "track_id": "10-sun-arcs-laraaji-remix",
       "title": "Sun Arcs (Laraaji Remix)",
-      "artist": "",
+      "artist": "Blue Lake",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "syHJjj3w-Vw",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "syHJjj3w-Vw",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 252,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 4,
         "video_id": "syHJjj3w-Vw",
@@ -1633,7 +1672,7 @@
         "duration_seconds": 252,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 252,
       "container_duration": 252.024,
@@ -2098,8 +2137,22 @@
       "title": "Sun Tickles",
       "artist": "Salamanda",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "lrAWkOGkpBw",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "62Zeu3jBs_I",
+        "source_start_seconds": 0,
+        "validation_status": "unverified"
+      },
+      "alternate_sources": [
+        {
+          "video_id": "lrAWkOGkpBw",
+          "source_start_seconds": 0,
+          "validation_status": "duration-only",
+          "note": "The current playlist uses this Sun Tickles upload (272s). Preserve the supplied primary upload as well; full audio version verification remains pending.",
+          "effective_duration_seconds": 272
+        }
+      ],
       "observed_playlist_item": {
         "position": 5,
         "video_id": "lrAWkOGkpBw",
@@ -2107,7 +2160,7 @@
         "duration_seconds": 272,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 271.807347,
       "container_duration": 271.848,
@@ -2682,7 +2735,8 @@
       },
       "discrepancies": [
         "Duration uses decoded reference samples; supplied highlight is unchanged.",
-        "Selected arrivals use independently measured attacks; density remains authored."
+        "Selected arrivals use independently measured attacks; density remains authored.",
+        "Current lrAWkOGkpBw upload is an explicit duration-only alias; supplied 62Zeu3jBs_I is preserved."
       ]
     },
     {
@@ -2691,8 +2745,16 @@
       "title": "birch beer forest",
       "artist": "Marumari",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "cuzGVxJ-cq4",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "cuzGVxJ-cq4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 212,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 6,
         "video_id": "cuzGVxJ-cq4",
@@ -2700,7 +2762,7 @@
         "duration_seconds": 212,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 211.440998,
       "container_duration": 211.488,
@@ -3210,8 +3272,16 @@
       "title": "Places Remember Events",
       "artist": "Eerie Enterprise",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "nAQ3OAL5g7Q",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "nAQ3OAL5g7Q",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 235,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 7,
         "video_id": "nAQ3OAL5g7Q",
@@ -3219,7 +3289,7 @@
         "duration_seconds": 235,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 234.352925,
       "container_duration": 234.384,
@@ -3736,8 +3806,16 @@
       "title": "inhale the Mist",
       "artist": "Other Joe",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "ScLX_1GnP60",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "ScLX_1GnP60",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 257,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 8,
         "video_id": "ScLX_1GnP60",
@@ -3745,7 +3823,7 @@
         "duration_seconds": 257,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 256.36898,
       "container_duration": 256.416,
@@ -4233,8 +4311,16 @@
       "title": "fused (DJ-Kicks)",
       "artist": "Logic1000",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "lp8EkhoCCnI",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "lp8EkhoCCnI",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 211,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 9,
         "video_id": "lp8EkhoCCnI",
@@ -4242,7 +4328,7 @@
         "duration_seconds": 211,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 210.693333,
       "container_duration": 210.72,
@@ -4751,8 +4837,16 @@
       "title": "Lusine - Without a Plan",
       "artist": "Lusine",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "IwMeQgVCdR4",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "IwMeQgVCdR4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 259,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 10,
         "video_id": "IwMeQgVCdR4",
@@ -4760,7 +4854,7 @@
         "duration_seconds": 259,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 258.263946,
       "container_duration": 258.288,
@@ -5255,8 +5349,16 @@
       "title": "Recovery",
       "artist": "Rival Consoles",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "mpHVqod6mB8",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "mpHVqod6mB8",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 292,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 11,
         "video_id": "mpHVqod6mB8",
@@ -5264,7 +5366,7 @@
         "duration_seconds": 292,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 291.015692,
       "container_duration": 291.048,
@@ -5784,8 +5886,16 @@
       "title": "Time to Find Me (AFX Fast Mix)",
       "artist": "Seefeel",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "c9cIQb5x7OA",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "c9cIQb5x7OA",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 457,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 12,
         "video_id": "c9cIQb5x7OA",
@@ -5793,7 +5903,7 @@
         "duration_seconds": 457,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 457,
       "container_duration": 457.032,
@@ -6280,8 +6390,16 @@
       "title": "Bromine (Yamaneko's Irusu Mix)",
       "artist": "Chevel",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "L70WRWg-ADQ",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "L70WRWg-ADQ",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 540,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 13,
         "video_id": "L70WRWg-ADQ",
@@ -6289,7 +6407,7 @@
         "duration_seconds": 540,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 539.70839,
       "container_duration": 539.736,
@@ -6865,8 +6983,16 @@
       "title": "by the rain",
       "artist": "Buttechno & TRIS",
       "priority": true,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "cadA-49BZl8",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "cadA-49BZl8",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 236,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 14,
         "video_id": "cadA-49BZl8",
@@ -6874,7 +7000,7 @@
         "duration_seconds": 236,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 235.102132,
       "container_duration": 235.128,
@@ -7333,10 +7459,18 @@
       "position": 15,
       "track_id": "08-memory-of-a-memory",
       "title": "memory of a memory",
-      "artist": "",
+      "artist": "mu tate & Ben Bondy",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "ARJZ2rPuIyU",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "ARJZ2rPuIyU",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 252,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 15,
         "video_id": "ARJZ2rPuIyU",
@@ -7344,7 +7478,7 @@
         "duration_seconds": 252,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 251.701859,
       "container_duration": 251.736,
@@ -7795,10 +7929,18 @@
       "position": 16,
       "track_id": "06-pop-4",
       "title": "Pop 4",
-      "artist": "",
+      "artist": "GAS",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "LR_Mj5ydbs0",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "LR_Mj5ydbs0",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 569,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 16,
         "video_id": "LR_Mj5ydbs0",
@@ -7806,7 +7948,7 @@
         "duration_seconds": 569,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 568.346667,
       "container_duration": 568.392,
@@ -8241,10 +8383,18 @@
       "position": 17,
       "track_id": "17-i",
       "title": "I",
-      "artist": "",
+      "artist": "Oren Ambarchi",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "tiHr1bDEJIw",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "tiHr1bDEJIw",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 481,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 17,
         "video_id": "tiHr1bDEJIw",
@@ -8252,7 +8402,7 @@
         "duration_seconds": 481,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 480.96,
       "container_duration": 480.984,
@@ -8722,10 +8872,18 @@
       "position": 18,
       "track_id": "27-k-notes",
       "title": "K-Notes",
-      "artist": "",
+      "artist": "Kedr Livanskiy",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "PkHYFkyfMCs",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "PkHYFkyfMCs",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 196,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 18,
         "video_id": "PkHYFkyfMCs",
@@ -8733,7 +8891,7 @@
         "duration_seconds": 196,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 195.989388,
       "container_duration": 196.032,
@@ -9226,10 +9384,18 @@
       "position": 19,
       "track_id": "23-lights-on-the-vibe",
       "title": "Lights On the Vibe",
-      "artist": "",
+      "artist": "The Solid Doctor",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "RhePGWq5HV4",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "RhePGWq5HV4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 462,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 19,
         "video_id": "RhePGWq5HV4",
@@ -9237,7 +9403,7 @@
         "duration_seconds": 462,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 461.647528,
       "container_duration": 461.688,
@@ -9783,10 +9949,18 @@
       "position": 20,
       "track_id": "24-heal",
       "title": "Heal",
-      "artist": "",
+      "artist": "Space Ghost",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "nVbFCQWbvCs",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "nVbFCQWbvCs",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 411,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 20,
         "video_id": "nVbFCQWbvCs",
@@ -9794,7 +9968,7 @@
         "duration_seconds": 411,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 410.635828,
       "container_duration": 410.664,
@@ -10233,10 +10407,18 @@
       "position": 21,
       "track_id": "26-a-future-untold",
       "title": "A Future Untold",
-      "artist": "",
+      "artist": "Shabaka",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "PudxQucb3Js",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "PudxQucb3Js",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 203,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 21,
         "video_id": "PudxQucb3Js",
@@ -10244,7 +10426,7 @@
         "duration_seconds": 203,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 202.723265,
       "container_duration": 202.752,
@@ -10729,10 +10911,18 @@
       "position": 22,
       "track_id": "30-in-memory",
       "title": "In Memory",
-      "artist": "",
+      "artist": "RONA.",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "Zk82i2lCi-k",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "Zk82i2lCi-k",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 210,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 22,
         "video_id": "Zk82i2lCi-k",
@@ -10740,7 +10930,7 @@
         "duration_seconds": 210,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 209.660136,
       "container_duration": 209.688,
@@ -11230,10 +11420,18 @@
       "position": 23,
       "track_id": "25-the-dance-no-2",
       "title": "The Dance No. 2",
-      "artist": "",
+      "artist": "Laraaji",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "FwTN4sb7CGI",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "FwTN4sb7CGI",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 583,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 23,
         "video_id": "FwTN4sb7CGI",
@@ -11241,7 +11439,7 @@
         "duration_seconds": 583,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 582.733333,
       "container_duration": 582.768,
@@ -11743,8 +11941,16 @@
       "title": "Wilson Tanner - Blush",
       "artist": "Wilson Tanner",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "CPedgWtRqBQ",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "CPedgWtRqBQ",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 231,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 24,
         "video_id": "CPedgWtRqBQ",
@@ -11752,7 +11958,7 @@
         "duration_seconds": 231,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 230.464036,
       "container_duration": 230.496,
@@ -12352,8 +12558,16 @@
       "title": "Argento - Sabbia Su Sabbia",
       "artist": "Argento",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "MebRRX-als0",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "MebRRX-als0",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 209,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 25,
         "video_id": "MebRRX-als0",
@@ -12361,7 +12575,7 @@
         "duration_seconds": 209,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 208.469388,
       "container_duration": 208.512,
@@ -12839,10 +13053,18 @@
       "position": 26,
       "track_id": "14-slipping-fingers-through-curls",
       "title": "Slipping Fingers Through Curls",
-      "artist": "",
+      "artist": "J",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "hZr5uVPocps",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "hZr5uVPocps",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 218,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 26,
         "video_id": "hZr5uVPocps",
@@ -12850,7 +13072,7 @@
         "duration_seconds": 218,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 217.528254,
       "container_duration": 217.56,
@@ -13328,10 +13550,18 @@
       "position": 27,
       "track_id": "11-remember",
       "title": "Remember",
-      "artist": "",
+      "artist": "Sofii",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "MCAIoBcV91I",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "MCAIoBcV91I",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 134,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 27,
         "video_id": "MCAIoBcV91I",
@@ -13339,7 +13569,7 @@
         "duration_seconds": 134,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 133.907483,
       "container_duration": 133.944,
@@ -13896,10 +14126,18 @@
       "position": 28,
       "track_id": "28-wildflower-wood",
       "title": "Wildflower Wood",
-      "artist": "",
+      "artist": "The Seven Fields of Aphelion",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "50yPEiqOa2o",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "50yPEiqOa2o",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 227,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 28,
         "video_id": "50yPEiqOa2o",
@@ -13907,7 +14145,7 @@
         "duration_seconds": 227,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 226.64,
       "container_duration": 226.68,
@@ -14338,10 +14576,18 @@
       "position": 29,
       "track_id": "16-gaganbadiba",
       "title": "Gagánbadibá",
-      "artist": "",
+      "artist": "Andy Palacio & The Garifuna Collective",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "J9a5uO54h-4",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "J9a5uO54h-4",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 260,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 29,
         "video_id": "J9a5uO54h-4",
@@ -14349,7 +14595,7 @@
         "duration_seconds": 260,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 259.088254,
       "container_duration": 259.128,
@@ -14834,10 +15080,18 @@
       "position": 30,
       "track_id": "22-rider",
       "title": "Rider",
-      "artist": "",
+      "artist": "Niko Demus",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "jGIKgJ9MzfE",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "jGIKgJ9MzfE",
+        "source_start_seconds": 0,
+        "validation_status": "mismatch",
+        "effective_duration_seconds": 171,
+        "note": "The supplied Rider — Niko Demus source resolves to DEAR DRIVER — NICO in the playlist metadata. Its authored score is held until this source is corrected or the recording is explicitly verified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 30,
         "video_id": "jGIKgJ9MzfE",
@@ -14845,7 +15099,7 @@
         "duration_seconds": 171,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "mismatch",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 170.362902,
       "container_duration": 170.4,
@@ -15332,10 +15586,18 @@
       "position": 31,
       "track_id": "31-unknown",
       "title": "Unknown",
-      "artist": "",
+      "artist": "WAARI",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "Rvr1EsKYQZI",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "Rvr1EsKYQZI",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 422,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 31,
         "video_id": "Rvr1EsKYQZI",
@@ -15343,7 +15605,7 @@
         "duration_seconds": 422,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 422,
       "container_duration": 422.04,
@@ -15834,10 +16096,18 @@
       "position": 32,
       "track_id": "32-da-du-dah-onome-remix-feat-nyron-higor",
       "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
-      "artist": "",
+      "artist": "Kokoroko",
       "priority": false,
-      "youtube_video_id": null,
-      "source_offset": null,
+      "youtube_video_id": "Hax9dZ5QATE",
+      "source_offset": 0,
+      "supplied_primary_source": {
+        "video_id": "Hax9dZ5QATE",
+        "source_start_seconds": 0,
+        "validation_status": "duration-only",
+        "effective_duration_seconds": 224,
+        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+      },
+      "alternate_sources": [],
       "observed_playlist_item": {
         "position": 32,
         "video_id": "Hax9dZ5QATE",
@@ -15845,7 +16115,7 @@
         "duration_seconds": 224,
         "availability": null
       },
-      "source_match": "awaiting-supplied-source-map",
+      "source_match": "duration-only",
       "recording_verification": "YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.",
       "reference_duration": 223.565079,
       "container_duration": 223.608,

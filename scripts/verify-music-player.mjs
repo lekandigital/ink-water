@@ -41,10 +41,12 @@ const {outputFiles}=await build({stdin:{contents:"export {PlaylistMusic} from '.
 const {PlaylistMusic,WaterControls}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
 const controls=new WaterControls(),ordinary={...controls.state};
 const music=new PlaylistMusic({publish:state=>{latest={...latest,...state};controls.publish(state);}});
+controls.onPauseChange=paused=>music.setSimulationPaused(paused);
 const flush=async()=>{for(let i=0;i<5;i++)await new Promise(resolve=>setImmediate(resolve));};
 const poll=async(port,index,time,state=1)=>{
- port.index=index;port.time=time;port.state=state;const track=fixture.tracks.find(t=>t.source?.video_id===port.playlist[index]);
- port.duration=track?(track.source.source_start_seconds?1800:track.duration):300;
+ port.index=index;port.time=time;port.state=state;const track=fixture.tracks.find(t=>[t.source,...(t.alternate_sources??[])].some(s=>s?.video_id===port.playlist[index]));
+ const source=track&&[track.source,...(track.alternate_sources??[])].find(s=>s?.video_id===port.playlist[index]);
+ port.duration=source?(source.source_start_seconds?1800:source.effective_duration_seconds??track.duration):300;
  now+=80;music.player.poll();await flush();
 };
 await music.open();assert.deepEqual(controls.state,ordinary,'Opening Music must not alter ordinary water');assert.equal(music.enabled,false);
@@ -57,6 +59,10 @@ assert.equal(document.getElementById('youtube-frame').hidden,false);
 assert.equal(latest.musicPlaylistValidation.orderMatches,true);assert.equal(latest.musicPlaylistValidation.mappingComplete,true);
 const openingId=fixture.order[0];await poll(port,0,0);assert.equal(music.engine.scheduler.score.track_id,openingId);
 assert.equal(document.getElementById('music-play').textContent,'Pause');
+assert.equal(document.getElementById('music-art-image').dataset.video,port.playlist[0]);
+document.getElementById('pause').click();assert.equal(port.state,2,'Water Pause immediately pauses music without a GPU frame');
+assert.equal(controls.state.paused,true);document.getElementById('pause').click();await flush();await poll(port,0,0);
+assert.equal(port.state,1);assert.equal(controls.state.paused,false);
 // Expand/collapse changes the chrome only: no hidden player, clock restart,
 // water setting reset, recreated iframe or interruption to playback.
 const currentScheduler=music.engine.scheduler;
@@ -109,7 +115,11 @@ for(const enabled of [false,true,false,true]){
  document.getElementById('music-sync').click();assert.equal(music.enabled,enabled);assert.equal(document.getElementById('music-sync').getAttribute('aria-pressed'),String(enabled));
  if(!enabled)assert.deepEqual(music.updateMusicRain(),[]);
 }
-controls.change({tone:'green-dark'});const selected={...controls.state};document.getElementById('music-close').click();assert.deepEqual(controls.state,selected,'Stop and hide cannot override any water setting');
+controls.change({tone:'green-dark'});const selected={...controls.state};
+document.getElementById('music-expand').click();document.getElementById('music-close').click();
+assert.equal(document.getElementById('music-panel').hidden,false,'Close minimizes instead of hiding the native player');assert.equal(music.expanded,false);
+assert.equal(document.getElementById('music-details').hidden,true);assert.equal(port.state,1);
+document.getElementById('music-stop').click();assert.deepEqual(controls.state,selected,'Stop cannot reset water settings');
 assert.equal(music.enabled,false);assert.equal(intervals.size,0);assert.ok(port.calls.some(c=>c[0]==='destroy'));
 assert.equal(document.getElementById('music-panel').hidden,true);assert.equal(document.querySelector('iframe'),null,'Off/hidden mode never leaves playing YouTube offscreen');
 for(const tone of ['paper','silver','night','green-light','green-dark']){
@@ -117,8 +127,47 @@ for(const tone of ['paper','silver','night','green-light','green-dark']){
  await music.open();await music.play();const again=ports.at(-1);again.ready();await flush();await poll(again,0,0);
  assert.deepEqual(controls.state,settings);music.close();assert.deepEqual(controls.state,settings,'Every tone survives a full music session');
 }
+for(const mode of ['etching','original','ink-wash','graphite','etching']){
+ const before={...controls.state};document.querySelector(`button[data-quick-mode="${mode}"]`).click();
+ assert.deepEqual(controls.state,{...before,mode},'The outside drawing row shares state without resetting other settings');
+ assert.equal(document.querySelector(`button[data-mode="${mode}"]`).getAttribute('aria-pressed'),'true');
+ assert.equal(document.querySelector(`button[data-quick-mode="${mode}"]`).getAttribute('aria-pressed'),'true');
+}
+document.getElementById('music-open').click();await flush();const singleClick=ports.at(-1);singleClick.ready();await flush();
+assert.ok(singleClick.calls.some(c=>c[0]==='play'),'Play music opens and starts playback in one action');music.close();
+// Exercise the production manifest and the actual native playlist IDs, not
+// substituted test mappings. Each eligible item must emit a real rain event.
+const inventory=await json('data/music/analysis/youtube-playlist-inventory.json');
+Object.assign(fixture,structuredClone(manifest));
+music.manifestLoading=undefined;music.session=undefined;
+const oldCue=Port.prototype.cuePlaylist;
+Port.prototype.cuePlaylist=function(value){assert.equal(value.list,'PLTab0IXtn0Nw');this.playlist=inventory.entries.map(e=>e.video_id);};
+await music.open();await music.play();const production=ports.at(-1);production.ready();await flush();
+assert.deepEqual(latest.musicPlaylistValidation.unknown,[]);assert.deepEqual(latest.musicPlaylistValidation.missing,[]);
+assert.deepEqual(latest.musicPlaylistValidation.mismatched,['jGIKgJ9MzfE']);assert.equal(latest.musicPlaylistValidation.orderMatches,true);
+let productionTracks=0;
+for(let i=0;i<32;i++){
+ await poll(production,i,0);await poll(production,i,0);
+ const score=music.engine.scheduler.score;
+ assert.equal(score.track_id,manifest.order[i]);
+ if(production.playlist[i]==='jGIKgJ9MzfE'){
+  assert.equal(latest.musicSourceMismatch,true);assert.deepEqual(music.updateMusicRain(),[]);
+  assert.match(document.getElementById('music-rain-state').textContent,/Source mismatch/);continue;
+ }
+ assert.equal(latest.musicRainReady,true);assert.equal(latest.musicSourceMismatch,false);
+ const event=music.engine.scheduler.events.find(e=>e.time>1);
+ music.seek(event.time-.1);music.updateMusicRain();
+ await poll(production,i,event.time+.01);const impacts=music.updateMusicRain();
+ assert.ok(impacts.some(e=>e.seed===event.seed),'Production playback must schedule the matching physical event: '+score.track_id);
+ assert.ok(impacts.every(e=>e.force>0&&e.scale>0&&e.position.length===2));productionTracks++;
+}
+assert.equal(productionTracks,31);
+await poll(production,2,0);assert.equal(music.session.current.source.source_start_seconds,0,'Standalone Continuum upload never inherits the album offset');
+music.seek(126.11);assert.equal(production.calls.at(-1)[1],126.11);
+assert.equal(manifest.tracks.find(t=>t.index===21).source.source_start_seconds,854,'Supplied album mapping remains intact');
+music.close();Port.prototype.cuePlaylist=oldCue;
 // Missing supplied mappings hold synchronization rather than guessing by order.
-fixture.tracks.forEach(t=>t.source=null);await music.open();music.manifestLoading=undefined;music.session=undefined;
+fixture.tracks.forEach(t=>{t.source=null;t.alternate_sources=[];});await music.open();music.manifestLoading=undefined;music.session=undefined;
 await music.assets();await music.play();const absent=ports.at(-1);
 absent.cuePlaylist=function(value){this.calls.push(['cuePlaylist',value]);this.playlist=['lipZU8lu07M'];};absent.ready();await flush();await poll(absent,0,30);
 assert.equal(music.engine.scheduler,undefined);assert.equal(latest.musicPlaylistValidation.mappingComplete,false);music.close();
@@ -135,4 +184,5 @@ assert.ok(requests.every(url=>!url.endsWith('.mp3')));
 console.log(JSON.stringify({nativePlaylistOnly:true,visiblePlayer:true,idMatching:true,sourceOffsets:true,lateSamplesDiscarded:true,trackChanges:true,
  nativeOrderPreserved:true,pauseResume:true,seeksNoStorm:true,unavailableSkipped:true,autoplayHandled:true,playlistEnd:true,musicOffDestroysEmbed:true,
  syncSwitchCycle:true,allTonesPreserved:true,missingMapHoldsRain:true,captureClockDeterministic:true,referenceAudioNeverFetched:true,
- compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,bufferingCanBePausedWithoutRain:true,referencePlaybackRemoved:true}));
+ compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,bufferingCanBePausedWithoutRain:true,referencePlaybackRemoved:true,
+ actualPlaylistEmitsPhysicalRainFor:productionTracks,mismatchedRecordingHeld:true,standaloneOffsetZero:true,outsideDrawingChoices:true}));

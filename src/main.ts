@@ -19,6 +19,7 @@ import { UnderwaterLineDrawing } from './UnderwaterLines';
 import { FloorLinePresentation } from './FloorLinePresentation';
 import { CaptureClock, captureOptions, exposeCapture, seededRandom } from './CaptureMode';
 import { PlaylistMusic } from './music/PlaylistMusic';
+import { MusicWaterPresentation } from './MusicWaterPresentation';
 import type { MusicRainClock, MusicRainDrop } from './music/MusicScore';
 import drawingVert from './shaders/Drawing.vert';
 import drawingFrag from './shaders/Drawing.frag';
@@ -53,6 +54,7 @@ class Puddle {
   private rainLayer?:RainWaveLayer;
   private rainLayerActive=false;
   private musicRain?:MusicRainClock;
+  private musicWater?:MusicWaterPresentation;
   private referenceDrawing?:UnderwaterLineDrawing;
   private visualWater?:Water;
   private presentationSpeed=1;
@@ -223,6 +225,11 @@ class Puddle {
     if(this.state.mode!=='original'&&this.state.shortReferenceLines&&this.state.caustics&&!this.state.causticRipples){
       if(!this.referenceDrawing)this.referenceDrawing=new UnderwaterLineDrawing(this.engine.getWaterMesh());
       this.referenceDrawing.draw(this.gl,this.camera,this.drawingCamera,this.drawing.uniforms.ink.value,this.target.width,this.target.height);
+    }
+    const musicPanel=$('music-panel');
+    if(!musicPanel.hidden){
+      this.musicWater??=new MusicWaterPresentation(musicPanel,document.getElementById('music-water-map') as unknown as SVGElement);
+      this.musicWater.update(this.gl,surface.textureA.texture,this.inverseViewProjection,this.camera.position,$('stage').getBoundingClientRect());
     }
     this.pendingDraw=false;this.renderRevision++;
     this.controls.publish({simulationSteps:this.simulationSteps,renderRevision:this.renderRevision,
@@ -429,6 +436,8 @@ async function start(){
   const capture=captureOptions(location.search),clock=capture?new CaptureClock(capture):undefined;
   const controls=new WaterControls();
   const music=new PlaylistMusic({publish:state=>controls.publish(state)},!!clock);
+  // Pause belongs to controls/playback, even while graphics are initializing.
+  controls.onPauseChange=paused=>music.setSimulationPaused(paused);
   try{
     const load=new THREE.TextureLoader();
     const tile=await load.loadAsync('./assets/tiles.jpg');

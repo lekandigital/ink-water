@@ -2,10 +2,11 @@
 """Import explicit identities; never match recordings by a title or playlist position."""
 import argparse,json,math,re,shutil
 from pathlib import Path
+from urllib.parse import urlparse,parse_qs
 
 ROOT=Path(__file__).resolve().parents[2]
 
-def import_map(path):
+def import_map(path,check_only=False):
     raw=json.loads(path.read_text())
     entries=raw if isinstance(raw,list) else raw.get('tracks',raw.get('sources'))
     if not isinstance(entries,list) or len(entries)!=32:
@@ -21,6 +22,11 @@ def import_map(path):
         if track['id'] in seen:raise ValueError('Duplicate track identity: '+track['id'])
         source=item.get('source',item.get('youtube',item))
         video=source.get('video_id',source.get('youtube_video_id'))
+        if video is None and source.get('youtube_url'):
+            url=urlparse(source['youtube_url'])
+            if url.scheme!='https' or url.hostname not in ['youtube.com','www.youtube.com','m.youtube.com','youtu.be']:
+                raise ValueError('Use an HTTPS YouTube source URL.')
+            video=url.path.lstrip('/') if url.hostname=='youtu.be' else parse_qs(url.query).get('v',[None])[0]
         if not isinstance(video,str) or not re.fullmatch(r'[A-Za-z0-9_-]{11}',video):raise ValueError('Invalid video ID: '+str(video))
         if video in videos:raise ValueError('This map has an ambiguous shared video ID; author explicit interval identity before importing.')
         start=source.get('source_start_seconds',0)
@@ -34,8 +40,11 @@ def import_map(path):
         track['source']=normalized;track['source_status']='supplied-source-map'
         track['expected_version']=item.get('expected_version',item.get('version',track['title']))
         if item.get('artist'):track['artist']=item['artist']
+        elif ' — ' in item.get('title',''):track['artist']=item['title'].rsplit(' — ',1)[1]
         seen.add(track['id']);videos.add(video)
     # Mutate only after the whole map validates. Keep the input byte-for-byte.
+    if check_only:
+        print('Validated 32 explicit source identities without modifying files.');return
     destination=ROOT/'data/music/source/ink-water-youtube-source-map.json'
     if path.resolve()!=destination.resolve():shutil.copyfile(path,destination)
     if isinstance(raw,dict) and raw.get('playlist_id'):manifest['playlist_id']=raw['playlist_id']
@@ -43,7 +52,7 @@ def import_map(path):
     print('Imported 32 explicit video identities. Recording verification and music:release-check remain required.')
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('source_map',type=Path)
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('source_map',type=Path);parser.add_argument('--check',action='store_true')
     args=parser.parse_args()
-    try:import_map(args.source_map)
+    try:import_map(args.source_map,args.check)
     except (ValueError,OSError,KeyError) as error:parser.exit(1,str(error)+'\n')

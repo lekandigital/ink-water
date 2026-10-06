@@ -1,0 +1,45 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {build} from 'esbuild';
+import {parseHTML} from 'linkedom';
+import {shaderSource} from '../shader-loader.mjs';
+const {window,document}=parseHTML(await readFile('index.html','utf8'));
+Object.defineProperty(document,'baseURI',{value:'https://ink-water.test/'});
+let reduced=false,hover=false,writes=0,lastImage;
+window.matchMedia=()=>({matches:reduced});
+const create=document.createElement.bind(document);
+document.createElement=name=>{const element=create(name);if(name==='canvas'){
+ element.getContext=()=>({putImageData:image=>{writes++;lastImage=Array.from(image.data);}});
+ element.toDataURL=()=> 'data:image/png;base64,test';
+}return element;};
+class ImageData{constructor(width,height){this.data=new Uint8ClampedArray(width*height*4);}}
+Object.assign(globalThis,{window,document,ImageData});
+const {outputFiles}=await build({stdin:{contents:"export {MusicWaterPresentation} from './src/MusicWaterPresentation';export {Matrix4,Vector3,Texture} from 'three';",resolveDir:process.cwd(),loader:'ts'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
+const {MusicWaterPresentation,Matrix4,Vector3,Texture}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
+const panel=document.getElementById('music-panel'),map=document.getElementById('music-water-map');
+panel.matches=()=>hover;
+panel.getBoundingClientRect=()=>({left:280,bottom:700,width:234,height:90});
+const presentation=new MusicWaterPresentation(panel,map),water=new Texture();
+let current='original-target',renders=0,resolveRead;
+const renderer={getRenderTarget:()=>current,setRenderTarget:t=>{current=t;},render:()=>{renders++;},readRenderTargetPixelsAsync:(_target,x,y,w,h,bytes)=>{
+ assert.equal(current,'original-target','Restore the real drawing target before awaiting a GPU read');
+ for(let i=0;i<bytes.length;i+=4)bytes.set([128,128,0,255],i);
+ bytes.set([200,100,0,255],79*80*4);
+ return new Promise(resolve=>{resolveRead=resolve;});
+}};
+const stage={left:0,top:0,width:1000,height:1000};
+const update=time=>presentation.update(renderer,water,new Matrix4(),new Vector3(0,4.5,0),stage,time);
+update(100);assert.equal(renders,0,'Off mode does no presentation work');
+panel.hidden=false;update(200);assert.equal(renders,1);assert.equal(presentation.material.uniforms.water.value,water);
+presentation.material.uniforms.screenRect.value.toArray().forEach((n,i)=>assert.ok(Math.abs(n-[.268,.288,.258,.114][i])<1e-12));
+assert.equal(current,'original-target');update(250);assert.equal(renders,1,'Only one asynchronous read may be in flight');
+resolveRead();await new Promise(resolve=>setImmediate(resolve));assert.equal(writes,1);assert.deepEqual(lastImage.slice(0,4),[200,100,0,255],'GPU image rows are flipped for DOM y');
+assert.equal(map.getAttribute('width'),'258');assert.equal(map.getAttribute('height'),'114');assert.equal(map.getAttribute('x'),'-12');assert.equal(panel.dataset.waterRefraction,'physical');
+update(251);assert.equal(renders,2);hover=true;resolveRead();await new Promise(resolve=>setImmediate(resolve));assert.equal(writes,1,'Hover cannot apply a late submerged frame');
+update(400);assert.equal(renders,2);hover=false;panel.classList.add('is-expanded');update(500);assert.equal(renders,3,'Expanded idle view also refracts');resolveRead();await new Promise(resolve=>setImmediate(resolve));assert.equal(writes,2);
+panel.classList.remove('is-expanded');reduced=true;update(600);assert.equal(renders,3);reduced=false;
+document.body.classList.add('capture');update(700);assert.equal(renders,3);document.body.classList.remove('capture');
+const video=document.getElementById('youtube-frame');video.hidden=false;video.getBoundingClientRect=()=>({left:280,bottom:598,width:202,height:202});
+update(800);assert.equal(map.getAttribute('y'),'-226','The compact video is included, never clipped by a bar-sized filter');resolveRead();await new Promise(resolve=>setImmediate(resolve));assert.equal(writes,3);
+assert.equal(panel.classList.contains('water-refracting'),true,'Refraction works again after hover/expansion/reduced-motion/capture');
+console.log(JSON.stringify({readOnlyDisplayedField:true,asyncGPURead:true,oneReadInFlight:true,correctScreenCoordinates:true,restoreRenderTarget:true,hoverCrisp:true,expandedIdleSubmerged:true,compactVideoIncluded:true,reducedMotion:true,musicOffNoGPUWork:true,captureUnchanged:true}));

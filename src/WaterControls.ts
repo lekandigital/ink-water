@@ -7,6 +7,7 @@ import {syncToneChrome} from './ToneChrome';
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const labels={'ink-wash':'Ink wash',etching:'Etching',graphite:'Graphite',original:'Original'};
 const toneButtons='button[data-tone],button[data-quick-tone]';
+const drawingButtons='button[data-mode],button[data-quick-mode]';
 export const switchKeys=['hairlineRipples','caustics','rain',...experimentSwitches] as const;
 export const ranges={lineWeight:{min:.35,max:1.25},rainRate:{min:.2,max:8},dropSize:{min:.012,max:.065},...experimentRanges,...motionRanges};
 type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void};
@@ -16,6 +17,7 @@ type Hooks={change:()=>void;clear:()=>void;gesture:(key:GestureKey)=>void};
 export class WaterControls{
   readonly state:WaterSettings=startupSettings();
   hooks:Hooks={change:()=>{},clear:()=>{},gesture:()=>{}};
+  onPauseChange:(paused:boolean)=>void=()=>{};
   private savedCaustics:boolean|undefined;
   private diagnostics:Record<string,unknown>={ready:false,renderRevision:0};
   constructor(){
@@ -27,7 +29,7 @@ export class WaterControls{
       const input=$<HTMLInputElement>(controlId(key));
       input.addEventListener('input',()=>this.change({[key]:Number(input.value)}));
     }
-    document.querySelectorAll<HTMLButtonElement>('button[data-mode]').forEach(b=>b.addEventListener('click',()=>this.change({mode:b.dataset.mode})));
+    document.querySelectorAll<HTMLButtonElement>(drawingButtons).forEach(b=>b.addEventListener('click',()=>this.change({mode:b.dataset.mode??b.dataset.quickMode})));
     document.querySelectorAll<HTMLButtonElement>(toneButtons).forEach(b=>b.addEventListener('click',()=>this.change({tone:b.dataset.tone??b.dataset.quickTone})));
     document.querySelectorAll<HTMLButtonElement>('button[data-pattern]').forEach(b=>b.addEventListener('click',()=>this.change({bitmapPattern:Number(b.dataset.pattern)})));
     document.querySelectorAll<HTMLButtonElement>('button[data-gesture]').forEach(b=>b.addEventListener('click',()=>this.hooks.gesture(b.dataset.gesture as GestureKey)));
@@ -35,14 +37,24 @@ export class WaterControls{
     $('clear').addEventListener('click',()=>this.hooks.clear());
     $('pause').addEventListener('click',()=>this.change({paused:!this.state.paused}));
     $('toggle-controls').addEventListener('click',()=>this.toggleVisibility());
+    const typing=(target:EventTarget|null)=>(target as Element)?.closest?.('textarea,[contenteditable="true"],input:not([type="range"]):not([type="checkbox"]):not([type="button"])');
     window.addEventListener('keydown',e=>{
-      if(e.repeat||e.isComposing||e.ctrlKey||e.metaKey||e.altKey)return;
-      if((e.target as Element)?.closest?.('textarea,select,[contenteditable="true"],input:not([type="range"]):not([type="checkbox"]):not([type="button"])'))return;
+      if(e.isComposing||e.ctrlKey||e.metaKey||e.altKey||typing(e.target))return;
       const key=e.key.toLowerCase();
-      if(e.code==='Space'||key===' '){e.preventDefault();this.change({paused:!this.state.paused});}
-      else if(key==='h'){e.preventDefault();this.toggleVisibility();}
+      if(e.code==='Space'||key===' '){
+        // Cancel native focused-control activation on every down and up,
+        // including held Space. Only the first key-down toggles pause.
+        e.preventDefault();e.stopImmediatePropagation();if(!e.repeat)this.change({paused:!this.state.paused});return;
+      }
+      if(e.repeat||(e.target as Element)?.closest?.('select'))return;
+      if(key==='h'){e.preventDefault();this.toggleVisibility();}
       else if(gestureKeys.includes(key as GestureKey)){e.preventDefault();this.hooks.gesture(key as GestureKey);}
-    });
+    },{capture:true});
+    window.addEventListener('keyup',e=>{
+      if(!e.isComposing&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!typing(e.target)&&(e.code==='Space'||e.key===' ')){
+        e.preventDefault();e.stopImmediatePropagation();
+      }
+    },{capture:true});
     this.sync();
   }
   change(input:Record<string,unknown>){
@@ -63,10 +75,10 @@ export class WaterControls{
       this.savedCaustics=undefined;
     }
     if(updates.caustics===true){updates.causticRipples=false;this.savedCaustics=undefined;}
-    Object.assign(this.state,updates);
-    this.sync();this.hooks.change();
+    const paused=this.state.paused;Object.assign(this.state,updates);
+    this.sync();if(paused!==this.state.paused)this.onPauseChange(this.state.paused);this.hooks.change();
   }
-  reset(){Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();this.hooks.change();}
+  reset(){const paused=this.state.paused;Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();if(paused!==this.state.paused)this.onPauseChange(this.state.paused);this.hooks.change();}
   toggleVisibility(){
     const hidden=document.body.classList.toggle('controls-hidden');
     $('toggle-controls').setAttribute('aria-expanded',String(!hidden));
@@ -97,7 +109,7 @@ export class WaterControls{
       else text=Math.round(value*(key==='rainForce'?100/motionDefaults.rainForce:key==='touchForce'?100/motionDefaults.touchForce:100))+'%';
       $(key==='lineWeight'?'weight-value':key==='rainRate'?'rain-value':key==='dropSize'?'size-value':controlId(key)+'-value').textContent=text;
     }
-    document.querySelectorAll<HTMLButtonElement>('button[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===this.state.mode)));
+    document.querySelectorAll<HTMLButtonElement>(drawingButtons).forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.mode??b.dataset.quickMode)===this.state.mode)));
     document.querySelectorAll<HTMLButtonElement>(toneButtons).forEach(b=>b.setAttribute('aria-pressed',String((b.dataset.tone??b.dataset.quickTone)===this.state.tone)));
     document.querySelectorAll<HTMLButtonElement>('button[data-pattern]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.pattern)===this.state.bitmapPattern)));
     $('style-caption').textContent=labels[this.state.mode];
