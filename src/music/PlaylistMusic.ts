@@ -185,8 +185,8 @@ export class PlaylistMusic implements MusicRainClock{
     if(!track){if(snapshot.videoId){
       ++this.revision;this.pendingTrack=undefined;this.engine.clearScore();
       this.clock.sample(snapshot.time,performance.now(),snapshot.state===1,snapshot.rate);
-      if(this.pendingPause&&snapshot.state===1){this.pendingPause=false;this.player!.port.pauseVideo();return;}
-      if(this.simulationPaused&&snapshot.state===1){this.player!.port.pauseVideo();return;}
+      if(this.pendingPause&&(snapshot.state===1||snapshot.state===3)){this.pendingPause=false;this.player!.port.pauseVideo();return;}
+      if(this.simulationPaused&&(snapshot.state===1||snapshot.state===3)){this.player!.port.pauseVideo();return;}
       $('music-title').textContent='Unmapped YouTube video';$('music-artist').textContent=snapshot.videoId;
       $('music-position').textContent=`${snapshot.index+1} / ${this.nativeVideos.length}`;
       $('music-time').textContent=snapshot.duration>0?`${label(snapshot.time)} / ${label(snapshot.duration)}`:label(snapshot.time);
@@ -198,7 +198,7 @@ export class PlaylistMusic implements MusicRainClock{
       // Native YouTube next/previous controls also follow exact video identity.
       this.pendingOffset=true;this.sourceMismatch=false;void this.activateScore(track,0);
     }
-    if(this.pendingPause&&snapshot.state===1){this.pendingPause=false;this.player!.port.pauseVideo();return;}
+    if(this.pendingPause&&(snapshot.state===1||snapshot.state===3)){this.pendingPause=false;this.player!.port.pauseVideo();return;}
     if(this.pendingOffset&&track.source&&(snapshot.state===1||snapshot.state===5||snapshot.state===3)){
       this.pendingOffset=false;
       if(Math.abs(snapshot.time-track.source.source_start_seconds)>.2){this.player!.port.seekTo(track.source.source_start_seconds,true);this.clock.reset(track.source.source_start_seconds,performance.now());this.rebase();return;}
@@ -208,7 +208,7 @@ export class PlaylistMusic implements MusicRainClock{
     }
     this.clock.sample(snapshot.time,performance.now(),snapshot.state===1,snapshot.rate);
     if(this.clock.discontinuity)this.rebase();
-    if(this.simulationPaused&&snapshot.state===1){this.player!.port.pauseVideo();return;}
+    if(this.simulationPaused&&(snapshot.state===1||snapshot.state===3)){this.player!.port.pauseVideo();return;}
     if(snapshot.state===0){this.scheduleEnded(track.id);return;}
     if(this.awaitingEnd&&this.awaitingEnd!==track.id){this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);}
     if(snapshot.state===1&&this.session.atEnd(snapshot.time)){void this.next();return;}
@@ -296,8 +296,10 @@ export class PlaylistMusic implements MusicRainClock{
     if(this.transport==='capture')return this.referenceStart+(this.referencePlaying?(performance.now()-this.referenceWall)/1000:0);
     return 0;
   }
-  private transportPlaying(){return this.transport==='youtube'?this.snapshot?.state===1:this.transport==='capture'?this.referencePlaying:false;}
-  private isPlaying(){return !this.simulationPaused&&!this.sourceMismatch&&this.transportPlaying()&&(this.transport!=='youtube'||this.matchedVideo);}
+  // Buffering is a pending play request that the user must be able to pause,
+  // but it never advances musical rain until the master clock is playing.
+  private transportPlaying(){return this.transport==='youtube'?(this.snapshot?.state===1||this.snapshot?.state===3):this.transport==='capture'?this.referencePlaying:false;}
+  private isPlaying(){return !this.simulationPaused&&!this.sourceMismatch&&(this.transport==='youtube'?this.matchedVideo&&this.snapshot?.state===1:this.transport==='capture'&&this.referencePlaying);}
   rebase(){this.engine.seek(Math.max(0,this.currentTime()));}
   setSimulationPaused(paused:boolean){
     if(paused===this.simulationPaused)return;

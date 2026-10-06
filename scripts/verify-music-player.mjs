@@ -72,6 +72,10 @@ for(const expanded of [true,false,true,false]){
 for(const expanded of [true,false]){document.getElementById('music-open').click();assert.equal(latest.musicPanelExpanded,expanded);assert.equal(document.querySelector('iframe'),port.frame);assert.equal(port.state,1);}
 document.getElementById('music-play').click();assert.equal(port.state,2);assert.equal(document.getElementById('music-play').textContent,'Play');
 document.getElementById('music-play').click();await flush();await poll(port,0,0);assert.equal(port.state,1);assert.equal(document.getElementById('music-play').textContent,'Pause');
+await poll(port,0,0,3);assert.equal(document.getElementById('music-play').textContent,'Pause','Buffering can be canceled with the same Pause control');
+assert.deepEqual(music.updateMusicRain(),[],'Buffering must never schedule new physical rain');
+document.getElementById('music-play').click();assert.equal(port.state,2);assert.equal(document.getElementById('music-play').textContent,'Play');
+document.getElementById('music-play').click();await flush();await poll(port,0,0);assert.equal(port.state,1);
 music.updateMusicRain();const n=music.engine.scheduler.emitted;
 await poll(port,0,40);assert.deepEqual(music.updateMusicRain(),[],'Native forward seek does not discharge missed drops');assert.equal(music.engine.scheduler.emitted,n);
 await poll(port,0,2);assert.deepEqual(music.updateMusicRain(),[],'Native backward seek rebases');
@@ -131,4 +135,4 @@ assert.ok(requests.every(url=>!url.endsWith('.mp3')));
 console.log(JSON.stringify({nativePlaylistOnly:true,visiblePlayer:true,idMatching:true,sourceOffsets:true,lateSamplesDiscarded:true,trackChanges:true,
  nativeOrderPreserved:true,pauseResume:true,seeksNoStorm:true,unavailableSkipped:true,autoplayHandled:true,playlistEnd:true,musicOffDestroysEmbed:true,
  syncSwitchCycle:true,allTonesPreserved:true,missingMapHoldsRain:true,captureClockDeterministic:true,referenceAudioNeverFetched:true,
- compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,referencePlaybackRemoved:true}));
+ compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,bufferingCanBePausedWithoutRain:true,referencePlaybackRemoved:true}));
