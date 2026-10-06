@@ -46,4 +46,4 @@ node scripts/export-bitmap-gpu.mjs /tmp/ink-water-green-fixtures
 python scripts/verify-bitmap-gpu.py /tmp/ink-water-green-fixtures
 ```
 
-This work is isolated on `theme/solid-doctor-green`, based on main at `223881b986da872c6bb40bafd9a48f2cddb11727`, and awaits approval before merging.
+This palette extension was developed on `theme/solid-doctor-green`, from main at `223881b986da872c6bb40bafd9a48f2cddb11727`. The existing grayscale themes and startup defaults remain unchanged.
