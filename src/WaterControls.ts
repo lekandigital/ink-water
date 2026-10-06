@@ -2,6 +2,8 @@ import {experimentSwitches,experimentRanges,controlId,validateExperimentSettings
 import {motionDefaults,motionRanges,validateMotion} from './WaterMotion';
 import {gestureKeys,type GestureKey} from './GesturePatterns';
 import {startupSettings,type WaterSettings} from './StartupSettings';
+import {tones} from './DrawingPalette';
+import {syncToneChrome} from './ToneChrome';
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const labels={'ink-wash':'Ink wash',etching:'Etching',graphite:'Graphite',original:'Original'};
 export const switchKeys=['hairlineRipples','caustics','rain',...experimentSwitches] as const;
@@ -47,7 +49,7 @@ export class WaterControls{
     for(const key of Object.keys(input))if(!Object.hasOwn(this.state,key))throw new Error('Unknown setting: '+key);
     for(const key of [...switchKeys,'paused','sourceGeometry'])if(input[key]!==undefined&&typeof input[key]!=='boolean')throw new Error(key+' must be boolean.');
     if(input.mode!==undefined&&!Object.hasOwn(labels,String(input.mode)))throw new Error('Unknown drawing mode.');
-    if(input.tone!==undefined&&!['paper','silver','night'].includes(String(input.tone)))throw new Error('Unknown paper tone.');
+    if(input.tone!==undefined&&!Object.hasOwn(tones,String(input.tone)))throw new Error('Unknown paper tone.');
     validateExperimentSettings(input);validateMotion(input);
     for(const [key,{min,max}] of Object.entries(ranges))if(input[key]!==undefined){
       const value=input[key];if(typeof value!=='number'||!Number.isFinite(value)||value<min||value>max)throw new Error(key+' is outside its range.');
@@ -75,6 +77,7 @@ export class WaterControls{
   }
   sync(){
     document.body.dataset.tone=this.state.tone;
+    syncToneChrome(this.state.tone);
     for(const key of switchKeys){
       const input=$<HTMLInputElement>(controlId(key));
       // Do not write checked back into an input already displaying its new value.

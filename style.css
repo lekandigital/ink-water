@@ -10,3 +10,8 @@ button,input{font:inherit}button{color:inherit;cursor:pointer;touch-action:manip
 @media(max-width:700px){.masthead{padding:20px;align-items:flex-start}.identity{display:block}h1{font-size:2.2rem}.byline{display:block;margin-top:5px}.header-actions{gap:14px}.view-label{display:none}.controls{right:16px;top:100px;width:262px;max-height:calc(100svh - 164px);padding:19px}.footnote{left:20px;right:20px;bottom:19px}.keyboard-hint{display:none}}@media(max-width:370px){.byline{display:none}.header-actions{font-size:.75rem;gap:11px}.controls{width:240px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}.loading-ring{animation:none}}
 .capture .masthead,.capture .controls,.capture .footnote{display:none}.capture .stage canvas{cursor:none}
+/* The label's mint paper and forest ink, with readable derived green hierarchy. */
+body[data-tone="green-light"]{color-scheme:light;--paper:#aacdb2;--text:#144a32;--muted:#2b583f;--line:#51735b;--panel:#abceb4;--selected:#144a32;--on-selected:#aacdb2}
+body[data-tone="green-dark"]{color-scheme:dark;--paper:#144a32;--text:#aacdb2;--muted:#93ba9c;--line:#70957d;--panel:#1c543c;--selected:#aacdb2;--on-selected:#144a32}
+.tone-row{flex-wrap:wrap;row-gap:8px}.tone-row button{white-space:nowrap}
+.green-light-swatch{background:#aacdb2;border-color:#144a32}.green-dark-swatch{background:#144a32;border-color:#70957d}

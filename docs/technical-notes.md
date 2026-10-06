@@ -12,7 +12,7 @@ The upstream `Water.ts`, `Renderer.ts`, rendering modules, water modules and ori
 
 The application was restored from `0124a476f6abcfc07976b1556cf27947c19f01c3` before later features were ported onto it. The restoration commit uses that commit's exact tree. The `main` branch from before the restoration is preserved on `backup/main-before-0124-restore-20261004-f1e534f`.
 
-`scripts/0124-base.json` records the Git blob hashes of 63 unchanged base files, including the solver, geometry, optics, classic drawing and Print shader. `npm test` fails if any of them changes by a single byte, so every later feature in this repository is a layer on top of that base rather than an edit to it.
+`scripts/0124-base.json` records the original Git blob hashes of 63 base files, including the solver, geometry, optics, classic drawing and Print shader. `npm test` requires 62 to remain byte-identical. The drawing palette's two green color declarations are the only intentional extension: removing those declarations and their comment changes must reproduce its original hash, preserving the three existing colors and uniform-upload function. See [green tone notes](green-tones.md).
 
 ## Geometry and camera
 
@@ -65,7 +65,7 @@ With caustics on, the drawing modes used to outline a rectangle: the projected c
 - reflected rays reach the sky instead of the pool rim;
 - two short, faint lines lie on that floor near the top and bottom of the view, on the former pool edge when it is visible. Each is a single faint stroke and stays under a third of the screen width at any aspect ratio. The original mesh, water normals and Snell refraction produce a coverage mask, composited once after drawing so Etching does not outline it twice. Because they are seen through the moving surface, ripples visibly bend them. **Underwater lines** toggles this optional presentation; it starts on, applies only with Caustics in a drawing view, and leaves Original unchanged.
 
-The change is applied when the shader compiles, like **Hide reflected sun**, and each replaced fragment must match exactly once, so a changed upstream shader fails loudly instead of silently. Original keeps the source shader verbatim, and the 63 restored base files are unchanged.
+The change is applied when the shader compiles, like **Hide reflected sun**, and each replaced fragment must match exactly once, so a changed upstream shader fails loudly instead of silently. Original keeps the source shader verbatim. The restored source is unchanged apart from the documented palette extension.
 
 ## Bitmap experiments on normal water
 
@@ -110,7 +110,7 @@ The published assets use Etching with Comic bitmap, the reflected sun visible an
 
 ## Tests
 
-`npm test` verifies the 63 exact base file hashes, the separate startup preset, every switch through off/on/off/on at the DOM/controller level, all 20 sliders, no unrelated resets, Still versus Reset, independent Dreamy/Subtle, the source clock and rain distribution, deterministic gesture replay, and mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, collisions with the shader helpers injected by the installed Three.js release, finite grayscale palette uniforms, concentric stroke expansion and whole-wave fading, safe rotation of the boundary render targets, finite experiment settings, exact default light preservation, and the caustic intensity pass's default bypass. The palette test reproduces the invalid color call that previously made drawing modes solid red. It also checks that the floor-line patch applies to the real water shader and leaves Original verbatim, and that capture mode stays off unless requested.
+`npm test` verifies the protected base hashes and retained legacy palette code, the separate startup preset, every switch through off/on/off/on at the DOM/controller level, all 20 sliders, no unrelated resets, Still versus Reset, independent Dreamy/Subtle, the source clock and rain distribution, deterministic gesture replay, and mouse and touch routing, pointer capture failure, drag cancellation, full viewport coverage, real Three.js coordinate projection, collisions with the shader helpers injected by the installed Three.js release, finite RGB palette uniforms (grayscale for the three legacy tones), concentric stroke expansion and whole-wave fading, safe rotation of the boundary render targets, finite experiment settings, exact default light preservation, and the caustic intensity pass's default bypass. The palette test reproduces the invalid color call that previously made drawing modes solid red. It also checks that the floor-line patch applies to the real water shader and leaves Original verbatim, and that capture mode stays off unless requested.
 
 The optional GPU regression renders the actual instanced stroke geometry and shaders into a half-float buffer with maximum blending. It checks that each wave stays a single closed connected ring and keeps the same shape as it fades, across three line widths and two pixel ratios, including near-zero opacity. With Python's `moderngl`, `numpy` and `scipy` installed (the checks use an EGL context, so they run on Linux):
 
@@ -121,7 +121,7 @@ python scripts/verify-continuity-gpu.py /tmp/water-strokes.json /tmp/water-three
 python scripts/verify-open-water-gpu.py
 ```
 
-The independent bitmap GPU regression compiles and renders the actual restored geometry, water solver, normal drawing, Print shader and bitmap shader. It checks 63 bitmap variants, reversible effect cycles, unchanged source bytes, normal bitmap plus projected caustics with Print off, slow-motion interpolation, and the startup vertical-light preset:
+The independent bitmap GPU regression compiles and renders the actual restored geometry, water solver, normal drawing, Print shader and bitmap shader. It checks 105 bitmap variants across all five tones, reversible effect cycles, unchanged source bytes, normal bitmap plus projected caustics with Print off, slow-motion interpolation, and the startup vertical-light preset:
 
 ```
 node scripts/export-bitmap-gpu.mjs /tmp/water-bitmap-fixtures
@@ -159,4 +159,3 @@ This is the upstream linear heightfield wave model, not a calibrated Navier–St
 ## Assets and credits
 
 Source and sky/tile assets are reused from the upstream repository, with the MIT license retained in [LICENSE](../LICENSE). `public/assets/tiles.jpg` is byte-identical to the texture in Evan Wallace's original repository; both upstream projects credit it to [zooboing on Flickr](https://www.flickr.com/photos/zooboing/3682834083/). It appears in Original mode.
-

@@ -53,7 +53,7 @@ Two faint lines lie on the floor beneath the water. They are there for the rippl
 
 The controls hold more than the defaults show:
 
-- **Etching, Graphite, Ink wash** — three ways of inking the same surface, on light, silver or dark paper.
+- **Etching, Graphite, Ink wash** — three ways of inking the same surface, on Light, Silver, Dark, Green Light or Green Dark paper. The green pair is sampled from The Solid Doctor record label; [palette and validation notes](docs/green-tones.md).
 - **Projected caustics** — the light the waves focus onto the floor, drawn into the image rather than painted over it.
 - **Bitmap layers** — comic dithering, a dot field revealed by caustic light, grain bent by the water's normals, soft diffusion.
 - **Print experiments** — ripples made of printed marks, a print that surfaces where waves pass, and a print refracted by the water.
