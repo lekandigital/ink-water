@@ -54,29 +54,103 @@ engine.clearScore();assert.deepEqual(engine.updateMusicRain({trackId:logic.track
 const clock=new PlaybackClock();clock.sample(100,1000,true);assert.equal(clock.time(1050),100.05);
 clock.sample(100.08,1080,true);assert.equal(clock.time(1120),100.12);
 clock.sample(100.08,1160,false);assert.equal(clock.time(9000),100.08,'Pause cannot drift');
-clock.sample(100.08,1200,true);assert.equal(clock.time(4000),100.08,'An unchanged stalled sample cannot drift');
+clock.sample(100.08,1200,true);clock.sample(100.08,1280,true);
+assert.equal(clock.time(1320),100.2,'Repeated playing metadata retains the last progress anchor');
+assert.equal(clock.time(4000),100.98,'A player stuck in playing state can extrapolate only within finite grace');
 clock.sample(180,1280,true);assert.equal(clock.discontinuity,true);assert.equal(clock.time(1280),180);
 clock.sample(30,1360,true);assert.equal(clock.discontinuity,true);assert.equal(clock.time(1360),30);
-clock.reset();clock.sample(1,2000,true,2);assert.equal(clock.time(2050,2),1.1);assert.equal(clock.time(20000,2),1.24,'Interpolation is bounded, never a second free-running music clock');
+clock.reset();clock.sample(1,2000,true,2);assert.equal(clock.time(2050,2),1.1);assert.equal(clock.time(20000,2),2.8,'Interpolation is bounded, never a second free-running music clock');
 
-// The iframe's cached clock can repeat several times before advancing. A
-// normal quarter/half-second delivery must not masquerade as a native seek.
-for(const quantum of [.08,.25,.4,.5]){
- const sampled=new PlaybackClock(),rain=new MusicRainEngine(),emitted=[];
+// The iframe's cached clock can repeat several times before advancing.
+// Cached delivery must preserve event timing as well as totals. A second
+// scheduler jump guard must not silently discard valid advances at faster rates.
+const cachedClockChecks=[];
+for(const [quantum,rate] of [[.08,1],[.25,1],[.4,1],[.5,1],[.64,1],[.8,1],[.4,2],[.5,2],[.8,2]]){
+ const sampled=new PlaybackClock(),rain=new MusicRainEngine(),emitted=[],latencies=[];
  const start=124.55,end=137.05;let nextPoll=0,discontinuities=0;
  sampled.reset(start,1000);rain.setScore(logic,start);
  // Let the last cached measurement arrive before comparing the complete cut.
- for(let frame=0;frame<=Math.ceil((12.5+quantum+.16)*60);frame++){
+ for(let frame=0;frame<=Math.ceil((12.5/rate+quantum+.16)*60);frame++){
   const elapsed=frame/60,now=1000+elapsed*1000;
   if(elapsed+1e-8>=nextPoll){
-   sampled.sample(start+Math.floor((elapsed+1e-8)/quantum)*quantum,now,true);
-   if(sampled.discontinuity){rain.seek(sampled.time(now));discontinuities++;}
+   sampled.sample(start+Math.floor((elapsed+1e-8)/quantum)*quantum*rate,now,true,rate);
+   if(sampled.discontinuity){rain.seek(sampled.time(now,rate));discontinuities++;}
    nextPoll+=.08;
   }
-  emitted.push(...rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(now),playing:true}));
+  const drops=rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(now,rate),playing:true});
+  emitted.push(...drops);latencies.push(...drops.map(e=>({time:e.time,late:start+elapsed*rate-e.time})));
  }
- assert.equal(discontinuities,0,'Ordinary repeated/quantized player samples are not seeks: '+quantum);
- assert.deepEqual(emitted.filter(e=>e.time<=end),logicRain.events.filter(e=>e.time>start&&e.time<=end),'Every authored event survives uneven master-clock delivery: '+quantum);
+ assert.equal(discontinuities,0,`Ordinary cached delivery is not a seek: ${quantum}s at ${rate}×`);
+ assert.equal(rain.scheduler.discontinuities,0,'Continuous interpolation cannot trigger the scheduler jump guard');
+ assert.deepEqual(emitted.filter(e=>e.time<=end),logicRain.events.filter(e=>e.time>start&&e.time<=end),`Every authored event survives cached delivery: ${quantum}s at ${rate}×`);
+ const arrival=latencies.find(e=>e.time===127.617);
+ assert.ok(arrival&&arrival.late<=.1*rate,'The flagship arrival must not wait for the next cached metadata burst');
+ assert.ok(latencies.every(e=>e.late<=.1*rate),'All physical events stay within one metadata poll of the audible clock');
+ cachedClockChecks.push({seconds:quantum,rate,arrivalLatenessSeconds:arrival.late,maximumLatenessSeconds:Math.max(...latencies.map(e=>e.late))});
+}
+
+// Native rate callbacks can precede the next advancing metadata sample. Each
+// boundary preserves elapsed music at the old rate and applies the new rate
+// only to future wall time, including the next mixed-rate source measurement.
+const cachedRateChanges=[];
+for(const [from,to] of [[1,2],[2,1]]){
+ const sampled=new PlaybackClock(),rain=new MusicRainEngine(),emitted=[],latencies=[];
+ const start=126.2,change=.65,quantum=.8,songAt=t=>start+Math.min(t,change)*from+Math.max(0,t-change)*to;
+ let nextPoll=0,rate=from,changed=false,raw=start;
+ sampled.reset(start,1000);rain.setScore(logic,start);
+ for(let frame=0;frame<=360;frame++){
+  const elapsed=frame/60,now=1000+elapsed*1000;
+  if(!changed&&elapsed>=change){
+   const before=sampled.time(now,rate);rate=to;changed=true;sampled.sample(raw,now,true,rate);
+   assert.equal(sampled.time(now,rate),before,'A cached rate callback cannot jump or rewind score time');
+  }
+  if(elapsed+1e-8>=nextPoll){
+   raw=songAt(Math.floor((elapsed+1e-8)/quantum)*quantum);sampled.sample(raw,now,true,rate);
+   assert.equal(sampled.discontinuity,false,'Mixed-rate progress is not a native seek');nextPoll+=.08;
+  }
+  const drops=rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(now,rate),playing:true});
+  emitted.push(...drops);latencies.push(...drops.map(e=>({time:e.time,late:songAt(elapsed)-e.time})));
+ }
+ const through=sampled.time(7000,rate),arrival=latencies.find(e=>e.time===127.617);
+ assert.equal(rain.scheduler.discontinuities,0,'A rate callback cannot skip events through the scheduler jump guard');
+ assert.deepEqual(emitted,logicRain.events.filter(e=>e.time>start&&e.time<=through),'Rate changes preserve every eligible physical event');
+ assert.ok(arrival&&arrival.late>=-1e-7&&arrival.late<=.1*Math.max(from,to),'A cached slowdown cannot freeze the approaching musical arrival');
+ assert.ok(latencies.every(e=>e.late>=-1e-7&&e.late<=.1*Math.max(from,to)),'Rate changes preserve physical event timing');
+ cachedRateChanges.push({from,to,arrivalLatenessSeconds:arrival.late,impacts:emitted.length});
+}
+
+// Rate callbacks are not evidence of source progress. Repeated changes while
+// a source is stalled must consume, rather than renew, its existing grace.
+{
+ const sampled=new PlaybackClock();sampled.sample(100,1000,true,1);
+ sampled.sample(100,1640,true,2);assert.equal(sampled.time(1640),100.64);
+ assert.ok(Math.abs(sampled.time(1720)-100.8)<1e-9,'A cached speedup starts at its wall boundary');
+ sampled.sample(100,1800,true,1);const bound=sampled.time(1900);
+ assert.ok(Math.abs(bound-101.06)<1e-9,'Mixed-rate interpolation uses only the original 900ms grace');
+ for(let now=2000;now<=9000;now+=80){sampled.sample(100,now,true,now%160?1:2);assert.equal(sampled.time(now),bound,'Repeated rate changes cannot extend a stalled clock');}
+ sampled.sample(100,9080,false,1);assert.equal(sampled.time(20000),100,'Buffering clears projected progress after rate changes');
+}
+
+// If the player never announces buffering, repeated playing metadata gets a
+// bounded grace period, never indefinite phantom rainfall or a reconnect storm.
+{
+ const sampled=new PlaybackClock(),rain=new MusicRainEngine();sampled.reset(124.55,1000);rain.setScore(logic,124.55);
+ for(let frame=0;frame<240;frame++){
+  const now=1000+frame*1000/60;sampled.sample(124.55,now,true);
+  rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(now),playing:true});
+ }
+ assert.equal(sampled.time(9000),125.45,'An unannounced stall stops at the interpolation bound');
+ const stopped=rain.scheduler.emitted;
+ sampled.sample(124.55,9000,true);assert.deepEqual(rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(9000),playing:true}),[]);
+ assert.equal(rain.scheduler.emitted,stopped,'A stalled clock cannot keep generating rain');
+ sampled.sample(140,9080,true);assert.equal(sampled.discontinuity,true,'Reconnection is a discontinuity, not a delayed rain backlog');
+ rain.seek(sampled.time(9080));assert.deepEqual(rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(9080),playing:true}),[]);
+ sampled.sample(140.08,9160,false);assert.equal(sampled.time(20000),140.08,'Pause/buffering stops immediately without interpolation grace');
+ assert.deepEqual(rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(20000),playing:false}),[]);
+ sampled.sample(140.08,20000,true);assert.equal(sampled.time(20000),140.08,'Resume starts from the fresh player sample');
+ assert.deepEqual(rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(20000),playing:true}),[],'Resume cannot release paused events');
+ sampled.sample(140.48,20080,true);assert.equal(sampled.discontinuity,true,'A small genuine native seek still exceeds normal wall-clock progress');
+ sampled.sample(140.4,20160,true);assert.equal(sampled.discontinuity,true,'A native backward seek still rebases');
 }
 
 // Explicit source fixtures exercise mapping semantics without guessing absent
@@ -106,5 +180,6 @@ for(const path of ['src/music/RainScheduler.ts','src/music/MusicRainEngine.ts','
 const walk=async root=>{const files=[];for(const entry of await readdir(root,{withFileTypes:true})){const p=root+'/'+entry.name;files.push(...(entry.isDirectory()?await walk(p):[p]));}return files;};
 for(const file of [...await walk('public'),...await walk('data/music')])assert.doesNotMatch(file,/\.(?:mp3|m4a|wav|ogg|aac|flac)$/i);
 console.log(JSON.stringify({authoredScores:32,fullAnalysisRecords:32,cinematicOrderPreserved:true,captureCadences:[30,60,120],deterministic:true,
+ cachedClockChecks,cachedRateChanges,boundedUnannouncedStall:true,bufferingStopsImmediately:true,
  seeksNoStorm:true,pauseNoDrift:true,sourceOffset854:true,exactVideoIdentity:true,unavailableAndPlaylistEnd:true,noBundledAudio:true,
  productionMappings:manifest.tracks.filter(t=>t.source).length,counts}));

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-06",
+  "environment": "Local Google Chrome on macOS, live YouTube IFrame API and WebGL water",
+  "url": "http://127.0.0.1:4173/",
+  "track": "02-fused-dj-kicks",
+  "video_id": "lp8EkhoCCnI",
+  "score_window_seconds": [124.55, 137.05],
+  "planned_impacts": 25,
+  "observed_physical_impacts": 25,
+  "missing_event_times": [],
+  "scheduler_discontinuities": 0,
+  "main_arrival_score_seconds": 127.617,
+  "main_arrival_player_seconds": 127.6192940572443,
+  "maximum_player_clock_lateness_ms": 9.298129467055103,
+  "global_pause": {
+    "water_paused": true,
+    "youtube_state": 2,
+    "physical_count_before": 79,
+    "physical_count_after": 79
+  },
+  "space_resume_with_expand_focused": {
+    "water_paused": false,
+    "youtube_state": 1,
+    "panel_still_expanded": true,
+    "physical_impacts_resumed": true
+  },
+  "clock_comparison": "Event dispatch compared to the live player-derived song clock; this is not an acoustic output-latency measurement.",
+  "recording_audit": "music:release-check remains unsuccessful: full reference-versus-upload recording verification is incomplete. Rider remains held because its mapped upload identifies a different recording. Source validation statuses were not changed."
+}

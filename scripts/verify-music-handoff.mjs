@@ -23,14 +23,14 @@ const {Puddle,WaterControls,PlaylistMusic}=await import('data:text/javascript;ba
 const flush=async()=>{for(let i=0;i<4;i++)await new Promise(resolve=>setImmediate(resolve));};
 let total=0;
 
-for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5]){
+for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5,.64,.8])for(const playbackRate of [1,2]){
  const {window,document}=parseHTML(html);let now=1000,port;
  const location={origin:'https://ink-water.test',search:''};
  Object.defineProperty(document,'baseURI',{value:location.origin+'/'});
  Object.defineProperty(document.getElementById('music-track'),'value',{value:'',writable:true});
  document.getElementById('stage').getBoundingClientRect=()=>({width:1440,height:900});
  class NativePort{
-  index=0;time=0;duration=0;state=5;rate=1;playlist=[];
+  index=0;time=0;duration=0;state=5;rate=playbackRate;playlist=[];
   constructor(element,options){port=this;this.options=options;this.frame=document.createElement('iframe');element.replaceWith(this.frame);}
   cuePlaylist(options){assert.equal(options.list,'PLTab0IXtn0Nw');this.playlist=inventory.entries.map(e=>e.video_id);}
   playVideo(){this.state=1;}pauseVideo(){this.state=2;}stopVideo(){this.state=0;}
@@ -46,7 +46,7 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5]){
   return {ok:true,json:async()=>structuredClone(path==='manifest.json'?manifest:scores.get(path))};
  }});
  const controls=new WaterControls();controls.change({dreamyRainSpeed:dreamyRain});
- const settings={...controls.state},rain=[],touch=[];let latest={},draws=0,clears=0;
+ const settings={...controls.state},rain=[],touch=[],timing=[];let latest={},draws=0,clears=0,idealSongTime=0;
  const music=new PlaylistMusic({publish:data=>{latest={...latest,...data};controls.publish(data);}});
  const puddle=new Puddle();puddle.controls=controls;puddle.state=controls.state;
  puddle.water={addDrop:(...drop)=>touch.push(drop),stepSimulation:()=>{},updateNormals:()=>{}};
@@ -55,6 +55,8 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5]){
  Object.assign(puddle,{animating:true,lastTime:0,accumulator:0,rainAccumulator:0,clearRainUntil:0,rainLayerActive:dreamyRain,
   draw:()=>{draws++;},clear:()=>{clears++;}});
  controls.onPauseChange=paused=>music.setSimulationPaused(paused);puddle.setMusicRain(music);
+ const emit=puddle.emitRain.bind(puddle);
+ puddle.emitRain=event=>{if(event)timing.push({time:event.time,late:(idealSongTime-event.time)/playbackRate});emit(event);};
  await music.play();port.options.events.onReady();await flush();
  // The first new video ID deliberately arrives with old duration metadata.
  port.index=8;port.duration=154;port.state=1;now+=80;music.player.poll();await flush();
@@ -73,18 +75,21 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5]){
   for(let frame=1;frame<=Math.ceil(duration*60);frame++){
    const elapsed=frame/60;now=wall+elapsed*1000;
    if(elapsed+1e-8>=nextPoll){
-    port.time=start+(playing?Math.floor((elapsed+1e-8)/quantum)*quantum:0);
+    port.time=start+(playing?Math.floor((elapsed+1e-8)/quantum)*quantum*playbackRate:0);
     music.player.poll();await flush();nextPoll+=.08;
    }
-   puddle.animate(now);
+   idealSongTime=start+(playing?elapsed*playbackRate:0);puddle.animate(now);
   }
  }
  const start=124.55,end=137.05;
- await seek(start);const before=impacts().length;
+ await seek(start);const before=impacts().length,timingBefore=timing.length;
  await run(start,end-start+quantum+.16);
  const complete=impacts().slice(before),through=music.currentTime();
  assert.equal(complete.length,planned.filter(e=>e.time>start&&e.time<=through).length,'Every eligible authored event enters the physical solver through the production handoff');
  assert.ok(complete.length>=25,'The flagship accent and clustered passage remain physically visible');
+ const passageTiming=timing.slice(timingBefore),arrival=passageTiming.find(e=>Math.abs(e.time-127.617)<.001);
+ assert.ok(arrival,'The flagship musical arrival reaches the physical solver');
+ assert.ok(passageTiming.every(e=>e.late>=-1e-7&&e.late<=.1),`Physical arrivals follow playback within 100ms, including cached ${quantum}s timestamps at ${playbackRate}x`);
  assert.ok(complete.every(drop=>drop[2]>0&&drop[3]<0));
  assert.equal(JSON.parse(document.getElementById('water-state').textContent).musicPhysicalImpacts,impacts().length);
  assert.deepEqual(controls.state,settings,'Playback never rewrites water or palette settings');
@@ -110,6 +115,6 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5]){
  if(dreamyRain){const separate=rain.length;puddle.disturb(.1,.1);assert.equal(touch.length,1);assert.equal(rain.length,separate,'Touch stays in the separate full-speed field');}
  assert.ok(draws>0);total+=complete.length;
 }
-console.log(JSON.stringify({productionPlaybackToPuddle:true,unevenClockCadences:[.08,.4,.5],physicalRoutes:2,physicalImpacts:total,
+console.log(JSON.stringify({productionPlaybackToPuddle:true,unevenClockCadences:[.08,.4,.5,.64,.8],playbackRates:[1,2],arrivalWithin100ms:true,physicalRoutes:2,physicalImpacts:total,
  staleMetadataRecovers:true,deterministicBackwardSeek:true,pauseResume:true,forwardSeekNoStorm:true,trackChangeNoLeak:true,
  musicOffRestoresRain:true,noWaterClearing:true,noReferenceAudio:true}));
