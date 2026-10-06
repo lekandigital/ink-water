@@ -59,6 +59,26 @@ clock.sample(180,1280,true);assert.equal(clock.discontinuity,true);assert.equal(
 clock.sample(30,1360,true);assert.equal(clock.discontinuity,true);assert.equal(clock.time(1360),30);
 clock.reset();clock.sample(1,2000,true,2);assert.equal(clock.time(2050,2),1.1);assert.equal(clock.time(20000,2),1.24,'Interpolation is bounded, never a second free-running music clock');
 
+// The iframe's cached clock can repeat several times before advancing. A
+// normal quarter/half-second delivery must not masquerade as a native seek.
+for(const quantum of [.08,.25,.4,.5]){
+ const sampled=new PlaybackClock(),rain=new MusicRainEngine(),emitted=[];
+ const start=124.55,end=137.05;let nextPoll=0,discontinuities=0;
+ sampled.reset(start,1000);rain.setScore(logic,start);
+ // Let the last cached measurement arrive before comparing the complete cut.
+ for(let frame=0;frame<=Math.ceil((12.5+quantum+.16)*60);frame++){
+  const elapsed=frame/60,now=1000+elapsed*1000;
+  if(elapsed+1e-8>=nextPoll){
+   sampled.sample(start+Math.floor((elapsed+1e-8)/quantum)*quantum,now,true);
+   if(sampled.discontinuity){rain.seek(sampled.time(now));discontinuities++;}
+   nextPoll+=.08;
+  }
+  emitted.push(...rain.updateMusicRain({trackId:logic.track_id,time:sampled.time(now),playing:true}));
+ }
+ assert.equal(discontinuities,0,'Ordinary repeated/quantized player samples are not seeks: '+quantum);
+ assert.deepEqual(emitted.filter(e=>e.time<=end),logicRain.events.filter(e=>e.time>start&&e.time<=end),'Every authored event survives uneven master-clock delivery: '+quantum);
+}
+
 // Explicit source fixtures exercise mapping semantics without guessing absent
 // production mappings. A separate release check requires the supplied map.
 const mapped=structuredClone(manifest);

@@ -226,8 +226,13 @@ export class PlaylistMusic implements MusicRainClock{
       this.pendingOffset=false;
       if(Math.abs(snapshot.time-track.source.source_start_seconds)>.2){this.requestSeek(track.source.source_start_seconds,0);return;}
     }
-    if(track.source?.validation_status==='mismatch'||this.session.durationMismatch(snapshot.duration)){
-      this.sourceMismatch=true;this.status(track.source?.validation_status==='mismatch'?'This upload’s identity does not match the authored track. Rain sync is held; check its source mapping.':'This upload’s effective duration differs from the reference. Rain sync paused; replace its source mapping.');
+    // Native video identity and duration are delivered asynchronously. A stale
+    // duration may hold one sample, but must not permanently latch rain off
+    // after the matching recording's metadata arrives. Explicit manifest
+    // mismatches still hold on every sample, irrespective of its duration.
+    this.sourceMismatch=track.source?.validation_status==='mismatch'||this.session.durationMismatch(snapshot.duration);
+    if(this.sourceMismatch){
+      this.status(track.source?.validation_status==='mismatch'?'This upload’s identity does not match the authored track. Rain sync is held; check its source mapping.':'This upload’s effective duration differs from the reference. Rain sync paused; replace its source mapping.');
     }
     if(this.simulationPaused&&(snapshot.state===1||snapshot.state===3)){this.player!.port.pauseVideo();return;}
     if(this.pendingSeek){

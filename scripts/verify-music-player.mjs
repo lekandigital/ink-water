@@ -190,6 +190,23 @@ for(let i=0;i<32;i++){
  assert.ok(impacts.every(e=>e.force>0&&e.scale>0&&e.position.length===2));productionTracks++;
 }
 assert.equal(productionTracks,31);
+// Video identity and duration can arrive in separate iframe messages. The new
+// video's first sample may still contain the previous recording's duration.
+production.index=8;production.time=0;production.state=1;production.duration=154;
+now+=80;music.player.poll();await flush();
+assert.equal(latest.musicSourceMismatch,true,'Hold rain while the new video still reports stale duration metadata');
+await poll(production,8,.08);
+assert.equal(latest.musicSourceMismatch,false,'Corrected duration metadata must release a transient hold without another track change');
+const recovered=music.engine.scheduler.events.find(e=>e.time>1);
+music.seek(recovered.time-.1);music.updateMusicRain();await poll(production,8,recovered.time+.01);
+assert.ok(music.updateMusicRain().some(e=>e.seed===recovered.seed),'Recovered metadata must restore physical rainfall, not just the status text');
+// A real duration mismatch remains held, and an authored identity mismatch
+// remains held even if the native duration happens to match.
+production.duration=manifest.tracks.find(t=>t.id==='02-fused-dj-kicks').duration+20;
+now+=80;music.player.poll();await flush();assert.equal(latest.musicSourceMismatch,true);assert.deepEqual(music.updateMusicRain(),[]);
+await poll(production,8,recovered.time+.09);assert.equal(latest.musicSourceMismatch,false);
+await poll(production,29,0);await poll(production,29,.08);
+assert.equal(latest.musicSourceMismatch,true);assert.deepEqual(music.updateMusicRain(),[]);
 await poll(production,2,0);assert.equal(music.session.current.source.source_start_seconds,0,'Standalone Continuum upload never inherits the album offset');
 music.seek(126.11);assert.equal(production.calls.at(-1)[1],126.11);
 assert.equal(manifest.tracks.find(t=>t.index===21).source.source_start_seconds,854,'Supplied album mapping remains intact');

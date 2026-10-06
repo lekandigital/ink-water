@@ -43,7 +43,7 @@ The importer accepts a `tracks` or `sources` array with 32 entries, identified b
 }
 ```
 
-The example describes the supplied album source; the current playlist uses its separately mapped standalone upload. Mark `verified` only after checking recording/version and timing against the reference; a duration-only match stays `duration-only`. A `mismatch` source or materially different effective duration holds rain while allowing playback. Whole-second YouTube duration rounding is allowed up to 1.25s. `music:release-check` requires all primary and alternate versions to be verified; it currently fails and must pass before release/merge.
+The example describes the supplied album source; the current playlist uses its separately mapped standalone upload. Mark `verified` only after checking recording/version and timing against the reference; a duration-only match stays `duration-only`. A `mismatch` source or materially different effective duration holds rain while allowing playback. Whole-second YouTube duration rounding is allowed up to 1.25s. Duration holds are recomputed for each native sample: video identity can arrive before the new duration, and a transient stale value releases automatically when correct metadata arrives. An explicit manifest identity mismatch remains held. `music:release-check` requires all primary and alternate versions to be verified; it currently fails and must pass before release/merge.
 
 ## YouTube playlist integration
 
@@ -74,7 +74,7 @@ Player visibility/background-playback policy: https://developers.google.com/yout
 
 Custom seeks, including the seek bar and ±15-second buttons, hold new rain until a master-clock sample acknowledges the newest target. Late old samples and acknowledgements from superseded seeks cannot emit old drops. Seeking while paused stays paused. A rejected seek eventually rebases to the actual player time rather than replaying a backlog. Native short forward/backward jumps also rebase; existing waves are not cleared.
 
-YouTube `currentTime` is the master clock. `PlaybackClock` anchors each 80ms sample and interpolates for at most 120ms; an unchanged/stalled sample stops extrapolation. It never accumulates a separate song timer. Playback-rate changes, native seeks, buffering and visibility changes reconcile to the player.
+YouTube `currentTime` is the master clock. `PlaybackClock` anchors each 80ms sample and interpolates for at most 120ms; an unchanged/stalled sample stops extrapolation. Repeated cached values do not count as fresh clock measurements. When time advances, seek detection compares that change to wall time since the last actual advance, with a 650ms maximum comparison window. This preserves ordinary quarter/half-second metadata delivery while still discarding genuine jumps and long reconnect backlogs. It never accumulates a separate song timer. Playback-rate changes, native seeks, buffering and visibility changes reconcile to the player.
 
 For source offsets:
 
@@ -124,7 +124,7 @@ npm run music:release-check
 npm run music:report
 ```
 
-`npm test` includes existing water/palette/input regressions plus 32-score determinism, master-clock/seek/source-offset tests, native playlist adapter tests, actual `Puddle` physical-path tests and audio privacy checks. Player tests use explicit fixtures, **not invented production mappings**. Real GPU checks can run with NumPy/ModernGL and EGL:
+`npm test` includes existing water/palette/input regressions plus 32-score determinism, master-clock/seek/source-offset tests, native playlist adapter tests, actual `Puddle` physical-path tests and audio privacy checks. `verify-music-handoff.mjs` connects the production playlist adapter to the actual animation loop and drop methods, using the current playlist's IDs and uneven 80/400/500ms source-time delivery. It checks both physical rain routes, stale-duration recovery, the complete Logic1000 entrance, reproducible backward seeks, pause/resume, forward-seek storm prevention, track changes and ordinary rain restoration. Only the external iframe and GPU ports are substituted; separate EGL tests cover solver/rendering behavior. Player tests use explicit fixtures, **not invented production mappings**. Real GPU checks can run with NumPy/ModernGL and EGL:
 
 ```sh
 node scripts/export-bitmap-gpu.mjs /tmp/music-gpu-fixtures
