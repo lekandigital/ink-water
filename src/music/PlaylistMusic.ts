@@ -93,9 +93,9 @@ export class PlaylistMusic implements MusicRainClock{
   private syncRainNotice(){
     const notice=$('music-rain-state');notice.hidden=this.transport==='none';
     const ready=!!this.engine.scheduler&&(this.transport==='capture'||this.matchedVideo)&&!this.sourceMismatch;
-    notice.textContent=!this.syncRain?'Rain sync off':this.sourceMismatch?'Source mismatch · rain sync off':
-      this.transport==='youtube'&&this.snapshot&&!this.matchedVideo?'No rain score for this video':
-      !ready?'Loading rain score…':this.snapshot?.state===3?'Buffering · rain waiting':this.isPlaying()?'Music rain synced':'Music rain paused';
+    notice.textContent=!this.syncRain?'Sync off':this.sourceMismatch?'Source mismatch':
+      this.transport==='youtube'&&this.snapshot&&!this.matchedVideo?'Unmapped':
+      !ready?'Loading rain…':this.snapshot?.state===3?'Buffering':this.isPlaying()?'Rain synced':'Rain paused';
     this.hooks.publish({musicRainReady:ready,musicRainPlaying:this.isPlaying(),musicSourceMismatch:this.sourceMismatch});
   }
   private syncArtwork(videoId=''){
