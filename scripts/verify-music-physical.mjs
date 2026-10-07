@@ -43,6 +43,15 @@ assert.equal(b.rain.length,1);assert.equal(b.physical.length,0,'Dreamy rain ente
 b.puddle.disturb(.1,.1);assert.equal(b.physical.length,1);assert.equal(b.rain.length,1,'Touch remains in the independent full-speed field');
 const c=app();c.puddle.emitRain(engine.scheduler.events[0]);const first=c.physical[0].drop;
 Math.random=()=>.999;c.puddle.emitRain(engine.scheduler.events[0]);assert.deepEqual(c.physical[1].drop,first,'Reference capture is independent of unrelated random consumption');
+for(const dreamyRainSpeed of [false,true]){
+ const soft=app({gentleMotion:true,dreamyRainSpeed}),full=app({gentleMotion:false,dreamyRainSpeed});
+ soft.puddle.rainLayerActive=full.puddle.rainLayerActive=dreamyRainSpeed;
+ const cue=engine.scheduler.events.find(event=>event.kind==='accent');
+ soft.puddle.emitRain(cue);full.puddle.emitRain(cue);
+ assert.deepEqual(dreamyRainSpeed?soft.rain:soft.physical,dreamyRainSpeed?full.rain:full.physical,'Gentle motion preserves authored music dynamics through both physical routes');
+ soft.puddle.disturb(.1,.1);full.puddle.disturb(.1,.1);
+ assert.ok(Math.abs(soft.physical.at(-1).drop[3]-full.physical.at(-1).drop[3]*.4)<1e-12,'Gentle motion still softens manual touch');
+}
 playing=false;const before=a.physical.length;for(now=13510;now<=13900;now+=10)a.puddle.animate(now);assert.equal(a.physical.length,before);
 assert.equal(rebaseCalls,0,'Track/seek changes never clear or manipulate the water');
 const out=process.argv[2];if(out)await writeFile(out,JSON.stringify({track:score.track_id,start:124.55,duration:12.5,

@@ -1,0 +1,50 @@
+{
+  "reference_file": "22 - Rider.mp3",
+  "reference_sha256": "a054a876158ca80fdd65a1078bec215591de3539943eb8250c07912075c501ca",
+  "reference_duration_seconds": 170.36290249433105,
+  "source_duration_seconds": 170.36290249433105,
+  "source_video_id": "jGIKgJ9MzfE",
+  "source_metadata": {
+    "title": "DEAR DRIVER",
+    "track": "DEAR DRIVER",
+    "artist": "NICO, Martin Hallenslev",
+    "album": "DEAR DRIVER",
+    "channel": "NICO - Topic",
+    "duration": 170,
+    "upload_date": "20260624",
+    "webpage_url": "https://www.youtube.com/watch?v=jGIKgJ9MzfE"
+  },
+  "reference_lag_seconds": 0,
+  "method": "Complete public native opus audio downloaded privately; both recordings decoded mono11025Hz PCM byffmpeg; matching exact timestamps withzero offset. Pearson raw-waveform and100ms RMS correlations checkedacross opening, middle, ending, andthecomplete recordingexcluding1sdecoder boundaries. Sectioned download offsets were discarded. No audio published.",
+  "spans": [
+    {
+      "start_seconds": 1,
+      "end_seconds": 34,
+      "waveform_correlation": 0.9999229072544235,
+      "rms_100ms_correlation": 0.9999946033035509,
+      "gain_reference_over_source": 0.9998794430093585
+    },
+    {
+      "start_seconds": 66,
+      "end_seconds": 94,
+      "waveform_correlation": 0.9999196628216422,
+      "rms_100ms_correlation": 0.9999907302796605,
+      "gain_reference_over_source": 0.9998823922097542
+    },
+    {
+      "start_seconds": 141,
+      "end_seconds": 169,
+      "waveform_correlation": 0.9999158892536174,
+      "rms_100ms_correlation": 0.9999965855895817,
+      "gain_reference_over_source": 0.9998346593966221
+    },
+    {
+      "start_seconds": 1,
+      "end_seconds": 169.36290249433105,
+      "waveform_correlation": 0.9999218516215068,
+      "rms_100ms_correlation": 0.9999949507844769,
+      "gain_reference_over_source": 0.9998896381651469
+    }
+  ],
+  "conclusion": "The supplied170s Riderreference is acoustically the native DEAR DRIVERrecording; metadata is mislabeled, not mismatched audio."
+}

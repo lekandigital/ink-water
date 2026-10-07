@@ -47,7 +47,7 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5,.64,.8])for
  }});
  const controls=new WaterControls();controls.change({dreamyRainSpeed:dreamyRain});
  const settings={...controls.state},rain=[],touch=[],timing=[];let latest={},draws=0,clears=0,idealSongTime=0;
- const music=new PlaylistMusic({publish:data=>{latest={...latest,...data};controls.publish(data);}});
+ const music=new PlaylistMusic({publish:data=>{latest={...latest,...data};controls.publish(data);},playbackChange:playing=>controls.setMusicPlaying(playing)});
  const puddle=new Puddle();puddle.controls=controls;puddle.state=controls.state;
  puddle.water={addDrop:(...drop)=>touch.push(drop),stepSimulation:()=>{},updateNormals:()=>{}};
  puddle.openBoundary={apply:()=>{}};puddle.waveLines={model:{addDrop:()=>{}}};
@@ -60,6 +60,8 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5,.64,.8])for
  await music.play();port.options.events.onReady();await flush();
  // The first new video ID deliberately arrives with old duration metadata.
  port.index=8;port.duration=154;port.state=1;now+=80;music.player.poll();await flush();
+ assert.equal(controls.state.rain,false,'Actual audio masks background rain even while source metadata is held');
+ assert.equal(document.getElementById('rain').checked,false);assert.equal(document.getElementById('rain').disabled,true);
  assert.equal(latest.musicSourceMismatch,true);puddle.animate(now);
  assert.equal(rain.length+touch.length,0,'A transient metadata mismatch safely holds physical rain');
  port.duration=inventory.entries[8].duration_seconds;now+=80;music.player.poll();await flush();
@@ -92,24 +94,52 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5,.64,.8])for
  assert.ok(passageTiming.every(e=>e.late>=-1e-7&&e.late<=.1),`Physical arrivals follow playback within 100ms, including cached ${quantum}s timestamps at ${playbackRate}x`);
  assert.ok(complete.every(drop=>drop[2]>0&&drop[3]<0));
  assert.equal(JSON.parse(document.getElementById('water-state').textContent).musicPhysicalImpacts,impacts().length);
- assert.deepEqual(controls.state,settings,'Playback never rewrites water or palette settings');
+ assert.deepEqual(controls.state,{...settings,rain:false},'Playback only masks background rain and preserves water/motion/palette settings');
  const first=[...complete];
  await seek(start);const repeatBefore=impacts().length;
  await run(start,end-start+quantum+.16);
  assert.deepEqual(impacts().slice(repeatBefore),first,'Backward seek reproduces exactly the physical impacts, including positions and force variation');
+ music.pause();const musicPausedBefore=impacts().length,musicPausedCues=timing.length;
+ assert.equal(controls.state.rain,true,'Music-only pause restores the background rain preference');
+ await run(music.currentTime(),11,false);
+ assert.ok(impacts().length>musicPausedBefore,'Restored background rain physically resumes while music stays paused');
+ assert.equal(timing.length,musicPausedCues,'Music-only pause cannot emit score cues');
+ await music.play();now+=80;music.player.poll();await flush();puddle.animate(now);
  await seek(126.9);controls.change({paused:true});const pausedCount=impacts().length;
+ assert.equal(controls.state.rain,settings.rain,'Water/music pause restores the prior background rain preference');
+ assert.equal(document.getElementById('rain').disabled,false);
  await run(126.9,3,false);assert.equal(impacts().length,pausedCount,'Water/music pause emits nothing');
  controls.change({paused:false});await flush();port.time=126.9;now+=80;music.player.poll();await flush();puddle.animate(now);
+ assert.equal(controls.state.rain,false,'Acknowledged playback resume masks background rain again');
  await run(126.9,1.2+quantum);
  assert.ok(impacts().length>pausedCount,'Resume delivers the approaching musical arrival');
  const beforeSeek=impacts().length;await seek(180);
  assert.equal(impacts().length,beforeSeek,'Forward seek discards the skipped passage rather than emitting a storm');
  const previousCount=impacts().length;
  await music.next();puddle.animate(now);assert.equal(impacts().length,previousCount,'No previous-song event survives an unacknowledged track change');
+ assert.equal(controls.state.rain,false,'Unacknowledged track changes retain the playing rain mask');
+ document.getElementById('music-expand').click();document.getElementById('music-sync').click();
+ assert.equal(controls.state.rain,false,'UI changes while waiting for track metadata retain the playing rain mask');
+ for(let frame=1;frame<=660;frame++){now+=1000/60;puddle.animate(now);}
+ assert.equal(impacts().length,previousCount,'Sync off during an unacknowledged track change cannot leak background rain');
+ document.getElementById('music-sync').click();
  port.index=9;port.time=0;port.duration=inventory.entries[9].duration_seconds;now+=80;music.player.poll();await flush();puddle.animate(now);
  assert.equal(music.engine.scheduler.score.track_id,'07-lusine-without-a-plan');
  assert.equal(clears,0,'Seeks and track changes never clear the water');
+ // Disabling choreography while audio is still playing leaves no background
+ // drops to confuse with the score, through either physical rain route.
+ document.getElementById('music-sync').click();assert.equal(music.enabled,false);
+ assert.equal(controls.state.rain,false);const syncOffBefore=impacts().length;
+ for(let frame=1;frame<=660;frame++){now+=1000/60;puddle.animate(now);}
+ assert.equal(impacts().length,syncOffBefore,'Music playing with Sync off emits no background or musical rain');
+ controls.change({rain:false});music.pause();assert.equal(controls.state.rain,false,'Music pause restores an updated rain-off preference');
+ const rainOffBefore=impacts().length;
+ for(let frame=1;frame<=660;frame++){now+=1000/60;puddle.animate(now);}
+ assert.equal(impacts().length,rainOffBefore,'An off background preference remains physically off after music pause');
+ await music.play();now+=80;music.player.poll();await flush();controls.change({rain:true});
+ assert.equal(controls.state.rain,false,'Changing the saved preference cannot add background rain over playing music');
  music.close();const ordinaryBefore=impacts().length;
+ assert.equal(controls.state.rain,true,'Stopping music restores the saved rain-on preference');assert.equal(document.getElementById('rain').disabled,false);
  for(let frame=1;frame<=660;frame++){now+=1000/60;puddle.animate(now);}
  assert.ok(impacts().length>ordinaryBefore,'Music OFF restores ordinary physical rain');
  if(dreamyRain){const separate=rain.length;puddle.disturb(.1,.1);assert.equal(touch.length,1);assert.equal(rain.length,separate,'Touch stays in the separate full-speed field');}
@@ -117,4 +147,4 @@ for(const dreamyRain of [false,true])for(const quantum of [.08,.4,.5,.64,.8])for
 }
 console.log(JSON.stringify({productionPlaybackToPuddle:true,unevenClockCadences:[.08,.4,.5,.64,.8],playbackRates:[1,2],arrivalWithin100ms:true,physicalRoutes:2,physicalImpacts:total,
  staleMetadataRecovers:true,deterministicBackwardSeek:true,pauseResume:true,forwardSeekNoStorm:true,trackChangeNoLeak:true,
- musicOffRestoresRain:true,noWaterClearing:true,noReferenceAudio:true}));
+ musicOffRestoresRain:true,musicCheckboxMatchesPhysicalRain:true,musicSyncOffHasNoBackgroundRain:true,pendingTrackUiKeepsRainMasked:true,updatedRainPreferenceRestored:true,noWaterClearing:true,noReferenceAudio:true}));

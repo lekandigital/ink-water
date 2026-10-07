@@ -19,6 +19,8 @@ export class WaterControls{
   hooks:Hooks={change:()=>{},clear:()=>{},gesture:()=>{}};
   onPauseChange:(paused:boolean)=>void=()=>{};
   private savedCaustics:boolean|undefined;
+  private musicPlaying=false;
+  private savedRain:boolean|undefined;
   private diagnostics:Record<string,unknown>={ready:false,renderRevision:0};
   constructor(){
     for(const key of switchKeys){
@@ -75,10 +77,23 @@ export class WaterControls{
       this.savedCaustics=undefined;
     }
     if(updates.caustics===true){updates.causticRipples=false;this.savedCaustics=undefined;}
+    if(this.musicPlaying&&updates.rain!==undefined){this.savedRain=updates.rain as boolean;updates.rain=false;}
     const paused=this.state.paused;Object.assign(this.state,updates);
     this.sync();if(paused!==this.state.paused)this.onPauseChange(this.state.paused);this.hooks.change();
   }
-  reset(){const paused=this.state.paused;Object.assign(this.state,startupSettings());this.savedCaustics=undefined;this.sync();if(paused!==this.state.paused)this.onPauseChange(this.state.paused);this.hooks.change();}
+  reset(){
+    const paused=this.state.paused;Object.assign(this.state,startupSettings());this.savedCaustics=undefined;
+    this.savedRain=this.musicPlaying?this.state.rain:undefined;if(this.musicPlaying)this.state.rain=false;
+    this.sync();if(paused!==this.state.paused)this.onPauseChange(this.state.paused);this.hooks.change();
+  }
+  setMusicPlaying(playing:boolean){
+    if(playing===this.musicPlaying)return;this.musicPlaying=playing;
+    if(playing){this.savedRain=this.state.rain;this.state.rain=false;}
+    else{this.state.rain=this.savedRain??this.state.rain;this.savedRain=undefined;}
+    // Rain is consumed directly by the animation scheduler. Updating graphics
+    // here would re-enter the pause handoff while the transport is changing.
+    this.sync();
+  }
   toggleVisibility(){
     const hidden=document.body.classList.toggle('controls-hidden');
     $('toggle-controls').setAttribute('aria-expanded',String(!hidden));
@@ -95,6 +110,10 @@ export class WaterControls{
       const input=$<HTMLInputElement>(controlId(key));
       // Do not write checked back into an input already displaying its new value.
       if(input.checked!==this.state[key])input.checked=this.state[key];
+      if(key==='rain'){
+        input.disabled=this.musicPlaying;
+        if(this.musicPlaying)input.title='Background rain is off while music plays.';else input.removeAttribute('title');
+      }
     }
     for(const key of Object.keys(ranges) as (keyof typeof ranges)[]){
       const input=$<HTMLInputElement>(controlId(key)),value=this.state[key];

@@ -88,6 +88,24 @@ for(const button of document.querySelectorAll('button')){
 controls.reset();keypress(' ',$('bitmap-tones'),'Space');assert.equal(controls.state.paused,true);keypress(' ',$('wave-speed'),'Space');assert.equal(controls.state.paused,false);assert.ok(document.body.classList.contains('controls-hidden'),'Controls start hidden');assert.equal($('toggle-controls').textContent,'Show controls');keypress('h');assert.ok(!document.body.classList.contains('controls-hidden'));assert.equal($('toggle-controls').textContent,'Hide controls');keypress('h');assert.ok(document.body.classList.contains('controls-hidden'));
 controls.change({dreamy:true,subtle:true,waveSpeed:.7,tone:'night'});const stillSettings={...controls.state};$('clear').click();assert.equal(clears,1);assert.deepEqual(controls.state,stillSettings,'Still only invokes wave clearing');$('reset-defaults').click();assert.deepEqual(controls.state,initial,'Defaults must restore the separate startup preset');
 const beforeInvalid={...controls.state};assert.throws(()=>controls.change({tone:'night',touchForce:NaN}));assert.deepEqual(controls.state,beforeInvalid,'Settings updates must be atomic');
+// Musical playback masks background rain without overwriting its saved preference
+// or changing the separate Gentle motion setting.
+controls.reset();const beforeMusic={...controls.state},musicChanges=changes;
+controls.setMusicPlaying(true);
+assert.deepEqual(controls.state,{...beforeMusic,rain:false});
+assert.equal($('rain').checked,false);assert.equal($('rain').disabled,true);assert.equal($('rain-value').textContent,'Off');
+assert.equal(JSON.parse($('water-state').textContent).rain,false);
+controls.setMusicPlaying(true);assert.equal(changes,musicChanges,'Playback rain handoff must not trigger graphics/pause hooks');
+controls.setMusicPlaying(false);assert.deepEqual(controls.state,beforeMusic);assert.equal($('rain').checked,true);assert.equal($('rain').disabled,false);
+controls.change({rain:false});controls.setMusicPlaying(true);controls.setMusicPlaying(false);
+assert.equal(controls.state.rain,false,'An existing rain-off preference stays off after playback');
+controls.change({rain:true});controls.setMusicPlaying(true);controls.change({rain:false});controls.setMusicPlaying(false);
+assert.equal(controls.state.rain,false,'A preference changed during playback is restored on pause');
+controls.setMusicPlaying(true);controls.change({rain:true});assert.equal(controls.state.rain,false);
+controls.setMusicPlaying(false);assert.equal(controls.state.rain,true);
+controls.change({rain:false});controls.setMusicPlaying(true);controls.reset();
+assert.equal(controls.state.rain,false,'Reset keeps background rain masked until music stops');
+controls.setMusicPlaying(false);assert.deepEqual(controls.state,initial,'Reset restores the startup rain preference when music stops');
 // Exercise the application clock and clearing methods, not an alternate solver.
 function neutral(){controls.reset();controls.change({bitmapTones:false,hideSunDisc:false,rain:false,gentleMotion:false,dreamyRainSpeed:false,shortReferenceLines:false});}
 neutral();
@@ -123,4 +141,4 @@ for(const key of ['c','x','/']){
 }
 app.gl={getRenderTarget:()=>null,getClearColor:()=>{},getClearAlpha:()=>1,setClearColor:()=>{},setRenderTarget:()=>{},clear:()=>{}};controls.change({tone:'night',dreamy:true,subtle:true,bitmapTones:true,waveSpeed:.45});const beforeClear={...controls.state};Puddle.prototype.clear.call(app);assert.deepEqual(controls.state,beforeClear);assert.equal(app.gestureQueue.length,0);
 assert.equal(rainClears,1,'Still the water must clear both wave fields');
-console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,toneOptions:toneButtons.length,reversibleGreenChrome:true,toneChangesPreserveSettings:true,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,configurationAStartup:true,darkComicDefault:true,hideSunDefaultOn:true,alignmentDefaultOff:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,independentSwitches:true,changes,browserRenderingTest:false}));
+console.log(JSON.stringify({domControlCycles:cycles,cycle:'off-on-off-on',sliders,toneOptions:toneButtons.length,reversibleGreenChrome:true,toneChangesPreserveSettings:true,sourceClockPreserved:true,sourceTouchForcePreserved:true,independentRainClock:true,pauseStopsRain:true,configurationAStartup:true,darkComicDefault:true,hideSunDefaultOn:true,alignmentDefaultOff:true,deterministicGestures:3,replaySamples,stillPreservesEverySetting:true,resetMatchesStartup:true,musicMasksBackgroundRain:true,musicRestoresRainPreference:true,independentSwitches:true,changes,browserRenderingTest:false}));

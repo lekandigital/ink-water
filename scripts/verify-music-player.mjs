@@ -19,7 +19,8 @@ Object.assign(globalThis,{window,document,location,performance:{now:()=>now},fet
 }});
 Object.defineProperty(document,'baseURI',{value:'https://ink-water.test/'});
 Object.defineProperty(document.getElementById('music-track'),'value',{value:'',writable:true});
-assert.equal(document.querySelector('audio,input[type="file"],#music-dev'),null,'Reference playback is absent, including on old music-dev URLs');
+assert.equal(document.querySelector('audio,#music-dev'),null,'No hosted reference player or automatic audio exists, including on old music-dev URLs');
+assert.ok(document.getElementById('music-local-files').hasAttribute('multiple'),'Downloaded playback explicitly chooses the complete private library');
 const ports=[];
 class Port{
  constructor(element,options){this.options=options;this.calls=[];this.index=0;this.time=0;this.duration=0;this.rate=1;this.state=5;this.playlist=[];
@@ -172,13 +173,13 @@ const oldCue=Port.prototype.cuePlaylist;
 Port.prototype.cuePlaylist=function(value){assert.equal(value.list,'PLTab0IXtn0Nw');this.playlist=inventory.entries.map(e=>e.video_id);};
 await music.open();await music.play();const production=ports.at(-1);production.ready();await flush();
 assert.deepEqual(latest.musicPlaylistValidation.unknown,[]);assert.deepEqual(latest.musicPlaylistValidation.missing,[]);
-assert.deepEqual(latest.musicPlaylistValidation.mismatched,['jGIKgJ9MzfE']);assert.equal(latest.musicPlaylistValidation.orderMatches,true);
+assert.deepEqual(latest.musicPlaylistValidation.mismatched,[]);assert.equal(latest.musicPlaylistValidation.orderMatches,true);
 let productionTracks=0;
 for(let i=0;i<32;i++){
  await poll(production,i,0);await poll(production,i,0);
  const score=music.engine.scheduler.score;
  assert.equal(score.track_id,manifest.order[i]);
- if(production.playlist[i]==='jGIKgJ9MzfE'){
+ if(score.track_id&&music.session.current.source?.validation_status==='mismatch'){
   assert.equal(latest.musicSourceMismatch,true);assert.deepEqual(music.updateMusicRain(),[]);
   assert.match(document.getElementById('music-rain-state').textContent,/Source mismatch/);continue;
  }
@@ -189,7 +190,7 @@ for(let i=0;i<32;i++){
  assert.ok(impacts.some(e=>e.seed===event.seed),'Production playback must schedule the matching physical event: '+score.track_id);
  assert.ok(impacts.every(e=>e.force>0&&e.scale>0&&e.position.length===2));productionTracks++;
 }
-assert.equal(productionTracks,31);
+assert.equal(productionTracks,32);
 // Video identity and duration can arrive in separate iframe messages. The new
 // video's first sample may still contain the previous recording's duration.
 production.index=8;production.time=0;production.state=1;production.duration=154;
@@ -205,8 +206,12 @@ assert.ok(music.updateMusicRain().some(e=>e.seed===recovered.seed),'Recovered me
 production.duration=manifest.tracks.find(t=>t.id==='02-fused-dj-kicks').duration+20;
 now+=80;music.player.poll();await flush();assert.equal(latest.musicSourceMismatch,true);assert.deepEqual(music.updateMusicRain(),[]);
 await poll(production,8,recovered.time+.09);assert.equal(latest.musicSourceMismatch,false);
+const rider=music.session.tracks.find(track=>track.id==='22-rider');
+assert.equal(rider.source.validation_status,'verified','The supplied Rider clip now has complete acoustic verification');
+rider.source.validation_status='mismatch';
 await poll(production,29,0);await poll(production,29,.08);
 assert.equal(latest.musicSourceMismatch,true);assert.deepEqual(music.updateMusicRain(),[]);
+rider.source.validation_status='verified';
 await poll(production,2,0);assert.equal(music.session.current.source.source_start_seconds,0,'Standalone Continuum upload never inherits the album offset');
 music.seek(126.11);assert.equal(production.calls.at(-1)[1],126.11);
 assert.equal(manifest.tracks.find(t=>t.index===21).source.source_start_seconds,854,'Supplied album mapping remains intact');
@@ -229,5 +234,5 @@ assert.ok(requests.every(url=>!url.endsWith('.mp3')));
 console.log(JSON.stringify({nativePlaylistOnly:true,visiblePlayer:true,idMatching:true,sourceOffsets:true,lateSamplesDiscarded:true,trackChanges:true,
  nativeOrderPreserved:true,pauseResume:true,seeksNoStorm:true,unavailableSkipped:true,autoplayHandled:true,playlistEnd:true,musicOffDestroysEmbed:true,
  syncSwitchCycle:true,allTonesPreserved:true,missingMapHoldsRain:true,captureClockDeterministic:true,referenceAudioNeverFetched:true,
- compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,bufferingCanBePausedWithoutRain:true,referencePlaybackRemoved:true,
+ compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,bufferingCanBePausedWithoutRain:true,privateDownloadedPlaybackOptIn:true,
  actualPlaylistEmitsPhysicalRainFor:productionTracks,mismatchedRecordingHeld:true,standaloneOffsetZero:true,outsideDrawingChoices:true}));

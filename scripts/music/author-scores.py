@@ -6,13 +6,22 @@ Regeneration preserves the supplied directions, windows and cinematic order.
 """
 import hashlib
 import json
+import re
+import unicodedata
 from pathlib import Path
-from importlib.util import spec_from_file_location, module_from_spec
 
 ROOT = Path(__file__).resolve().parents[2]
-spec = spec_from_file_location('audio_validation', Path(__file__).with_name('validate-audio.py'))
-helper = module_from_spec(spec)
-spec.loader.exec_module(helper)
+
+
+def track_id(track):
+    title = re.sub(r'\(1\)$', '', track['title']).strip()
+    title = unicodedata.normalize('NFKD', title).encode('ascii', 'ignore').decode()
+    return f"{track['index']:02d}-" + re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+
+
+def write(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
 
 # index, seven section density targets (cluster entrances/sec), force, radius,
 # cluster probability, cluster size, spacing, spatial language, background/sec,
@@ -55,26 +64,286 @@ ROWS = [
 LANGUAGES = {
  'streams': ('Independent fine streams; complexity comes from superposition.', .86, .14),
  'cells': ('Irregular 2–4 drop groups occupy different cells, with air between them.', .74, .18),
- 'glints': ('Asymmetric pinpricks and widely separated paired glints.', .92, .27),
+ 'glints': ('Frequent asymmetric note pinpricks, with paired glints answering selected attacks.', .92, .27),
  'needles': ('Narrow fast clusters cross the surface, separated by short lulls.', .83, .12),
  'showers': ('Localized showers reform elsewhere; leave deliberate spatial holes.', .88, .20),
- 'drift': ('Broad softly wandering weather, with long continuous envelopes.', .91, .30),
+ 'drift': ('Frequent soft note marks wander through broad continuous envelopes.', .91, .30),
  'motif': ('Recurring cluster gestures move and change spacing without a beat grid.', .76, .19),
  'gather': ('Groups gather through the rise, then release into wider space.', .86, .24),
  'split': ('Fine simultaneous showers in separated regions, then brief silence.', .91, .13),
- 'suspended': ('Mostly open water; soft solitary drops and occasional slow pairs.', .85, .24),
- 'granules': ('Tiny widely distributed granular groups at very low force.', .95, .24),
- 'miniature': ('Close hand-marked feeling: isolated drops, pairs and long gaps.', .64, .15),
+ 'suspended': ('Suspended harmonic notes return as soft marks and lighter measured echoes, with short phrase breaths.', .85, .24),
+ 'granules': ('Frequent small granular note groups are distributed across the surface at restrained force.', .95, .24),
+ 'miniature': ('Close hand-marked feeling: frequent distinct piano-note marks, lighter pairs and short phrase breaths.', .64, .15),
  'rounded': ('Warm rounded clusters with loose asymmetry and unhurried entrances.', .79, .24),
  'flow': ('Graceful moving density curves; sustained passages pull back.', .91, .31),
- 'haze': ('A faint continuous field, gently lifted by a few broad pulses.', .94, .29),
- 'echo': ('Phrase entrances followed by smaller, softer physical echoes.', .78, .24),
+ 'haze': ('A soft field carries frequent measured note marks and broad phrase pulses.', .94, .29),
+ 'echo': ('Frequent measured phrase notes are followed by smaller physical echoes tied to separate attacks.', .78, .24),
  'alternate': ('Compact groups alternate across the surface, with a few anchors.', .83, .13),
  'negative': ('Small groups disappear completely; the absences are authored.', .92, .22),
  'memory': ('Return to earlier spatial regions while changing density and group size.', .79, .21),
- 'pressure': ('Slow broad pressure and release; rare stronger, soft impacts.', .92, .31),
+ 'pressure': ('Broad pressure and release carries frequent soft note marks and selected stronger arrivals.', .92, .31),
 }
 
+# Each list is an authored set of phrase-answer windows for this recording. The
+# compiler chooses ONE measured attack within each window, then preserves that
+# exact score time. These intentionally uneven answers are not a beat grid.
+# Piano pieces get individual note answers and the denser songs get small
+# showers. Logic1000's original structural arrival retains its physical identity.
+PHRASE_WINDOWS = {
+ 1: [7,19,32,42,57,71,86,101,111,125,145,158,173,189,205,220],
+ 2: [7,20,32,47,58,74,88,99,112,120,145,159,175,188,201],
+ 3: [11,20,47,63,78,105,120,145,171,188,214,229,245,260],
+ 4: [5,22,34,53,67,93,117,131,146,166,199,215],
+ 5: [9,25,39,71,89,107,126,145,164,182,197,218,236,255,271,294,313,343,358,383,414,431,445],
+ 6: [7,28,55,73,96,119,146,171,188,213,237,261,286,312,349,365,393,419,443,457,484,508,533,550],
+ 7: [7,23,37,62,76,98,126,142,169,185,207,223,238],
+ 8: [9,24,49,65,83,97,114,138,154,173,189,207,226,241],
+ 9: [7,16,45,57,78,94,123,146,164,182,215],
+ 10:[5,19,36,44,64,81,99,117,134,166,183,207,229,240],
+ 11:[5,24,43,61,79,98,109,124],
+ 12:[9,23,37,50,68,84,99,118,136,157,183,196,211,223],
+ 13:[5,14,34,49,66,92,104,126,139,161,184,195],
+ 14:[4,19,33,46,66,80,95,111,126,146,157,172,188,198],
+ 15:[22,32,44,52,69,83,95,107,119,132],
+ 16:[9,25,42,59,75,94,111,126,159,185,200,226,243],
+ 17:[9,28,46,67,89,113,137,155,181,198,229,246,270,291,327,350,374,398,435,452,472],
+ 18:[8,28,58,72,88,103,126,149,169,189,202],
+ 19:[5,19,34,43,60,73,88,110,132,145,156],
+ 20:[9,25,42,71,105,117,137,151,168,193,214,230,248,262,277],
+ 21:[8,18,35,56,81,95,116,149,162,173,188,217,232],
+ 22:[9,20,38,61,83,103,113,133,147,157],
+ 23:[7,27,45,61,75,91,103,127,143,158,178,202,227,241,263,284,301,324,343,367,386,405,427,446],
+ 24:[8,27,51,70,88,99,116,143,161,178,199,218,241,264,289,312,331,355,378,395],
+ 25:[31,49,65,83,102,121,138,156,174,191,221,240,258,283,303,325,342,361,383,433,452,474,491,513,532,548,563],
+ 26:[5,20,29,43,64,89,104,117,130,150,164,185,194],
+ 27:[10,20,38,57,71,87,104,122,144,154,173,185],
+ 28:[7,25,40,57,69,84,104,122,146,156,183,200,214],
+ 29:[8,23,40,57,69,91,106,137,154,170,191,212,224,264,282,300,318,342,358,378,400,423,452,468,481],
+ 30:[9,20,37,54,72,87,105,127,144,164,178,198],
+ 31:[9,26,41,57,78,98,119,135,165,183,203,219,246,268,283,321,339,357,378,396],
+ 32:[6,18,37,51,67,79,103,114,133,148,174,188,202],
+}
+
+# force multiplier, scale multiplier, repeating counts, spacing, anticipation,
+# clearing. Values are deliberately restrained: these are phrase answers, not
+# an additional layer of heavy arrivals. Spatial placement stays in the song's
+# existing language and deterministic physical scheduler.
+PHRASE_SHAPES = {
+ 'streams': (.92,.98,[2,1,3,1],.15,.22,.30),
+ 'cells': (.92,1.00,[2,1,3],.23,.32,.45),
+ 'glints': (.88,.94,[1,2,1],.29,.18,.28),
+ 'needles': (.86,.93,[2,3,1],.095,.18,.35),
+ 'showers': (.88,1.00,[2,1,2,3],.31,.30,.38),
+ 'drift': (.85,1.05,[1,1,2,1],.72,.30,.25),
+ 'motif': (.93,.99,[2,1,2,3],.29,.25,.38),
+ 'gather': (.92,1.03,[1,2,1,3],.35,.42,.48),
+ 'split': (.86,.98,[2,1,2],0,.23,.36),
+ 'suspended': (.88,1.02,[1,1,1,2],.85,.65,.65),
+ 'granules': (.88,.95,[2,1,3],.18,.18,.30),
+ 'miniature': (.93,.99,[1,1,2,1],.53,.50,.62),
+ 'rounded': (.92,1.01,[1,2,1,2],.40,.35,.44),
+ 'flow': (.87,1.05,[1,1,2],.71,.38,.35),
+ 'haze': (.84,1.04,[1,1,2,1],.68,.40,.30),
+ 'echo': (.95,1.02,[1,2,1],.72,.62,.68),
+ 'alternate': (.91,.99,[2,1,3,1],.19,.25,.40),
+ 'negative': (.88,.97,[1,2,1],.49,.58,.66),
+ 'memory': (.92,1.01,[2,1,2,3],.31,.30,.45),
+ 'pressure': (.88,1.04,[1,1,2],.85,.58,.60),
+}
+
+# The user asked for a much more legible, continuously choreographed surface.
+# These are authored note/answer entrance rates for the seven musical sections,
+# not BPM estimates. The compiler picks exact measured attacks inside uneven
+# phrase cells. Electronic pieces have quicker independent lines; sustained and
+# piano pieces answer less often, with more solitary marks and smaller echoes.
+# The local reference, section architecture and primary arrivals stay intact.
+DENSE_RATES = {
+ 1:[1.75,2.05,2.20,1.65,2.30,1.95,1.20],
+ 2:[.95,1.40,1.65,1.15,2.10,1.85,1.10],
+ 3:[1.20,1.65,1.35,1.75,1.30,1.60,1.00],
+ 4:[1.75,2.00,2.30,1.80,2.35,2.05,1.25],
+ 5:[1.45,1.85,1.55,2.10,1.50,1.90,1.15],
+ 6:[1.00,1.30,1.45,1.20,1.55,1.25,.90],
+ 7:[1.35,1.70,1.90,1.55,2.00,1.75,1.10],
+ 8:[.95,1.20,1.45,1.65,1.95,2.10,1.05],
+ 9:[1.85,2.20,2.35,1.90,2.40,2.15,1.25],
+ 10:[1.10,1.40,1.65,1.20,1.75,1.45,1.00],
+ 11:[1.05,1.30,1.10,1.45,1.55,1.25,.95],
+ 12:[.90,1.10,1.00,1.20,1.30,1.05,.80],
+ 13:[1.55,1.90,2.05,1.75,2.20,1.90,1.15],
+ 14:[1.00,1.20,1.05,1.35,1.10,1.25,.90],
+ 15:[1.05,1.20,1.10,1.25,1.05,1.15,.85],
+ 16:[1.40,1.75,2.00,1.70,2.15,1.80,1.10],
+ 17:[1.50,1.85,2.10,2.20,2.35,2.15,1.30],
+ 18:[1.05,1.55,1.85,2.00,1.75,1.45,1.00],
+ 19:[.95,1.20,1.05,1.35,1.10,1.25,.85],
+ 20:[1.05,1.45,2.00,1.30,1.85,2.25,1.10],
+ 21:[1.00,1.30,1.05,1.20,1.50,1.20,.95],
+ 22:[1.50,1.85,2.00,1.65,2.05,1.75,1.05],
+ 23:[1.15,1.45,1.65,1.30,1.80,1.55,1.00],
+ 24:[1.00,1.30,1.45,1.20,1.60,1.35,.90],
+ 25:[.90,1.10,.95,1.15,1.00,1.20,.85],
+ 26:[1.00,1.25,1.45,1.15,1.55,1.25,.90],
+ 27:[1.70,2.00,2.20,1.80,2.30,2.05,1.15],
+ 28:[1.00,1.25,1.40,1.15,1.55,1.30,.95],
+ 29:[1.15,1.50,1.65,1.25,1.55,1.60,1.00],
+ 30:[1.40,1.70,1.95,1.55,2.05,1.75,1.05],
+ 31:[1.00,1.20,1.40,1.15,1.60,1.35,.90],
+ 32:[1.45,1.80,2.00,1.85,1.95,1.55,1.00],
+}
+
+# Phrase-cell rate, principal-mark pressure, answer behavior. Repeated cells
+# are the song's spatial refrain, but the selected attacks never form a grid.
+# A paired note or echo is separately tied to a real attack, not a timed fake.
+DENSE_CELLS = {
+ 'streams': [(1,.76,'pair'),(.83,.68,'single'),(1.12,.82,'single'),(.94,.73,'pair')],
+ 'cells': [(1,.82,'pair'),(.78,.65,'single'),(1.15,.86,'single'),(.9,.72,'pair')],
+ 'glints': [(1,.75,'single'),(1.16,.68,'pair'),(.81,.83,'single'),(1.05,.73,'single')],
+ 'needles': [(1,.73,'pair'),(1.12,.80,'single'),(.86,.67,'pair'),(1.06,.76,'single')],
+ 'showers': [(1,.77,'pair'),(.84,.70,'single'),(1.17,.83,'pair'),(.91,.72,'single')],
+ 'drift': [(1,.74,'single'),(.88,.67,'echo'),(1.08,.81,'single'),(.94,.73,'single')],
+ 'motif': [(1,.83,'pair'),(.82,.68,'single'),(1.12,.88,'single'),(.96,.75,'pair')],
+ 'gather': [(.9,.76,'single'),(1,.80,'pair'),(1.13,.86,'single'),(.95,.72,'pair')],
+ 'split': [(1,.78,'pair'),(.86,.68,'single'),(1.13,.83,'pair'),(.94,.72,'single')],
+ 'suspended': [(1,.78,'single'),(.84,.67,'single'),(1.11,.83,'echo'),(.92,.72,'single')],
+ 'granules': [(1,.76,'pair'),(1.14,.69,'single'),(.85,.82,'pair'),(1.03,.72,'single')],
+ 'miniature': [(1,.82,'single'),(.86,.72,'single'),(1.12,.90,'pair'),(.93,.78,'single'),(1.06,.85,'echo'),(.9,.74,'single')],
+ 'rounded': [(1,.81,'single'),(.87,.70,'pair'),(1.13,.87,'single'),(.95,.76,'pair')],
+ 'flow': [(1,.77,'single'),(.83,.69,'echo'),(1.12,.84,'single'),(.95,.74,'single')],
+ 'haze': [(1,.76,'single'),(.9,.67,'single'),(1.10,.82,'echo'),(.94,.72,'single')],
+ 'echo': [(1,.82,'echo'),(.84,.69,'single'),(1.13,.88,'echo'),(.93,.74,'single')],
+ 'alternate': [(1,.84,'pair'),(.87,.71,'single'),(1.12,.89,'pair'),(.93,.76,'single')],
+ 'negative': [(1,.77,'single'),(.83,.67,'pair'),(1.13,.84,'single'),(.94,.73,'single')],
+ 'memory': [(1,.82,'pair'),(.85,.69,'single'),(1.13,.88,'pair'),(.94,.75,'single')],
+ 'pressure': [(1,.79,'single'),(.86,.68,'echo'),(1.10,.85,'single'),(.94,.73,'single')],
+}
+
+
+def dense_note_patterns(index, analysis, accents, breaths, sections, fade, force, scale, language, highlight):
+    # Older anchors retain their event-local random identities when many new
+    # note marks are inserted. In particular the Logic arrival remains exact.
+    for i, accent in enumerate(sorted(accents,key=lambda a:a['time'])):
+        accent.setdefault('random_index', i)
+    # The old multi-second chance-weather lulls were deliberately sparse. A
+    # shorter phrase breath now leaves the music legible without dead stretches.
+    for breath in breaths:
+        if breath['amount']==0 and 'Measured final fade' not in breath['note'] and not (index==2 and breath['start']==126.90):
+            breath['end']=round(min(breath['end'],breath['start']+(1.15 if index in [15,19,25] else .9)),4)
+            breath['note']='A short authored phrase breath leaves room for ring decay before the next measured notes.'
+    # Keep a little uncued texture, with explicit note choreography dominant.
+    # Physical force/solver calibration is unchanged.
+    for section in sections:
+        section['density']=[round(x*.12,4) for x in section['density']]
+        section['background']=round(section['background']*.08,4)
+        section['cluster']['probability']*=.45
+        section['note']+=' Measured note patterns carry the main surface; incidental weather is held behind them.'
+    onsets=analysis['onsets']
+    added=0
+    principal=0
+    cells=DENSE_CELLS[language]
+    def clear(at):
+        return at<fade and not any(b['amount']==0 and b['start']<=at<b['end'] for b in breaths)
+    def active(at):
+        # Reject actual very quiet tails/holes, not sustained quiet instruments.
+        near=[r for r in analysis['timeline'] if abs(r['time']-at)<=.55]
+        return any(r['energy']>=.065 for r in near)
+    def vacant(at,gap):
+        return all(abs(a['time']-at)>gap for a in accents)
+    for si, section in enumerate(sections):
+        at=section['start']+.14
+        slot=0
+        while at<min(section['end'],fade):
+            rate, weight, answer=cells[(slot+si)%len(cells)]
+            rate*=DENSE_RATES[index][si]
+            in_highlight=highlight['start']<=at<highlight['end']
+            # The busy flagship cuts were already active in the former chance
+            # weather. Their new authored surface gets a real extra voice,
+            # rather than merely swapping that activity for measured notes.
+            if in_highlight and index in [2,17,30]:
+                rate*={2:1.85,17:1.65,30:1.45}[index]
+            # Preserve the dramatic hush and exact flagship structural attack.
+            if index==2 and 124.55<=at<127.617:rate*=.33
+            span=1/rate
+            target=at+span*.46
+            window=max(.22,span*.47)
+            candidates=[o for o in onsets if abs(o['time']-target)<=window and
+                        section['start']<=o['time']<section['end'] and
+                        clear(o['time']) and active(o['time']) and vacant(o['time'],max(.16,span*.31)) and
+                        not (index==2 and 126.6<=o['time']<127.9)]
+            if candidates:
+                # Attack strength chooses between nearby notes; neither force
+                # nor event count follows instantaneous loudness or the beat.
+                onset=max(candidates,key=lambda o:o['strength']-.22*abs(o['time']-target)/window)
+                note_force=force*weight
+                if index==15:note_force=.42*weight
+                main={'time':onset['time'],'type':'glint' if language in ['streams','glints','granules','needles','showers'] else 'phrase',
+                      'force':round(note_force,4),'scale':round(scale*(.96 if slot%3 else 1.05),4),'count':1,'spacing':0,
+                      'anticipation':.09,'quiet':.28,'random_index':1000+si*10000+slot*3,
+                      'note':f'Measured pattern: {language} section {si+1}, refrain cell {slot%len(cells)+1}; selected exact note attack, principal mark.'}
+                accents.append(main);added+=1;principal+=1
+                if index==2 and in_highlight and onset['time']>=127.9 and slot%2==0:
+                    # One recorded attack can be a chord. A softer simultaneous
+                    # spatial note is an authored second voice, not a fake new
+                    # transient or stochastic extra rain.
+                    accents.append({'time':onset['time'],'type':'glint',
+                              'force':round(note_force*.52,4),'scale':round(main['scale']*.82,4),
+                              'count':1,'spacing':0,'anticipation':0,'quiet':.12,
+                              'random_index':1002+si*10000+slot*3,
+                              'note':f'Measured pattern: {language} section {si+1}, refrain cell {slot%len(cells)+1}; a lighter simultaneous chord voice on the same measured attack.'})
+                    added+=1
+                if answer!='single':
+                    lo=.13 if answer=='pair' else .30
+                    hi=min(.48 if answer=='pair' else .70,span*.70)
+                    answers=[o for o in onsets if lo<=o['time']-onset['time']<=hi and
+                             clear(o['time']) and active(o['time']) and vacant(o['time'],.14)]
+                    if answers:
+                        reply=max(answers,key=lambda o:o['strength']-.08*abs(o['time']-onset['time']-(lo+hi)/2))
+                        accents.append({'time':reply['time'],'type':'glint' if answer=='pair' else 'phrase',
+                              'force':round(note_force*(.67 if answer=='pair' else .60),4),
+                              'scale':round(main['scale']*(.84 if answer=='pair' else .91),4),'count':1,'spacing':0,
+                              'anticipation':0,'quiet':.16,'random_index':1001+si*10000+slot*3,
+                              'note':f'Measured pattern: {language} section {si+1}, refrain cell {slot%len(cells)+1}; exact measured {answer} answer, lighter than its principal mark.'})
+                        added+=1
+            at+=span
+            slot+=1
+    return added,principal
+
+
+def phrase_answers(index, analysis, accents, breaths, duration, force, scale, language):
+    last_active = max((r['time']+.5 for r in analysis['timeline'] if r['energy'] >= .22), default=duration)
+    fade = min(duration, last_active)
+    if duration-fade >= 1.5:
+        breaths.append({'start':fade,'end':duration,'amount':0,
+                        'note':'Measured final fade: let the remaining rings decay without new impacts.'})
+    f, z, counts, spacing, anticipation, quiet = PHRASE_SHAPES[language]
+    added = 0
+    if index==2:
+        # Stable event-local randomness preserves the original anchors' exact
+        # positions and physical seeds when answers are inserted before them.
+        for i, accent in enumerate(sorted(accents,key=lambda a:a['time'])):
+            accent['random_index']=i
+    def clear(at, count):
+        end=at+(count-1)*spacing
+        return end < fade and not any(b['amount']==0 and at < b['end'] and end >= b['start'] for b in breaths)
+    def active(at):
+        return any(r['energy'] >= .22 for r in analysis['timeline'] if abs(r['time']-at) <= .65)
+    for i, target in enumerate(PHRASE_WINDOWS[index]):
+        count=counts[i%len(counts)]
+        candidates=[o for o in analysis['onsets'] if abs(o['time']-target) <= 2.4 and
+                    o['strength'] >= .08 and active(o['time']) and clear(o['time'],count) and
+                    all(abs(a['time']-o['time']) > 2.0 for a in accents) and
+                    (index!=2 or not 123.4 <= o['time'] <= 138.2)]
+        if not candidates:continue
+        onset=max(candidates,key=lambda o:o['strength']-.12*abs(o['time']-target))
+        # Authored variation follows the answer sequence, never loudness or BPM.
+        weight=[.96,1.04,.92,1.0][i%4]
+        accents.append({'time':onset['time'],'type':'split' if language=='split' else 'glint' if language in ['streams','glints','granules','needles','showers'] else 'phrase',
+                        'force':round(force*f*weight,4),'scale':round(scale*z,4),'count':count,'spacing':spacing,
+                        'anticipation':anticipation,'quiet':quiet,
+                        'note':f'Selected {language} answer near {target:g}s, anchored to a measured attack; surrounding weather stays unquantized.'})
+        if index==2:accents[-1]['random_index']=100+i
+        added+=1
+    return added, fade
 
 def nearest_onset(analysis, time, radius=1.4):
     near = [o for o in analysis['onsets'] if abs(o['time']-time) <= radius]
@@ -91,7 +360,7 @@ def compile_scores():
     artists = {1:'Other Joe',2:'Logic1000',3:'Salamanda',4:'Buttechno & TRIS',5:'Seefeel',7:'Lusine',
                9:'Eerie Enterprise',12:'Wilson Tanner',13:'Argento',18:'Marumari',20:'Rival Consoles',21:'Nala Sinephro',29:'Chevel'}
     for track in c['tracks']:
-        index=track['index']; tid=helper.track_id(track)
+        index=track['index']; tid=track_id(track)
         a=json.loads((ROOT/'data/music/analysis'/f'{tid}.json').read_text())
         _, densities, force, scale, chance, count, spacing, language, background, breathing, selected = profiles[index]
         description, spread, wander = LANGUAGES[language]
@@ -135,9 +404,10 @@ def compile_scores():
             for time in ([1.3,7.2] if index==15 else [7.2,14.5]):
                 o=nearest_onset(a,time,.8)
                 if o:accents.append({'time':o['time'],'type':'solitary','force':force,'scale':scale,'count':1,'spacing':.5,'anticipation':.8,'quiet':.9,'note':'A deliberate soft opening mark, followed by space.'})
-        refinements=['Duration uses decoded reference samples; supplied highlight is unchanged.',
+        refinements=['Duration uses decoded reference samples; supplied highlight window is retained.',
                      'Selected arrivals use independently measured attacks; density remains authored.',
-                     'Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.']
+                     'Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.',
+                     'The current frequency revision follows the user’s request for much denser discernible choreography; original sparse direction remains recording provenance, while exact measured note patterns now lead the surface.']
         gestures=[]
         def mark(at,kind,f,z,count=1,spacing=.25,anticipation=.5,quiet=.7,note=''):
             o=nearest_onset(a,at,.18)
@@ -206,6 +476,12 @@ def compile_scores():
             gesture(sections[5]['start']+2,'/',.25,.65,.85,'One slash-shaped physical sweep in the late gathered section; no repetitive letter motif.')
         if index==17:
             for i,s in enumerate(sections):s['cluster']['probability']=min(.85,.35+i*.085)
+        answers, fade=phrase_answers(index,a,accents,breaths,duration,force,scale,language)
+        refinements.append(f'{answers} additional song-specific phrase answers use selected measured attacks, with authored force/count and no beat grid; explicit zero breathing spaces remain open.')
+        dense,principal=dense_note_patterns(index,a,accents,breaths,sections,fade,force,scale,language,track['recommended_highlight'])
+        refinements.append(f'{dense} dense measured note marks ({principal} principal entrances) follow authored section rates and recurring {language} refrain cells; exact measured lighter answers and short phrase breaths replace the sparse surface. Incidental weather is subordinate to this choreography.')
+        if fade < duration:
+            refinements.append(f'The measured final fade at {fade:g}s releases into ring decay rather than continuing chance rain through silence.')
         score={'schema_version':2,'track_id':tid,'seed':int.from_bytes(hashlib.sha256(('ink-water-weather-v1:'+tid).encode()).digest()[:4],'little'),
             'title':track['title'].removesuffix('(1)').strip(),'artist':saved.get(tid,{}).get('artist') or artists.get(index,''),'duration':duration,
             'style':track['choreography_style'],'direction':track['choreography_notes'],
@@ -215,13 +491,13 @@ def compile_scores():
             'breaths':sorted(breaths,key=lambda x:x['start']),'refinements':refinements,
             'provenance':{'choreography':f'source/ink-water-32-track-choreography.json#tracks/{index-1}',
                           'analysis':f'analysis/{tid}.json','reference_sha256':a['reference']['sha256']}}
-        helper.write(ROOT/'data/music/scores'/f'{tid}.json',score)
+        write(ROOT/'data/music/scores'/f'{tid}.json',score)
         tracks.append({'id':tid,'index':index,'title':score['title'],'artist':score['artist'],'duration':duration,
                        'score':f'scores/{tid}.json','analysis':f'analysis/{tid}.json','reference_sha256':a['reference']['sha256'],
                        'recommended_demo':score['recommended_demo'],
                        'source':None,'source_status':'awaiting-supplied-source-map'})
     manifest={'schema_version':1,'title':'Ink Water — authored weather','preferred_tone':'green-light',
-              'playlist_id':'PLTab0IXtn0Nw','order':[helper.track_id(c['tracks'][i-1]) for i in c['playlist_order_indices']], 'tracks':tracks}
+              'playlist_id':'PLTab0IXtn0Nw','order':[track_id(c['tracks'][i-1]) for i in c['playlist_order_indices']], 'tracks':tracks}
     path=manifest_path
     # Regenerating artistic data must not erase subsequently supplied mappings.
     if path.exists():
@@ -235,7 +511,7 @@ def compile_scores():
                 t['source']=sources[t['id']]['source'];t['source_status']=sources[t['id']]['source_status']
                 if sources[t['id']].get('alternate_sources'):t['alternate_sources']=sources[t['id']]['alternate_sources']
                 if sources[t['id']].get('artist'):t['artist']=sources[t['id']]['artist']
-    helper.write(path,manifest)
+    write(path,manifest)
     print('32 full-song authored scores; cinematic order and all supplied highlights retained.')
 
 

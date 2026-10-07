@@ -1,0 +1,5702 @@
+{
+  "schemaVersion": 3,
+  "method": "Actual RainScheduler plans; verified stored spectral-flux attacks at 23.2ms resolution. Energy is relative to each recording; activity threshold is .22. Recurring song-specific note, chord, echo and refrain cells select exact measured attacks, with authored principal/answer weights. Counts include secondary weather and existing physical gestures; maximum bursts use a rolling one-second window. This is a score audit, not listening or YouTube recording verification.",
+  "sourceCaveat": "Local reference hashes establish which recording the score was measured against. They do not establish that a mapped YouTube upload contains that recording. Mismatched uploads remain held by the player; duration-only and unverified uploads still need recording-identity review.",
+  "allLocalRecordingHashesVerified": true,
+  "tracks": [
+    {
+      "id": "01-inhale-the-mist",
+      "index": 1,
+      "title": "inhale the Mist",
+      "duration": 256.36898,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "1040425982023532a13c55b25543e28d4815e29f85ffded3275dfaa22305658b",
+      "measuredOnsets": 1108,
+      "authoredCueEntrances": 610,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 626,
+      "musicalAnchorImpacts": 623,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 15,
+      "measuredPatternEntrances": 591,
+      "selectedAttackFraction": 0.5505,
+      "opening20SecondsImpacts": 46,
+      "opening60SecondsImpacts": 151,
+      "meanImpactsPerSecond": 2.4418,
+      "maximumOneSecondImpacts": 7,
+      "highlightImpacts": 43,
+      "highlightMusicalAnchorImpacts": 43,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 228.6933,
+        "end": 256.369,
+        "seconds": 27.6757,
+        "meanReferenceEnergy": 0.0897,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 34.203,
+        "end": 35.1086,
+        "seconds": 0.9056,
+        "meanReferenceEnergy": 0.4589,
+        "activeReferenceSeconds": 1
+      },
+      "longestUnintendedActiveGap": {
+        "start": 34.203,
+        "end": 35.1086,
+        "seconds": 0.9056,
+        "meanReferenceEnergy": 0.4589,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 229,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.6269,
+          "force": 0.3648,
+          "scale": 0.6405
+        },
+        {
+          "time": 0.8127,
+          "force": 0.2444,
+          "scale": 0.538
+        },
+        {
+          "time": 1.161,
+          "force": 0.3264,
+          "scale": 0.5856
+        },
+        {
+          "time": 1.6951,
+          "force": 0.3936,
+          "scale": 0.5856
+        },
+        {
+          "time": 2.2523,
+          "force": 0.3504,
+          "scale": 0.6405
+        },
+        {
+          "time": 2.6006,
+          "force": 0.2348,
+          "scale": 0.538
+        },
+        {
+          "time": 2.9489,
+          "force": 0.3648,
+          "scale": 0.5856
+        },
+        {
+          "time": 3.6688,
+          "force": 0.3264,
+          "scale": 0.5856
+        },
+        {
+          "time": 4.0171,
+          "force": 0.3936,
+          "scale": 0.6405
+        },
+        {
+          "time": 4.7369,
+          "force": 0.3504,
+          "scale": 0.5856
+        },
+        {
+          "time": 5.1084,
+          "force": 0.2348,
+          "scale": 0.4919
+        },
+        {
+          "time": 5.805,
+          "force": 0.3264,
+          "scale": 0.6405
+        },
+        {
+          "time": 6.5248,
+          "force": 0.3936,
+          "scale": 0.5856
+        },
+        {
+          "time": 6.8963,
+          "force": 0.3504,
+          "scale": 0.5856
+        },
+        {
+          "time": 7.0821,
+          "force": 0.2348,
+          "scale": 0.4919
+        },
+        {
+          "time": 7.5929,
+          "force": 0.3648,
+          "scale": 0.6405
+        },
+        {
+          "time": 7.9644,
+          "force": 0.2444,
+          "scale": 0.538
+        },
+        {
+          "time": 8.3127,
+          "force": 0.3264,
+          "scale": 0.5856
+        },
+        {
+          "time": 8.661,
+          "force": 0.3936,
+          "scale": 0.5856
+        },
+        {
+          "time": 9.3809,
+          "force": 0.3504,
+          "scale": 0.6405
+        },
+        {
+          "time": 9.7292,
+          "force": 0.2348,
+          "scale": 0.538
+        },
+        {
+          "time": 9.9381,
+          "force": 0.3648,
+          "scale": 0.5856
+        },
+        {
+          "time": 10.2864,
+          "force": 0.2444,
+          "scale": 0.4919
+        },
+        {
+          "time": 10.8205,
+          "force": 0.3264,
+          "scale": 0.5856
+        },
+        {
+          "time": 11.1688,
+          "force": 0.3936,
+          "scale": 0.6405
+        },
+        {
+          "time": 11.5171,
+          "force": 0.3504,
+          "scale": 0.5856
+        },
+        {
+          "time": 11.8886,
+          "force": 0.2348,
+          "scale": 0.4919
+        },
+        {
+          "time": 12.2369,
+          "force": 0.3648,
+          "scale": 0.5856
+        },
+        {
+          "time": 12.6084,
+          "force": 0.2444,
+          "scale": 0.4919
+        },
+        {
+          "time": 13.1425,
+          "force": 0.3264,
+          "scale": 0.6405
+        },
+        {
+          "time": 13.6766,
+          "force": 0.3936,
+          "scale": 0.5856
+        },
+        {
+          "time": 14.0481,
+          "force": 0.3504,
+          "scale": 0.5856
+        },
+        {
+          "time": 14.3964,
+          "force": 0.2348,
+          "scale": 0.4919
+        },
+        {
+          "time": 14.7447,
+          "force": 0.3648,
+          "scale": 0.6405
+        },
+        {
+          "time": 15.093,
+          "force": 0.2444,
+          "scale": 0.538
+        },
+        {
+          "time": 15.4645,
+          "force": 0.3264,
+          "scale": 0.5856
+        },
+        {
+          "time": 15.9985,
+          "force": 0.3936,
+          "scale": 0.5856
+        },
+        {
+          "time": 16.5326,
+          "force": 0.3504,
+          "scale": 0.6405
+        },
+        {
+          "time": 16.8809,
+          "force": 0.2348,
+          "scale": 0.538
+        },
+        {
+          "time": 17.0667,
+          "force": 0.3648,
+          "scale": 0.5856
+        },
+        {
+          "time": 17.2524,
+          "force": 0.2444,
+          "scale": 0.4919
+        },
+        {
+          "time": 17.949,
+          "force": 0.3264,
+          "scale": 0.5856
+        },
+        {
+          "time": 18.3205,
+          "force": 0.3936,
+          "scale": 0.6405
+        },
+        {
+          "time": 19.0404,
+          "force": 0.3504,
+          "scale": 0.5856
+        },
+        {
+          "time": 19.2029,
+          "force": 0.2348,
+          "scale": 0.4919
+        },
+        {
+          "time": 19.3887,
+          "force": 0.4593,
+          "scale": 0.5978
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 4,
+        "totalImpacts": 325,
+        "longestActiveGapSeconds": 12.6872
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Begin with fine scattered impacts, then let the rain organize into irregular clusters around the structural change near 2:16. Keep drops small and numerous; use only a few stronger accents. It should feel like pressure gathering in mist, not percussion visualization."
+    },
+    {
+      "id": "02-fused-dj-kicks",
+      "index": 2,
+      "title": "fused (DJ-Kicks)",
+      "duration": 210.693333,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "5d3053b7bbd3785702152a15875395f104bf201c462b3112de0e6e65af134179",
+      "measuredOnsets": 861,
+      "authoredCueEntrances": 402,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 416,
+      "musicalAnchorImpacts": 413,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 11,
+      "measuredPatternEntrances": 386,
+      "selectedAttackFraction": 0.4669,
+      "opening20SecondsImpacts": 27,
+      "opening60SecondsImpacts": 92,
+      "meanImpactsPerSecond": 1.9744,
+      "maximumOneSecondImpacts": 7,
+      "highlightImpacts": 49,
+      "highlightMusicalAnchorImpacts": 49,
+      "approvedPrimaryArrivalPreserved": true,
+      "highlightSha256": "5ce88d1269b35c2d503450b3a43f6f08d48636b798732b4c8dc507b5aaf4f9ab",
+      "maximumCueToMeasuredOnsetSeconds": 0.0233,
+      "longestGap": {
+        "start": 205.6359,
+        "end": 210.6933,
+        "seconds": 5.0574,
+        "meanReferenceEnergy": 0.0008,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 156.9901,
+        "end": 158.3601,
+        "seconds": 1.37,
+        "meanReferenceEnergy": 0.5898,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 183.9253,
+        "end": 185.2952,
+        "seconds": 1.3699,
+        "meanReferenceEnergy": 0.5054,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 206,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.6966,
+          "force": 0.5412,
+          "scale": 0.987
+        },
+        {
+          "time": 1.161,
+          "force": 0.3626,
+          "scale": 0.8291
+        },
+        {
+          "time": 1.6254,
+          "force": 0.429,
+          "scale": 0.9024
+        },
+        {
+          "time": 3.1579,
+          "force": 0.5676,
+          "scale": 0.9024
+        },
+        {
+          "time": 4.0635,
+          "force": 0.4752,
+          "scale": 0.987
+        },
+        {
+          "time": 4.5279,
+          "force": 0.3184,
+          "scale": 0.8291
+        },
+        {
+          "time": 5.1548,
+          "force": 0.5412,
+          "scale": 0.9024
+        },
+        {
+          "time": 5.596,
+          "force": 0.3626,
+          "scale": 0.758
+        },
+        {
+          "time": 6.5248,
+          "force": 0.429,
+          "scale": 0.9024
+        },
+        {
+          "time": 7.2911,
+          "force": 0.5676,
+          "scale": 0.987
+        },
+        {
+          "time": 8.9629,
+          "force": 0.4752,
+          "scale": 0.9024
+        },
+        {
+          "time": 9.4273,
+          "force": 0.3184,
+          "scale": 0.758
+        },
+        {
+          "time": 10.031,
+          "force": 0.5412,
+          "scale": 0.9024
+        },
+        {
+          "time": 10.4954,
+          "force": 0.3626,
+          "scale": 0.758
+        },
+        {
+          "time": 11.401,
+          "force": 0.429,
+          "scale": 0.987
+        },
+        {
+          "time": 12.1905,
+          "force": 0.5676,
+          "scale": 0.9024
+        },
+        {
+          "time": 12.9567,
+          "force": 0.4752,
+          "scale": 0.9024
+        },
+        {
+          "time": 13.3979,
+          "force": 0.3184,
+          "scale": 0.758
+        },
+        {
+          "time": 13.8623,
+          "force": 0.5412,
+          "scale": 0.987
+        },
+        {
+          "time": 14.3267,
+          "force": 0.3626,
+          "scale": 0.8291
+        },
+        {
+          "time": 15.3948,
+          "force": 0.429,
+          "scale": 0.9024
+        },
+        {
+          "time": 16.3236,
+          "force": 0.5676,
+          "scale": 0.9024
+        },
+        {
+          "time": 17.0899,
+          "force": 0.4752,
+          "scale": 0.987
+        },
+        {
+          "time": 17.3917,
+          "force": 0.3184,
+          "scale": 0.8291
+        },
+        {
+          "time": 18.7617,
+          "force": 0.5412,
+          "scale": 0.9024
+        },
+        {
+          "time": 19.2261,
+          "force": 0.3626,
+          "scale": 0.758
+        },
+        {
+          "time": 19.6673,
+          "force": 0.429,
+          "scale": 0.9024
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 5,
+        "totalImpacts": 187,
+        "longestActiveGapSeconds": 11.1201
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Flagship sync candidate. Hold the first ~2 seconds relatively restrained, then let the major transition around 2:06–2:08 cause the rainfall to acquire obvious structure. Use 2–4 drop clusters, selected stronger impacts, and breathing room. Never map every drum hit."
+    },
+    {
+      "id": "03-sun-tickles",
+      "index": 3,
+      "title": "Sun Tickles",
+      "duration": 271.807347,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "0b3caf970ff79aa4db2dd8f347fa76e09f6fa13fd09cc3b45cb308fd67cdeb2d",
+      "measuredOnsets": 1183,
+      "authoredCueEntrances": 465,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 474,
+      "musicalAnchorImpacts": 472,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 14,
+      "measuredPatternEntrances": 446,
+      "selectedAttackFraction": 0.3931,
+      "opening20SecondsImpacts": 27,
+      "opening60SecondsImpacts": 109,
+      "meanImpactsPerSecond": 1.7439,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 28,
+      "highlightMusicalAnchorImpacts": 28,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 267.7493,
+        "end": 271.8073,
+        "seconds": 4.058,
+        "meanReferenceEnergy": 0.003,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 258.6703,
+        "end": 260.2493,
+        "seconds": 1.579,
+        "meanReferenceEnergy": 0.2801,
+        "activeReferenceSeconds": 1
+      },
+      "longestUnintendedActiveGap": {
+        "start": 182.9732,
+        "end": 184.529,
+        "seconds": 1.5558,
+        "meanReferenceEnergy": 0.3819,
+        "activeReferenceSeconds": 2
+      },
+      "measuredFinalFadeStart": 268,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.743,
+          "force": 0.27,
+          "scale": 0.6405
+        },
+        {
+          "time": 1.3932,
+          "force": 0.2448,
+          "scale": 0.5856
+        },
+        {
+          "time": 1.8112,
+          "force": 0.164,
+          "scale": 0.4919
+        },
+        {
+          "time": 2.1362,
+          "force": 0.2988,
+          "scale": 0.5856
+        },
+        {
+          "time": 3.1811,
+          "force": 0.2628,
+          "scale": 0.6405
+        },
+        {
+          "time": 3.901,
+          "force": 0.27,
+          "scale": 0.5856
+        },
+        {
+          "time": 4.7137,
+          "force": 0.2448,
+          "scale": 0.5856
+        },
+        {
+          "time": 4.9226,
+          "force": 0.164,
+          "scale": 0.4919
+        },
+        {
+          "time": 5.596,
+          "force": 0.2988,
+          "scale": 0.6405
+        },
+        {
+          "time": 6.6409,
+          "force": 0.2628,
+          "scale": 0.5856
+        },
+        {
+          "time": 6.9892,
+          "force": 0.27,
+          "scale": 0.5856
+        },
+        {
+          "time": 8.0341,
+          "force": 0.2448,
+          "scale": 0.6405
+        },
+        {
+          "time": 8.4288,
+          "force": 0.164,
+          "scale": 0.538
+        },
+        {
+          "time": 9.1022,
+          "force": 0.2988,
+          "scale": 0.5856
+        },
+        {
+          "time": 9.822,
+          "force": 0.2628,
+          "scale": 0.5856
+        },
+        {
+          "time": 10.658,
+          "force": 0.3041,
+          "scale": 0.5734
+        },
+        {
+          "time": 11.1688,
+          "force": 0.2448,
+          "scale": 0.5856
+        },
+        {
+          "time": 12.2137,
+          "force": 0.2988,
+          "scale": 0.5856
+        },
+        {
+          "time": 13.2818,
+          "force": 0.2628,
+          "scale": 0.6405
+        },
+        {
+          "time": 14.141,
+          "force": 0.27,
+          "scale": 0.5856
+        },
+        {
+          "time": 14.675,
+          "force": 0.2448,
+          "scale": 0.5856
+        },
+        {
+          "time": 15.0465,
+          "force": 0.164,
+          "scale": 0.4919
+        },
+        {
+          "time": 15.7199,
+          "force": 0.2988,
+          "scale": 0.6405
+        },
+        {
+          "time": 17.2756,
+          "force": 0.27,
+          "scale": 0.5856
+        },
+        {
+          "time": 18.158,
+          "force": 0.2448,
+          "scale": 0.6405
+        },
+        {
+          "time": 18.5295,
+          "force": 0.164,
+          "scale": 0.538
+        },
+        {
+          "time": 19.2029,
+          "force": 0.2988,
+          "scale": 0.5856
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 5,
+        "totalImpacts": 164,
+        "longestActiveGapSeconds": 12.2474
+      },
+      "mappedYouTubeValidationStatus": "unverified",
+      "direction": "Use small, bright-feeling pinprick impacts in asymmetric groups. Keep the water lively rather than heavy. The earlier 0:24.8 window is the more charming short demo; the ~1:24 window is the higher-contrast machine candidate."
+    },
+    {
+      "id": "04-by-the-rain",
+      "index": 4,
+      "title": "by the rain",
+      "duration": 235.102132,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "e15f1ea705746249ad85eca8645e53d29d0bf57065faaa04a5f69286bb6b3d03",
+      "measuredOnsets": 859,
+      "authoredCueEntrances": 577,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 600,
+      "musicalAnchorImpacts": 591,
+      "weatherImpacts": 9,
+      "selectedPhraseAnswerEntrances": 12,
+      "measuredPatternEntrances": 562,
+      "selectedAttackFraction": 0.6717,
+      "opening20SecondsImpacts": 28,
+      "opening60SecondsImpacts": 142,
+      "meanImpactsPerSecond": 2.5521,
+      "maximumOneSecondImpacts": 7,
+      "highlightImpacts": 40,
+      "highlightMusicalAnchorImpacts": 38,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 222.2614,
+        "end": 235.1021,
+        "seconds": 12.8407,
+        "meanReferenceEnergy": 0.0829,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 209.2815,
+        "end": 210.9533,
+        "seconds": 1.6718,
+        "meanReferenceEnergy": 0.2352,
+        "activeReferenceSeconds": 1
+      },
+      "longestUnintendedActiveGap": {
+        "start": 209.2815,
+        "end": 210.9533,
+        "seconds": 1.6718,
+        "meanReferenceEnergy": 0.2352,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 222.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.3715,
+          "force": 0.365,
+          "scale": 0.5775
+        },
+        {
+          "time": 2.8561,
+          "force": 0.365,
+          "scale": 0.528
+        },
+        {
+          "time": 3.065,
+          "force": 0.2446,
+          "scale": 0.4435
+        },
+        {
+          "time": 5.178,
+          "force": 0.365,
+          "scale": 0.528
+        },
+        {
+          "time": 5.387,
+          "force": 0.2446,
+          "scale": 0.4435
+        },
+        {
+          "time": 5.7121,
+          "force": 0.4128,
+          "scale": 0.5115
+        },
+        {
+          "time": 6.1301,
+          "force": 0.335,
+          "scale": 0.528
+        },
+        {
+          "time": 7.8019,
+          "force": 0.4,
+          "scale": 0.528
+        },
+        {
+          "time": 9.8917,
+          "force": 0.4,
+          "scale": 0.528
+        },
+        {
+          "time": 12.2369,
+          "force": 0.4,
+          "scale": 0.5775
+        },
+        {
+          "time": 13.0728,
+          "force": 0.335,
+          "scale": 0.528
+        },
+        {
+          "time": 13.3747,
+          "force": 0.2245,
+          "scale": 0.4435
+        },
+        {
+          "time": 13.6766,
+          "force": 0.365,
+          "scale": 0.5775
+        },
+        {
+          "time": 14.0249,
+          "force": 0.2446,
+          "scale": 0.4851
+        },
+        {
+          "time": 14.6982,
+          "force": 0.335,
+          "scale": 0.528
+        },
+        {
+          "time": 15.302,
+          "force": 0.38,
+          "scale": 0.5775
+        },
+        {
+          "time": 15.8824,
+          "force": 0.365,
+          "scale": 0.528
+        },
+        {
+          "time": 16.0914,
+          "force": 0.2446,
+          "scale": 0.4435
+        },
+        {
+          "time": 16.3236,
+          "force": 0.4,
+          "scale": 0.528
+        },
+        {
+          "time": 16.9506,
+          "force": 0.335,
+          "scale": 0.5775
+        },
+        {
+          "time": 17.9722,
+          "force": 0.365,
+          "scale": 0.528
+        },
+        {
+          "time": 18.2044,
+          "force": 0.2446,
+          "scale": 0.4435
+        },
+        {
+          "time": 18.4134,
+          "force": 0.4,
+          "scale": 0.5775
+        },
+        {
+          "time": 18.7849,
+          "force": 0.335,
+          "scale": 0.528
+        },
+        {
+          "time": 18.9939,
+          "force": 0.2245,
+          "scale": 0.4435
+        },
+        {
+          "time": 19.5976,
+          "force": 0.38,
+          "scale": 0.528
+        },
+        {
+          "time": 19.8995,
+          "force": 0.365,
+          "scale": 0.5775
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 417,
+        "longestActiveGapSeconds": 6.9215
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Let the title idea stay implicit. Use fast, narrow clusters and short lulls, with one or two heavier low-frequency accents. Avoid a literal wall of rain and avoid beat-for-drop mapping."
+    },
+    {
+      "id": "05-time-to-find-me-afx-fast-mix",
+      "index": 5,
+      "title": "Time to Find Me (AFX Fast Mix)",
+      "duration": 457,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "cd207f79d271be4a10f171e8dca6f0cb562c612ffdf0657e396b9a187f02dc00",
+      "measuredOnsets": 2291,
+      "authoredCueEntrances": 1038,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 1071,
+      "musicalAnchorImpacts": 1061,
+      "weatherImpacts": 10,
+      "selectedPhraseAnswerEntrances": 23,
+      "measuredPatternEntrances": 1011,
+      "selectedAttackFraction": 0.4531,
+      "opening20SecondsImpacts": 34,
+      "opening60SecondsImpacts": 110,
+      "meanImpactsPerSecond": 2.3435,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 30,
+      "highlightMusicalAnchorImpacts": 30,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 447.7968,
+        "end": 457,
+        "seconds": 9.2032,
+        "meanReferenceEnergy": 0.0432,
+        "activeReferenceSeconds": 1
+      },
+      "longestActiveGap": {
+        "start": 29.0017,
+        "end": 30.5575,
+        "seconds": 1.5558,
+        "meanReferenceEnergy": 0.5165,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 0,
+        "end": 1.3932,
+        "seconds": 1.3932,
+        "meanReferenceEnergy": 0.325,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 449,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 1.3932,
+          "force": 0.315,
+          "scale": 0.7104
+        },
+        {
+          "time": 2.0898,
+          "force": 0.3735,
+          "scale": 0.7104
+        },
+        {
+          "time": 2.6471,
+          "force": 0.324,
+          "scale": 0.777
+        },
+        {
+          "time": 3.6223,
+          "force": 0.3465,
+          "scale": 0.7104
+        },
+        {
+          "time": 4.0403,
+          "force": 0.2322,
+          "scale": 0.5967
+        },
+        {
+          "time": 4.3189,
+          "force": 0.315,
+          "scale": 0.7104
+        },
+        {
+          "time": 4.8994,
+          "force": 0.3735,
+          "scale": 0.777
+        },
+        {
+          "time": 5.3174,
+          "force": 0.324,
+          "scale": 0.7104
+        },
+        {
+          "time": 5.8746,
+          "force": 0.3465,
+          "scale": 0.7104
+        },
+        {
+          "time": 6.2926,
+          "force": 0.2322,
+          "scale": 0.5967
+        },
+        {
+          "time": 7.1285,
+          "force": 0.315,
+          "scale": 0.777
+        },
+        {
+          "time": 7.5697,
+          "force": 0.3735,
+          "scale": 0.7104
+        },
+        {
+          "time": 7.9644,
+          "force": 0.2502,
+          "scale": 0.5967
+        },
+        {
+          "time": 8.127,
+          "force": 0.3802,
+          "scale": 0.74
+        },
+        {
+          "time": 8.5449,
+          "force": 0.324,
+          "scale": 0.7104
+        },
+        {
+          "time": 8.8236,
+          "force": 0.3465,
+          "scale": 0.777
+        },
+        {
+          "time": 9.7988,
+          "force": 0.315,
+          "scale": 0.7104
+        },
+        {
+          "time": 10.3561,
+          "force": 0.3735,
+          "scale": 0.7104
+        },
+        {
+          "time": 11.0527,
+          "force": 0.324,
+          "scale": 0.777
+        },
+        {
+          "time": 11.6332,
+          "force": 0.3465,
+          "scale": 0.7104
+        },
+        {
+          "time": 12.0512,
+          "force": 0.2322,
+          "scale": 0.5967
+        },
+        {
+          "time": 12.6084,
+          "force": 0.315,
+          "scale": 0.7104
+        },
+        {
+          "time": 13.305,
+          "force": 0.3735,
+          "scale": 0.777
+        },
+        {
+          "time": 13.8623,
+          "force": 0.324,
+          "scale": 0.7104
+        },
+        {
+          "time": 14.8608,
+          "force": 0.3465,
+          "scale": 0.7104
+        },
+        {
+          "time": 15.2555,
+          "force": 0.2322,
+          "scale": 0.5967
+        },
+        {
+          "time": 15.5341,
+          "force": 0.315,
+          "scale": 0.777
+        },
+        {
+          "time": 16.1146,
+          "force": 0.3735,
+          "scale": 0.7104
+        },
+        {
+          "time": 17.0899,
+          "force": 0.324,
+          "scale": 0.7104
+        },
+        {
+          "time": 17.7865,
+          "force": 0.3465,
+          "scale": 0.777
+        },
+        {
+          "time": 18.3438,
+          "force": 0.315,
+          "scale": 0.7104
+        },
+        {
+          "time": 19.3422,
+          "force": 0.3735,
+          "scale": 0.7104
+        },
+        {
+          "time": 19.7602,
+          "force": 0.324,
+          "scale": 0.777
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 4,
+        "totalImpacts": 368,
+        "longestActiveGapSeconds": 15.3024
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Treat the texture as a moving field: showers appear, thin out, then re-form elsewhere. Use asymmetric spatial clusters and deliberate holes. This should feel alien and tactile rather than metronomic."
+    },
+    {
+      "id": "06-pop-4",
+      "index": 6,
+      "title": "Pop 4",
+      "duration": 568.346667,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "a63cbdb9a1f08ab371e7e3f860571a05ac1d29d3e989088b7e73c6644c110d7c",
+      "measuredOnsets": 2321,
+      "authoredCueEntrances": 922,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 932,
+      "musicalAnchorImpacts": 928,
+      "weatherImpacts": 4,
+      "selectedPhraseAnswerEntrances": 24,
+      "measuredPatternEntrances": 896,
+      "selectedAttackFraction": 0.3972,
+      "opening20SecondsImpacts": 22,
+      "opening60SecondsImpacts": 89,
+      "meanImpactsPerSecond": 1.6398,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 21,
+      "highlightMusicalAnchorImpacts": 21,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 558.4167,
+        "end": 568.3467,
+        "seconds": 9.93,
+        "meanReferenceEnergy": 0.0374,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 10.8669,
+        "end": 12.3762,
+        "seconds": 1.5093,
+        "meanReferenceEnergy": 0.4688,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 10.8669,
+        "end": 12.3762,
+        "seconds": 1.5093,
+        "meanReferenceEnergy": 0.4688,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 558.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 5.8514,
+          "force": 0.201,
+          "scale": 0.8736
+        },
+        {
+          "time": 6.339,
+          "force": 0.1206,
+          "scale": 0.795
+        },
+        {
+          "time": 6.8499,
+          "force": 0.243,
+          "scale": 0.9555
+        },
+        {
+          "time": 7.8483,
+          "force": 0.219,
+          "scale": 0.8736
+        },
+        {
+          "time": 8.3592,
+          "force": 0.2448,
+          "scale": 0.9555
+        },
+        {
+          "time": 8.8468,
+          "force": 0.222,
+          "scale": 0.8736
+        },
+        {
+          "time": 9.8685,
+          "force": 0.201,
+          "scale": 0.9555
+        },
+        {
+          "time": 10.3793,
+          "force": 0.1206,
+          "scale": 0.8695
+        },
+        {
+          "time": 10.8669,
+          "force": 0.243,
+          "scale": 0.8736
+        },
+        {
+          "time": 12.3762,
+          "force": 0.219,
+          "scale": 0.8736
+        },
+        {
+          "time": 12.8871,
+          "force": 0.222,
+          "scale": 0.9555
+        },
+        {
+          "time": 13.8855,
+          "force": 0.201,
+          "scale": 0.8736
+        },
+        {
+          "time": 14.3964,
+          "force": 0.1206,
+          "scale": 0.795
+        },
+        {
+          "time": 15.3948,
+          "force": 0.243,
+          "scale": 0.8736
+        },
+        {
+          "time": 15.9057,
+          "force": 0.219,
+          "scale": 0.9555
+        },
+        {
+          "time": 16.3933,
+          "force": 0.201,
+          "scale": 0.9555
+        },
+        {
+          "time": 16.9041,
+          "force": 0.1206,
+          "scale": 0.8695
+        },
+        {
+          "time": 17.415,
+          "force": 0.243,
+          "scale": 0.8736
+        },
+        {
+          "time": 18.4134,
+          "force": 0.219,
+          "scale": 0.8736
+        },
+        {
+          "time": 18.9243,
+          "force": 0.222,
+          "scale": 0.9555
+        },
+        {
+          "time": 19.9227,
+          "force": 0.201,
+          "scale": 0.8736
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 234,
+        "longestActiveGapSeconds": 16.8396
+      },
+      "mappedYouTubeValidationStatus": "duration-only",
+      "direction": "Use broad, soft drizzle with slow density swells. Large isolated impacts should be rare. The rain should feel like weather emerging through a continuous field, not like discrete musical notation."
+    },
+    {
+      "id": "07-lusine-without-a-plan",
+      "index": 7,
+      "title": "Lusine - Without a Plan",
+      "duration": 258.263946,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "6fa0f46b78b76cbbb6db5085e7b5ef6bdbe50e1f7b483c54eaa238ce2060eaca",
+      "measuredOnsets": 996,
+      "authoredCueEntrances": 509,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 527,
+      "musicalAnchorImpacts": 521,
+      "weatherImpacts": 6,
+      "selectedPhraseAnswerEntrances": 12,
+      "measuredPatternEntrances": 494,
+      "selectedAttackFraction": 0.511,
+      "opening20SecondsImpacts": 8,
+      "opening60SecondsImpacts": 97,
+      "meanImpactsPerSecond": 2.0405,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 24,
+      "highlightMusicalAnchorImpacts": 24,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 0,
+        "end": 16.1843,
+        "seconds": 16.1843,
+        "meanReferenceEnergy": 0.0618,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 140.9451,
+        "end": 142.5705,
+        "seconds": 1.6254,
+        "meanReferenceEnergy": 0.5105,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 60.9524,
+        "end": 62.183,
+        "seconds": 1.2306,
+        "meanReferenceEnergy": 0.5103,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 246,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 16.1843,
+          "force": 0.3876,
+          "scale": 0.9555
+        },
+        {
+          "time": 16.9506,
+          "force": 0.5016,
+          "scale": 0.8736
+        },
+        {
+          "time": 17.6936,
+          "force": 0.4275,
+          "scale": 0.8736
+        },
+        {
+          "time": 17.949,
+          "force": 0.2864,
+          "scale": 0.7338
+        },
+        {
+          "time": 18.2044,
+          "force": 0.4731,
+          "scale": 0.9555
+        },
+        {
+          "time": 18.576,
+          "force": 0.317,
+          "scale": 0.8026
+        },
+        {
+          "time": 18.9475,
+          "force": 0.3876,
+          "scale": 0.8736
+        },
+        {
+          "time": 19.6905,
+          "force": 0.5016,
+          "scale": 0.8736
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 244,
+        "longestActiveGapSeconds": 12.1902
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use moderate repeating cluster shapes, but vary their spacing and location. Let section changes alter density more than force. Keep enough silence for the ripple interference to read."
+    },
+    {
+      "id": "08-memory-of-a-memory",
+      "index": 8,
+      "title": "memory of a memory",
+      "duration": 251.701859,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "3258c794acbe5c61d5430174bb1eab714043c2d78703d0a444909f98576e0986",
+      "measuredOnsets": 947,
+      "authoredCueEntrances": 467,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 484,
+      "musicalAnchorImpacts": 477,
+      "weatherImpacts": 7,
+      "selectedPhraseAnswerEntrances": 14,
+      "measuredPatternEntrances": 451,
+      "selectedAttackFraction": 0.4931,
+      "opening20SecondsImpacts": 17,
+      "opening60SecondsImpacts": 79,
+      "meanImpactsPerSecond": 1.9229,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 31,
+      "highlightMusicalAnchorImpacts": 31,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 247.8498,
+        "end": 251.7019,
+        "seconds": 3.8521,
+        "meanReferenceEnergy": 0.0843,
+        "activeReferenceSeconds": 1
+      },
+      "longestActiveGap": {
+        "start": 240.4908,
+        "end": 243.6238,
+        "seconds": 3.133,
+        "meanReferenceEnergy": 0.2494,
+        "activeReferenceSeconds": 2.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 240.4908,
+        "end": 243.6238,
+        "seconds": 3.133,
+        "meanReferenceEnergy": 0.2494,
+        "activeReferenceSeconds": 2.5
+      },
+      "measuredFinalFadeStart": 249,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.8127,
+          "force": 0.5244,
+          "scale": 1.0815
+        },
+        {
+          "time": 1.4629,
+          "force": 0.552,
+          "scale": 0.9888
+        },
+        {
+          "time": 2.5078,
+          "force": 0.5934,
+          "scale": 0.9888
+        },
+        {
+          "time": 3.7152,
+          "force": 0.4968,
+          "scale": 1.0815
+        },
+        {
+          "time": 4.8994,
+          "force": 0.5244,
+          "scale": 0.9888
+        },
+        {
+          "time": 5.8282,
+          "force": 0.552,
+          "scale": 0.9888
+        },
+        {
+          "time": 6.8267,
+          "force": 0.5934,
+          "scale": 1.0815
+        },
+        {
+          "time": 9.7292,
+          "force": 0.6094,
+          "scale": 1.0609
+        },
+        {
+          "time": 10.3329,
+          "force": 0.552,
+          "scale": 1.0815
+        },
+        {
+          "time": 12.0976,
+          "force": 0.4968,
+          "scale": 0.9888
+        },
+        {
+          "time": 13.305,
+          "force": 0.5244,
+          "scale": 1.0815
+        },
+        {
+          "time": 14.5125,
+          "force": 0.552,
+          "scale": 0.9888
+        },
+        {
+          "time": 14.7215,
+          "force": 0.3698,
+          "scale": 0.8306
+        },
+        {
+          "time": 15.8592,
+          "force": 0.5934,
+          "scale": 0.9888
+        },
+        {
+          "time": 17.3685,
+          "force": 0.5244,
+          "scale": 0.9888
+        },
+        {
+          "time": 18.7617,
+          "force": 0.552,
+          "scale": 0.9888
+        },
+        {
+          "time": 19.9459,
+          "force": 0.5934,
+          "scale": 1.0815
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 179,
+        "longestActiveGapSeconds": 17.1948
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Favor a late-build choreography: sparse medium drops grow into paired and triplet clusters, then one or two larger soft impacts. Preserve the emotional swell rather than following every transient."
+    },
+    {
+      "id": "09-places-remember-events",
+      "index": 9,
+      "title": "Places Remember Events",
+      "duration": 234.352925,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "19030841cd13468e4fd28e029b8f01517f5e8877f1af34f624e05d63b31f8c44",
+      "measuredOnsets": 1038,
+      "authoredCueEntrances": 637,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 651,
+      "musicalAnchorImpacts": 647,
+      "weatherImpacts": 4,
+      "selectedPhraseAnswerEntrances": 11,
+      "measuredPatternEntrances": 621,
+      "selectedAttackFraction": 0.6137,
+      "opening20SecondsImpacts": 21,
+      "opening60SecondsImpacts": 141,
+      "meanImpactsPerSecond": 2.7779,
+      "maximumOneSecondImpacts": 7,
+      "highlightImpacts": 35,
+      "highlightMusicalAnchorImpacts": 35,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 226.2785,
+        "end": 234.3529,
+        "seconds": 8.0744,
+        "meanReferenceEnergy": 0.0109,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 217.4084,
+        "end": 218.8249,
+        "seconds": 1.4165,
+        "meanReferenceEnergy": 0.3829,
+        "activeReferenceSeconds": 1
+      },
+      "longestUnintendedActiveGap": {
+        "start": 217.4084,
+        "end": 218.8249,
+        "seconds": 1.4165,
+        "meanReferenceEnergy": 0.3829,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 226.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.952,
+          "force": 0.3128,
+          "scale": 0.5664
+        },
+        {
+          "time": 1.4861,
+          "force": 0.3818,
+          "scale": 0.5664
+        },
+        {
+          "time": 1.8576,
+          "force": 0.3312,
+          "scale": 0.6195
+        },
+        {
+          "time": 4.226,
+          "force": 0.3312,
+          "scale": 0.5664
+        },
+        {
+          "time": 4.7601,
+          "force": 0.3588,
+          "scale": 0.5664
+        },
+        {
+          "time": 4.9459,
+          "force": 0.2404,
+          "scale": 0.4758
+        },
+        {
+          "time": 5.1084,
+          "force": 0.3798,
+          "scale": 0.5782
+        },
+        {
+          "time": 5.4567,
+          "force": 0.3128,
+          "scale": 0.6195
+        },
+        {
+          "time": 9.8685,
+          "force": 0.3128,
+          "scale": 0.5664
+        },
+        {
+          "time": 10.24,
+          "force": 0.3818,
+          "scale": 0.6195
+        },
+        {
+          "time": 10.7044,
+          "force": 0.3312,
+          "scale": 0.5664
+        },
+        {
+          "time": 12.144,
+          "force": 0.3128,
+          "scale": 0.6195
+        },
+        {
+          "time": 12.6781,
+          "force": 0.3818,
+          "scale": 0.5664
+        },
+        {
+          "time": 15.5341,
+          "force": 0.3312,
+          "scale": 0.6195
+        },
+        {
+          "time": 15.8824,
+          "force": 0.4114,
+          "scale": 0.5782
+        },
+        {
+          "time": 17.4614,
+          "force": 0.3312,
+          "scale": 0.5664
+        },
+        {
+          "time": 17.9258,
+          "force": 0.3588,
+          "scale": 0.5664
+        },
+        {
+          "time": 18.1116,
+          "force": 0.2404,
+          "scale": 0.4758
+        },
+        {
+          "time": 18.8778,
+          "force": 0.3128,
+          "scale": 0.6195
+        },
+        {
+          "time": 19.1797,
+          "force": 0.3818,
+          "scale": 0.5664
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 5,
+        "totalImpacts": 455,
+        "longestActiveGapSeconds": 7.4234
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use a strange, precise rain language: fine irregular clusters, occasional simultaneous impacts in separate regions, and brief silences. The early window is the stronger concise demo; the later window has higher measured contrast."
+    },
+    {
+      "id": "10-sun-arcs-laraaji-remix",
+      "index": 10,
+      "title": "Sun Arcs (Laraaji Remix)",
+      "duration": 252,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "bd6691a91511e92cf0c07ecc4d41b978f1968c8d1271f67a58d70bb7306fd434",
+      "measuredOnsets": 1187,
+      "authoredCueEntrances": 431,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 438,
+      "musicalAnchorImpacts": 436,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 416,
+      "selectedAttackFraction": 0.3631,
+      "opening20SecondsImpacts": 30,
+      "opening60SecondsImpacts": 102,
+      "meanImpactsPerSecond": 1.7381,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 24,
+      "highlightMusicalAnchorImpacts": 24,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 243.0433,
+        "end": 252,
+        "seconds": 8.9567,
+        "meanReferenceEnergy": 0.0472,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 221.3326,
+        "end": 223.6082,
+        "seconds": 2.2756,
+        "meanReferenceEnergy": 0.2257,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 221.3326,
+        "end": 223.6082,
+        "seconds": 2.2756,
+        "meanReferenceEnergy": 0.2257,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 243.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 2.6935,
+          "force": 0.2241,
+          "scale": 0.5472
+        },
+        {
+          "time": 3.3205,
+          "force": 0.1971,
+          "scale": 0.5985
+        },
+        {
+          "time": 4.2493,
+          "force": 0.2025,
+          "scale": 0.5472
+        },
+        {
+          "time": 4.8762,
+          "force": 0.2281,
+          "scale": 0.5358
+        },
+        {
+          "time": 5.178,
+          "force": 0.1836,
+          "scale": 0.5472
+        },
+        {
+          "time": 5.3406,
+          "force": 0.123,
+          "scale": 0.4596
+        },
+        {
+          "time": 6.2926,
+          "force": 0.2241,
+          "scale": 0.5985
+        },
+        {
+          "time": 7.2214,
+          "force": 0.1971,
+          "scale": 0.5472
+        },
+        {
+          "time": 7.5233,
+          "force": 0.2025,
+          "scale": 0.5472
+        },
+        {
+          "time": 8.4985,
+          "force": 0.1836,
+          "scale": 0.5985
+        },
+        {
+          "time": 8.7771,
+          "force": 0.123,
+          "scale": 0.5027
+        },
+        {
+          "time": 9.2183,
+          "force": 0.2241,
+          "scale": 0.5472
+        },
+        {
+          "time": 10.0542,
+          "force": 0.1971,
+          "scale": 0.5472
+        },
+        {
+          "time": 10.9598,
+          "force": 0.2025,
+          "scale": 0.5985
+        },
+        {
+          "time": 11.5868,
+          "force": 0.1836,
+          "scale": 0.5472
+        },
+        {
+          "time": 11.8422,
+          "force": 0.123,
+          "scale": 0.4596
+        },
+        {
+          "time": 12.2137,
+          "force": 0.2241,
+          "scale": 0.5472
+        },
+        {
+          "time": 13.1425,
+          "force": 0.1971,
+          "scale": 0.5985
+        },
+        {
+          "time": 13.4211,
+          "force": 0.2025,
+          "scale": 0.5472
+        },
+        {
+          "time": 14.2338,
+          "force": 0.1836,
+          "scale": 0.5472
+        },
+        {
+          "time": 14.5589,
+          "force": 0.123,
+          "scale": 0.4596
+        },
+        {
+          "time": 14.9769,
+          "force": 0.2241,
+          "scale": 0.5985
+        },
+        {
+          "time": 15.8592,
+          "force": 0.1971,
+          "scale": 0.5472
+        },
+        {
+          "time": 16.3933,
+          "force": 0.2025,
+          "scale": 0.5472
+        },
+        {
+          "time": 17.0202,
+          "force": 0.1836,
+          "scale": 0.5985
+        },
+        {
+          "time": 17.415,
+          "force": 0.123,
+          "scale": 0.5027
+        },
+        {
+          "time": 17.6936,
+          "force": 0.2241,
+          "scale": 0.5472
+        },
+        {
+          "time": 18.6456,
+          "force": 0.1971,
+          "scale": 0.5472
+        },
+        {
+          "time": 19.319,
+          "force": 0.2025,
+          "scale": 0.5985
+        },
+        {
+          "time": 19.8531,
+          "force": 0.2471,
+          "scale": 0.5358
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 97,
+        "longestActiveGapSeconds": 11.996
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use widely spaced small drops, occasional paired glints, and slow background activity. Let shimmering passages increase spatial spread rather than simply density."
+    },
+    {
+      "id": "11-remember",
+      "index": 11,
+      "title": "Remember",
+      "duration": 133.907483,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "910ec9e8e35296fa03c7f56fc3c60689b6252607da7076d32af479c1252b33c1",
+      "measuredOnsets": 423,
+      "authoredCueEntrances": 182,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 193,
+      "musicalAnchorImpacts": 190,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 8,
+      "measuredPatternEntrances": 172,
+      "selectedAttackFraction": 0.4303,
+      "opening20SecondsImpacts": 20,
+      "opening60SecondsImpacts": 71,
+      "meanImpactsPerSecond": 1.4413,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 19,
+      "highlightMusicalAnchorImpacts": 19,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 1.2539,
+        "end": 4.4815,
+        "seconds": 3.2276,
+        "meanReferenceEnergy": 0.1785,
+        "activeReferenceSeconds": 1
+      },
+      "longestActiveGap": {
+        "start": 123.669,
+        "end": 126.7577,
+        "seconds": 3.0887,
+        "meanReferenceEnergy": 0.2399,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 123.669,
+        "end": 126.7577,
+        "seconds": 3.0887,
+        "meanReferenceEnergy": 0.2399,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 131,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.3251,
+          "force": 0.3735,
+          "scale": 0.9555
+        },
+        {
+          "time": 0.7895,
+          "force": 0.2502,
+          "scale": 0.8026
+        },
+        {
+          "time": 1.2539,
+          "force": 0.306,
+          "scale": 0.8736
+        },
+        {
+          "time": 4.4815,
+          "force": 0.3735,
+          "scale": 0.8736
+        },
+        {
+          "time": 4.9459,
+          "force": 0.4018,
+          "scale": 0.9009
+        },
+        {
+          "time": 5.3174,
+          "force": 0.306,
+          "scale": 0.8736
+        },
+        {
+          "time": 7.709,
+          "force": 0.3375,
+          "scale": 0.8736
+        },
+        {
+          "time": 8.1502,
+          "force": 0.2261,
+          "scale": 0.7338
+        },
+        {
+          "time": 8.6378,
+          "force": 0.3735,
+          "scale": 0.8736
+        },
+        {
+          "time": 9.0093,
+          "force": 0.2502,
+          "scale": 0.7338
+        },
+        {
+          "time": 11.8654,
+          "force": 0.3375,
+          "scale": 0.8736
+        },
+        {
+          "time": 12.3298,
+          "force": 0.2261,
+          "scale": 0.7338
+        },
+        {
+          "time": 12.7013,
+          "force": 0.3735,
+          "scale": 0.9555
+        },
+        {
+          "time": 15.093,
+          "force": 0.3375,
+          "scale": 0.9555
+        },
+        {
+          "time": 15.5574,
+          "force": 0.2261,
+          "scale": 0.8026
+        },
+        {
+          "time": 16.6023,
+          "force": 0.306,
+          "scale": 0.9555
+        },
+        {
+          "time": 18.8082,
+          "force": 0.3735,
+          "scale": 0.9555
+        },
+        {
+          "time": 19.2493,
+          "force": 0.2502,
+          "scale": 0.8026
+        },
+        {
+          "time": 19.7137,
+          "force": 0.306,
+          "scale": 0.8736
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 36,
+        "longestActiveGapSeconds": 19.0663
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "The intro is aesthetically interesting, so keep it as an alternate capture. For the stronger full-song passage, use a restrained pulse of small-to-medium impacts with long enough gaps to preserve the melody."
+    },
+    {
+      "id": "12-wilson-tanner-blush",
+      "index": 12,
+      "title": "Wilson Tanner - Blush",
+      "duration": 230.464036,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "a8cd30d8658ae2c150609ead176e187305eac4b158b2ec84a189d052f5d23c01",
+      "measuredOnsets": 747,
+      "authoredCueEntrances": 272,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 282,
+      "musicalAnchorImpacts": 275,
+      "weatherImpacts": 7,
+      "selectedPhraseAnswerEntrances": 14,
+      "measuredPatternEntrances": 256,
+      "selectedAttackFraction": 0.3641,
+      "opening20SecondsImpacts": 16,
+      "opening60SecondsImpacts": 62,
+      "meanImpactsPerSecond": 1.2236,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 18,
+      "highlightMusicalAnchorImpacts": 17,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 224.9317,
+        "end": 230.464,
+        "seconds": 5.5323,
+        "meanReferenceEnergy": 0.0391,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 37.2912,
+        "end": 39.4507,
+        "seconds": 2.1595,
+        "meanReferenceEnergy": 0.4074,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 10.983,
+        "end": 12.98,
+        "seconds": 1.997,
+        "meanReferenceEnergy": 0.2222,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 225,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.3019,
+          "force": 0.2106,
+          "scale": 1.071
+        },
+        {
+          "time": 2.113,
+          "force": 0.1809,
+          "scale": 0.9792
+        },
+        {
+          "time": 3.901,
+          "force": 0.1944,
+          "scale": 1.071
+        },
+        {
+          "time": 5.6424,
+          "force": 0.2106,
+          "scale": 0.9792
+        },
+        {
+          "time": 6.548,
+          "force": 0.1809,
+          "scale": 0.9792
+        },
+        {
+          "time": 7.4304,
+          "force": 0.2281,
+          "scale": 1.0404
+        },
+        {
+          "time": 7.8251,
+          "force": 0.2241,
+          "scale": 1.071
+        },
+        {
+          "time": 9.2415,
+          "force": 0.1944,
+          "scale": 0.9792
+        },
+        {
+          "time": 10.983,
+          "force": 0.1809,
+          "scale": 1.071
+        },
+        {
+          "time": 12.98,
+          "force": 0.1944,
+          "scale": 0.9792
+        },
+        {
+          "time": 14.5125,
+          "force": 0.2106,
+          "scale": 1.071
+        },
+        {
+          "time": 16.3004,
+          "force": 0.1809,
+          "scale": 0.9792
+        },
+        {
+          "time": 16.8809,
+          "force": 0.2241,
+          "scale": 0.9792
+        },
+        {
+          "time": 18.1116,
+          "force": 0.1944,
+          "scale": 1.071
+        },
+        {
+          "time": 19.4351,
+          "force": 0.2106,
+          "scale": 0.9792
+        },
+        {
+          "time": 19.8763,
+          "force": 0.1809,
+          "scale": 0.9792
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 39,
+        "longestActiveGapSeconds": 43.1531
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Sparse choreography. Use isolated soft impacts and a faint background drizzle only when the energy supports it. Let rings overlap slowly instead of creating busy clusters."
+    },
+    {
+      "id": "13-argento-sabbia-su-sabbia",
+      "index": 13,
+      "title": "Argento - Sabbia Su Sabbia",
+      "duration": 208.469388,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "c276c2f16b19b91ffa4455fd9a8b02bc7e0d007037b704694ae835a8412e09ff",
+      "measuredOnsets": 1181,
+      "authoredCueEntrances": 527,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 540,
+      "musicalAnchorImpacts": 539,
+      "weatherImpacts": 1,
+      "selectedPhraseAnswerEntrances": 12,
+      "measuredPatternEntrances": 513,
+      "selectedAttackFraction": 0.4462,
+      "opening20SecondsImpacts": 44,
+      "opening60SecondsImpacts": 154,
+      "meanImpactsPerSecond": 2.5903,
+      "maximumOneSecondImpacts": 7,
+      "highlightImpacts": 29,
+      "highlightMusicalAnchorImpacts": 29,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 198.1359,
+        "end": 208.4694,
+        "seconds": 10.3335,
+        "meanReferenceEnergy": 0.0189,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 13.305,
+        "end": 14.7679,
+        "seconds": 1.4629,
+        "meanReferenceEnergy": 0.6416,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 132.8414,
+        "end": 133.8863,
+        "seconds": 1.0449,
+        "meanReferenceEnergy": 0.6864,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 198.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.6502,
+          "force": 0.228,
+          "scale": 0.4935
+        },
+        {
+          "time": 1.0913,
+          "force": 0.1528,
+          "scale": 0.4145
+        },
+        {
+          "time": 1.8344,
+          "force": 0.246,
+          "scale": 0.4512
+        },
+        {
+          "time": 2.113,
+          "force": 0.1648,
+          "scale": 0.379
+        },
+        {
+          "time": 2.4149,
+          "force": 0.216,
+          "scale": 0.4935
+        },
+        {
+          "time": 2.9954,
+          "force": 0.228,
+          "scale": 0.4512
+        },
+        {
+          "time": 3.4366,
+          "force": 0.1528,
+          "scale": 0.379
+        },
+        {
+          "time": 3.8777,
+          "force": 0.207,
+          "scale": 0.4512
+        },
+        {
+          "time": 4.1796,
+          "force": 0.246,
+          "scale": 0.4935
+        },
+        {
+          "time": 4.4815,
+          "force": 0.1648,
+          "scale": 0.4145
+        },
+        {
+          "time": 4.9226,
+          "force": 0.216,
+          "scale": 0.4512
+        },
+        {
+          "time": 5.3638,
+          "force": 0.2534,
+          "scale": 0.4465
+        },
+        {
+          "time": 5.6424,
+          "force": 0.228,
+          "scale": 0.4512
+        },
+        {
+          "time": 5.9443,
+          "force": 0.1528,
+          "scale": 0.379
+        },
+        {
+          "time": 6.2462,
+          "force": 0.207,
+          "scale": 0.4935
+        },
+        {
+          "time": 6.8267,
+          "force": 0.246,
+          "scale": 0.4512
+        },
+        {
+          "time": 7.1285,
+          "force": 0.1648,
+          "scale": 0.379
+        },
+        {
+          "time": 7.709,
+          "force": 0.216,
+          "scale": 0.4512
+        },
+        {
+          "time": 8.1502,
+          "force": 0.228,
+          "scale": 0.4935
+        },
+        {
+          "time": 8.5914,
+          "force": 0.1528,
+          "scale": 0.4145
+        },
+        {
+          "time": 8.8932,
+          "force": 0.207,
+          "scale": 0.4512
+        },
+        {
+          "time": 9.4737,
+          "force": 0.246,
+          "scale": 0.4512
+        },
+        {
+          "time": 9.9149,
+          "force": 0.1648,
+          "scale": 0.379
+        },
+        {
+          "time": 10.3561,
+          "force": 0.216,
+          "scale": 0.4935
+        },
+        {
+          "time": 10.9598,
+          "force": 0.228,
+          "scale": 0.4512
+        },
+        {
+          "time": 11.2385,
+          "force": 0.1528,
+          "scale": 0.379
+        },
+        {
+          "time": 11.5403,
+          "force": 0.207,
+          "scale": 0.4512
+        },
+        {
+          "time": 12.1208,
+          "force": 0.246,
+          "scale": 0.4935
+        },
+        {
+          "time": 12.4227,
+          "force": 0.2746,
+          "scale": 0.4465
+        },
+        {
+          "time": 12.8639,
+          "force": 0.216,
+          "scale": 0.4512
+        },
+        {
+          "time": 13.305,
+          "force": 0.228,
+          "scale": 0.4512
+        },
+        {
+          "time": 14.7679,
+          "force": 0.246,
+          "scale": 0.4512
+        },
+        {
+          "time": 15.2091,
+          "force": 0.1648,
+          "scale": 0.379
+        },
+        {
+          "time": 15.6502,
+          "force": 0.216,
+          "scale": 0.4512
+        },
+        {
+          "time": 16.2307,
+          "force": 0.228,
+          "scale": 0.4935
+        },
+        {
+          "time": 16.5326,
+          "force": 0.1528,
+          "scale": 0.4145
+        },
+        {
+          "time": 17.1363,
+          "force": 0.246,
+          "scale": 0.4512
+        },
+        {
+          "time": 17.5543,
+          "force": 0.1648,
+          "scale": 0.379
+        },
+        {
+          "time": 17.9955,
+          "force": 0.216,
+          "scale": 0.4935
+        },
+        {
+          "time": 18.576,
+          "force": 0.228,
+          "scale": 0.4512
+        },
+        {
+          "time": 18.7385,
+          "force": 0.1528,
+          "scale": 0.379
+        },
+        {
+          "time": 19.4815,
+          "force": 0.207,
+          "scale": 0.4512
+        },
+        {
+          "time": 19.9227,
+          "force": 0.246,
+          "scale": 0.4935
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 97,
+        "longestActiveGapSeconds": 12.5564
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use tiny granular clusters with broad spatial distribution and low force. Occasional denser moments can resemble grains briefly becoming rain, but keep the surface readable."
+    },
+    {
+      "id": "14-slipping-fingers-through-curls",
+      "index": 14,
+      "title": "Slipping Fingers Through Curls",
+      "duration": 217.528254,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "ad3f816a6ea65e51acc6343d3b6416bfaf0f68359f2e3b0fb1c5d494f8486000",
+      "measuredOnsets": 939,
+      "authoredCueEntrances": 295,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 300,
+      "musicalAnchorImpacts": 298,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 280,
+      "selectedAttackFraction": 0.3142,
+      "opening20SecondsImpacts": 24,
+      "opening60SecondsImpacts": 85,
+      "meanImpactsPerSecond": 1.3791,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 17,
+      "highlightMusicalAnchorImpacts": 17,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 201.8046,
+        "end": 217.5283,
+        "seconds": 15.7237,
+        "meanReferenceEnergy": 0.0613,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 148.5845,
+        "end": 150.2795,
+        "seconds": 1.695,
+        "meanReferenceEnergy": 0.686,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 85.5423,
+        "end": 87.0516,
+        "seconds": 1.5093,
+        "meanReferenceEnergy": 0.7362,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 202,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.5341,
+          "force": 0.2706,
+          "scale": 0.798
+        },
+        {
+          "time": 1.5325,
+          "force": 0.2376,
+          "scale": 0.7296
+        },
+        {
+          "time": 2.531,
+          "force": 0.297,
+          "scale": 0.7296
+        },
+        {
+          "time": 3.0418,
+          "force": 0.2946,
+          "scale": 0.7524
+        },
+        {
+          "time": 4.0403,
+          "force": 0.2574,
+          "scale": 0.798
+        },
+        {
+          "time": 5.0387,
+          "force": 0.2805,
+          "scale": 0.7296
+        },
+        {
+          "time": 6.548,
+          "force": 0.2706,
+          "scale": 0.798
+        },
+        {
+          "time": 7.5465,
+          "force": 0.2376,
+          "scale": 0.7296
+        },
+        {
+          "time": 9.0326,
+          "force": 0.2376,
+          "scale": 0.798
+        },
+        {
+          "time": 9.5434,
+          "force": 0.297,
+          "scale": 0.7296
+        },
+        {
+          "time": 10.5419,
+          "force": 0.2574,
+          "scale": 0.7296
+        },
+        {
+          "time": 11.0295,
+          "force": 0.2805,
+          "scale": 0.798
+        },
+        {
+          "time": 11.5635,
+          "force": 0.1683,
+          "scale": 0.7262
+        },
+        {
+          "time": 12.0512,
+          "force": 0.2442,
+          "scale": 0.7296
+        },
+        {
+          "time": 13.0264,
+          "force": 0.2706,
+          "scale": 0.7296
+        },
+        {
+          "time": 13.5372,
+          "force": 0.2376,
+          "scale": 0.798
+        },
+        {
+          "time": 14.7447,
+          "force": 0.297,
+          "scale": 0.7296
+        },
+        {
+          "time": 15.0465,
+          "force": 0.199,
+          "scale": 0.6129
+        },
+        {
+          "time": 15.7199,
+          "force": 0.2574,
+          "scale": 0.7296
+        },
+        {
+          "time": 16.5558,
+          "force": 0.2805,
+          "scale": 0.798
+        },
+        {
+          "time": 17.0434,
+          "force": 0.1683,
+          "scale": 0.7262
+        },
+        {
+          "time": 18.0187,
+          "force": 0.2706,
+          "scale": 0.7296
+        },
+        {
+          "time": 18.7153,
+          "force": 0.2376,
+          "scale": 0.798
+        },
+        {
+          "time": 19.528,
+          "force": 0.3192,
+          "scale": 0.7524
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 44,
+        "longestActiveGapSeconds": 25.0747
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use irregular microdrops, paired events and long gaps. The choreography should feel close and tactile, almost like marks appearing on paper, not like weather."
+    },
+    {
+      "id": "15-190304-05",
+      "index": 15,
+      "title": "190304-05",
+      "duration": 153.333333,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "60d1c610d31e665fe3a169a0dfd0018a971cd1c009ae1ef9b4a617a98bb33fbf",
+      "measuredOnsets": 671,
+      "authoredCueEntrances": 194,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 197,
+      "musicalAnchorImpacts": 196,
+      "weatherImpacts": 1,
+      "selectedPhraseAnswerEntrances": 10,
+      "measuredPatternEntrances": 181,
+      "selectedAttackFraction": 0.2891,
+      "opening20SecondsImpacts": 27,
+      "opening60SecondsImpacts": 88,
+      "meanImpactsPerSecond": 1.2848,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 18,
+      "highlightMusicalAnchorImpacts": 18,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 136.1154,
+        "end": 153.3333,
+        "seconds": 17.2179,
+        "meanReferenceEnergy": 0.0578,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 107.2762,
+        "end": 109.4356,
+        "seconds": 2.1594,
+        "meanReferenceEnergy": 0.3915,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 18.3205,
+        "end": 19.7834,
+        "seconds": 1.4629,
+        "meanReferenceEnergy": 0.5351,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 136.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 1.4164,
+          "force": 0.24,
+          "scale": 0.89
+        },
+        {
+          "time": 1.7647,
+          "force": 0.3024,
+          "scale": 0.8544
+        },
+        {
+          "time": 2.8328,
+          "force": 0.378,
+          "scale": 0.8544
+        },
+        {
+          "time": 3.1347,
+          "force": 0.2533,
+          "scale": 0.7177
+        },
+        {
+          "time": 3.5527,
+          "force": 0.3276,
+          "scale": 0.9345
+        },
+        {
+          "time": 4.6672,
+          "force": 0.357,
+          "scale": 0.8544
+        },
+        {
+          "time": 5.062,
+          "force": 0.2142,
+          "scale": 0.7775
+        },
+        {
+          "time": 5.5728,
+          "force": 0.3108,
+          "scale": 0.8544
+        },
+        {
+          "time": 6.5016,
+          "force": 0.3444,
+          "scale": 0.9345
+        },
+        {
+          "time": 7.3375,
+          "force": 0.24,
+          "scale": 0.89
+        },
+        {
+          "time": 7.7322,
+          "force": 0.3024,
+          "scale": 0.8544
+        },
+        {
+          "time": 8.6146,
+          "force": 0.378,
+          "scale": 0.8544
+        },
+        {
+          "time": 8.8236,
+          "force": 0.2533,
+          "scale": 0.7177
+        },
+        {
+          "time": 9.7059,
+          "force": 0.3276,
+          "scale": 0.9345
+        },
+        {
+          "time": 10.5651,
+          "force": 0.357,
+          "scale": 0.8544
+        },
+        {
+          "time": 10.8902,
+          "force": 0.2142,
+          "scale": 0.7775
+        },
+        {
+          "time": 11.3778,
+          "force": 0.3108,
+          "scale": 0.8544
+        },
+        {
+          "time": 12.0279,
+          "force": 0.3444,
+          "scale": 0.9345
+        },
+        {
+          "time": 13.0728,
+          "force": 0.3024,
+          "scale": 0.8544
+        },
+        {
+          "time": 14.7679,
+          "force": 0.378,
+          "scale": 0.8544
+        },
+        {
+          "time": 14.9769,
+          "force": 0.2533,
+          "scale": 0.7177
+        },
+        {
+          "time": 15.7199,
+          "force": 0.3276,
+          "scale": 0.9345
+        },
+        {
+          "time": 16.5558,
+          "force": 0.357,
+          "scale": 0.8544
+        },
+        {
+          "time": 17.0434,
+          "force": 0.2142,
+          "scale": 0.7775
+        },
+        {
+          "time": 17.6936,
+          "force": 0.3108,
+          "scale": 0.8544
+        },
+        {
+          "time": 18.3205,
+          "force": 0.3444,
+          "scale": 0.9345
+        },
+        {
+          "time": 19.7834,
+          "force": 0.3024,
+          "scale": 0.8544
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 11,
+        "longestActiveGapSeconds": 43.625
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use the opening. Almost still water, isolated soft drops, occasional pairs, and substantial breathing room. This track should demonstrate that music sync can be subtle."
+    },
+    {
+      "id": "16-gaganbadiba",
+      "index": 16,
+      "title": "Gagánbadibá",
+      "duration": 259.088254,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "f85eaa1fc84f54fab365ac4241a58b89fae6b9b10f16f2f4738e385edc80e58f",
+      "measuredOnsets": 1212,
+      "authoredCueEntrances": 577,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 586,
+      "musicalAnchorImpacts": 583,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 561,
+      "selectedAttackFraction": 0.4761,
+      "opening20SecondsImpacts": 34,
+      "opening60SecondsImpacts": 113,
+      "meanImpactsPerSecond": 2.2618,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 32,
+      "highlightMusicalAnchorImpacts": 32,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 249.4984,
+        "end": 259.0883,
+        "seconds": 9.5899,
+        "meanReferenceEnergy": 0.0789,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 55.8904,
+        "end": 57.3997,
+        "seconds": 1.5093,
+        "meanReferenceEnergy": 0.5939,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 245.5278,
+        "end": 246.7817,
+        "seconds": 1.2539,
+        "meanReferenceEnergy": 0.4212,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 250,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.3483,
+          "force": 0.4455,
+          "scale": 1.071
+        },
+        {
+          "time": 1.4629,
+          "force": 0.385,
+          "scale": 0.9792
+        },
+        {
+          "time": 1.8808,
+          "force": 0.258,
+          "scale": 0.8225
+        },
+        {
+          "time": 2.9489,
+          "force": 0.418,
+          "scale": 1.071
+        },
+        {
+          "time": 3.2044,
+          "force": 0.2801,
+          "scale": 0.8996
+        },
+        {
+          "time": 3.5991,
+          "force": 0.4455,
+          "scale": 0.9792
+        },
+        {
+          "time": 4.1332,
+          "force": 0.385,
+          "scale": 0.9792
+        },
+        {
+          "time": 5.0852,
+          "force": 0.4785,
+          "scale": 1.071
+        },
+        {
+          "time": 5.3406,
+          "force": 0.418,
+          "scale": 0.9792
+        },
+        {
+          "time": 5.7353,
+          "force": 0.2801,
+          "scale": 0.8225
+        },
+        {
+          "time": 6.2694,
+          "force": 0.4455,
+          "scale": 0.9792
+        },
+        {
+          "time": 7.1982,
+          "force": 0.385,
+          "scale": 1.071
+        },
+        {
+          "time": 7.4536,
+          "force": 0.4858,
+          "scale": 1.0302
+        },
+        {
+          "time": 7.8251,
+          "force": 0.4785,
+          "scale": 0.9792
+        },
+        {
+          "time": 8.3592,
+          "force": 0.418,
+          "scale": 0.9792
+        },
+        {
+          "time": 9.2648,
+          "force": 0.4455,
+          "scale": 1.071
+        },
+        {
+          "time": 9.9149,
+          "force": 0.385,
+          "scale": 0.9792
+        },
+        {
+          "time": 10.3097,
+          "force": 0.258,
+          "scale": 0.8225
+        },
+        {
+          "time": 10.9598,
+          "force": 0.4785,
+          "scale": 0.9792
+        },
+        {
+          "time": 11.3546,
+          "force": 0.418,
+          "scale": 1.071
+        },
+        {
+          "time": 11.61,
+          "force": 0.2801,
+          "scale": 0.8996
+        },
+        {
+          "time": 11.9815,
+          "force": 0.4455,
+          "scale": 0.9792
+        },
+        {
+          "time": 13.0264,
+          "force": 0.385,
+          "scale": 0.9792
+        },
+        {
+          "time": 13.3979,
+          "force": 0.258,
+          "scale": 0.8225
+        },
+        {
+          "time": 13.6766,
+          "force": 0.4785,
+          "scale": 1.071
+        },
+        {
+          "time": 14.5821,
+          "force": 0.418,
+          "scale": 0.9792
+        },
+        {
+          "time": 15.093,
+          "force": 0.4455,
+          "scale": 0.9792
+        },
+        {
+          "time": 16.1146,
+          "force": 0.385,
+          "scale": 1.071
+        },
+        {
+          "time": 16.6487,
+          "force": 0.4785,
+          "scale": 0.9792
+        },
+        {
+          "time": 17.1595,
+          "force": 0.418,
+          "scale": 0.9792
+        },
+        {
+          "time": 17.5543,
+          "force": 0.2801,
+          "scale": 0.8225
+        },
+        {
+          "time": 17.8097,
+          "force": 0.4455,
+          "scale": 1.071
+        },
+        {
+          "time": 18.7153,
+          "force": 0.385,
+          "scale": 0.9792
+        },
+        {
+          "time": 19.6441,
+          "force": 0.4785,
+          "scale": 0.9792
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 199,
+        "longestActiveGapSeconds": 12.5528
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Follow broad rhythmic phrases rather than individual percussion. Use warm, rounded clusters and keep forces moderate. Because the track carries its own cultural/lyrical identity, avoid turning it into a flashy visualizer."
+    },
+    {
+      "id": "17-i",
+      "index": 17,
+      "title": "I",
+      "duration": 480.96,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "ee6a96065453389d11041bebd0bb1d23186741ef918a74c2735ab12ae7dbb42b",
+      "measuredOnsets": 2879,
+      "authoredCueEntrances": 1206,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 1233,
+      "musicalAnchorImpacts": 1222,
+      "weatherImpacts": 11,
+      "selectedPhraseAnswerEntrances": 21,
+      "measuredPatternEntrances": 1182,
+      "selectedAttackFraction": 0.4189,
+      "opening20SecondsImpacts": 40,
+      "opening60SecondsImpacts": 127,
+      "meanImpactsPerSecond": 2.5636,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 46,
+      "highlightMusicalAnchorImpacts": 46,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 476.2413,
+        "end": 480.96,
+        "seconds": 4.7187,
+        "meanReferenceEnergy": 0.2096,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestActiveGap": {
+        "start": 466.8372,
+        "end": 469.3449,
+        "seconds": 2.5077,
+        "meanReferenceEnergy": 0.3936,
+        "activeReferenceSeconds": 2.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 466.8372,
+        "end": 469.3449,
+        "seconds": 2.5077,
+        "meanReferenceEnergy": 0.3936,
+        "activeReferenceSeconds": 2.5
+      },
+      "measuredFinalFadeStart": null,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 1.4629,
+          "force": 0.2924,
+          "scale": 0.6048
+        },
+        {
+          "time": 1.9737,
+          "force": 0.3526,
+          "scale": 0.6048
+        },
+        {
+          "time": 2.5078,
+          "force": 0.3139,
+          "scale": 0.6615
+        },
+        {
+          "time": 2.9025,
+          "force": 0.2103,
+          "scale": 0.5557
+        },
+        {
+          "time": 3.2972,
+          "force": 0.3268,
+          "scale": 0.6048
+        },
+        {
+          "time": 3.9474,
+          "force": 0.2924,
+          "scale": 0.6048
+        },
+        {
+          "time": 4.4582,
+          "force": 0.3526,
+          "scale": 0.6615
+        },
+        {
+          "time": 4.9923,
+          "force": 0.3139,
+          "scale": 0.6048
+        },
+        {
+          "time": 5.2477,
+          "force": 0.2103,
+          "scale": 0.508
+        },
+        {
+          "time": 6.1533,
+          "force": 0.3268,
+          "scale": 0.6048
+        },
+        {
+          "time": 6.6873,
+          "force": 0.2924,
+          "scale": 0.6615
+        },
+        {
+          "time": 6.9428,
+          "force": 0.3798,
+          "scale": 0.6174
+        },
+        {
+          "time": 7.5929,
+          "force": 0.3526,
+          "scale": 0.6048
+        },
+        {
+          "time": 8.127,
+          "force": 0.3139,
+          "scale": 0.6048
+        },
+        {
+          "time": 8.4985,
+          "force": 0.2103,
+          "scale": 0.508
+        },
+        {
+          "time": 8.7771,
+          "force": 0.3268,
+          "scale": 0.6615
+        },
+        {
+          "time": 9.1719,
+          "force": 0.219,
+          "scale": 0.5557
+        },
+        {
+          "time": 9.4273,
+          "force": 0.2924,
+          "scale": 0.6048
+        },
+        {
+          "time": 10.3329,
+          "force": 0.3526,
+          "scale": 0.6048
+        },
+        {
+          "time": 10.7276,
+          "force": 0.3139,
+          "scale": 0.6615
+        },
+        {
+          "time": 10.983,
+          "force": 0.2103,
+          "scale": 0.5557
+        },
+        {
+          "time": 11.6332,
+          "force": 0.3268,
+          "scale": 0.6048
+        },
+        {
+          "time": 12.0279,
+          "force": 0.219,
+          "scale": 0.508
+        },
+        {
+          "time": 12.2834,
+          "force": 0.2924,
+          "scale": 0.6048
+        },
+        {
+          "time": 12.9335,
+          "force": 0.3526,
+          "scale": 0.6615
+        },
+        {
+          "time": 13.5837,
+          "force": 0.3139,
+          "scale": 0.6048
+        },
+        {
+          "time": 13.8623,
+          "force": 0.2103,
+          "scale": 0.508
+        },
+        {
+          "time": 14.3732,
+          "force": 0.3268,
+          "scale": 0.6048
+        },
+        {
+          "time": 15.2787,
+          "force": 0.2924,
+          "scale": 0.6615
+        },
+        {
+          "time": 15.6735,
+          "force": 0.3526,
+          "scale": 0.6048
+        },
+        {
+          "time": 16.4629,
+          "force": 0.3139,
+          "scale": 0.6048
+        },
+        {
+          "time": 17.1131,
+          "force": 0.3268,
+          "scale": 0.6615
+        },
+        {
+          "time": 17.5078,
+          "force": 0.219,
+          "scale": 0.5557
+        },
+        {
+          "time": 18.0187,
+          "force": 0.2924,
+          "scale": 0.6048
+        },
+        {
+          "time": 18.6921,
+          "force": 0.3526,
+          "scale": 0.6048
+        },
+        {
+          "time": 19.0636,
+          "force": 0.3139,
+          "scale": 0.6615
+        },
+        {
+          "time": 19.4815,
+          "force": 0.2103,
+          "scale": 0.5557
+        },
+        {
+          "time": 19.8531,
+          "force": 0.3268,
+          "scale": 0.6048
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 492,
+        "longestActiveGapSeconds": 12.3062
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Build layers. Start with a few independent drop streams, then add overlapping cluster patterns as the polyrhythm thickens. Keep individual drops modest so complexity comes from superposition, not force."
+    },
+    {
+      "id": "18-birch-beer-forest",
+      "index": 18,
+      "title": "birch beer forest",
+      "duration": 211.440998,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "6a4ddb1673f4d87a746b1a7397fa0f9956dd0944b37f723416c4c358a78c90ec",
+      "measuredOnsets": 733,
+      "authoredCueEntrances": 367,
+      "authoredGestureEntrances": 2,
+      "totalImpacts": 453,
+      "musicalAnchorImpacts": 449,
+      "weatherImpacts": 4,
+      "selectedPhraseAnswerEntrances": 9,
+      "measuredPatternEntrances": 354,
+      "selectedAttackFraction": 0.5007,
+      "opening20SecondsImpacts": 1,
+      "opening60SecondsImpacts": 146,
+      "meanImpactsPerSecond": 2.1424,
+      "maximumOneSecondImpacts": 33,
+      "highlightImpacts": 104,
+      "highlightMusicalAnchorImpacts": 104,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 0,
+        "end": 19.7834,
+        "seconds": 19.7834,
+        "meanReferenceEnergy": 0.0343,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 102.1678,
+        "end": 104.1415,
+        "seconds": 1.9737,
+        "meanReferenceEnergy": 0.69,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 28.7463,
+        "end": 30.1163,
+        "seconds": 1.37,
+        "meanReferenceEnergy": 0.2409,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 205,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 19.7834,
+          "force": 0.3675,
+          "scale": 0.7488
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 4,
+        "totalImpacts": 249,
+        "longestActiveGapSeconds": 15.1585
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use the earlier proven window for the short demo. Mix small irregular impacts with occasional medium accents, letting the rain feel both organic and sequenced. Keep the later high-contrast window as an alternate."
+    },
+    {
+      "id": "19-an-unopened-letter",
+      "index": 19,
+      "title": "An Unopened Letter",
+      "duration": 173.522721,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "7a9bc8453621a30705bad5f7158cad9d3205b431dad8c6f46007ef53c1f39e75",
+      "measuredOnsets": 453,
+      "authoredCueEntrances": 197,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 203,
+      "musicalAnchorImpacts": 200,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 11,
+      "measuredPatternEntrances": 184,
+      "selectedAttackFraction": 0.4349,
+      "opening20SecondsImpacts": 23,
+      "opening60SecondsImpacts": 73,
+      "meanImpactsPerSecond": 1.1699,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 14,
+      "highlightMusicalAnchorImpacts": 14,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 159.1728,
+        "end": 173.5227,
+        "seconds": 14.3499,
+        "meanReferenceEnergy": 0.0569,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 32.4847,
+        "end": 34.6674,
+        "seconds": 2.1827,
+        "meanReferenceEnergy": 0.3506,
+        "activeReferenceSeconds": 2.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 146.8894,
+        "end": 148.6309,
+        "seconds": 1.7415,
+        "meanReferenceEnergy": 0.238,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 159.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 1.0913,
+          "force": 0.2624,
+          "scale": 0.8505
+        },
+        {
+          "time": 1.7879,
+          "force": 0.2304,
+          "scale": 0.7776
+        },
+        {
+          "time": 3.0883,
+          "force": 0.288,
+          "scale": 0.7776
+        },
+        {
+          "time": 3.2508,
+          "force": 0.193,
+          "scale": 0.6532
+        },
+        {
+          "time": 4.0171,
+          "force": 0.2496,
+          "scale": 0.8505
+        },
+        {
+          "time": 4.6904,
+          "force": 0.2857,
+          "scale": 0.8019
+        },
+        {
+          "time": 5.2709,
+          "force": 0.272,
+          "scale": 0.7776
+        },
+        {
+          "time": 6.1533,
+          "force": 0.2368,
+          "scale": 0.7776
+        },
+        {
+          "time": 6.8963,
+          "force": 0.2624,
+          "scale": 0.8505
+        },
+        {
+          "time": 8.1734,
+          "force": 0.2304,
+          "scale": 0.7776
+        },
+        {
+          "time": 9.6595,
+          "force": 0.288,
+          "scale": 0.7776
+        },
+        {
+          "time": 9.8685,
+          "force": 0.193,
+          "scale": 0.6532
+        },
+        {
+          "time": 10.3793,
+          "force": 0.2496,
+          "scale": 0.8505
+        },
+        {
+          "time": 11.8886,
+          "force": 0.272,
+          "scale": 0.7776
+        },
+        {
+          "time": 12.8871,
+          "force": 0.2368,
+          "scale": 0.7776
+        },
+        {
+          "time": 13.3979,
+          "force": 0.2624,
+          "scale": 0.8505
+        },
+        {
+          "time": 15.0465,
+          "force": 0.2304,
+          "scale": 0.7776
+        },
+        {
+          "time": 15.7896,
+          "force": 0.288,
+          "scale": 0.7776
+        },
+        {
+          "time": 16.4862,
+          "force": 0.2496,
+          "scale": 0.8505
+        },
+        {
+          "time": 17.9258,
+          "force": 0.272,
+          "scale": 0.7776
+        },
+        {
+          "time": 18.4599,
+          "force": 0.1632,
+          "scale": 0.7076
+        },
+        {
+          "time": 19.2261,
+          "force": 0.3095,
+          "scale": 0.8019
+        },
+        {
+          "time": 19.9692,
+          "force": 0.2624,
+          "scale": 0.8505
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 45,
+        "longestActiveGapSeconds": 21.0461
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use small hand-placed-feeling clusters and soft isolated impacts. Avoid continuous rain. The motion should feel like a sketch becoming animated."
+    },
+    {
+      "id": "20-recovery",
+      "index": 20,
+      "title": "Recovery",
+      "duration": 291.015692,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "d85efcb43135a5b3d635825334b531757063f5ee5fce38fe3a625df991f24f1c",
+      "measuredOnsets": 1179,
+      "authoredCueEntrances": 654,
+      "authoredGestureEntrances": 1,
+      "totalImpacts": 700,
+      "musicalAnchorImpacts": 698,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 15,
+      "measuredPatternEntrances": 635,
+      "selectedAttackFraction": 0.5547,
+      "opening20SecondsImpacts": 30,
+      "opening60SecondsImpacts": 98,
+      "meanImpactsPerSecond": 2.4054,
+      "maximumOneSecondImpacts": 33,
+      "highlightImpacts": 33,
+      "highlightMusicalAnchorImpacts": 33,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 280.8221,
+        "end": 291.0157,
+        "seconds": 10.1936,
+        "meanReferenceEnergy": 0.0569,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 143.1975,
+        "end": 144.3585,
+        "seconds": 1.161,
+        "meanReferenceEnergy": 0.5406,
+        "activeReferenceSeconds": 1
+      },
+      "longestUnintendedActiveGap": {
+        "start": 143.1975,
+        "end": 144.3585,
+        "seconds": 1.161,
+        "meanReferenceEnergy": 0.5406,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 281,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.7198,
+          "force": 0.494,
+          "scale": 1.0605
+        },
+        {
+          "time": 1.5093,
+          "force": 0.52,
+          "scale": 0.9696
+        },
+        {
+          "time": 2.6935,
+          "force": 0.559,
+          "scale": 0.9696
+        },
+        {
+          "time": 3.274,
+          "force": 0.468,
+          "scale": 1.0605
+        },
+        {
+          "time": 3.5527,
+          "force": 0.3136,
+          "scale": 0.8908
+        },
+        {
+          "time": 4.0403,
+          "force": 0.494,
+          "scale": 0.9696
+        },
+        {
+          "time": 5.596,
+          "force": 0.52,
+          "scale": 0.9696
+        },
+        {
+          "time": 5.8746,
+          "force": 0.3484,
+          "scale": 0.8145
+        },
+        {
+          "time": 6.3623,
+          "force": 0.559,
+          "scale": 1.0605
+        },
+        {
+          "time": 6.8267,
+          "force": 0.5741,
+          "scale": 1.0403
+        },
+        {
+          "time": 7.1517,
+          "force": 0.468,
+          "scale": 0.9696
+        },
+        {
+          "time": 7.4304,
+          "force": 0.3136,
+          "scale": 0.8145
+        },
+        {
+          "time": 8.2895,
+          "force": 0.494,
+          "scale": 0.9696
+        },
+        {
+          "time": 9.4737,
+          "force": 0.52,
+          "scale": 1.0605
+        },
+        {
+          "time": 9.7524,
+          "force": 0.3484,
+          "scale": 0.8908
+        },
+        {
+          "time": 10.24,
+          "force": 0.559,
+          "scale": 0.9696
+        },
+        {
+          "time": 11.0063,
+          "force": 0.468,
+          "scale": 0.9696
+        },
+        {
+          "time": 12.0744,
+          "force": 0.494,
+          "scale": 1.0605
+        },
+        {
+          "time": 13.3283,
+          "force": 0.52,
+          "scale": 0.9696
+        },
+        {
+          "time": 13.6301,
+          "force": 0.3484,
+          "scale": 0.8145
+        },
+        {
+          "time": 14.2106,
+          "force": 0.559,
+          "scale": 0.9696
+        },
+        {
+          "time": 15.0698,
+          "force": 0.468,
+          "scale": 1.0605
+        },
+        {
+          "time": 15.3716,
+          "force": 0.3136,
+          "scale": 0.8908
+        },
+        {
+          "time": 16.2307,
+          "force": 0.494,
+          "scale": 0.9696
+        },
+        {
+          "time": 16.997,
+          "force": 0.52,
+          "scale": 0.9696
+        },
+        {
+          "time": 17.206,
+          "force": 0.3484,
+          "scale": 0.8145
+        },
+        {
+          "time": 17.9722,
+          "force": 0.559,
+          "scale": 1.0605
+        },
+        {
+          "time": 18.5527,
+          "force": 0.468,
+          "scale": 0.9696
+        },
+        {
+          "time": 18.901,
+          "force": 0.3136,
+          "scale": 0.8145
+        },
+        {
+          "time": 19.8298,
+          "force": 0.494,
+          "scale": 0.9696
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 4,
+        "totalImpacts": 344,
+        "longestActiveGapSeconds": 7.1154
+      },
+      "mappedYouTubeValidationStatus": "duration-only",
+      "direction": "Begin controlled, then increase density and force together through the rise. Use larger impacts sparingly at major phrase arrivals. This can look cinematic without becoming generic."
+    },
+    {
+      "id": "21-continuum-3",
+      "index": 21,
+      "title": "Continuum 3",
+      "duration": 247.538866,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "4890b68d9c64c7f930f264d0e00f25dda9b83cd16ce5ceb5bd2c210ed26ac8c9",
+      "measuredOnsets": 861,
+      "authoredCueEntrances": 349,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 356,
+      "musicalAnchorImpacts": 354,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 331,
+      "selectedAttackFraction": 0.4053,
+      "opening20SecondsImpacts": 18,
+      "opening60SecondsImpacts": 71,
+      "meanImpactsPerSecond": 1.4382,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 25,
+      "highlightMusicalAnchorImpacts": 25,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 238.9566,
+        "end": 247.5389,
+        "seconds": 8.5823,
+        "meanReferenceEnergy": 0.0466,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 231.8048,
+        "end": 233.616,
+        "seconds": 1.8112,
+        "meanReferenceEnergy": 0.3516,
+        "activeReferenceSeconds": 1
+      },
+      "longestUnintendedActiveGap": {
+        "start": 231.8048,
+        "end": 233.616,
+        "seconds": 1.8112,
+        "meanReferenceEnergy": 0.3516,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 239.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 5.9675,
+          "force": 0.2415,
+          "scale": 0.8544
+        },
+        {
+          "time": 7.709,
+          "force": 0.259,
+          "scale": 0.8544
+        },
+        {
+          "time": 8.4288,
+          "force": 0.2923,
+          "scale": 0.9345
+        },
+        {
+          "time": 9.1254,
+          "force": 0.2695,
+          "scale": 0.8544
+        },
+        {
+          "time": 9.822,
+          "force": 0.2415,
+          "scale": 0.9345
+        },
+        {
+          "time": 10.4722,
+          "force": 0.1449,
+          "scale": 0.8504
+        },
+        {
+          "time": 11.2385,
+          "force": 0.294,
+          "scale": 0.8544
+        },
+        {
+          "time": 11.8886,
+          "force": 0.259,
+          "scale": 0.8544
+        },
+        {
+          "time": 13.1889,
+          "force": 0.2695,
+          "scale": 0.9345
+        },
+        {
+          "time": 13.8623,
+          "force": 0.2415,
+          "scale": 0.8544
+        },
+        {
+          "time": 14.5357,
+          "force": 0.1449,
+          "scale": 0.7775
+        },
+        {
+          "time": 15.2555,
+          "force": 0.294,
+          "scale": 0.8544
+        },
+        {
+          "time": 15.8592,
+          "force": 0.259,
+          "scale": 0.9345
+        },
+        {
+          "time": 17.1828,
+          "force": 0.2695,
+          "scale": 0.8544
+        },
+        {
+          "time": 18.158,
+          "force": 0.2415,
+          "scale": 0.8544
+        },
+        {
+          "time": 18.5527,
+          "force": 0.3167,
+          "scale": 0.9345
+        },
+        {
+          "time": 18.8314,
+          "force": 0.1449,
+          "scale": 0.7775
+        },
+        {
+          "time": 19.2261,
+          "force": 0.294,
+          "scale": 0.9345
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 5,
+        "totalImpacts": 108,
+        "longestActiveGapSeconds": 10.7309
+      },
+      "mappedYouTubeValidationStatus": "unverified",
+      "direction": "Use graceful density curves, not a beat grid. Let arpeggiated activity produce more small drops while sustained moments pull back. The earlier 1:22.69 window remains a tested visual alternate."
+    },
+    {
+      "id": "22-rider",
+      "index": 22,
+      "title": "Rider",
+      "duration": 170.362902,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "a054a876158ca80fdd65a1078bec215591de3539943eb8250c07912075c501ca",
+      "measuredOnsets": 734,
+      "authoredCueEntrances": 392,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 403,
+      "musicalAnchorImpacts": 401,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 10,
+      "measuredPatternEntrances": 380,
+      "selectedAttackFraction": 0.5341,
+      "opening20SecondsImpacts": 41,
+      "opening60SecondsImpacts": 145,
+      "meanImpactsPerSecond": 2.3655,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 33,
+      "highlightMusicalAnchorImpacts": 33,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 160.1945,
+        "end": 170.3629,
+        "seconds": 10.1684,
+        "meanReferenceEnergy": 0.0898,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 18.4366,
+        "end": 19.8763,
+        "seconds": 1.4397,
+        "meanReferenceEnergy": 0.4037,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 15.5341,
+        "end": 16.5094,
+        "seconds": 0.9753,
+        "meanReferenceEnergy": 0.3965,
+        "activeReferenceSeconds": 1
+      },
+      "measuredFinalFadeStart": 160.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.5341,
+          "force": 0.4814,
+          "scale": 0.8295
+        },
+        {
+          "time": 0.7663,
+          "force": 0.3225,
+          "scale": 0.6968
+        },
+        {
+          "time": 1.0217,
+          "force": 0.3944,
+          "scale": 0.7584
+        },
+        {
+          "time": 1.9737,
+          "force": 0.5104,
+          "scale": 0.7584
+        },
+        {
+          "time": 2.4613,
+          "force": 0.435,
+          "scale": 0.8295
+        },
+        {
+          "time": 2.6935,
+          "force": 0.2914,
+          "scale": 0.6968
+        },
+        {
+          "time": 2.9489,
+          "force": 0.4814,
+          "scale": 0.7584
+        },
+        {
+          "time": 3.2044,
+          "force": 0.3225,
+          "scale": 0.6371
+        },
+        {
+          "time": 3.9242,
+          "force": 0.3944,
+          "scale": 0.7584
+        },
+        {
+          "time": 4.8762,
+          "force": 0.5104,
+          "scale": 0.8295
+        },
+        {
+          "time": 5.3638,
+          "force": 0.435,
+          "scale": 0.7584
+        },
+        {
+          "time": 5.8514,
+          "force": 0.4814,
+          "scale": 0.7584
+        },
+        {
+          "time": 6.1997,
+          "force": 0.3225,
+          "scale": 0.6371
+        },
+        {
+          "time": 6.8267,
+          "force": 0.3944,
+          "scale": 0.8295
+        },
+        {
+          "time": 7.2911,
+          "force": 0.5104,
+          "scale": 0.7584
+        },
+        {
+          "time": 7.7787,
+          "force": 0.435,
+          "scale": 0.7584
+        },
+        {
+          "time": 8.1502,
+          "force": 0.2914,
+          "scale": 0.6371
+        },
+        {
+          "time": 8.5217,
+          "force": 0.4814,
+          "scale": 0.8295
+        },
+        {
+          "time": 8.7539,
+          "force": 0.5178,
+          "scale": 0.7821
+        },
+        {
+          "time": 9.7292,
+          "force": 0.3944,
+          "scale": 0.7584
+        },
+        {
+          "time": 10.2168,
+          "force": 0.5104,
+          "scale": 0.7584
+        },
+        {
+          "time": 10.9366,
+          "force": 0.435,
+          "scale": 0.8295
+        },
+        {
+          "time": 11.1688,
+          "force": 0.2914,
+          "scale": 0.6968
+        },
+        {
+          "time": 11.6564,
+          "force": 0.4814,
+          "scale": 0.7584
+        },
+        {
+          "time": 12.144,
+          "force": 0.3944,
+          "scale": 0.7584
+        },
+        {
+          "time": 13.1193,
+          "force": 0.5104,
+          "scale": 0.8295
+        },
+        {
+          "time": 13.5837,
+          "force": 0.435,
+          "scale": 0.7584
+        },
+        {
+          "time": 13.9552,
+          "force": 0.2914,
+          "scale": 0.6371
+        },
+        {
+          "time": 14.5589,
+          "force": 0.4814,
+          "scale": 0.7584
+        },
+        {
+          "time": 14.8143,
+          "force": 0.3225,
+          "scale": 0.6371
+        },
+        {
+          "time": 15.1859,
+          "force": 0.3944,
+          "scale": 0.8295
+        },
+        {
+          "time": 15.5341,
+          "force": 0.5104,
+          "scale": 0.7584
+        },
+        {
+          "time": 16.5094,
+          "force": 0.435,
+          "scale": 0.7584
+        },
+        {
+          "time": 16.9738,
+          "force": 0.2914,
+          "scale": 0.6371
+        },
+        {
+          "time": 17.2292,
+          "force": 0.4814,
+          "scale": 0.8295
+        },
+        {
+          "time": 17.4614,
+          "force": 0.3225,
+          "scale": 0.6968
+        },
+        {
+          "time": 17.949,
+          "force": 0.3944,
+          "scale": 0.7584
+        },
+        {
+          "time": 18.4366,
+          "force": 0.5104,
+          "scale": 0.7584
+        },
+        {
+          "time": 19.8763,
+          "force": 0.4814,
+          "scale": 0.7584
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 173,
+        "longestActiveGapSeconds": 8.2257
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use clean short clusters and sharper spatial changes. Keep one recurring motif in the rain pattern so the choreography feels intentional, then break it at the section transition."
+    },
+    {
+      "id": "23-lights-on-the-vibe",
+      "index": 23,
+      "title": "Lights On the Vibe",
+      "duration": 461.647528,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "612353173c863a57607f717460f17a282cba2df9219466f31100576c7651fa42",
+      "measuredOnsets": 2131,
+      "authoredCueEntrances": 801,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 818,
+      "musicalAnchorImpacts": 813,
+      "weatherImpacts": 5,
+      "selectedPhraseAnswerEntrances": 23,
+      "measuredPatternEntrances": 776,
+      "selectedAttackFraction": 0.3759,
+      "opening20SecondsImpacts": 23,
+      "opening60SecondsImpacts": 107,
+      "meanImpactsPerSecond": 1.7719,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 26,
+      "highlightMusicalAnchorImpacts": 26,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 452.7195,
+        "end": 461.6475,
+        "seconds": 8.928,
+        "meanReferenceEnergy": 0.0508,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 204.7768,
+        "end": 206.5415,
+        "seconds": 1.7647,
+        "meanReferenceEnergy": 0.3115,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 276.9908,
+        "end": 278.4073,
+        "seconds": 1.4165,
+        "meanReferenceEnergy": 0.4847,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 453,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 4.1099,
+          "force": 0.3564,
+          "scale": 1.0176
+        },
+        {
+          "time": 5.6889,
+          "force": 0.3828,
+          "scale": 1.113
+        },
+        {
+          "time": 7.7555,
+          "force": 0.3564,
+          "scale": 1.0176
+        },
+        {
+          "time": 11.3081,
+          "force": 0.3564,
+          "scale": 1.113
+        },
+        {
+          "time": 11.819,
+          "force": 0.308,
+          "scale": 1.0176
+        },
+        {
+          "time": 12.0047,
+          "force": 0.2064,
+          "scale": 0.8548
+        },
+        {
+          "time": 12.7013,
+          "force": 0.308,
+          "scale": 1.113
+        },
+        {
+          "time": 13.0496,
+          "force": 0.2064,
+          "scale": 0.9349
+        },
+        {
+          "time": 13.3979,
+          "force": 0.3828,
+          "scale": 1.0176
+        },
+        {
+          "time": 13.932,
+          "force": 0.3344,
+          "scale": 1.0176
+        },
+        {
+          "time": 14.1177,
+          "force": 0.224,
+          "scale": 0.8548
+        },
+        {
+          "time": 14.6286,
+          "force": 0.3564,
+          "scale": 1.113
+        },
+        {
+          "time": 15.5109,
+          "force": 0.308,
+          "scale": 1.0176
+        },
+        {
+          "time": 15.8592,
+          "force": 0.2064,
+          "scale": 0.8548
+        },
+        {
+          "time": 16.2075,
+          "force": 0.3828,
+          "scale": 1.0176
+        },
+        {
+          "time": 16.7416,
+          "force": 0.3344,
+          "scale": 1.113
+        },
+        {
+          "time": 16.9041,
+          "force": 0.224,
+          "scale": 0.9349
+        },
+        {
+          "time": 17.4382,
+          "force": 0.3564,
+          "scale": 1.0176
+        },
+        {
+          "time": 18.3205,
+          "force": 0.308,
+          "scale": 1.0176
+        },
+        {
+          "time": 18.6688,
+          "force": 0.2064,
+          "scale": 0.8548
+        },
+        {
+          "time": 19.0171,
+          "force": 0.3828,
+          "scale": 1.113
+        },
+        {
+          "time": 19.528,
+          "force": 0.3344,
+          "scale": 1.0176
+        },
+        {
+          "time": 19.7137,
+          "force": 0.224,
+          "scale": 0.8548
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 149,
+        "longestActiveGapSeconds": 22.191
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use relaxed, rounded drops and slow cluster entrances. Favor warmth and spacing over technical precision. Good candidate for a long site session rather than a flagship viral clip."
+    },
+    {
+      "id": "24-heal",
+      "index": 24,
+      "title": "Heal",
+      "duration": 410.635828,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "ea403bdbbdc2de89d132a73d7ac480080d50c894fe3a328210dac257f05de484",
+      "measuredOnsets": 1735,
+      "authoredCueEntrances": 654,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 669,
+      "musicalAnchorImpacts": 659,
+      "weatherImpacts": 10,
+      "selectedPhraseAnswerEntrances": 20,
+      "measuredPatternEntrances": 632,
+      "selectedAttackFraction": 0.3769,
+      "opening20SecondsImpacts": 20,
+      "opening60SecondsImpacts": 88,
+      "meanImpactsPerSecond": 1.6292,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 23,
+      "highlightMusicalAnchorImpacts": 23,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 401.5891,
+        "end": 410.6358,
+        "seconds": 9.0467,
+        "meanReferenceEnergy": 0.072,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 346.4185,
+        "end": 347.7885,
+        "seconds": 1.37,
+        "meanReferenceEnergy": 0.8118,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 346.4185,
+        "end": 347.7885,
+        "seconds": 1.37,
+        "meanReferenceEnergy": 0.8118,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 402,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 5.596,
+          "force": 0.2546,
+          "scale": 0.9024
+        },
+        {
+          "time": 6.8034,
+          "force": 0.3116,
+          "scale": 0.987
+        },
+        {
+          "time": 7.1982,
+          "force": 0.187,
+          "scale": 0.8982
+        },
+        {
+          "time": 8.0109,
+          "force": 0.2736,
+          "scale": 0.9024
+        },
+        {
+          "time": 8.8004,
+          "force": 0.2888,
+          "scale": 0.9024
+        },
+        {
+          "time": 9.6131,
+          "force": 0.2546,
+          "scale": 0.987
+        },
+        {
+          "time": 10.0078,
+          "force": 0.3064,
+          "scale": 0.9776
+        },
+        {
+          "time": 10.7973,
+          "force": 0.3116,
+          "scale": 0.9024
+        },
+        {
+          "time": 11.192,
+          "force": 0.187,
+          "scale": 0.8212
+        },
+        {
+          "time": 11.5868,
+          "force": 0.2736,
+          "scale": 0.9024
+        },
+        {
+          "time": 12.7942,
+          "force": 0.2888,
+          "scale": 0.987
+        },
+        {
+          "time": 13.6069,
+          "force": 0.2546,
+          "scale": 0.9024
+        },
+        {
+          "time": 15.2091,
+          "force": 0.3116,
+          "scale": 0.9024
+        },
+        {
+          "time": 15.6038,
+          "force": 0.187,
+          "scale": 0.8212
+        },
+        {
+          "time": 15.9985,
+          "force": 0.2736,
+          "scale": 0.987
+        },
+        {
+          "time": 17.206,
+          "force": 0.2888,
+          "scale": 0.9024
+        },
+        {
+          "time": 17.9955,
+          "force": 0.2546,
+          "scale": 0.9024
+        },
+        {
+          "time": 18.8082,
+          "force": 0.3116,
+          "scale": 0.987
+        },
+        {
+          "time": 19.2029,
+          "force": 0.187,
+          "scale": 0.8982
+        },
+        {
+          "time": 19.9924,
+          "force": 0.2736,
+          "scale": 0.9024
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 197,
+        "longestActiveGapSeconds": 14.5226
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Maintain a soft background field and let stronger pulses briefly raise density. Avoid sharp, frequent accents. The rain should feel suspended in a larger atmosphere."
+    },
+    {
+      "id": "25-the-dance-no-2",
+      "index": 25,
+      "title": "The Dance No. 2",
+      "duration": 582.733333,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "28e6a3a1d973b1a992503d41247578fcda4aef82a4433b467175f455b55dc686",
+      "measuredOnsets": 3834,
+      "authoredCueEntrances": 756,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 764,
+      "musicalAnchorImpacts": 762,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 27,
+      "measuredPatternEntrances": 725,
+      "selectedAttackFraction": 0.1972,
+      "opening20SecondsImpacts": 18,
+      "opening60SecondsImpacts": 72,
+      "meanImpactsPerSecond": 1.3111,
+      "maximumOneSecondImpacts": 3,
+      "highlightImpacts": 16,
+      "highlightMusicalAnchorImpacts": 16,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 566.3811,
+        "end": 582.7333,
+        "seconds": 16.3522,
+        "meanReferenceEnergy": 0.0437,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 329.9788,
+        "end": 332.4633,
+        "seconds": 2.4845,
+        "meanReferenceEnergy": 0.9023,
+        "activeReferenceSeconds": 2.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 241.3714,
+        "end": 243.1361,
+        "seconds": 1.7647,
+        "meanReferenceEnergy": 0.8855,
+        "activeReferenceSeconds": 2
+      },
+      "measuredFinalFadeStart": 567,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 5.3638,
+          "force": 0.2886,
+          "scale": 1.0464
+        },
+        {
+          "time": 6.4784,
+          "force": 0.2479,
+          "scale": 1.0464
+        },
+        {
+          "time": 7.6161,
+          "force": 0.37,
+          "scale": 1.09
+        },
+        {
+          "time": 8.0109,
+          "force": 0.3071,
+          "scale": 1.1445
+        },
+        {
+          "time": 9.288,
+          "force": 0.2664,
+          "scale": 1.0464
+        },
+        {
+          "time": 9.8453,
+          "force": 0.2886,
+          "scale": 1.0464
+        },
+        {
+          "time": 10.9598,
+          "force": 0.2479,
+          "scale": 1.1445
+        },
+        {
+          "time": 12.0744,
+          "force": 0.5014,
+          "scale": 1.2881
+        },
+        {
+          "time": 12.6084,
+          "force": 0.2479,
+          "scale": 1.1445
+        },
+        {
+          "time": 13.723,
+          "force": 0.3071,
+          "scale": 1.0464
+        },
+        {
+          "time": 14.2571,
+          "force": 0.37,
+          "scale": 1.09
+        },
+        {
+          "time": 14.8143,
+          "force": 0.2664,
+          "scale": 1.0464
+        },
+        {
+          "time": 15.3716,
+          "force": 0.2886,
+          "scale": 1.1445
+        },
+        {
+          "time": 16.4629,
+          "force": 0.2479,
+          "scale": 1.0464
+        },
+        {
+          "time": 17.5311,
+          "force": 0.3071,
+          "scale": 1.0464
+        },
+        {
+          "time": 18.0883,
+          "force": 0.1843,
+          "scale": 0.9522
+        },
+        {
+          "time": 18.6224,
+          "force": 0.2664,
+          "scale": 1.1445
+        },
+        {
+          "time": 19.1797,
+          "force": 0.2886,
+          "scale": 1.0464
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 4,
+        "totalImpacts": 62,
+        "longestActiveGapSeconds": 33.3304
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use the opening. A few deliberate drops with long decay, occasional paired events, and restrained force. Let the surface remain mostly open."
+    },
+    {
+      "id": "26-a-future-untold",
+      "index": 26,
+      "title": "A Future Untold",
+      "duration": 202.723265,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "c29889eda3e8a6978b82601d518338e65221faee058b1e022ee522560a600819",
+      "measuredOnsets": 903,
+      "authoredCueEntrances": 344,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 351,
+      "musicalAnchorImpacts": 348,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 328,
+      "selectedAttackFraction": 0.381,
+      "opening20SecondsImpacts": 33,
+      "opening60SecondsImpacts": 104,
+      "meanImpactsPerSecond": 1.7314,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 18,
+      "highlightMusicalAnchorImpacts": 18,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 196.1157,
+        "end": 202.7233,
+        "seconds": 6.6076,
+        "meanReferenceEnergy": 0.0411,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 5.0155,
+        "end": 6.9195,
+        "seconds": 1.904,
+        "meanReferenceEnergy": 0.7365,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 108.9016,
+        "end": 110.3644,
+        "seconds": 1.4628,
+        "meanReferenceEnergy": 0.6953,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 197,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.6269,
+          "force": 0.3772,
+          "scale": 1.092
+        },
+        {
+          "time": 0.9985,
+          "force": 0.2263,
+          "scale": 0.9937
+        },
+        {
+          "time": 1.7415,
+          "force": 0.3174,
+          "scale": 0.9984
+        },
+        {
+          "time": 2.74,
+          "force": 0.4048,
+          "scale": 0.9984
+        },
+        {
+          "time": 3.065,
+          "force": 0.2429,
+          "scale": 0.9085
+        },
+        {
+          "time": 3.7616,
+          "force": 0.3404,
+          "scale": 1.092
+        },
+        {
+          "time": 4.3421,
+          "force": 0.3772,
+          "scale": 0.9984
+        },
+        {
+          "time": 4.6904,
+          "force": 0.4195,
+          "scale": 1.0608
+        },
+        {
+          "time": 5.0155,
+          "force": 0.2263,
+          "scale": 0.9085
+        },
+        {
+          "time": 6.9195,
+          "force": 0.4048,
+          "scale": 1.092
+        },
+        {
+          "time": 7.5233,
+          "force": 0.2429,
+          "scale": 0.9937
+        },
+        {
+          "time": 8.4521,
+          "force": 0.3174,
+          "scale": 1.092
+        },
+        {
+          "time": 9.3576,
+          "force": 0.4048,
+          "scale": 0.9984
+        },
+        {
+          "time": 9.8453,
+          "force": 0.2429,
+          "scale": 0.9085
+        },
+        {
+          "time": 10.4258,
+          "force": 0.3404,
+          "scale": 0.9984
+        },
+        {
+          "time": 10.7973,
+          "force": 0.3772,
+          "scale": 1.092
+        },
+        {
+          "time": 11.3081,
+          "force": 0.2263,
+          "scale": 0.9937
+        },
+        {
+          "time": 11.61,
+          "force": 0.3174,
+          "scale": 0.9984
+        },
+        {
+          "time": 12.8639,
+          "force": 0.4048,
+          "scale": 0.9984
+        },
+        {
+          "time": 13.2122,
+          "force": 0.2429,
+          "scale": 0.9085
+        },
+        {
+          "time": 13.7462,
+          "force": 0.3404,
+          "scale": 1.092
+        },
+        {
+          "time": 14.141,
+          "force": 0.3772,
+          "scale": 0.9984
+        },
+        {
+          "time": 14.5589,
+          "force": 0.2263,
+          "scale": 0.9085
+        },
+        {
+          "time": 15.1162,
+          "force": 0.3174,
+          "scale": 0.9984
+        },
+        {
+          "time": 15.9521,
+          "force": 0.4048,
+          "scale": 1.092
+        },
+        {
+          "time": 16.2772,
+          "force": 0.2429,
+          "scale": 0.9937
+        },
+        {
+          "time": 16.6719,
+          "force": 0.3404,
+          "scale": 0.9984
+        },
+        {
+          "time": 17.949,
+          "force": 0.3772,
+          "scale": 0.9984
+        },
+        {
+          "time": 18.3438,
+          "force": 0.2263,
+          "scale": 0.9085
+        },
+        {
+          "time": 18.9707,
+          "force": 0.4545,
+          "scale": 1.0608
+        },
+        {
+          "time": 19.3422,
+          "force": 0.4048,
+          "scale": 0.9984
+        },
+        {
+          "time": 19.8066,
+          "force": 0.2429,
+          "scale": 0.9085
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 72,
+        "longestActiveGapSeconds": 16.994
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Map musical phrases to broad rain gestures: one larger soft impact can mark a phrase entrance, followed by sparse smaller echoes. Do not chase individual notes."
+    },
+    {
+      "id": "27-k-notes",
+      "index": 27,
+      "title": "K-Notes",
+      "duration": 195.989388,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "9770ee72a4c8bda355809ac0d735742b49dad15378efb837521c54d85d4407b2",
+      "measuredOnsets": 716,
+      "authoredCueEntrances": 402,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 412,
+      "musicalAnchorImpacts": 410,
+      "weatherImpacts": 2,
+      "selectedPhraseAnswerEntrances": 10,
+      "measuredPatternEntrances": 389,
+      "selectedAttackFraction": 0.5615,
+      "opening20SecondsImpacts": 23,
+      "opening60SecondsImpacts": 123,
+      "meanImpactsPerSecond": 2.1022,
+      "maximumOneSecondImpacts": 6,
+      "highlightImpacts": 31,
+      "highlightMusicalAnchorImpacts": 31,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 187.4779,
+        "end": 195.9894,
+        "seconds": 8.5115,
+        "meanReferenceEnergy": 0.1147,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 144.5442,
+        "end": 146.5411,
+        "seconds": 1.9969,
+        "meanReferenceEnergy": 0.7804,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 142.3151,
+        "end": 143.7547,
+        "seconds": 1.4396,
+        "meanReferenceEnergy": 0.528,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 187.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 3.8777,
+          "force": 0.5251,
+          "scale": 0.861
+        },
+        {
+          "time": 4.3654,
+          "force": 0.4484,
+          "scale": 0.7872
+        },
+        {
+          "time": 5.8746,
+          "force": 0.4189,
+          "scale": 0.861
+        },
+        {
+          "time": 8.4288,
+          "force": 0.4189,
+          "scale": 0.7872
+        },
+        {
+          "time": 9.3112,
+          "force": 0.4484,
+          "scale": 0.861
+        },
+        {
+          "time": 9.8685,
+          "force": 0.4956,
+          "scale": 0.7872
+        },
+        {
+          "time": 10.7741,
+          "force": 0.4189,
+          "scale": 0.7872
+        },
+        {
+          "time": 11.2617,
+          "force": 0.5251,
+          "scale": 0.861
+        },
+        {
+          "time": 11.7493,
+          "force": 0.4484,
+          "scale": 0.7872
+        },
+        {
+          "time": 13.2586,
+          "force": 0.4189,
+          "scale": 0.861
+        },
+        {
+          "time": 13.7462,
+          "force": 0.5251,
+          "scale": 0.7872
+        },
+        {
+          "time": 14.3964,
+          "force": 0.4484,
+          "scale": 0.7872
+        },
+        {
+          "time": 15.0001,
+          "force": 0.4956,
+          "scale": 0.861
+        },
+        {
+          "time": 15.2323,
+          "force": 0.3321,
+          "scale": 0.7232
+        },
+        {
+          "time": 15.5109,
+          "force": 0.4189,
+          "scale": 0.7872
+        },
+        {
+          "time": 16.1379,
+          "force": 0.5251,
+          "scale": 0.7872
+        },
+        {
+          "time": 16.7184,
+          "force": 0.4484,
+          "scale": 0.861
+        },
+        {
+          "time": 17.3685,
+          "force": 0.4956,
+          "scale": 0.7872
+        },
+        {
+          "time": 17.5311,
+          "force": 0.3321,
+          "scale": 0.6612
+        },
+        {
+          "time": 17.9955,
+          "force": 0.4189,
+          "scale": 0.7872
+        },
+        {
+          "time": 18.4599,
+          "force": 0.5251,
+          "scale": 0.861
+        },
+        {
+          "time": 19.8298,
+          "force": 0.4956,
+          "scale": 0.7872
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 274,
+        "longestActiveGapSeconds": 8.6775
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "One of the clearer high-energy demo candidates. Use compact clusters, quick alternation across the surface, and a few stronger anchors. Keep it playful, not aggressive."
+    },
+    {
+      "id": "28-wildflower-wood",
+      "index": 28,
+      "title": "Wildflower Wood",
+      "duration": 226.64,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "bbb2c0157734755d9a5227afd3cb23536fb005a1aeaced592003bf8702843d9c",
+      "measuredOnsets": 819,
+      "authoredCueEntrances": 342,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 351,
+      "musicalAnchorImpacts": 345,
+      "weatherImpacts": 6,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 327,
+      "selectedAttackFraction": 0.4176,
+      "opening20SecondsImpacts": 24,
+      "opening60SecondsImpacts": 86,
+      "meanImpactsPerSecond": 1.5487,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 24,
+      "highlightMusicalAnchorImpacts": 24,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 219.3589,
+        "end": 226.64,
+        "seconds": 7.2811,
+        "meanReferenceEnergy": 0.0844,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 8.4521,
+        "end": 9.9614,
+        "seconds": 1.5093,
+        "meanReferenceEnergy": 0.6832,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 8.4521,
+        "end": 9.9614,
+        "seconds": 1.5093,
+        "meanReferenceEnergy": 0.6832,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 219.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 0.952,
+          "force": 0.2146,
+          "scale": 0.9975
+        },
+        {
+          "time": 1.8576,
+          "force": 0.1943,
+          "scale": 0.912
+        },
+        {
+          "time": 2.4613,
+          "force": 0.1166,
+          "scale": 0.8299
+        },
+        {
+          "time": 2.7864,
+          "force": 0.2349,
+          "scale": 0.912
+        },
+        {
+          "time": 3.9474,
+          "force": 0.2117,
+          "scale": 0.9975
+        },
+        {
+          "time": 4.5279,
+          "force": 0.2146,
+          "scale": 0.912
+        },
+        {
+          "time": 5.7585,
+          "force": 0.1943,
+          "scale": 0.912
+        },
+        {
+          "time": 6.3623,
+          "force": 0.1166,
+          "scale": 0.8299
+        },
+        {
+          "time": 7.1982,
+          "force": 0.2366,
+          "scale": 0.9975
+        },
+        {
+          "time": 7.8019,
+          "force": 0.2117,
+          "scale": 0.912
+        },
+        {
+          "time": 8.4521,
+          "force": 0.2146,
+          "scale": 0.912
+        },
+        {
+          "time": 9.9614,
+          "force": 0.1943,
+          "scale": 0.9975
+        },
+        {
+          "time": 10.5419,
+          "force": 0.1166,
+          "scale": 0.9077
+        },
+        {
+          "time": 10.8437,
+          "force": 0.2349,
+          "scale": 0.912
+        },
+        {
+          "time": 11.7493,
+          "force": 0.2117,
+          "scale": 0.912
+        },
+        {
+          "time": 12.98,
+          "force": 0.2146,
+          "scale": 0.9975
+        },
+        {
+          "time": 13.8623,
+          "force": 0.1943,
+          "scale": 0.912
+        },
+        {
+          "time": 14.4893,
+          "force": 0.1166,
+          "scale": 0.8299
+        },
+        {
+          "time": 15.3948,
+          "force": 0.2349,
+          "scale": 0.912
+        },
+        {
+          "time": 15.9753,
+          "force": 0.2117,
+          "scale": 0.9975
+        },
+        {
+          "time": 16.8577,
+          "force": 0.2146,
+          "scale": 0.912
+        },
+        {
+          "time": 18.367,
+          "force": 0.1943,
+          "scale": 0.912
+        },
+        {
+          "time": 18.9475,
+          "force": 0.1166,
+          "scale": 0.8299
+        },
+        {
+          "time": 19.5048,
+          "force": 0.2349,
+          "scale": 0.9975
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 79,
+        "longestActiveGapSeconds": 19.8042
+      },
+      "mappedYouTubeValidationStatus": "duration-only",
+      "direction": "Use soft scattered rain with occasional slow clusters. Let spatial placement wander naturally across the surface, like weather moving through a landscape."
+    },
+    {
+      "id": "29-bromine-yamaneko-s-irusu-mix",
+      "index": 29,
+      "title": "Bromine (Yamaneko's Irusu Mix)",
+      "duration": 539.70839,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "55c07b6c1f7e5550b0612e110f5dd7c5610854cf6eb4fa616463a025a4978ff2",
+      "measuredOnsets": 2367,
+      "authoredCueEntrances": 816,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 828,
+      "musicalAnchorImpacts": 823,
+      "weatherImpacts": 5,
+      "selectedPhraseAnswerEntrances": 23,
+      "measuredPatternEntrances": 791,
+      "selectedAttackFraction": 0.3447,
+      "opening20SecondsImpacts": 22,
+      "opening60SecondsImpacts": 79,
+      "meanImpactsPerSecond": 1.5342,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 23,
+      "highlightMusicalAnchorImpacts": 23,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 484.2986,
+        "end": 539.7084,
+        "seconds": 55.4098,
+        "meanReferenceEnergy": 0.0831,
+        "activeReferenceSeconds": 0
+      },
+      "longestActiveGap": {
+        "start": 50.2015,
+        "end": 52.0591,
+        "seconds": 1.8576,
+        "meanReferenceEnergy": 0.2919,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 435.1884,
+        "end": 436.6745,
+        "seconds": 1.4861,
+        "meanReferenceEnergy": 0.5674,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 484.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 5.3174,
+          "force": 0.1943,
+          "scale": 0.7008
+        },
+        {
+          "time": 6.3623,
+          "force": 0.2436,
+          "scale": 0.7665
+        },
+        {
+          "time": 6.8267,
+          "force": 0.2117,
+          "scale": 0.7008
+        },
+        {
+          "time": 7.6394,
+          "force": 0.2233,
+          "scale": 0.7008
+        },
+        {
+          "time": 8.4288,
+          "force": 0.1943,
+          "scale": 0.7665
+        },
+        {
+          "time": 8.8004,
+          "force": 0.1302,
+          "scale": 0.6439
+        },
+        {
+          "time": 8.9861,
+          "force": 0.245,
+          "scale": 0.7081
+        },
+        {
+          "time": 9.7059,
+          "force": 0.2436,
+          "scale": 0.7008
+        },
+        {
+          "time": 10.5883,
+          "force": 0.2117,
+          "scale": 0.7008
+        },
+        {
+          "time": 11.3313,
+          "force": 0.2233,
+          "scale": 0.7665
+        },
+        {
+          "time": 12.6084,
+          "force": 0.1943,
+          "scale": 0.7008
+        },
+        {
+          "time": 12.98,
+          "force": 0.1302,
+          "scale": 0.5887
+        },
+        {
+          "time": 13.2586,
+          "force": 0.2436,
+          "scale": 0.7008
+        },
+        {
+          "time": 14.0481,
+          "force": 0.2117,
+          "scale": 0.7665
+        },
+        {
+          "time": 15.2323,
+          "force": 0.2233,
+          "scale": 0.7008
+        },
+        {
+          "time": 16.1146,
+          "force": 0.1943,
+          "scale": 0.7008
+        },
+        {
+          "time": 16.3468,
+          "force": 0.1302,
+          "scale": 0.5887
+        },
+        {
+          "time": 16.9506,
+          "force": 0.2436,
+          "scale": 0.7665
+        },
+        {
+          "time": 18.0651,
+          "force": 0.2117,
+          "scale": 0.7008
+        },
+        {
+          "time": 18.8314,
+          "force": 0.2233,
+          "scale": 0.7008
+        },
+        {
+          "time": 19.6673,
+          "force": 0.1943,
+          "scale": 0.7665
+        },
+        {
+          "time": 19.9459,
+          "force": 0.1302,
+          "scale": 0.6439
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 146,
+        "longestActiveGapSeconds": 35.2325
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Exploit silence. Let drops arrive in small groups, then disappear completely for short stretches. Use faint background texture only when necessary. The absences are part of the choreography."
+    },
+    {
+      "id": "30-in-memory",
+      "index": 30,
+      "title": "In Memory",
+      "duration": 209.660136,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "1bdbabc5cf9d57942ae041b6515a63ec75743e1ca0aefc6bb6733211539e382f",
+      "measuredOnsets": 995,
+      "authoredCueEntrances": 400,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 414,
+      "musicalAnchorImpacts": 411,
+      "weatherImpacts": 3,
+      "selectedPhraseAnswerEntrances": 11,
+      "measuredPatternEntrances": 387,
+      "selectedAttackFraction": 0.402,
+      "opening20SecondsImpacts": 4,
+      "opening60SecondsImpacts": 69,
+      "meanImpactsPerSecond": 1.9746,
+      "maximumOneSecondImpacts": 7,
+      "highlightImpacts": 40,
+      "highlightMusicalAnchorImpacts": 40,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 0,
+        "end": 15.627,
+        "seconds": 15.627,
+        "meanReferenceEnergy": 0.1632,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 35.3872,
+        "end": 37.3145,
+        "seconds": 1.9273,
+        "meanReferenceEnergy": 0.3875,
+        "activeReferenceSeconds": 2
+      },
+      "longestUnintendedActiveGap": {
+        "start": 190.2643,
+        "end": 191.9594,
+        "seconds": 1.6951,
+        "meanReferenceEnergy": 0.3715,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 203.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 15.627,
+          "force": 0.3933,
+          "scale": 1.008
+        },
+        {
+          "time": 16.6023,
+          "force": 0.5016,
+          "scale": 0.9216
+        },
+        {
+          "time": 16.8345,
+          "force": 0.3361,
+          "scale": 0.7741
+        },
+        {
+          "time": 19.7834,
+          "force": 0.5016,
+          "scale": 0.9216
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 212,
+        "longestActiveGapSeconds": 9.4609
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use medium-weight impacts and shifting cluster sizes. Let transitions change both density and spatial focus so the surface seems to remember earlier disturbances."
+    },
+    {
+      "id": "31-unknown",
+      "index": 31,
+      "title": "Unknown",
+      "duration": 422,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "d2380cd6770b6720473ada58b8539d4d530b9d4bf38bfcfd6b099406ac09363f",
+      "measuredOnsets": 1559,
+      "authoredCueEntrances": 533,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 543,
+      "musicalAnchorImpacts": 539,
+      "weatherImpacts": 4,
+      "selectedPhraseAnswerEntrances": 20,
+      "measuredPatternEntrances": 511,
+      "selectedAttackFraction": 0.3419,
+      "opening20SecondsImpacts": 12,
+      "opening60SecondsImpacts": 53,
+      "meanImpactsPerSecond": 1.2867,
+      "maximumOneSecondImpacts": 4,
+      "highlightImpacts": 18,
+      "highlightMusicalAnchorImpacts": 17,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 398.2222,
+        "end": 422,
+        "seconds": 23.7778,
+        "meanReferenceEnergy": 0.0701,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestActiveGap": {
+        "start": 389.329,
+        "end": 395.0411,
+        "seconds": 5.7121,
+        "meanReferenceEnergy": 0.3083,
+        "activeReferenceSeconds": 3
+      },
+      "longestUnintendedActiveGap": {
+        "start": 389.329,
+        "end": 395.0411,
+        "seconds": 5.7121,
+        "meanReferenceEnergy": 0.3083,
+        "activeReferenceSeconds": 3
+      },
+      "measuredFinalFadeStart": 400,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 3.9706,
+          "force": 0.3285,
+          "scale": 1.155
+        },
+        {
+          "time": 4.8065,
+          "force": 0.3555,
+          "scale": 1.056
+        },
+        {
+          "time": 5.5031,
+          "force": 0.306,
+          "scale": 1.056
+        },
+        {
+          "time": 6.1765,
+          "force": 0.1836,
+          "scale": 0.961
+        },
+        {
+          "time": 10.4954,
+          "force": 0.3802,
+          "scale": 1.144
+        },
+        {
+          "time": 11.0063,
+          "force": 0.3825,
+          "scale": 1.056
+        },
+        {
+          "time": 12.0047,
+          "force": 0.3285,
+          "scale": 1.056
+        },
+        {
+          "time": 13.0032,
+          "force": 0.3555,
+          "scale": 1.155
+        },
+        {
+          "time": 13.6766,
+          "force": 0.306,
+          "scale": 1.056
+        },
+        {
+          "time": 18.2044,
+          "force": 0.306,
+          "scale": 1.056
+        },
+        {
+          "time": 19.319,
+          "force": 0.3825,
+          "scale": 1.155
+        },
+        {
+          "time": 19.9924,
+          "force": 0.3285,
+          "scale": 1.056
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 2,
+        "totalImpacts": 142,
+        "longestActiveGapSeconds": 21.3202
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use broad slow-building rain fields with infrequent stronger impacts. This is more about gradual pressure and release than transient matching."
+    },
+    {
+      "id": "32-da-du-dah-onome-remix-feat-nyron-higor",
+      "index": 32,
+      "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+      "duration": 223.565079,
+      "localRecordingHashVerified": true,
+      "referenceSha256": "f1b9c56f63408291c855fc0b53e34d5fe4b5f58f37866228427721e374c68913",
+      "measuredOnsets": 918,
+      "authoredCueEntrances": 472,
+      "authoredGestureEntrances": 0,
+      "totalImpacts": 479,
+      "musicalAnchorImpacts": 478,
+      "weatherImpacts": 1,
+      "selectedPhraseAnswerEntrances": 13,
+      "measuredPatternEntrances": 456,
+      "selectedAttackFraction": 0.5142,
+      "opening20SecondsImpacts": 36,
+      "opening60SecondsImpacts": 132,
+      "meanImpactsPerSecond": 2.1426,
+      "maximumOneSecondImpacts": 5,
+      "highlightImpacts": 27,
+      "highlightMusicalAnchorImpacts": 27,
+      "maximumCueToMeasuredOnsetSeconds": 0,
+      "longestGap": {
+        "start": 204.8929,
+        "end": 223.5651,
+        "seconds": 18.6722,
+        "meanReferenceEnergy": 0.0282,
+        "activeReferenceSeconds": 0.5
+      },
+      "longestActiveGap": {
+        "start": 47.926,
+        "end": 49.0173,
+        "seconds": 1.0913,
+        "meanReferenceEnergy": 0.5113,
+        "activeReferenceSeconds": 1.5
+      },
+      "longestUnintendedActiveGap": {
+        "start": 47.926,
+        "end": 49.0173,
+        "seconds": 1.0913,
+        "meanReferenceEnergy": 0.5113,
+        "activeReferenceSeconds": 1.5
+      },
+      "measuredFinalFadeStart": 205.5,
+      "impactsDuringMeasuredFinalFade": 0,
+      "openingCues": [
+        {
+          "time": 2.2988,
+          "force": 0.4104,
+          "scale": 1.029
+        },
+        {
+          "time": 2.6239,
+          "force": 0.275,
+          "scale": 0.8644
+        },
+        {
+          "time": 3.3901,
+          "force": 0.4374,
+          "scale": 0.9408
+        },
+        {
+          "time": 4.0171,
+          "force": 0.378,
+          "scale": 0.9408
+        },
+        {
+          "time": 4.4815,
+          "force": 0.2533,
+          "scale": 0.7903
+        },
+        {
+          "time": 4.7833,
+          "force": 0.4698,
+          "scale": 1.029
+        },
+        {
+          "time": 5.1084,
+          "force": 0.4104,
+          "scale": 0.9408
+        },
+        {
+          "time": 5.4102,
+          "force": 0.4769,
+          "scale": 0.9898
+        },
+        {
+          "time": 5.8746,
+          "force": 0.4374,
+          "scale": 0.9408
+        },
+        {
+          "time": 6.9428,
+          "force": 0.378,
+          "scale": 1.029
+        },
+        {
+          "time": 7.2678,
+          "force": 0.2533,
+          "scale": 0.8644
+        },
+        {
+          "time": 7.5697,
+          "force": 0.4698,
+          "scale": 0.9408
+        },
+        {
+          "time": 7.8716,
+          "force": 0.4104,
+          "scale": 0.9408
+        },
+        {
+          "time": 8.336,
+          "force": 0.275,
+          "scale": 0.7903
+        },
+        {
+          "time": 8.9629,
+          "force": 0.4374,
+          "scale": 1.029
+        },
+        {
+          "time": 9.4273,
+          "force": 0.378,
+          "scale": 0.9408
+        },
+        {
+          "time": 9.7292,
+          "force": 0.2533,
+          "scale": 0.7903
+        },
+        {
+          "time": 10.3561,
+          "force": 0.4698,
+          "scale": 0.9408
+        },
+        {
+          "time": 10.8205,
+          "force": 0.4104,
+          "scale": 1.029
+        },
+        {
+          "time": 11.8886,
+          "force": 0.4374,
+          "scale": 0.9408
+        },
+        {
+          "time": 12.2137,
+          "force": 0.378,
+          "scale": 0.9408
+        },
+        {
+          "time": 12.6781,
+          "force": 0.2533,
+          "scale": 0.7903
+        },
+        {
+          "time": 13.2818,
+          "force": 0.4698,
+          "scale": 1.029
+        },
+        {
+          "time": 13.9088,
+          "force": 0.4104,
+          "scale": 0.9408
+        },
+        {
+          "time": 14.3732,
+          "force": 0.275,
+          "scale": 0.7903
+        },
+        {
+          "time": 14.675,
+          "force": 0.4374,
+          "scale": 0.9408
+        },
+        {
+          "time": 15.302,
+          "force": 0.378,
+          "scale": 1.029
+        },
+        {
+          "time": 15.7663,
+          "force": 0.2533,
+          "scale": 0.8644
+        },
+        {
+          "time": 16.8577,
+          "force": 0.4104,
+          "scale": 0.9408
+        },
+        {
+          "time": 17.1595,
+          "force": 0.275,
+          "scale": 0.7903
+        },
+        {
+          "time": 17.6239,
+          "force": 0.4374,
+          "scale": 1.029
+        },
+        {
+          "time": 18.2509,
+          "force": 0.378,
+          "scale": 0.9408
+        },
+        {
+          "time": 18.8546,
+          "force": 0.5167,
+          "scale": 0.9898
+        },
+        {
+          "time": 19.319,
+          "force": 0.4104,
+          "scale": 1.029
+        },
+        {
+          "time": 19.6441,
+          "force": 0.275,
+          "scale": 0.8644
+        }
+      ],
+      "before": {
+        "authoredCueEntrances": 3,
+        "totalImpacts": 185,
+        "longestActiveGapSeconds": 14.2807
+      },
+      "mappedYouTubeValidationStatus": "verified",
+      "direction": "Use loose, human-feeling rhythmic clusters with gentle asymmetry. Keep the choreography warm and flowing; avoid quantizing the rain too tightly."
+    }
+  ]
+}

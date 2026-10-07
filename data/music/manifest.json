@@ -54,11 +54,11 @@
       "source": {
         "video_id": "ScLX_1GnP60",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 257,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "inhale the Mist"
     },
     {
@@ -77,11 +77,11 @@
       "source": {
         "video_id": "lp8EkhoCCnI",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 211,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "fused (DJ-Kicks)"
     },
     {
@@ -102,14 +102,14 @@
         "source_start_seconds": 0,
         "validation_status": "unverified"
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Sun Tickles",
       "alternate_sources": [
         {
           "video_id": "lrAWkOGkpBw",
           "source_start_seconds": 0,
-          "validation_status": "duration-only",
-          "note": "The current playlist uses this Sun Tickles upload (272s). Preserve the supplied primary upload as well; full audio version verification remains pending.",
+          "validation_status": "verified",
+          "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json.",
           "effective_duration_seconds": 272
         }
       ]
@@ -130,11 +130,11 @@
       "source": {
         "video_id": "cadA-49BZl8",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 236,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "by the rain"
     },
     {
@@ -153,11 +153,11 @@
       "source": {
         "video_id": "c9cIQb5x7OA",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 457,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Time to Find Me (AFX Fast Mix)"
     },
     {
@@ -199,11 +199,11 @@
       "source": {
         "video_id": "IwMeQgVCdR4",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 259,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Lusine - Without a Plan"
     },
     {
@@ -222,11 +222,11 @@
       "source": {
         "video_id": "ARJZ2rPuIyU",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 252,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "memory of a memory"
     },
     {
@@ -245,11 +245,11 @@
       "source": {
         "video_id": "nAQ3OAL5g7Q",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 235,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Places Remember Events"
     },
     {
@@ -268,11 +268,11 @@
       "source": {
         "video_id": "syHJjj3w-Vw",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 252,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Sun Arcs (Laraaji Remix)"
     },
     {
@@ -291,11 +291,11 @@
       "source": {
         "video_id": "MCAIoBcV91I",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 134,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Remember"
     },
     {
@@ -314,11 +314,11 @@
       "source": {
         "video_id": "CPedgWtRqBQ",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 231,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Wilson Tanner - Blush"
     },
     {
@@ -337,11 +337,11 @@
       "source": {
         "video_id": "MebRRX-als0",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 209,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Argento - Sabbia Su Sabbia"
     },
     {
@@ -360,11 +360,11 @@
       "source": {
         "video_id": "hZr5uVPocps",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 218,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Slipping Fingers Through Curls"
     },
     {
@@ -383,11 +383,11 @@
       "source": {
         "video_id": "lipZU8lu07M",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 154,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "190304-05"
     },
     {
@@ -406,11 +406,11 @@
       "source": {
         "video_id": "J9a5uO54h-4",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 260,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Gagánbadibá"
     },
     {
@@ -429,11 +429,11 @@
       "source": {
         "video_id": "tiHr1bDEJIw",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 481,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "I"
     },
     {
@@ -452,11 +452,11 @@
       "source": {
         "video_id": "cuzGVxJ-cq4",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 212,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "birch beer forest"
     },
     {
@@ -475,11 +475,11 @@
       "source": {
         "video_id": "ARAbv66v7mQ",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 174,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "An Unopened Letter"
     },
     {
@@ -524,14 +524,14 @@
         "validation_status": "unverified",
         "source_end_seconds": 1101.538866
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Continuum 3",
       "alternate_sources": [
         {
           "video_id": "Gx41vYzyPZo",
           "source_start_seconds": 0,
-          "validation_status": "duration-only",
-          "note": "Standalone Continuum 3 (248s). This ID starts at 0; the supplied album ID retains its 854s offset. Full audio version verification remains pending.",
+          "validation_status": "verified",
+          "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json.",
           "effective_duration_seconds": 248
         }
       ]
@@ -552,11 +552,11 @@
       "source": {
         "video_id": "jGIKgJ9MzfE",
         "source_start_seconds": 0,
-        "validation_status": "mismatch",
+        "validation_status": "verified",
         "effective_duration_seconds": 171,
-        "note": "The supplied Rider — Niko Demus source resolves to DEAR DRIVER — NICO in the playlist metadata. Its authored score is held until this source is corrected or the recording is explicitly verified."
+        "note": "Verified against the supplied 22 - Rider.mp3 across the complete recording at zero offset (waveform correlation 0.999922). The supplied filename/title is mislabeled: the native recording is DEAR DRIVER by NICO, Martin Hallenslev. Original supplied score identity is retained."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified; supplied title mislabeled",
       "expected_version": "Rider"
     },
     {
@@ -575,11 +575,11 @@
       "source": {
         "video_id": "RhePGWq5HV4",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 462,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Lights On the Vibe"
     },
     {
@@ -598,11 +598,11 @@
       "source": {
         "video_id": "nVbFCQWbvCs",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 411,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Heal"
     },
     {
@@ -621,11 +621,11 @@
       "source": {
         "video_id": "FwTN4sb7CGI",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 583,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "The Dance No. 2"
     },
     {
@@ -644,11 +644,11 @@
       "source": {
         "video_id": "PudxQucb3Js",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 203,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "A Future Untold"
     },
     {
@@ -667,11 +667,11 @@
       "source": {
         "video_id": "PkHYFkyfMCs",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 196,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "K-Notes"
     },
     {
@@ -713,11 +713,11 @@
       "source": {
         "video_id": "L70WRWg-ADQ",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 540,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Bromine (Yamaneko's Irusu Mix)"
     },
     {
@@ -736,11 +736,11 @@
       "source": {
         "video_id": "Zk82i2lCi-k",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 210,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "In Memory"
     },
     {
@@ -759,11 +759,11 @@
       "source": {
         "video_id": "Rvr1EsKYQZI",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 422,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Unknown"
     },
     {
@@ -782,11 +782,11 @@
       "source": {
         "video_id": "Hax9dZ5QATE",
         "source_start_seconds": 0,
-        "validation_status": "duration-only",
+        "validation_status": "verified",
         "effective_duration_seconds": 224,
-        "note": "Exact supplied video identity; duration checked against playlist metadata. Full recording equivalence remains unverified."
+        "note": "Complete recording verified acoustically against the supplied reference at zero source offset; see docs/music-source-audio-validation.json."
       },
-      "source_status": "supplied-source-map",
+      "source_status": "current-native-recording-audio-verified",
       "expected_version": "Da Du Dah (Onome Remix) [feat. Nyron Higor]"
     }
   ]

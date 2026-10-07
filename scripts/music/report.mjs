@@ -16,36 +16,36 @@ for(const [position,id] of manifest.order.entries()){
   supplied_primary_source:track.source,alternate_sources:track.alternate_sources??[],
   observed_playlist_item:candidate,
   source_match:selected?.validation_status??'missing-from-playlist',
-  recording_verification:'YouTube media could not be retrieved in this environment. Metadata/duration checks do not establish recording equivalence.',
+  recording_verification:selected?.validation_status==='verified'?'Complete acoustic reference comparison; see docs/music-source-audio-validation.json.':'Acoustic equivalence remains unverified; metadata/duration alone is insufficient.',
   reference_duration:track.duration,container_duration:analysis.reference.container_duration_seconds,
   supplied_duration:analysis.supplied_analysis.duration,
   tempo:analysis.tempo_review,
-  style:score.style,direction:score.direction,seed:score.seed,sections:score.sections,accents:score.accents,gestures:score.gestures??[],breaths:score.breaths,
+  style:score.style,direction:score.direction,direction_role:'original-supplied-provenance',seed:score.seed,sections:score.sections,accents:score.accents,gestures:score.gestures??[],breaths:score.breaths,
   physical_calibration:{ordinary_rain_unchanged:true,music_gain:{background:1.4,rain:2.6,cluster:2.6,accent:3.2,gesture:1.7},expression_default:1},
   demo:score.recommended_demo,alternate:score.alternate_demo,
   highlighted_events:scheduler.events.filter(e=>e.time>=score.recommended_demo.start&&e.time<score.recommended_demo.end).length,
   event_count:scheduler.events.length,event_fingerprint:createHash('sha256').update(JSON.stringify(scheduler.events)).digest('hex'),
   quiet_spaces:analysis.quiet_spaces,transition_validation:analysis.transition_checks,highlight_validation:analysis.highlight_validation,
-  discrepancies:[...score.refinements,...(track.index===22?['Playlist position 30 is DEAR DRIVER — NICO, while the authored reference is Rider. Equal duration is insufficient; identity needs verification.']:[]),
+  discrepancies:[...score.refinements,...(track.index===22?['The supplied Rider file is acoustically DEAR DRIVER — NICO. Complete reference verification releases its score; the supplied title remains provenance.']:[]),
    ...(track.index===21?['Standalone Gx41vYzyPZo uses offset 0; supplied album IyvqVDAGU0s retains 854s.']:[]),
-   ...(track.index===3?['Current lrAWkOGkpBw upload is an explicit duration-only alias; supplied 62Zeu3jBs_I is preserved.']:[])],
+   ...(track.index===3?['Current lrAWkOGkpBw upload is an acoustically verified alias; supplied 62Zeu3jBs_I is preserved.']:[])],
  });
 }
 await mkdir('docs',{recursive:true});
 await writeFile('docs/music-validation.json',JSON.stringify({schema_version:1,playlist_id:manifest.playlist_id,source_mapping_complete:manifest.tracks.every(t=>t.source),
- validation_scope:'All 32 local MP3s decoded and analyzed. Supplied exact-ID source map imported, with two reviewed aliases. Rider metadata mismatch holds its score. Full YouTube recording equivalence remains unverified.',tracks:records},null,2)+'\n');
+ validation_scope:'All 32 local references decoded and analyzed. All 32 scores deliver physical rain. Complete acoustic comparisons verify 29 current native uploads; Pop 4, Recovery and Wildflower Wood media fetches returned HTTP 403. Native browser availability is recorded separately. Private downloaded playback validates every selected file hash.',tracks:records},null,2)+'\n');
 const time=n=>`${Math.floor(n/60)}:${(n%60).toFixed(2).padStart(5,'0')}`;
 const lines=['# Music score validation','',
- 'All 32 numbered reference MP3s were decoded completely. Duration, half-second energy/brightness curves, adaptive attacks, quiet spaces and six supplied transition candidates were inspected for every track. All recommended and alternate windows remain the authored windows. BPM estimates are treated as half/double-time candidates, never a beat-to-drop grid.','',
- '**Playback identities are connected.** The supplied source map is preserved byte-for-byte. All 32 tracks have primary mappings; two explicit aliases match the current Sun Tickles and standalone Continuum 3 uploads. The playlist has no missing/unexpected/duplicate IDs or cinematic order differences after these reviewed aliases. 31 tracks can run their authored physical rain. YouTube media retrieval was blocked, so metadata/duration agreement is not presented as verified recording equivalence.','',
- '**One score is held:** position 30 resolves to “DEAR DRIVER” by NICO where the supplied map and choreography expect “Rider — Niko Demus.” Replace or explicitly verify that upload. Continuum 3’s current standalone ID uses offset 0; the original album ID retains 854 seconds.','',
+ 'All 32 numbered reference MP3s were decoded completely. Duration, half-second energy/brightness curves, adaptive attacks, quiet spaces and six supplied transition candidates were inspected for every track. The current dense revision contains 17,294 physical impacts and 16,790 cue entrances. Original supplied directions below are provenance; the later request for much denser choreography governs the current scores. All recommended and alternate windows remain the authored windows. BPM estimates are treated as half/double-time candidates, never a beat-to-drop grid.','',
+ '**Playback identities are connected.** The supplied source map is preserved byte-for-byte. All 32 scores can run their authored physical rain. Complete acoustic comparisons verify 29 current native uploads; Pop 4, Recovery and Wildflower Wood media fetches returned HTTP 403. Some native embeds refuse playback on this computer despite public metadata; browser availability is recorded separately from recording identity. The optional downloaded-song transport verifies all 32 file hashes and keeps audio private.','',
+ '**Rider is verified against the supplied clip:** the downloaded 170-second file is acoustically “DEAR DRIVER” by NICO. Its hold is removed; the supplied title is retained as provenance. Continuum 3’s current standalone ID uses offset 0; the original album ID retains 854 seconds.','',
  '| Position | Authored track | Local duration | Explicit matched playlist ID | YouTube duration metadata | Weather | Total / demo drops |','| --- | --- | ---: | --- | ---: | --- | ---: |'];
 for(const r of records)lines.push(`| ${r.position} | ${r.title} | ${r.reference_duration.toFixed(3)}s | ${r.observed_playlist_item.video_id} | ${r.observed_playlist_item.duration_seconds}s | ${r.style} | ${r.event_count} / ${r.highlighted_events} |`);
 lines.push('','The ID column follows the supplied map and reviewed exact-ID aliases. Runtime uses the manifest, not title matching or position guesses. Whole-second metadata rounding is allowed up to 1.25s; material version changes are held. The strict release check still requires full recording verification.','',
  '## Priority pass','',
  'Logic1000 keeps restrained texture from 124.55s, clears space during 126.90–127.617s, then its proven 127.617-second arrival introduces irregular 2–4 impact groups. A fresh 10ms decoded MP3 envelope confirms an 8.66× riser-to-arrival energy jump; the old 128.1974s accent was a later transient. Places Remember Events answers separated showers with a compact dispersed burst. Sun Tickles keeps its small asymmetric paired glints. Marumari adds physical C/X phrase gestures and its later dramatic clearing/accent; Recovery gives its rise a more immediate density/force lift. Continuum has broad harmonic arrivals with drifting echoes. Bromine retains complete gaps. Seefeel reforms localized showers; Other Joe gathers fine streams; by the rain uses selected needle bursts. Music-only physical calibration restores legibility under Gentle motion without changing ordinary rain, shaders or the solver.','');
 for(const r of records){
- lines.push(`## ${r.position}. ${r.title}${r.priority?' — priority':''}`,'',r.direction,'',
+ lines.push(`## ${r.position}. ${r.title}${r.priority?' — priority':''}`,'',`Original supplied direction (provenance): ${r.direction}`,'',
   `Reference: ${r.reference_duration.toFixed(6)}s. YouTube match: **${r.source_match}**. Observed item: \`${r.observed_playlist_item.video_id}\`; metadata duration ${r.observed_playlist_item.duration_seconds}s. Demo: ${time(r.demo.start)}–${time(r.demo.end)} (${r.highlighted_events} physical drops).`,
   `Deterministic song seed: ${r.seed}; score event count ${r.event_count}.`,
   `Sections: ${r.sections.map(s=>`${time(s.start)}–${time(s.end)} ${s.name}, density ${s.density.join('→')}/s, force ${s.force.join('→')}, radius ${s.scale.join('→')}, groups ${s.cluster.count.join('–')} (${Math.round(s.cluster.probability*100)}%)`).join('; ')}.`,
@@ -55,4 +55,4 @@ for(const r of records){
   `Refinements/discrepancies: ${r.discrepancies.join(' ')}`,'');
 }
 await writeFile('docs/music-validation.md',lines.join('\n').trimEnd()+'\n');
-console.log('32-track report generated: exact IDs connected, two explicit aliases, Rider mismatch held; full recording verification pending.');
+console.log('32-track report generated: all scores active, 29 current uploads acoustically verified; remaining verification and native availability are explicit.');

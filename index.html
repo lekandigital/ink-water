@@ -173,6 +173,7 @@
         <div class="range-control"><label for="music-expression">Expression <output id="music-expression-value">100%</output></label><input id="music-expression" type="range" min="0.5" max="1.75" step="0.05" value="1"></div>
         <p class="music-diagnostics"><span id="music-score-count">0</span> scheduled · <span id="music-physical-count">0</span> physical impacts</p>
         <p id="music-weather" class="music-weather">Each song has its own authored weather.</p>
+        <div class="music-local"><button id="music-local-open" type="button">Use downloaded songs</button><input id="music-local-files" type="file" accept="audio/mpeg,.mp3" multiple hidden><p id="music-local-state" class="music-status" role="status" aria-live="polite">Files stay on this computer.</p></div>
         <details class="music-selection"><summary>Change playlist</summary>
           <form id="music-playlist-form"><label for="music-playlist-id">YouTube playlist</label><div class="playlist-entry"><input id="music-playlist-id" type="text" placeholder="Playlist URL or ID" autocomplete="off"><button type="submit">Load</button></div></form>
         </details>

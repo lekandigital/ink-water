@@ -20,6 +20,10 @@ for(const track of manifest.tracks){
  assert.deepEqual(score.recommended_demo,direction.recommended_highlight);assert.deepEqual(score.alternate_demo,direction.alternate_highlight);
  assert.equal(analysis.reference.sha256,track.reference_sha256);assert.ok(Math.abs(analysis.reference.duration_seconds-direction.duration_seconds)<.001);
  assert.ok(analysis.timeline.length>track.duration,'Full-track continuous measurements are preserved');
+ const measuredPattern=score.accents.filter(a=>a.note.startsWith('Measured pattern:')),onsetTimes=new Set(analysis.onsets.map(o=>o.time));
+ assert.ok(measuredPattern.length>0,'Every song has recurring authored musical patterns');
+ assert.ok(measuredPattern.every(a=>onsetTimes.has(a.time)),'Every new pattern entrance follows an exact measured note, chord or paired answer');
+ assert.ok(measuredPattern.every(a=>!score.breaths.some(b=>b.amount===0&&a.time>=b.start&&a.time<b.end)),'Additional choreography preserves authored silence and final fades');
  const first=new RainScheduler(score),second=new RainScheduler(structuredClone(score));
  assert.deepEqual(first.events,second.events,'Every event, position, force, scale and physical seed must reproduce');
  assert.ok(first.events.length>4&&first.events.every(e=>Number.isFinite(e.time)&&e.time<score.duration&&e.position.every(v=>Math.abs(v)<=.88)&&e.force>0&&e.force<1.8&&e.scale>.2&&e.scale<1.8));
@@ -37,12 +41,24 @@ for(const track of manifest.tracks){
  assert.deepEqual(scheduler.updateMusicRain(score.duration*.9),[],'Unannounced seek cannot replay a backlog');
 }
 assert.equal(new Set(counts.map(c=>c.signature)).size,32,'No song shares a generic drop program');
-assert.ok(counts.find(c=>c.id.startsWith('09-')).density>counts.find(c=>c.id.startsWith('15-')).density*5);
+const openingSong=new RainScheduler(scores.get('15-190304-05'));
+assert.ok(openingSong.events.filter(event=>event.time<60).length>=70,'The first cinematic song has frequent discernible choreography throughout its first minute');
+assert.ok(openingSong.events.length>=140,'The first cinematic song retains frequent choreography beyond its opening');
+assert.ok(counts.find(c=>c.id.startsWith('09-')).density>counts.find(c=>c.id.startsWith('15-')).density,'The electronic and intimate scores retain distinct song-specific activity');
 const logic=scores.get('02-fused-dj-kicks'),logicRain=new RainScheduler(logic);
 const before=logicRain.events.filter(e=>e.time>=124.55&&e.time<127.617),after=logicRain.events.filter(e=>e.time>=127.617&&e.time<137.05);
+assert.ok(before.length+after.length>=45,'The flagship highlight retains the requested frequent authored choreography');
 assert.equal(logic.accents.find(a=>a.type==='arrival'&&a.time>124&&a.time<130).time,127.617,'Use the proven structural entrance, not its later maximum transient');
+assert.deepEqual(logicRain.events.find(e=>e.kind==='accent'&&e.time===127.617),{
+ time:127.617,force:1.08,scale:1.18,position:[-0.489422087306414,0.13335399364491024],seed:3414604112,kind:'accent'
+},'Additional measured choreography preserves the approved primary arrival timing, position, weight and seed');
 assert.ok(before.length>0,'The quiet flagship opening must contain restrained physical texture');
-assert.ok(after.length>before.length*2&&after.some(e=>e.kind==='cluster')&&after.some(e=>e.kind==='accent'),'Flagship excerpt must visibly acquire structure after its arrival');
+assert.ok(after.length>before.length*2&&after.some(e=>e.kind==='accent'),'Flagship excerpt must visibly acquire structure after its arrival');
+const logicPattern=logic.accents.filter(a=>a.time>=127.617&&a.time<137.05&&a.note.startsWith('Measured pattern:'));
+assert.ok(logicPattern.some(answer=>answer.type==='glint'&&logicPattern.some(principal=>principal.type==='phrase'&&
+ principal.note.split(';')[0]===answer.note.split(';')[0]&&answer.time>principal.time&&answer.time-principal.time<.4&&answer.force<principal.force)),
+ 'The denser flagship uses measured lighter pair answers after its arrival, rather than depending on chance weather clusters');
+assert.ok(after.length/(137.05-127.617)>before.length/(127.617-124.55),'The structural arrival increases impact frequency per second, not just the length of the tested passage');
 const engine=new MusicRainEngine();engine.setScore(logic,124.55);
 engine.updateMusicRain({trackId:logic.track_id,time:124.55,playing:true});
 assert.deepEqual(engine.updateMusicRain({trackId:logic.track_id,time:126,playing:false}),[]);

@@ -23,8 +23,8 @@
       "start": 0,
       "end": 16.0,
       "density": [
-        0.17,
-        0.17
+        0.0204,
+        0.0204
       ],
       "force": [
         0.4655,
@@ -36,7 +36,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -57,15 +57,15 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     },
     {
       "name": "motif: phrase 1",
       "start": 16.0,
       "end": 32.0,
       "density": [
-        0.17,
-        0.28
+        0.0204,
+        0.0336
       ],
       "force": [
         0.4655,
@@ -77,7 +77,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -98,15 +98,15 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     },
     {
       "name": "motif: phrase 2",
       "start": 32.0,
       "end": 52.0,
       "density": [
-        0.28,
-        0.21
+        0.0336,
+        0.0252
       ],
       "force": [
         0.5081,
@@ -118,7 +118,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -139,15 +139,15 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     },
     {
       "name": "motif: phrase 3",
       "start": 52.0,
       "end": 72.0,
       "density": [
-        0.21,
-        0.33
+        0.0252,
+        0.0396
       ],
       "force": [
         0.4823,
@@ -159,7 +159,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -180,15 +180,15 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     },
     {
       "name": "motif: phrase 4",
       "start": 72.0,
       "end": 88.0,
       "density": [
-        0.33,
-        0.38
+        0.0396,
+        0.0456
       ],
       "force": [
         0.5247,
@@ -200,7 +200,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -221,15 +221,15 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     },
     {
       "name": "motif: phrase 5",
       "start": 88.0,
       "end": 116.0,
       "density": [
-        0.38,
-        0.23
+        0.0456,
+        0.0276
       ],
       "force": [
         0.54,
@@ -241,7 +241,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -262,15 +262,15 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     },
     {
       "name": "motif: release",
       "start": 116.0,
       "end": 133.907483,
       "density": [
-        0.23,
-        0.12
+        0.0276,
+        0.0144
       ],
       "force": [
         0.49,
@@ -282,7 +282,7 @@
       ],
       "background": 0.0,
       "cluster": {
-        "probability": 0.31,
+        "probability": 0.1395,
         "count": [
           1,
           2
@@ -303,10 +303,1090 @@
         ]
       },
       "breathing": 0.3,
-      "note": "Recurring cluster gestures move and change spacing without a beat grid."
+      "note": "Recurring cluster gestures move and change spacing without a beat grid. Measured note patterns carry the main surface; incidental weather is held behind them."
     }
   ],
   "accents": [
+    {
+      "time": 0.3251,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1000,
+      "note": "Measured pattern: motif section 1, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 0.7895,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 1001,
+      "note": "Measured pattern: motif section 1, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 1.2539,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1003,
+      "note": "Measured pattern: motif section 1, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 4.4815,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1012,
+      "note": "Measured pattern: motif section 1, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 4.9459,
+      "type": "phrase",
+      "force": 0.4018,
+      "scale": 0.9009,
+      "count": 2,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 5s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 0
+    },
+    {
+      "time": 5.3174,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1015,
+      "note": "Measured pattern: motif section 1, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 7.709,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1021,
+      "note": "Measured pattern: motif section 1, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 8.1502,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 1022,
+      "note": "Measured pattern: motif section 1, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 8.6378,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1024,
+      "note": "Measured pattern: motif section 1, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 9.0093,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 1025,
+      "note": "Measured pattern: motif section 1, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 11.8654,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1033,
+      "note": "Measured pattern: motif section 1, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 12.3298,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 1034,
+      "note": "Measured pattern: motif section 1, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 12.7013,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1036,
+      "note": "Measured pattern: motif section 1, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 15.093,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 1045,
+      "note": "Measured pattern: motif section 1, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 15.5574,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 1046,
+      "note": "Measured pattern: motif section 1, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 16.6023,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11000,
+      "note": "Measured pattern: motif section 2, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 18.8082,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11009,
+      "note": "Measured pattern: motif section 2, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 19.2493,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 11010,
+      "note": "Measured pattern: motif section 2, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 19.7137,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11012,
+      "note": "Measured pattern: motif section 2, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 22.4769,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11021,
+      "note": "Measured pattern: motif section 2, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 22.8949,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 11022,
+      "note": "Measured pattern: motif section 2, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 23.4057,
+      "type": "phrase",
+      "force": 0.4352,
+      "scale": 0.9009,
+      "count": 1,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 24s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 1
+    },
+    {
+      "time": 26.1921,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11036,
+      "note": "Measured pattern: motif section 2, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 27.0977,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11039,
+      "note": "Measured pattern: motif section 2, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 27.446,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11042,
+      "note": "Measured pattern: motif section 2, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 29.8609,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11051,
+      "note": "Measured pattern: motif section 2, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 30.7897,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11054,
+      "note": "Measured pattern: motif section 2, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 31.0683,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 11055,
+      "note": "Measured pattern: motif section 2, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 31.6024,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 11057,
+      "note": "Measured pattern: motif section 2, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 33.5761,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21003,
+      "note": "Measured pattern: motif section 3, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 34.0172,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21004,
+      "note": "Measured pattern: motif section 3, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 34.4816,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21006,
+      "note": "Measured pattern: motif section 3, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 34.8532,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21007,
+      "note": "Measured pattern: motif section 3, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 35.3176,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21009,
+      "note": "Measured pattern: motif section 3, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 36.107,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21012,
+      "note": "Measured pattern: motif section 3, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 37.2448,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21015,
+      "note": "Measured pattern: motif section 3, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 37.686,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21016,
+      "note": "Measured pattern: motif section 3, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 38.1736,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21018,
+      "note": "Measured pattern: motif section 3, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 38.4522,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21019,
+      "note": "Measured pattern: motif section 3, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 39.0095,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21021,
+      "note": "Measured pattern: motif section 3, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 40.4027,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21024,
+      "note": "Measured pattern: motif section 3, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 40.96,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21027,
+      "note": "Measured pattern: motif section 3, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 41.4012,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21028,
+      "note": "Measured pattern: motif section 3, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 41.8656,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21030,
+      "note": "Measured pattern: motif section 3, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 42.2603,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21031,
+      "note": "Measured pattern: motif section 3, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 44.6288,
+      "type": "phrase",
+      "force": 0.385,
+      "scale": 0.9009,
+      "count": 2,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 43s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 2
+    },
+    {
+      "time": 45.0932,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21039,
+      "note": "Measured pattern: motif section 3, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 46.4863,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21045,
+      "note": "Measured pattern: motif section 3, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 47.6706,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21048,
+      "note": "Measured pattern: motif section 3, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 48.3439,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21051,
+      "note": "Measured pattern: motif section 3, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 48.7851,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21052,
+      "note": "Measured pattern: motif section 3, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 49.2495,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21054,
+      "note": "Measured pattern: motif section 3, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 49.5978,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 21055,
+      "note": "Measured pattern: motif section 3, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 50.457,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21057,
+      "note": "Measured pattern: motif section 3, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 51.2929,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 21060,
+      "note": "Measured pattern: motif section 3, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 52.4771,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31000,
+      "note": "Measured pattern: motif section 4, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 52.9415,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31001,
+      "note": "Measured pattern: motif section 4, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 53.1969,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31003,
+      "note": "Measured pattern: motif section 4, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 53.4291,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31004,
+      "note": "Measured pattern: motif section 4, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 54.1489,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31006,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 55.7279,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31015,
+      "note": "Measured pattern: motif section 4, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 56.1691,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31016,
+      "note": "Measured pattern: motif section 4, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 56.6335,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31018,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 57.6087,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31021,
+      "note": "Measured pattern: motif section 4, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 58.1892,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31024,
+      "note": "Measured pattern: motif section 4, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 58.3982,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31025,
+      "note": "Measured pattern: motif section 4, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 59.3966,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31030,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 60.3254,
+      "type": "phrase",
+      "force": 0.4185,
+      "scale": 0.9009,
+      "count": 3,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 61s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 3
+    },
+    {
+      "time": 60.6273,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31033,
+      "note": "Measured pattern: motif section 4, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 60.8827,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31036,
+      "note": "Measured pattern: motif section 4, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 61.2542,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31037,
+      "note": "Measured pattern: motif section 4, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 62.4385,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31042,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 63.1351,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31045,
+      "note": "Measured pattern: motif section 4, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 64.0174,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31048,
+      "note": "Measured pattern: motif section 4, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 64.3193,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31049,
+      "note": "Measured pattern: motif section 4, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 64.6211,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31051,
+      "note": "Measured pattern: motif section 4, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 64.923,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31052,
+      "note": "Measured pattern: motif section 4, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 65.4106,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31054,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 66.1537,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31057,
+      "note": "Measured pattern: motif section 4, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 66.8038,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31060,
+      "note": "Measured pattern: motif section 4, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 67.1521,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31061,
+      "note": "Measured pattern: motif section 4, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 67.7094,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31063,
+      "note": "Measured pattern: motif section 4, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 67.988,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31064,
+      "note": "Measured pattern: motif section 4, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 68.2899,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31066,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 69.1258,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31069,
+      "note": "Measured pattern: motif section 4, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 69.7295,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31072,
+      "note": "Measured pattern: motif section 4, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 70.1243,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31073,
+      "note": "Measured pattern: motif section 4, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 70.519,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31075,
+      "note": "Measured pattern: motif section 4, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 70.7048,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 31076,
+      "note": "Measured pattern: motif section 4, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 71.0298,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 31078,
+      "note": "Measured pattern: motif section 4, refrain cell 3; selected exact note attack, principal mark."
+    },
     {
       "time": 71.7264,
       "type": "arrival",
@@ -316,7 +1396,272 @@
       "spacing": 0.25,
       "anticipation": 0.65,
       "quiet": 0.72,
-      "note": "Selected phrase arrival near 72s; measured attack, not every transient."
+      "note": "Selected phrase arrival near 72s; measured attack, not every transient.",
+      "random_index": 4
+    },
+    {
+      "time": 72.3998,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41000,
+      "note": "Measured pattern: motif section 5, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 72.6552,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41001,
+      "note": "Measured pattern: motif section 5, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 73.3054,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41003,
+      "note": "Measured pattern: motif section 5, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 74.1645,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41009,
+      "note": "Measured pattern: motif section 5, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 74.6289,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41010,
+      "note": "Measured pattern: motif section 5, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 75.0933,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41012,
+      "note": "Measured pattern: motif section 5, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 75.372,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41013,
+      "note": "Measured pattern: motif section 5, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 75.6506,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41015,
+      "note": "Measured pattern: motif section 5, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 77.8797,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41024,
+      "note": "Measured pattern: motif section 5, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 78.3209,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41025,
+      "note": "Measured pattern: motif section 5, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 78.7853,
+      "type": "phrase",
+      "force": 0.4018,
+      "scale": 0.9009,
+      "count": 2,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 79s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 5
+    },
+    {
+      "time": 79.1336,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41030,
+      "note": "Measured pattern: motif section 5, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 81.8271,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41042,
+      "note": "Measured pattern: motif section 5, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 82.4773,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41045,
+      "note": "Measured pattern: motif section 5, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 82.6398,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41046,
+      "note": "Measured pattern: motif section 5, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 85.2637,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41057,
+      "note": "Measured pattern: motif section 5, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 85.7049,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41058,
+      "note": "Measured pattern: motif section 5, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 85.9603,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41060,
+      "note": "Measured pattern: motif section 5, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 86.1693,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 41061,
+      "note": "Measured pattern: motif section 5, refrain cell 1; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 86.7265,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41063,
+      "note": "Measured pattern: motif section 5, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 87.307,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41066,
+      "note": "Measured pattern: motif section 5, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 87.7946,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 41069,
+      "note": "Measured pattern: motif section 5, refrain cell 4; selected exact note attack, principal mark."
     },
     {
       "time": 88.0036,
@@ -327,58 +1672,885 @@
       "spacing": 0.25,
       "anticipation": 0.65,
       "quiet": 0.72,
-      "note": "Selected phrase arrival near 88s; measured attack, not every transient."
+      "note": "Selected phrase arrival near 88s; measured attack, not every transient.",
+      "random_index": 6
+    },
+    {
+      "time": 88.9324,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51000,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 89.3968,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51003,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 89.838,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51006,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 90.0238,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51007,
+      "note": "Measured pattern: motif section 6, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 90.7668,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51009,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 91.1383,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51010,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 92.0207,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51012,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 92.6244,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51015,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 93.5532,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51018,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 93.9015,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51019,
+      "note": "Measured pattern: motif section 6, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 94.2498,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51021,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 94.6213,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51022,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 95.4108,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51024,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 96.3164,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51027,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 96.7808,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51030,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 97.222,
+      "type": "phrase",
+      "force": 0.4352,
+      "scale": 0.9009,
+      "count": 1,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 98s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 7
+    },
+    {
+      "time": 97.9185,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51033,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 98.1507,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51034,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 98.6616,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51036,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 99.4046,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51039,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 100.0083,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51042,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 100.1709,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51043,
+      "note": "Measured pattern: motif section 6, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 100.9139,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51045,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 101.0765,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51046,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 102.1678,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51048,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 102.7947,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51051,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 103.7003,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51054,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 104.1647,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51055,
+      "note": "Measured pattern: motif section 6, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 104.6059,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51057,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 104.931,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51058,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 105.5347,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51060,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 106.1152,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51063,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 106.8582,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51066,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 107.3923,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51069,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 107.8567,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51070,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 108.3211,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51072,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 109.2267,
+      "type": "phrase",
+      "force": 0.385,
+      "scale": 0.9009,
+      "count": 2,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 109s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 8
+    },
+    {
+      "time": 109.6214,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51075,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 110.1787,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51078,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 110.5966,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51079,
+      "note": "Measured pattern: motif section 6, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 111.0843,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51081,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 111.3629,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51082,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 111.9898,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51084,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 112.9186,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51087,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 113.2205,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51090,
+      "note": "Measured pattern: motif section 6, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 113.6385,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51091,
+      "note": "Measured pattern: motif section 6, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 114.2654,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51093,
+      "note": "Measured pattern: motif section 6, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 114.5673,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 51094,
+      "note": "Measured pattern: motif section 6, refrain cell 4; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 115.3335,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51096,
+      "note": "Measured pattern: motif section 6, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 115.914,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 51099,
+      "note": "Measured pattern: motif section 6, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 116.6106,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61000,
+      "note": "Measured pattern: motif section 7, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 117.5162,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61003,
+      "note": "Measured pattern: motif section 7, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 117.7252,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 61004,
+      "note": "Measured pattern: motif section 7, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 118.4682,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61006,
+      "note": "Measured pattern: motif section 7, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 118.9326,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 61007,
+      "note": "Measured pattern: motif section 7, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 119.3738,
+      "type": "phrase",
+      "force": 0.306,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61009,
+      "note": "Measured pattern: motif section 7, refrain cell 4; selected exact note attack, principal mark."
+    },
+    {
+      "time": 120.767,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61012,
+      "note": "Measured pattern: motif section 7, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 122.1602,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61015,
+      "note": "Measured pattern: motif section 7, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 122.6246,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 61016,
+      "note": "Measured pattern: motif section 7, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 123.089,
+      "type": "phrase",
+      "force": 0.4185,
+      "scale": 0.9009,
+      "count": 3,
+      "spacing": 0.29,
+      "anticipation": 0.25,
+      "quiet": 0.38,
+      "note": "Selected motif answer near 124s, anchored to a measured attack; surrounding weather stays unquantized.",
+      "random_index": 9
+    },
+    {
+      "time": 123.4837,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61018,
+      "note": "Measured pattern: motif section 7, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 126.7577,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61027,
+      "note": "Measured pattern: motif section 7, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 127.0828,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.8026,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 61028,
+      "note": "Measured pattern: motif section 7, refrain cell 2; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 127.6865,
+      "type": "phrase",
+      "force": 0.3735,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61030,
+      "note": "Measured pattern: motif section 7, refrain cell 3; selected exact note attack, principal mark."
+    },
+    {
+      "time": 127.9652,
+      "type": "glint",
+      "force": 0.2502,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 61031,
+      "note": "Measured pattern: motif section 7, refrain cell 3; exact measured pair answer, lighter than its principal mark."
+    },
+    {
+      "time": 129.5906,
+      "type": "phrase",
+      "force": 0.396,
+      "scale": 0.9555,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61036,
+      "note": "Measured pattern: motif section 7, refrain cell 1; selected exact note attack, principal mark."
+    },
+    {
+      "time": 130.4497,
+      "type": "phrase",
+      "force": 0.3375,
+      "scale": 0.8736,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0.09,
+      "quiet": 0.28,
+      "random_index": 61039,
+      "note": "Measured pattern: motif section 7, refrain cell 2; selected exact note attack, principal mark."
+    },
+    {
+      "time": 130.7283,
+      "type": "glint",
+      "force": 0.2261,
+      "scale": 0.7338,
+      "count": 1,
+      "spacing": 0,
+      "anticipation": 0,
+      "quiet": 0.16,
+      "random_index": 61040,
+      "note": "Measured pattern: motif section 7, refrain cell 2; exact measured pair answer, lighter than its principal mark."
     }
   ],
   "gestures": [],
   "breaths": [
     {
       "start": 10.72,
-      "end": 11.92,
+      "end": 11.62,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
     },
     {
       "start": 23.52,
-      "end": 24.72,
+      "end": 24.42,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
     },
     {
       "start": 45.4,
-      "end": 46.6,
+      "end": 46.3,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
     },
     {
       "start": 61.4,
-      "end": 62.6,
+      "end": 62.3,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
     },
     {
       "start": 82.72,
-      "end": 83.92,
+      "end": 83.62,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
     },
     {
       "start": 101.16,
-      "end": 102.672,
+      "end": 102.06,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
     },
     {
       "start": 127.998,
-      "end": 129.198,
+      "end": 128.898,
       "amount": 0,
-      "note": "Authored room for decay and interference."
+      "note": "A short authored phrase breath leaves room for ring decay before the next measured notes."
+    },
+    {
+      "start": 131.0,
+      "end": 133.907483,
+      "amount": 0,
+      "note": "Measured final fade: let the remaining rings decay without new impacts."
     }
   ],
   "refinements": [
-    "Duration uses decoded reference samples; supplied highlight is unchanged.",
+    "Duration uses decoded reference samples; supplied highlight window is retained.",
     "Selected arrivals use independently measured attacks; density remains authored.",
-    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion."
+    "Section force follows the authored pressure/release arc; music-only impulse calibration makes it legible with Gentle motion.",
+    "The current frequency revision follows the user’s request for much denser discernible choreography; original sparse direction remains recording provenance, while exact measured note patterns now lead the surface.",
+    "8 additional song-specific phrase answers use selected measured attacks, with authored force/count and no beat grid; explicit zero breathing spaces remain open.",
+    "172 dense measured note marks (118 principal entrances) follow authored section rates and recurring motif refrain cells; exact measured lighter answers and short phrase breaths replace the sparse surface. Incidental weather is subordinate to this choreography.",
+    "The measured final fade at 131s releases into ring decay rather than continuing chance rain through silence."
   ],
   "provenance": {
     "choreography": "source/ink-water-32-track-choreography.json#tracks/10",

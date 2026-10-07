@@ -2,7 +2,7 @@ export type Pair=[number,number];
 export type RainSection={name:string;start:number;end:number;density:Pair;force:Pair;scale:Pair;background:number;
   cluster:{probability:number;count:Pair;spacing:Pair;radius:number};
   spatial:{language:string;spread:number;wander:number;focus:Pair};breathing:number;note:string};
-export type RainAccent={time:number;type:string;force:number;scale:number;count:number;spacing:number;anticipation:number;quiet:number;note:string};
+export type RainAccent={time:number;type:string;force:number;scale:number;count:number;spacing:number;anticipation:number;quiet:number;note:string;random_index?:number};
 export type RainGesture={time:number;path:'c'|'x'|'/';force:number;scale:number;spread:number;note:string};
 export type RainScore={schema_version:1|2;track_id:string;seed:number;title:string;artist:string;duration:number;style:string;direction:string;
   recommended_demo:{start:number;end:number};alternate_demo:{start:number;end:number}|null;
@@ -14,7 +14,7 @@ export type MusicTrack={id:string;index:number;title:string;artist:string;durati
 export type MusicManifest={schema_version:1;title:string;preferred_tone:'green-light';playlist_id:string|null;order:string[];tracks:MusicTrack[]};
 export type MusicRainDrop={time:number;force:number;scale:number;position:Pair;seed:number;kind:'rain'|'cluster'|'accent'|'background'|'gesture'};
 export type PlaybackSample={trackId:string;time:number;playing:boolean;seeking?:boolean};
-export interface MusicRainClock{readonly enabled:boolean;readonly expression?:number;updateMusicRain():MusicRainDrop[];setSimulationPaused(paused:boolean):void;rebase():void;}
+export interface MusicRainClock{readonly enabled:boolean;readonly expression?:number;readonly backgroundRainAllowed?:boolean;updateMusicRain():MusicRainDrop[];setSimulationPaused(paused:boolean):void;rebase():void;}
 export const finite=(n:unknown):n is number=>typeof n==='number'&&Number.isFinite(n);
 export const clamp=(n:number,a:number,b:number)=>Math.max(a,Math.min(b,n));
 export const playbackSources=(track:MusicTrack)=>track.source?[track.source,...(track.alternate_sources??[])]:[];
@@ -38,6 +38,7 @@ export function validateScore(score:RainScore){
   check(end===score.duration,'The score must include the complete recording.');
   let previous=-1;
   for(const a of score.accents){
+    check(a.random_index===undefined||(Number.isSafeInteger(a.random_index)&&a.random_index>=0),'Invalid accent random identity.');
     check(range(a.time,0,score.duration)&&a.time>=previous&&range(a.force,0,1.6)&&range(a.scale,.2,1.8)&&Number.isInteger(a.count)&&range(a.count,1,4)&&range(a.spacing,0,2)&&range(a.anticipation,0,3)&&range(a.quiet,0,1),'Invalid authored accent.');previous=a.time;
   }
   for(const b of score.breaths)check(range(b.start,0,score.duration)&&range(b.end,b.start,score.duration)&&b.end>b.start&&range(b.amount,0,1),'Invalid authored breathing space.');

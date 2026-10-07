@@ -285,7 +285,7 @@ class Puddle {
           }
         }
         // Preserve the restored rain clock, random sample order and force distribution.
-        if(!this.musicRain?.enabled&&this.state.rain&&now>this.clearRainUntil){
+        if((!this.musicRain?.enabled||this.musicRain.backgroundRainAllowed)&&this.state.rain&&now>this.clearRainUntil){
           this.rainAccumulator+=TICK*this.state.rainRate;
           if(this.rainAccumulator>=1){
             this.rainAccumulator-=1;
@@ -306,7 +306,10 @@ class Puddle {
   // Ordinary and musical rain share the original impulse distribution and both
   // original solver routes. Music supplies scheduling and reproducible placement.
   private emitRain(event?:MusicRainDrop){
-    const motion=this.motion,random=event?seededRandom(event.seed):Math.random;
+    // Authored cues already carry their own dynamic envelope. Keep them audible
+    // to the eye at the default setting while Gentle motion still softens touch
+    // and ordinary rain. The selected force and ripple scale still apply.
+    const motion=event?effectiveMotion({...this.state,gentleMotion:false}):this.motion,random=event?seededRandom(event.seed):Math.random;
     let point:THREE.Vector2;
     if(event){
       const rect=$('stage').getBoundingClientRect(),aspect=rect.width/Math.max(1,rect.height);
@@ -443,7 +446,7 @@ async function start(){
   // Capture stays opt-in; normal page clocks and randomness are untouched.
   const capture=captureOptions(location.search),clock=capture?new CaptureClock(capture):undefined;
   const controls=new WaterControls();
-  const music=new PlaylistMusic({publish:state=>controls.publish(state)},!!clock);
+  const music=new PlaylistMusic({publish:state=>controls.publish(state),playbackChange:playing=>controls.setMusicPlaying(playing)},!!clock);
   // Pause belongs to controls/playback, even while graphics are initializing.
   controls.onPauseChange=paused=>music.setSimulationPaused(paused);
   try{

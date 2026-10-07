@@ -1,13 +1,14 @@
 import {MusicRainEngine} from './MusicRainEngine';
 import {PlaybackClock} from './PlaybackClock';
 import {PlaylistSession} from './PlaylistSession';
+import {LocalReferencePlayback,type LocalReferenceSample} from './LocalReferencePlayback';
 import {loadYouTubeAPI,YouTubePlayback,type YouTubeSnapshot} from './YouTubePlayback';
-import {clamp,parsePlaylistId,validateManifest,validatePlaylist,playbackSources,type MusicManifest,type MusicRainClock,type MusicTrack,type RainScore} from './MusicScore';
+import {clamp,parsePlaylistId,validateManifest,validatePlaylist,playbackSources,type MusicManifest,type MusicRainClock,type MusicRainDrop,type MusicTrack,type RainScore} from './MusicScore';
 
 const $=<T extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as T;
 const label=(seconds:number)=>{const n=Math.max(0,Math.floor(seconds));return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`;};
-type Hooks={publish:(state:Record<string,unknown>)=>void};
-type Transport='none'|'youtube'|'capture';
+type Hooks={publish:(state:Record<string,unknown>)=>void;playbackChange?:(playing:boolean)=>void};
+type Transport='none'|'youtube'|'local'|'capture';
 
 /** UI/player adapter. Only MusicRainEngine and playback time choose drops.
  * This module never imports Water, Three.js, shaders, normals or caustics.
@@ -50,6 +51,17 @@ export class PlaylistMusic implements MusicRainClock{
   private referencePlaying=false;
   private impactExpression=1;
   private pendingSeek?:{sourceTime:number;scoreTime:number;requestedAt:number};
+  private terminalDrops:MusicRainDrop[]=[];
+  private local=new LocalReferencePlayback(sample=>this.localSample(sample),error=>{
+    this.localPlayIntent=false;this.syncPlaybackButton();this.syncRainNotice(true);this.status(error.message);
+  });
+  private localPlayIntent=false;
+  private localSeeking=false;
+  private localWasPlaying=false;
+  private localSelecting=false;
+  private localChoice=0;
+  private localLoadChoice=0;
+  private localLoadPlayIntent?:boolean;
 
   constructor(private hooks:Hooks,readonly captureMode=false){
     $('music-open').addEventListener('click',()=>{if(this.active)this.setExpanded(!this.expanded);else void this.play();});
@@ -68,9 +80,14 @@ export class PlaylistMusic implements MusicRainClock{
       this.impactExpression=clamp(Number($<HTMLInputElement>('music-expression').value),.5,1.75);
       $('music-expression-value').textContent=Math.round(this.impactExpression*100)+'%';
     });
-    $('music-sync').addEventListener('click',()=>{this.syncRain=!this.syncRain;this.rebase();this.sync();});
+    $('music-sync').addEventListener('click',()=>{this.terminalDrops=[];this.syncRain=!this.syncRain;this.rebase();this.sync();});
     $('music-track').addEventListener('change',()=>{void this.select($<HTMLSelectElement>('music-track').value,this.transportPlaying()).catch(error=>this.status(error.message));});
     $('music-playlist-form').addEventListener('submit',event=>{event.preventDefault();void this.loadPlaylist($<HTMLInputElement>('music-playlist-id').value);});
+    $('music-local-open').addEventListener('click',()=>$<HTMLInputElement>('music-local-files').click());
+    $('music-local-files').addEventListener('change',()=>{
+      const input=$<HTMLInputElement>('music-local-files'),files=Array.from(input.files??[]);input.value='';
+      if(files.length)void this.useDownloadedFiles(files);
+    });
     $('reset-defaults').addEventListener('click',()=>{this.impactExpression=1;$<HTMLInputElement>('music-expression').value='1';$('music-expression-value').textContent='100%';this.close();});
     document.addEventListener('visibilitychange',()=>{this.rebase();});
     if(captureMode)this.exposeCapture();
@@ -78,6 +95,7 @@ export class PlaylistMusic implements MusicRainClock{
   }
 
   get enabled(){return this.active&&this.syncRain&&this.transport!=='none';}
+  get backgroundRainAllowed(){return !this.transportPlaying();}
   get expression(){return this.impactExpression;}
   private status(message:string){$('music-status').textContent=message;}
   private async json<T>(path:string){const response=await fetch(new URL('music/'+path,document.baseURI));if(!response.ok)throw new Error('Music score could not load.');return response.json() as Promise<T>;}
@@ -100,9 +118,12 @@ export class PlaylistMusic implements MusicRainClock{
     const playing=this.transportPlaying();$('music-play').textContent=playing?'Pause':'Play';
     $('music-play').setAttribute('aria-label',playing?'Pause music':'Play playlist');
   }
-  private syncRainNotice(){
+  private syncRainNotice(playbackStopped=false){
+    // Use the transport, including buffering/unmapped audio, rather than score
+    // readiness. Track changes retain this state until YouTube acknowledges them.
+    if(playbackStopped||this.pendingNativeIndex===undefined)this.hooks.playbackChange?.(this.transportPlaying());
     const notice=$('music-rain-state');notice.hidden=this.transport==='none';
-    const ready=!!this.engine.scheduler&&(this.transport==='capture'||this.matchedVideo)&&!this.sourceMismatch;
+    const ready=!!this.engine.scheduler&&(this.transport==='capture'||this.transport==='local'||this.matchedVideo)&&!this.sourceMismatch;
     notice.textContent=!this.syncRain?'Sync off':this.sourceMismatch?'Source mismatch':this.pendingSeek?'Seeking…':
       this.transport==='youtube'&&this.snapshot&&!this.matchedVideo?'Unmapped':
       !ready?'Loading rain…':this.snapshot?.state===3?'Buffering':this.isPlaying()?'Rain synced':'Rain paused';
@@ -115,6 +136,10 @@ export class PlaylistMusic implements MusicRainClock{
     }catch(error){if(this.active)this.status(error instanceof Error?error.message:'Music could not load.');}
   }
   close(){
+    this.terminalDrops=[];
+    this.local.close();this.localPlayIntent=false;this.localSeeking=false;this.localWasPlaying=false;
+    ++this.localChoice;this.localSelecting=false;$('music-local-state').textContent='Files stay on this computer.';
+    ++this.localLoadChoice;this.localLoadPlayIntent=undefined;
     ++this.opening;++this.revision;++this.connectionRevision;this.active=false;this.expanded=false;this.transport='none';this.pendingTrack=undefined;this.snapshot=undefined;
     this.engine.clearScore();this.player?.destroy();this.player=undefined;this.validatingPlaylist=null;this.sourceMismatch=false;this.matchedVideo=false;
     this.pendingNativeIndex=undefined;this.nativeVideos=[];this.nativeIndex=0;this.unavailableVideos.clear();this.pendingPause=false;this.pendingOffset=false;
@@ -140,7 +165,12 @@ export class PlaylistMusic implements MusicRainClock{
       if(!this.active)await this.open();const opening=this.opening,manifest=await this.assets();
       if(!this.active||opening!==this.opening)return;
       if(this.simulationPaused){this.status('Water paused — resume the water to play.');return;}
-      if(this.transport==='capture'){this.referenceWall=performance.now();this.referencePlaying=true;this.rebase();this.syncPlaybackButton();return;}
+      if(this.localLoadPlayIntent!==undefined)this.localLoadPlayIntent=true;
+      if(this.transport==='local'){
+        if(this.session!.ended){await this.select(this.session!.tracks[0].id,true);return;}
+        this.localPlayIntent=true;await this.local.play();this.syncPlaybackButton();this.syncRainNotice();return;
+      }
+      if(this.transport==='capture'){this.referenceWall=performance.now();this.referencePlaying=true;this.rebase();this.syncPlaybackButton();this.syncRainNotice();return;}
       if(this.captureMode)throw new Error('Capture mode uses the reference clock. Use a normal page URL for YouTube playback.');
       if(!this.player){this.initialPlay=true;await this.createYouTube(manifest.playlist_id);}
       else if(!this.player.isReady){this.initialPlay=true;this.status('Connecting to YouTube…');}
@@ -158,13 +188,17 @@ export class PlaylistMusic implements MusicRainClock{
         if(playlistId){this.validatingPlaylist=playlistId;this.player.loadPlaylistId(playlistId);this.status('Checking playlist video IDs…');}
         else this.status('Enter the YouTube playlist ID to begin.');
       },sample:snapshot=>this.youTubeSample(snapshot),error:code=>this.youTubeError(code),
-      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.syncRainNotice();this.status('Playback was blocked. Press play in the visible YouTube player.');},
+      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.syncRainNotice(true);this.status('Playback was blocked. Press play in the visible YouTube player.');},
     });
   }
   async loadPlaylist(value:string){
+    this.terminalDrops=[];
     try{const id=parsePlaylistId(value);if(!id)throw new Error('Enter your YouTube playlist.');
       if(this.captureMode)throw new Error('Use a normal page URL for YouTube playback.');
       const opening=this.opening;await this.assets();if(!this.active||opening!==this.opening)return;
+      ++this.localChoice;this.local.close();this.localPlayIntent=false;this.localSeeking=false;
+      ++this.localLoadChoice;this.localLoadPlayIntent=undefined;
+      this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);this.endTimer=undefined;
       this.player?.destroy();this.player=undefined;this.initialPlay=false;
       ++this.revision;this.pendingTrack=undefined;this.pendingNativeIndex=undefined;this.snapshot=undefined;this.clock.reset();
       this.nativeVideos=[];this.nativeIndex=0;this.unavailableVideos.clear();this.pendingSeek=undefined;this.matchedVideo=false;this.engine.clearScore();await this.createYouTube(id);
@@ -202,8 +236,26 @@ export class PlaylistMusic implements MusicRainClock{
       if(snapshot.index!==this.pendingNativeIndex||snapshot.videoId!==this.nativeVideos[this.pendingNativeIndex])return;
       this.pendingNativeIndex=undefined;
     }
+    const videos=snapshot.playlist.length?snapshot.playlist:this.nativeVideos;
+    // YouTube caches identity and queue index independently. Do not treat an
+    // old video's ending timestamp as the newly advanced queue item's ending.
+    if(videos[snapshot.index]&&snapshot.videoId!==videos[snapshot.index])return;
     this.nativeIndex=snapshot.index;this.nativeVideos=snapshot.playlist.length?snapshot.playlist:this.nativeVideos;
     const track=this.session.identify(snapshot.videoId,-1);
+    // Native playlist advancement may deliver the next identity without a final
+    // sample for the old video. Its projected master clock must have reached
+    // the old boundary; an earlier native Next action must not invent tail rain.
+    if(track?.id!==this.session.current.id&&this.enabled&&this.isPlaying()&&!this.pendingTrack&&
+      this.session.atEnd(this.clock.time(performance.now(),this.rate))){
+      this.terminalDrops.push(...this.engine.updateMusicRain({trackId:this.session.current.id,time:this.session.current.duration,playing:true}));
+    }
+    // The ending sample can arrive before the next animation frame. Drain only
+    // the final live interval while the old playing state and score still exist.
+    // The scheduler's .5s guard continues to reject seeks and disconnected jumps.
+    if(track?.id===this.session.current.id&&this.enabled&&this.isPlaying()&&!this.pendingTrack&&
+      (snapshot.state===0||snapshot.state===1)&&this.session.atEnd(snapshot.time)){
+      this.terminalDrops.push(...this.engine.updateMusicRain({trackId:track.id,time:track.duration,playing:true}));
+    }
     this.snapshot=snapshot;this.rate=snapshot.rate;this.matchedVideo=!!track;this.syncPlaybackButton();this.syncRainNotice();
     if(!track){if(snapshot.videoId){
       ++this.revision;this.pendingTrack=undefined;this.engine.clearScore();
@@ -248,7 +300,7 @@ export class PlaylistMusic implements MusicRainClock{
     if(this.simulationPaused&&(snapshot.state===1||snapshot.state===3)){this.player!.port.pauseVideo();return;}
     if(snapshot.state===0){this.scheduleEnded(track.id);return;}
     if(this.awaitingEnd&&this.awaitingEnd!==track.id){this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);}
-    if(snapshot.state===1&&this.session.atEnd(snapshot.time)){void this.next(true);return;}
+    if(snapshot.state===1&&this.session.atEnd(snapshot.time)){void this.next(true,true);return;}
     if(!this.sourceMismatch)this.status(snapshot.state===1?'Playing':snapshot.state===3?'Buffering — rain holds':snapshot.state===2?'Paused':'Ready — press play');
     this.syncRainNotice();this.progress();
   }
@@ -256,7 +308,7 @@ export class PlaylistMusic implements MusicRainClock{
     if(this.awaitingEnd===trackId)return;this.awaitingEnd=trackId;
     // Let native playlist advancement settle before advancing manually. Never
     // double-skip when YouTube already changed the item.
-    this.endTimer=window.setTimeout(()=>{if(this.active&&this.awaitingEnd===trackId&&this.session?.current.id===trackId){this.awaitingEnd=undefined;void this.next(true);}},350);
+    this.endTimer=window.setTimeout(()=>{if(this.active&&this.awaitingEnd===trackId&&this.session?.current.id===trackId){this.awaitingEnd=undefined;void this.next(true,true);}},350);
   }
   private youTubeError(code:number){
     this.pendingSeek=undefined;
@@ -279,10 +331,23 @@ export class PlaylistMusic implements MusicRainClock{
       this.engine.setScore(score,this.pendingTrack===track.id?time:this.currentTime());this.pendingTrack=undefined;this.rebase();this.syncRainNotice();this.progress();
     }catch(error){if(revision===this.revision){this.pendingTrack=undefined;this.status(error instanceof Error?error.message:'Score could not load.');}}
   }
-  async select(id:string,play:boolean){
+  async select(id:string,play:boolean,preserveTerminal=false){
+    if(!preserveTerminal)this.terminalDrops=[];
     await this.assets();if(!this.active)return;
     const index=this.session!.tracks.findIndex(t=>t.id===id);if(index<0)throw new Error('Unknown track.');
     const target=this.session!.tracks[index];
+    if(this.transport==='local'){
+      const choice=++this.localChoice;
+      this.localPlayIntent=play&&!this.simulationPaused;this.localSeeking=false;this.localWasPlaying=false;this.sourceMismatch=false;
+      this.localSelecting=true;
+      try{
+        await this.activateScore(target,0);
+        if(choice!==this.localChoice||!this.active||this.transport!=='local')return;
+        await this.local.select(id,this.localPlayIntent&&!this.simulationPaused);
+        if(choice!==this.localChoice||!this.active||this.transport!=='local')return;
+      }finally{if(choice===this.localChoice)this.localSelecting=false;}
+      this.rebase();this.sync();this.progress();return;
+    }
     if(this.transport==='youtube'&&this.player){
       if(!target.source)throw new Error('This track has no supplied YouTube source mapping.');
       const native=this.nativeVideos.findIndex(id=>playbackSources(target).some(source=>source.video_id===id));
@@ -295,15 +360,17 @@ export class PlaylistMusic implements MusicRainClock{
     if(this.transport==='capture'){this.referenceStart=0;this.referenceWall=performance.now();this.referencePlaying=play;}
     this.sync();this.progress();
   }
-  async next(play=this.transportPlaying()){
+  async next(play=this.transportPlaying(),preserveTerminal=false){
+    if(!preserveTerminal)this.terminalDrops=[];
     if(!this.session)return;
     if(this.transport==='youtube'&&this.player){
       let index=this.nativeIndex+1;while(index<this.nativeVideos.length&&this.unavailableVideos.has(this.nativeVideos[index]))index++;
-      if(index>=this.nativeVideos.length){this.session.ended=true;this.finish();}
+      if(index>=this.nativeVideos.length){this.session.ended=true;this.finish(preserveTerminal);}
       else this.moveToNative(index,play);
-    }else{const track=this.session.next();if(track)await this.select(track.id,play);else this.finish();}
+    }else{const track=this.session.next();if(track)await this.select(track.id,play,preserveTerminal);else this.finish(preserveTerminal);}
   }
   private async previous(){
+    this.terminalDrops=[];
     if(!this.session)return;
     if(this.transport==='youtube'&&this.player){
       let index=Math.max(0,this.nativeIndex-1);while(index>0&&this.unavailableVideos.has(this.nativeVideos[index]))index--;
@@ -318,15 +385,20 @@ export class PlaylistMusic implements MusicRainClock{
     this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);
     this.pendingPause=!play||this.simulationPaused;this.player.port.playVideoAt(index);
   }
-  private finish(){this.pause();this.engine.clearScore();this.status('Playlist complete. Play again to return to the opening.');this.progress();}
-  pause(){
+  private finish(preserveTerminal=false){this.pause(preserveTerminal);this.engine.clearScore();this.status('Playlist complete. Play again to return to the opening.');this.progress();}
+  pause(preserveTerminal=false){
+    if(!preserveTerminal)this.terminalDrops=[];
+    if(this.localLoadPlayIntent!==undefined)this.localLoadPlayIntent=false;
     if(this.transport==='youtube')this.player?.port.pauseVideo();
+    else if(this.transport==='local'){this.localPlayIntent=false;this.localWasPlaying=false;this.local.pause();}
     else if(this.transport==='capture'){this.referenceStart=this.currentTime();this.referencePlaying=false;}
-    if(this.snapshot)this.snapshot={...this.snapshot,state:2};this.rebase();this.syncPlaybackButton();this.syncRainNotice();this.status('Paused');
+    if(this.snapshot)this.snapshot={...this.snapshot,state:2};this.rebase();this.syncPlaybackButton();this.syncRainNotice(true);this.status('Paused');
   }
   seek(time:number){
+    this.terminalDrops=[];
     if(!this.session||this.pendingTrack||this.pendingNativeIndex!==undefined||(this.transport==='youtube'&&(!this.snapshot||!this.matchedVideo)))return;time=clamp(time,0,this.session.current.duration);
     if(this.transport==='youtube'){const sourceTime=this.session.seekSourceTime(time);this.requestSeek(sourceTime,time);}
+    else if(this.transport==='local')this.local.seek(time);
     else if(this.transport==='capture'){this.referenceStart=time;this.referenceWall=performance.now();}
     this.engine.seek(time);this.progress();
   }
@@ -339,12 +411,13 @@ export class PlaylistMusic implements MusicRainClock{
   private currentTime(){
     if(this.transport==='youtube'){const time=this.clock.time(performance.now(),this.rate);return this.matchedVideo?this.session?.time(time)??0:time;}
     if(this.transport==='capture')return this.referenceStart+(this.referencePlaying?(performance.now()-this.referenceWall)/1000:0);
+    if(this.transport==='local')return this.local.time;
     return 0;
   }
   // Buffering is a pending play request that the user must be able to pause,
   // but it never advances musical rain until the master clock is playing.
-  private transportPlaying(){return this.transport==='youtube'?(this.snapshot?.state===1||this.snapshot?.state===3):this.transport==='capture'?this.referencePlaying:false;}
-  private isPlaying(){return !this.simulationPaused&&!this.sourceMismatch&&!this.pendingSeek&&(this.transport==='youtube'?this.matchedVideo&&this.snapshot?.state===1:this.transport==='capture'&&this.referencePlaying);}
+  private transportPlaying(){return this.transport==='youtube'?(this.snapshot?.state===1||this.snapshot?.state===3):this.transport==='local'?this.localPlayIntent||this.local.playing:this.transport==='capture'?this.referencePlaying:false;}
+  private isPlaying(){return !this.simulationPaused&&!this.sourceMismatch&&!this.pendingSeek&&(this.transport==='youtube'?this.matchedVideo&&this.snapshot?.state===1:this.transport==='local'?this.local.trackId===this.session?.current.id&&this.local.playing&&!this.localSeeking:this.transport==='capture'&&this.referencePlaying);}
   rebase(){this.engine.seek(Math.max(0,this.currentTime()));}
   setSimulationPaused(paused:boolean){
     if(paused===this.simulationPaused)return;
@@ -353,8 +426,10 @@ export class PlaylistMusic implements MusicRainClock{
   }
   updateMusicRain(){
     const time=this.currentTime();this.progress();
-    if(!this.enabled||!this.session||this.pendingSeek||this.pendingNativeIndex!==undefined||this.validatingPlaylist||(this.transport==='youtube'&&!this.matchedVideo))return [];
-    return this.engine.updateMusicRain({trackId:this.session.current.id,time:Math.max(0,time),playing:this.isPlaying()&&time>=0,seeking:!!this.pendingTrack});
+    if(!this.enabled||this.simulationPaused)return [];
+    const terminal=this.terminalDrops;this.terminalDrops=[];
+    if(!this.session||this.pendingSeek||this.pendingNativeIndex!==undefined||this.validatingPlaylist||(this.transport==='youtube'&&!this.matchedVideo))return terminal;
+    return terminal.concat(this.engine.updateMusicRain({trackId:this.session.current.id,time:Math.max(0,time),playing:this.isPlaying()&&time>=0,seeking:!!this.pendingTrack}));
   }
   private progress(){
     if(!this.session||(this.transport==='youtube'&&(!this.snapshot||!this.matchedVideo||this.pendingNativeIndex!==undefined)))return;
@@ -369,6 +444,46 @@ export class PlaylistMusic implements MusicRainClock{
     $('music-score-count').textContent=String(this.engine.scheduler?.emitted??0);
     this.hooks.publish({musicEnabled:this.enabled,musicTrack:track.id,musicIndex:this.session.index,musicTime:time,musicPlaying:this.transportPlaying(),musicRainPlaying:this.isPlaying(),
       musicSection:this.engine.scheduler?.sectionAt(time).name??'',musicEmitted:this.engine.scheduler?.emitted??0,musicSourceMismatch:this.sourceMismatch,musicSeeking:!!this.pendingSeek});
+  }
+  private async useDownloadedFiles(files:File[]){
+    const opening=this.opening,choice=++this.localLoadChoice;this.localLoadPlayIntent=true;
+    try{
+      $('music-local-state').textContent='Checking the 32 downloaded recordings…';
+      const manifest=await this.assets();
+      if(choice!==this.localLoadChoice||!this.active||opening!==this.opening)return;
+      await this.local.load(files,manifest);
+      if(choice!==this.localLoadChoice)return;
+      if(!this.active||opening!==this.opening){this.local.close();return;}
+      this.player?.destroy();this.player=undefined;++this.connectionRevision;++this.revision;
+      this.snapshot=undefined;this.pendingTrack=undefined;this.pendingSeek=undefined;this.pendingNativeIndex=undefined;
+      this.validatingPlaylist=null;this.matchedVideo=false;this.sourceMismatch=false;this.clock.reset();
+      this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);this.endTimer=undefined;
+      this.transport='local';this.nativeVideos=[];this.terminalDrops=[];
+      this.session!.unavailable.clear();this.unavailableVideos.clear();
+      $('music-local-state').textContent='32 recordings verified. Audio stays in this browser.';
+      const play=this.localLoadPlayIntent;this.localLoadPlayIntent=undefined;
+      await this.select(this.session!.current.id,play);this.status(this.transportPlaying()?'Playing downloaded recording':'Downloaded recordings ready. Press Play.');
+    }catch(error){
+      if(choice!==this.localLoadChoice)return;
+      const message=error instanceof Error?error.message:'Downloaded recordings could not load.';
+      $('music-local-state').textContent=message;this.status(message);
+    }finally{if(choice===this.localLoadChoice)this.localLoadPlayIntent=undefined;}
+  }
+  private localSample(sample:LocalReferenceSample){
+    if(!this.active||this.transport!=='local'||!this.session||sample.trackId!==this.session.current.id)return;
+    if(sample.event==='ended'){
+      if(this.enabled&&this.localWasPlaying&&!this.pendingTrack&&!this.localSeeking){
+        this.terminalDrops.push(...this.engine.updateMusicRain({trackId:sample.trackId,time:this.session.current.duration,playing:true}));
+      }
+      this.localPlayIntent=false;this.localWasPlaying=false;void this.next(true,true);return;
+    }
+    this.localSeeking=sample.seeking;
+    if(sample.event==='pause'&&!this.localSelecting){this.localPlayIntent=false;this.status('Paused');}
+    if(sample.event==='playing')this.status('Playing downloaded recording');
+    else if(sample.event==='waiting')this.status('Loading downloaded recording…');
+    if(sample.playing)this.localWasPlaying=true;
+    if(sample.event==='seeking'||sample.event==='seeked')this.engine.seek(sample.time,sample.playing&&!sample.seeking);
+    this.syncPlaybackButton();this.syncRainNotice();this.progress();
   }
   private exposeCapture(){
     (window as Window&{inkWaterMusicCapture?:unknown}).inkWaterMusicCapture={

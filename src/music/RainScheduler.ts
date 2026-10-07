@@ -17,7 +17,11 @@ export class RainScheduler{
   private cursor=0;
   emitted=0;
   discontinuities=0;
-  constructor(readonly score:RainScore){validateScore(score);this.events=this.plan();}
+  private anticipationWindow:number;
+  constructor(readonly score:RainScore){
+    validateScore(score);this.anticipationWindow=score.accents.reduce((max,accent)=>Math.max(max,accent.anticipation),.12);
+    this.events=this.plan();
+  }
 
   sectionAt(time:number){return this.score.sections.find(s=>time<s.end)??this.score.sections.at(-1)!;}
   stateAt(time:number){
@@ -25,7 +29,12 @@ export class RainScheduler{
     const u=smooth(clamp((time-s.start)/(s.end-s.start),0,1));
     let amount=1;
     for(const b of this.score.breaths)if(time>=b.start&&time<b.end)amount*=b.amount;
-    for(const a of this.score.accents){
+    // Accents are time ordered. Only nearby attacks can quiet this instant;
+    // dense authored note patterns should not slow every weather plan sample.
+    const first=upperBound(this.score.accents,time-.22-1e-9,a=>a.time);
+    const last=upperBound(this.score.accents,time+this.anticipationWindow+1e-9,a=>a.time);
+    for(let i=first;i<last;i++){
+      const a=this.score.accents[i];
       if(time>=a.time-a.anticipation&&time<a.time)amount*=1-a.quiet*smooth((time-a.time+a.anticipation)/Math.max(.001,a.anticipation));
       if(time>=a.time-.12&&time<a.time+.22)amount=0;
     }
@@ -77,12 +86,12 @@ export class RainScheduler{
       }
     }
     for(let i=0;i<this.score.accents.length;i++){
-      const a=this.score.accents[i],s=this.sectionAt(a.time),p=this.position(a.time,100000+i,s);
+      const a=this.score.accents[i],index=100000+(a.random_index??i),s=this.sectionAt(a.time),p=this.position(a.time,index,s);
       for(let j=0;j<a.count;j++){
         const at=a.time+j*a.spacing;
         const point:Pair=a.type==='split'&&j%2?[-p[0],-p[1]]:a.type==='glint'&&j?
-          this.position(at,100000+i,s,j*83):[...p];
-        push(at,100000+i,j,'accent',a.force,a.scale,point);
+          this.position(at,index,s,j*83):[...p];
+        push(at,index,j,'accent',a.force,a.scale,point);
       }
     }
     for(const [i,g] of (this.score.gestures??[]).entries()){

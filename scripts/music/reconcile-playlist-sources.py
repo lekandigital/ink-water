@@ -29,5 +29,12 @@ for item in adjustments['mismatches']:
     track=by_index[item['track_index']]
     if track['source']['video_id']!=item['video_id']:raise ValueError('Reviewed mismatch identity changed.')
     track['source'].update({k:v for k,v in item.items() if k!='track_index'})
+for item in adjustments.get('verified_sources',[]):
+    track=by_index[item['track_index']]
+    if track['reference_sha256']!=item['reference_sha256']:raise ValueError('Verified reference recording changed.')
+    sources=[track['source'],*track.get('alternate_sources',[])]
+    source=next((source for source in sources if source['video_id']==item['video_id']),None)
+    if source is None:raise ValueError('Verified video identity changed.')
+    source.update(validation_status='verified',note=item['note'])
 path.write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
-print('32 explicit mappings retained; 2 reviewed alternate uploads added; Rider mismatch held.')
+print('32 explicit mappings retained; reviewed alternate uploads and reference recording proofs applied.')

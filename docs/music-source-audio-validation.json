@@ -1,0 +1,2063 @@
+{
+  "schema_version": 1,
+  "validated_at_utc": "2026-10-06T20:47:18Z",
+  "method": "Private temporary complete current-native YouTube audio; reference SHA256 checked; ffmpeg decoded mono48000Hz PCM; FFT opening cross-correlation ±15s; opening/middle/ending/full aligned raw-waveform and100ms RMS Pearson correlations. No audio published. Match requires all waveform correlations≥.97, RMS≥.99, and aligned decoded duration within100ms.",
+  "playlist_id": "PLTab0IXtn0Nw",
+  "tracks_requested": 32,
+  "tracks_completed": 32,
+  "maximum_fetch_concurrency": 3,
+  "elapsed_seconds": 45.8,
+  "summary": {
+    "fetch-failed": 3,
+    "recording-match": 29
+  },
+  "tracks": [
+    {
+      "track_id": "01-inhale-the-mist",
+      "supplied_title": "inhale the Mist",
+      "supplied_artist": "Other Joe",
+      "source_video_id": "ScLX_1GnP60",
+      "configured_source_start_seconds": 0,
+      "reference_file": "01 - inhale the Mist.mp3",
+      "reference_sha256": "1040425982023532a13c55b25543e28d4815e29f85ffded3275dfaa22305658b",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "inhale the Mist",
+        "track": "inhale the Mist",
+        "artist": "Other Joe, Other Joe",
+        "album": "The Best is Yet To Come",
+        "channel": "Other Joe - Topic",
+        "duration": 256,
+        "upload_date": "20260624",
+        "webpage_url": "https://www.youtube.com/watch?v=ScLX_1GnP60",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 256.3689791666667,
+      "source_decoded_duration_seconds": 256.36854166666666,
+      "effective_source_decoded_duration_seconds": 256.36854166666666,
+      "duration_delta_seconds": -0.0004375,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999567559064536,
+          "rms_100ms_correlation": 0.9999993121650339,
+          "gain_reference_over_source": 0.9999578056054134,
+          "relative_waveform_residual": 0.009299802414440797
+        },
+        {
+          "start_seconds": 113.18427083333333,
+          "end_seconds": 143.18427083333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9996316331982249,
+          "rms_100ms_correlation": 0.9999965195520621,
+          "gain_reference_over_source": 0.9995927699451724,
+          "relative_waveform_residual": 0.027140357448058733
+        },
+        {
+          "start_seconds": 225.36854166666666,
+          "end_seconds": 255.36854166666666,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9992427640824875,
+          "rms_100ms_correlation": 0.9999971197354524,
+          "gain_reference_over_source": 0.9996011195477162,
+          "relative_waveform_residual": 0.03890889638520421
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 255.36854166666666,
+          "compared_seconds": 254.36854166666666,
+          "waveform_correlation": 0.9997063099420205,
+          "rms_100ms_correlation": 0.9999964542270471,
+          "gain_reference_over_source": 0.9997773781651312,
+          "relative_waveform_residual": 0.024234154883119363
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 256.36854166666666
+    },
+    {
+      "track_id": "02-fused-dj-kicks",
+      "supplied_title": "fused (DJ-Kicks)",
+      "supplied_artist": "Logic1000",
+      "source_video_id": "lp8EkhoCCnI",
+      "configured_source_start_seconds": 0,
+      "reference_file": "02 - fused (DJ-Kicks).mp3",
+      "reference_sha256": "5d3053b7bbd3785702152a15875395f104bf201c462b3112de0e6e65af134179",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "fused (DJ-Kicks)",
+        "track": "fused (DJ-Kicks)",
+        "artist": "Logic1000",
+        "album": "fused (DJ-Kicks)",
+        "channel": "Logic1000",
+        "duration": 211,
+        "upload_date": "20250210",
+        "webpage_url": "https://www.youtube.com/watch?v=lp8EkhoCCnI",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 210.69333333333333,
+      "source_decoded_duration_seconds": 210.69333333333333,
+      "effective_source_decoded_duration_seconds": 210.69333333333333,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999845386799661,
+          "rms_100ms_correlation": 0.9999994488912394,
+          "gain_reference_over_source": 0.9999451041273106,
+          "relative_waveform_residual": 0.0055607911107061325
+        },
+        {
+          "start_seconds": 90.34666666666666,
+          "end_seconds": 120.34666666666666,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999838799714968,
+          "rms_100ms_correlation": 0.9999994230476651,
+          "gain_reference_over_source": 0.9999565630050026,
+          "relative_waveform_residual": 0.005678012631979032
+        },
+        {
+          "start_seconds": 179.69333333333333,
+          "end_seconds": 209.69333333333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.999992362388156,
+          "rms_100ms_correlation": 0.9999997218288443,
+          "gain_reference_over_source": 0.999911378836006,
+          "relative_waveform_residual": 0.003908566459696173
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 209.69333333333333,
+          "compared_seconds": 208.69333333333333,
+          "waveform_correlation": 0.9999861410492247,
+          "rms_100ms_correlation": 0.9999996048770878,
+          "gain_reference_over_source": 0.9999426081404424,
+          "relative_waveform_residual": 0.005264795285820973
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 210.69333333333333
+    },
+    {
+      "track_id": "03-sun-tickles",
+      "supplied_title": "Sun Tickles",
+      "supplied_artist": "Salamanda",
+      "source_video_id": "lrAWkOGkpBw",
+      "configured_source_start_seconds": 0,
+      "reference_file": "03 - Sun Tickles.mp3",
+      "reference_sha256": "0b3caf970ff79aa4db2dd8f347fa76e09f6fa13fd09cc3b45cb308fd67cdeb2d",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Sun Tickles",
+        "track": "Sun Tickles",
+        "artist": "Salamanda",
+        "album": "Sun Tickles",
+        "channel": "Salamanda - Topic",
+        "duration": 272,
+        "upload_date": "20251201",
+        "webpage_url": "https://www.youtube.com/watch?v=lrAWkOGkpBw",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 271.8073125,
+      "source_decoded_duration_seconds": 271.8073125,
+      "effective_source_decoded_duration_seconds": 271.8073125,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999359055221265,
+          "rms_100ms_correlation": 0.9999972054820557,
+          "gain_reference_over_source": 0.9999918921589425,
+          "relative_waveform_residual": 0.011321877203367147
+        },
+        {
+          "start_seconds": 120.90365625000001,
+          "end_seconds": 150.90365625,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9995748509476259,
+          "rms_100ms_correlation": 0.9999695809878952,
+          "gain_reference_over_source": 1.0001291876957419,
+          "relative_waveform_residual": 0.029157493685213802
+        },
+        {
+          "start_seconds": 240.80731250000002,
+          "end_seconds": 270.8073125,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999310411201683,
+          "rms_100ms_correlation": 0.9999974316920228,
+          "gain_reference_over_source": 0.9999985270935031,
+          "relative_waveform_residual": 0.011743837991376314
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 270.8073125,
+          "compared_seconds": 269.8073125,
+          "waveform_correlation": 0.9996535446871156,
+          "rms_100ms_correlation": 0.9999882492700226,
+          "gain_reference_over_source": 0.9998064796368271,
+          "relative_waveform_residual": 0.026320949151705905
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 271.8073125
+    },
+    {
+      "track_id": "04-by-the-rain",
+      "supplied_title": "by the rain",
+      "supplied_artist": "Buttechno & TRIS",
+      "source_video_id": "cadA-49BZl8",
+      "configured_source_start_seconds": 0,
+      "reference_file": "04 - by the rain.mp3",
+      "reference_sha256": "e15f1ea705746249ad85eca8645e53d29d0bf57065faaa04a5f69286bb6b3d03",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "by the rain",
+        "track": "by the rain",
+        "artist": "Buttechno, Triš",
+        "album": "the spirit",
+        "channel": "Buttechno - Topic",
+        "duration": 235,
+        "upload_date": "20260806",
+        "webpage_url": "https://www.youtube.com/watch?v=cadA-49BZl8",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 235.10208333333333,
+      "source_decoded_duration_seconds": 235.10208333333333,
+      "effective_source_decoded_duration_seconds": 235.10208333333333,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.999952233751726,
+          "rms_100ms_correlation": 0.9999981947484746,
+          "gain_reference_over_source": 1.0000163983760924,
+          "relative_waveform_residual": 0.009774003010256238
+        },
+        {
+          "start_seconds": 102.55104166666666,
+          "end_seconds": 132.55104166666666,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.999959290236845,
+          "rms_100ms_correlation": 0.9999988759343794,
+          "gain_reference_over_source": 1.0000245749166634,
+          "relative_waveform_residual": 0.009023204031672722
+        },
+        {
+          "start_seconds": 204.10208333333333,
+          "end_seconds": 234.10208333333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999164176369971,
+          "rms_100ms_correlation": 0.9999988097562211,
+          "gain_reference_over_source": 1.000002145185375,
+          "relative_waveform_residual": 0.012928951584632368
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 234.10208333333333,
+          "compared_seconds": 233.10208333333333,
+          "waveform_correlation": 0.9999370127322851,
+          "rms_100ms_correlation": 0.9999980238801615,
+          "gain_reference_over_source": 0.9999055585365169,
+          "relative_waveform_residual": 0.01122366311305168
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 235.10208333333333
+    },
+    {
+      "track_id": "05-time-to-find-me-afx-fast-mix",
+      "supplied_title": "Time to Find Me (AFX Fast Mix)",
+      "supplied_artist": "Seefeel",
+      "source_video_id": "c9cIQb5x7OA",
+      "configured_source_start_seconds": 0,
+      "reference_file": "05 - Time to Find Me (AFX Fast Mix).mp3",
+      "reference_sha256": "cd207f79d271be4a10f171e8dca6f0cb562c612ffdf0657e396b9a187f02dc00",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Time to Find Me (AFX Fast Mix)",
+        "track": "Time to Find Me (AFX Fast Mix)",
+        "artist": "Seefeel",
+        "album": "Pure, Impure",
+        "channel": "Seefeel",
+        "duration": 457,
+        "upload_date": "20150221",
+        "webpage_url": "https://www.youtube.com/watch?v=c9cIQb5x7OA",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 457.0,
+      "source_decoded_duration_seconds": 457.0,
+      "effective_source_decoded_duration_seconds": 457.0,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9998341676330151,
+          "rms_100ms_correlation": 0.9999950991215295,
+          "gain_reference_over_source": 0.9999736852294372,
+          "relative_waveform_residual": 0.01821091014779754
+        },
+        {
+          "start_seconds": 213.5,
+          "end_seconds": 243.5,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9998531656650583,
+          "rms_100ms_correlation": 0.9999950455556837,
+          "gain_reference_over_source": 0.9999316350291283,
+          "relative_waveform_residual": 0.017136179065208732
+        },
+        {
+          "start_seconds": 426.0,
+          "end_seconds": 456.0,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999594833603607,
+          "rms_100ms_correlation": 0.9999991092376198,
+          "gain_reference_over_source": 0.999986486818055,
+          "relative_waveform_residual": 0.009001758522176185
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 456.0,
+          "compared_seconds": 455.0,
+          "waveform_correlation": 0.9998368896323543,
+          "rms_100ms_correlation": 0.9999937994967982,
+          "gain_reference_over_source": 0.9999095323826082,
+          "relative_waveform_residual": 0.018060845684183664
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 457.0
+    },
+    {
+      "track_id": "06-pop-4",
+      "supplied_title": "Pop 4",
+      "supplied_artist": "GAS",
+      "source_video_id": "LR_Mj5ydbs0",
+      "configured_source_start_seconds": 0,
+      "reference_file": "06 - Pop 4.mp3",
+      "reference_sha256": "a63cbdb9a1f08ab371e7e3f860571a05ac1d29d3e989088b7e73c6644c110d7c",
+      "reference_hash_matches_manifest": true,
+      "status": "fetch-failed",
+      "error": "ERROR: unable to download video data: HTTP Error 403: Forbidden",
+      "antibot_stopped_run": false,
+      "not_retried": true,
+      "observed_metadata": {
+        "title": "Pop 4",
+        "artist": "Gas",
+        "duration": 568,
+        "availability": "public",
+        "playable_in_embed": true,
+        "channel": "Gas - Topic",
+        "webpage_url": "https://www.youtube.com/watch?v=LR_Mj5ydbs0"
+      }
+    },
+    {
+      "track_id": "07-lusine-without-a-plan",
+      "supplied_title": "Lusine - Without a Plan",
+      "supplied_artist": "Lusine",
+      "source_video_id": "IwMeQgVCdR4",
+      "configured_source_start_seconds": 0,
+      "reference_file": "07 - Lusine - Without a Plan.mp3",
+      "reference_sha256": "6fa0f46b78b76cbbb6db5085e7b5ef6bdbe50e1f7b483c54eaa238ce2060eaca",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Lusine - Without a Plan",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Ghostly International",
+        "duration": 258,
+        "upload_date": "20130128",
+        "webpage_url": "https://www.youtube.com/watch?v=IwMeQgVCdR4",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 258.26395833333333,
+      "source_decoded_duration_seconds": 258.26395833333333,
+      "effective_source_decoded_duration_seconds": 258.26395833333333,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999351356918954,
+          "rms_100ms_correlation": 0.9999989214366113,
+          "gain_reference_over_source": 1.0000042979117965,
+          "relative_waveform_residual": 0.011390212330609377
+        },
+        {
+          "start_seconds": 114.13197916666667,
+          "end_seconds": 144.13197916666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999439643604245,
+          "rms_100ms_correlation": 0.9999969971038392,
+          "gain_reference_over_source": 0.9999782887016812,
+          "relative_waveform_residual": 0.010586224447472143
+        },
+        {
+          "start_seconds": 227.26395833333333,
+          "end_seconds": 257.26395833333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999031008642192,
+          "rms_100ms_correlation": 0.9999988218333642,
+          "gain_reference_over_source": 0.9998899217267335,
+          "relative_waveform_residual": 0.01392099574964428
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 257.26395833333333,
+          "compared_seconds": 256.26395833333333,
+          "waveform_correlation": 0.9998339307045889,
+          "rms_100ms_correlation": 0.9999964683510939,
+          "gain_reference_over_source": 0.9998560065097557,
+          "relative_waveform_residual": 0.018223916969148202
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 258.26395833333333
+    },
+    {
+      "track_id": "08-memory-of-a-memory",
+      "supplied_title": "memory of a memory",
+      "supplied_artist": "mu tate & Ben Bondy",
+      "source_video_id": "ARJZ2rPuIyU",
+      "configured_source_start_seconds": 0,
+      "reference_file": "08 - memory of a memory.mp3",
+      "reference_sha256": "3258c794acbe5c61d5430174bb1eab714043c2d78703d0a444909f98576e0986",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "memory of a memory",
+        "track": "memory of a memory",
+        "artist": "mu tate, Ben Bondy",
+        "album": "life of mu",
+        "channel": "mu tate - Topic",
+        "duration": 252,
+        "upload_date": "20260416",
+        "webpage_url": "https://www.youtube.com/watch?v=ARJZ2rPuIyU",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 251.701875,
+      "source_decoded_duration_seconds": 251.701875,
+      "effective_source_decoded_duration_seconds": 251.701875,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999695876198584,
+          "rms_100ms_correlation": 0.9999987441194241,
+          "gain_reference_over_source": 0.9999017227116517,
+          "relative_waveform_residual": 0.007798961625080607
+        },
+        {
+          "start_seconds": 110.8509375,
+          "end_seconds": 140.8509375,
+          "compared_seconds": 29.999979166666666,
+          "waveform_correlation": 0.9999285857675005,
+          "rms_100ms_correlation": 0.9999967289661961,
+          "gain_reference_over_source": 0.9999298621736005,
+          "relative_waveform_residual": 0.011950874878284962
+        },
+        {
+          "start_seconds": 220.701875,
+          "end_seconds": 250.701875,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999716858119188,
+          "rms_100ms_correlation": 0.9999990791903486,
+          "gain_reference_over_source": 1.0000440202299408,
+          "relative_waveform_residual": 0.0075251407736873855
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 250.701875,
+          "compared_seconds": 249.701875,
+          "waveform_correlation": 0.999894936491702,
+          "rms_100ms_correlation": 0.9999974353912789,
+          "gain_reference_over_source": 0.9998869816996813,
+          "relative_waveform_residual": 0.014495394168804361
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 251.701875
+    },
+    {
+      "track_id": "09-places-remember-events",
+      "supplied_title": "Places Remember Events",
+      "supplied_artist": "Eerie Enterprise",
+      "source_video_id": "nAQ3OAL5g7Q",
+      "configured_source_start_seconds": 0,
+      "reference_file": "09 - Places Remember Events.mp3",
+      "reference_sha256": "19030841cd13468e4fd28e029b8f01517f5e8877f1af34f624e05d63b31f8c44",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Places Remember Events",
+        "track": "Places Remember Events",
+        "artist": "Eerie Enterprise, Eerie Enterprise",
+        "album": "Places Remember Events",
+        "channel": "Eerie Enterprise - Topic",
+        "duration": 234,
+        "upload_date": "20260909",
+        "webpage_url": "https://www.youtube.com/watch?v=nAQ3OAL5g7Q",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 234.352875,
+      "source_decoded_duration_seconds": 234.352875,
+      "effective_source_decoded_duration_seconds": 234.352875,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999766374468069,
+          "rms_100ms_correlation": 0.9999996821183824,
+          "gain_reference_over_source": 0.9998838728248606,
+          "relative_waveform_residual": 0.0068355431329828594
+        },
+        {
+          "start_seconds": 102.1764375,
+          "end_seconds": 132.17643750000002,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9998971062432802,
+          "rms_100ms_correlation": 0.9999971538714092,
+          "gain_reference_over_source": 0.9999335978924117,
+          "relative_waveform_residual": 0.0143449409046241
+        },
+        {
+          "start_seconds": 203.352875,
+          "end_seconds": 233.352875,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999950148368717,
+          "rms_100ms_correlation": 0.9999998672733155,
+          "gain_reference_over_source": 0.9999299362614513,
+          "relative_waveform_residual": 0.0031577554081684404
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 233.352875,
+          "compared_seconds": 232.352875,
+          "waveform_correlation": 0.9999066340295824,
+          "rms_100ms_correlation": 0.9999980011484767,
+          "gain_reference_over_source": 0.999891241397472,
+          "relative_waveform_residual": 0.013664670646892358
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 234.352875
+    },
+    {
+      "track_id": "10-sun-arcs-laraaji-remix",
+      "supplied_title": "Sun Arcs (Laraaji Remix)",
+      "supplied_artist": "Blue Lake",
+      "source_video_id": "syHJjj3w-Vw",
+      "configured_source_start_seconds": 0,
+      "reference_file": "10 - Sun Arcs (Laraaji Remix).mp3",
+      "reference_sha256": "bd6691a91511e92cf0c07ecc4d41b978f1968c8d1271f67a58d70bb7306fd434",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Sun Arcs (Laraaji Remix)",
+        "track": "Sun Arcs (Laraaji Remix)",
+        "artist": "Blue Lake",
+        "album": "Sun Arcs (Laraaji Remix)",
+        "channel": "Blue Lake",
+        "duration": 252,
+        "upload_date": "20240125",
+        "webpage_url": "https://www.youtube.com/watch?v=syHJjj3w-Vw",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 252.0,
+      "source_decoded_duration_seconds": 252.0,
+      "effective_source_decoded_duration_seconds": 252.0,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.999950478202717,
+          "rms_100ms_correlation": 0.9999989587358349,
+          "gain_reference_over_source": 0.9999122520861718,
+          "relative_waveform_residual": 0.009951947049933857
+        },
+        {
+          "start_seconds": 111.0,
+          "end_seconds": 141.0,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999300803188355,
+          "rms_100ms_correlation": 0.9999977902536208,
+          "gain_reference_over_source": 0.9999868952477675,
+          "relative_waveform_residual": 0.011825162789922388
+        },
+        {
+          "start_seconds": 221.0,
+          "end_seconds": 251.0,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999990637808174,
+          "rms_100ms_correlation": 0.9999999081715263,
+          "gain_reference_over_source": 0.9999963113008455,
+          "relative_waveform_residual": 0.0013683704679199214
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 251.0,
+          "compared_seconds": 250.0,
+          "waveform_correlation": 0.9999479862827749,
+          "rms_100ms_correlation": 0.9999988623283782,
+          "gain_reference_over_source": 0.9999673708286139,
+          "relative_waveform_residual": 0.010199253011797048
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 252.0
+    },
+    {
+      "track_id": "11-remember",
+      "supplied_title": "Remember",
+      "supplied_artist": "Sofii",
+      "source_video_id": "MCAIoBcV91I",
+      "configured_source_start_seconds": 0,
+      "reference_file": "11 - Remember.mp3",
+      "reference_sha256": "910ec9e8e35296fa03c7f56fc3c60689b6252607da7076d32af479c1252b33c1",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Remember",
+        "track": "Remember",
+        "artist": "sofii",
+        "album": "I want this feeling to last forever",
+        "channel": "sofii - Topic",
+        "duration": 134,
+        "upload_date": "20250626",
+        "webpage_url": "https://www.youtube.com/watch?v=MCAIoBcV91I",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 133.9075,
+      "source_decoded_duration_seconds": 133.9075,
+      "effective_source_decoded_duration_seconds": 133.9075,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999709536179181,
+          "rms_100ms_correlation": 0.999999482903943,
+          "gain_reference_over_source": 0.9999982350285823,
+          "relative_waveform_residual": 0.0076218981485710515
+        },
+        {
+          "start_seconds": 51.95375,
+          "end_seconds": 81.95375,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999223928392964,
+          "rms_100ms_correlation": 0.9999980671505005,
+          "gain_reference_over_source": 0.9999436802269612,
+          "relative_waveform_residual": 0.012458298684437685
+        },
+        {
+          "start_seconds": 102.9075,
+          "end_seconds": 132.9075,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999421269579687,
+          "rms_100ms_correlation": 0.9999986261553642,
+          "gain_reference_over_source": 0.9998695485316202,
+          "relative_waveform_residual": 0.01075853103783245
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 132.9075,
+          "compared_seconds": 131.9075,
+          "waveform_correlation": 0.9999321584523394,
+          "rms_100ms_correlation": 0.9999987216698379,
+          "gain_reference_over_source": 0.9998997291037771,
+          "relative_waveform_residual": 0.011648116063521636
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 133.9075
+    },
+    {
+      "track_id": "12-wilson-tanner-blush",
+      "supplied_title": "Wilson Tanner - Blush",
+      "supplied_artist": "Wilson Tanner",
+      "source_video_id": "CPedgWtRqBQ",
+      "configured_source_start_seconds": 0,
+      "reference_file": "12 - Wilson Tanner - Blush.mp3",
+      "reference_sha256": "a8cd30d8658ae2c150609ead176e187305eac4b158b2ec84a189d052f5d23c01",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Wilson Tanner - Blush",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Efficient Space",
+        "duration": 231,
+        "upload_date": "20250311",
+        "webpage_url": "https://www.youtube.com/watch?v=CPedgWtRqBQ",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 230.46402083333334,
+      "source_decoded_duration_seconds": 230.46402083333334,
+      "effective_source_decoded_duration_seconds": 230.46402083333334,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999896458506154,
+          "rms_100ms_correlation": 0.9999995447196094,
+          "gain_reference_over_source": 0.9998910048930383,
+          "relative_waveform_residual": 0.004550625970164336
+        },
+        {
+          "start_seconds": 100.23201041666667,
+          "end_seconds": 130.23201041666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999873844118273,
+          "rms_100ms_correlation": 0.9999995894298903,
+          "gain_reference_over_source": 1.0000193862400368,
+          "relative_waveform_residual": 0.005023050144684921
+        },
+        {
+          "start_seconds": 199.46402083333334,
+          "end_seconds": 229.46402083333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999840296688337,
+          "rms_100ms_correlation": 0.9999995263692195,
+          "gain_reference_over_source": 1.0000428935543901,
+          "relative_waveform_residual": 0.00565162298427194
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 229.46402083333334,
+          "compared_seconds": 228.46402083333334,
+          "waveform_correlation": 0.9999863753551642,
+          "rms_100ms_correlation": 0.9999995799417247,
+          "gain_reference_over_source": 0.9999773291811387,
+          "relative_waveform_residual": 0.005220067770652438
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 230.46402083333334
+    },
+    {
+      "track_id": "13-argento-sabbia-su-sabbia",
+      "supplied_title": "Argento - Sabbia Su Sabbia",
+      "supplied_artist": "Argento",
+      "source_video_id": "MebRRX-als0",
+      "configured_source_start_seconds": 0,
+      "reference_file": "13 - Argento - Sabbia Su Sabbia.mp3",
+      "reference_sha256": "c276c2f16b19b91ffa4455fd9a8b02bc7e0d007037b704694ae835a8412e09ff",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Argento - Sabbia Su Sabbia",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Music From Memory",
+        "duration": 209,
+        "upload_date": "20260910",
+        "webpage_url": "https://www.youtube.com/watch?v=MebRRX-als0",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 208.46933333333334,
+      "source_decoded_duration_seconds": 208.46933333333334,
+      "effective_source_decoded_duration_seconds": 208.46933333333334,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999153738395139,
+          "rms_100ms_correlation": 0.999968599090799,
+          "gain_reference_over_source": 0.9998225455622451,
+          "relative_waveform_residual": 0.013009568102152346
+        },
+        {
+          "start_seconds": 89.23466666666667,
+          "end_seconds": 119.23466666666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9998801813892053,
+          "rms_100ms_correlation": 0.9999854273966098,
+          "gain_reference_over_source": 0.9998970365802217,
+          "relative_waveform_residual": 0.015480189798276435
+        },
+        {
+          "start_seconds": 177.46933333333334,
+          "end_seconds": 207.46933333333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.999897065818754,
+          "rms_100ms_correlation": 0.999995899120157,
+          "gain_reference_over_source": 0.9998932442356671,
+          "relative_waveform_residual": 0.01434784510997743
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 207.46933333333334,
+          "compared_seconds": 206.46933333333334,
+          "waveform_correlation": 0.9998963570742796,
+          "rms_100ms_correlation": 0.9999853759966149,
+          "gain_reference_over_source": 0.9999012225259017,
+          "relative_waveform_residual": 0.014397058199686365
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 208.46933333333334
+    },
+    {
+      "track_id": "14-slipping-fingers-through-curls",
+      "supplied_title": "Slipping Fingers Through Curls",
+      "supplied_artist": "J",
+      "source_video_id": "hZr5uVPocps",
+      "configured_source_start_seconds": 0,
+      "reference_file": "14 - Slipping Fingers Through Curls.mp3",
+      "reference_sha256": "ad3f816a6ea65e51acc6343d3b6416bfaf0f68359f2e3b0fb1c5d494f8486000",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Slipping Fingers Through Curls",
+        "track": "Slipping Fingers Through Curls",
+        "artist": "J",
+        "album": "Little Lock",
+        "channel": "J - Topic",
+        "duration": 218,
+        "upload_date": "20250212",
+        "webpage_url": "https://www.youtube.com/watch?v=hZr5uVPocps",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 217.52822916666668,
+      "source_decoded_duration_seconds": 217.52822916666668,
+      "effective_source_decoded_duration_seconds": 217.52822916666668,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999996470245501,
+          "rms_100ms_correlation": 0.9999998945965596,
+          "gain_reference_over_source": 1.0000143994846509,
+          "relative_waveform_residual": 0.0008402106098845961
+        },
+        {
+          "start_seconds": 93.76411458333334,
+          "end_seconds": 123.76411458333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999958939570286,
+          "rms_100ms_correlation": 0.9999989678315468,
+          "gain_reference_over_source": 0.9999831393008469,
+          "relative_waveform_residual": 0.0028656789144980216
+        },
+        {
+          "start_seconds": 186.52822916666668,
+          "end_seconds": 216.52822916666668,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999903953241922,
+          "rms_100ms_correlation": 0.9999997609617877,
+          "gain_reference_over_source": 0.9999696151990359,
+          "relative_waveform_residual": 0.004382837524540828
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 216.52822916666668,
+          "compared_seconds": 215.52822916666668,
+          "waveform_correlation": 0.9999966930779858,
+          "rms_100ms_correlation": 0.9999997057510344,
+          "gain_reference_over_source": 0.9999863413841704,
+          "relative_waveform_residual": 0.002571738368176845
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 217.52822916666668
+    },
+    {
+      "track_id": "15-190304-05",
+      "supplied_title": "190304-05",
+      "supplied_artist": "Hideyuki Hashimoto",
+      "source_video_id": "lipZU8lu07M",
+      "configured_source_start_seconds": 0,
+      "reference_file": "15 - 190304-05.mp3",
+      "reference_sha256": "60d1c610d31e665fe3a169a0dfd0018a971cd1c009ae1ef9b4a617a98bb33fbf",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "190304-05",
+        "track": "190304-05",
+        "artist": "Hideyuki Hashimoto",
+        "album": "草稿",
+        "channel": "Hideyuki Hashimoto",
+        "duration": 153,
+        "upload_date": "20240228",
+        "webpage_url": "https://www.youtube.com/watch?v=lipZU8lu07M",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 153.33333333333334,
+      "source_decoded_duration_seconds": 153.33333333333334,
+      "effective_source_decoded_duration_seconds": 153.33333333333334,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999896360989919,
+          "rms_100ms_correlation": 0.9999994431531043,
+          "gain_reference_over_source": 0.9999709348734321,
+          "relative_waveform_residual": 0.004552777058927666
+        },
+        {
+          "start_seconds": 61.66666666666667,
+          "end_seconds": 91.66666666666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999923360833443,
+          "rms_100ms_correlation": 0.999999506902672,
+          "gain_reference_over_source": 0.9999736423539888,
+          "relative_waveform_residual": 0.003915081032321777
+        },
+        {
+          "start_seconds": 122.33333333333334,
+          "end_seconds": 152.33333333333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999922667658407,
+          "rms_100ms_correlation": 0.9999998513410578,
+          "gain_reference_over_source": 0.9999063223478359,
+          "relative_waveform_residual": 0.003932735953042805
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 152.33333333333334,
+          "compared_seconds": 151.33333333333334,
+          "waveform_correlation": 0.9999918796421103,
+          "rms_100ms_correlation": 0.9999996954523304,
+          "gain_reference_over_source": 0.9999783533768013,
+          "relative_waveform_residual": 0.0040299693625541295
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 153.33333333333334
+    },
+    {
+      "track_id": "16-gaganbadiba",
+      "supplied_title": "Gagánbadibá",
+      "supplied_artist": "Andy Palacio & The Garifuna Collective",
+      "source_video_id": "J9a5uO54h-4",
+      "configured_source_start_seconds": 0,
+      "reference_file": "16 - Gagánbadibá.mp3",
+      "reference_sha256": "f85eaa1fc84f54fab365ac4241a58b89fae6b9b10f16f2f4738e385edc80e58f",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Andy Palacio & The Garifuna Collective - Gaganbadibà (Take Advice) [Punta Rock - World]",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "ONESKEAR",
+        "duration": 259,
+        "upload_date": "20171031",
+        "webpage_url": "https://www.youtube.com/watch?v=J9a5uO54h-4",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 259.08827083333335,
+      "source_decoded_duration_seconds": 259.08827083333335,
+      "effective_source_decoded_duration_seconds": 259.08827083333335,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999910196336571,
+          "rms_100ms_correlation": 0.9999992569762616,
+          "gain_reference_over_source": 0.9999794395300302,
+          "relative_waveform_residual": 0.004238004443031542
+        },
+        {
+          "start_seconds": 114.54413541666668,
+          "end_seconds": 144.54413541666668,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999304107812323,
+          "rms_100ms_correlation": 0.9999840850801537,
+          "gain_reference_over_source": 0.9999875767190597,
+          "relative_waveform_residual": 0.011797186191851335
+        },
+        {
+          "start_seconds": 228.08827083333335,
+          "end_seconds": 258.08827083333335,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999156075410908,
+          "rms_100ms_correlation": 0.9999971250699984,
+          "gain_reference_over_source": 0.9997886065482345,
+          "relative_waveform_residual": 0.012991480381485659
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 258.08827083333335,
+          "compared_seconds": 257.08827083333335,
+          "waveform_correlation": 0.9999290113657097,
+          "rms_100ms_correlation": 0.9999940963845161,
+          "gain_reference_over_source": 0.9999105579096246,
+          "relative_waveform_residual": 0.011915215007456736
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 259.08827083333335
+    },
+    {
+      "track_id": "17-i",
+      "supplied_title": "I",
+      "supplied_artist": "Oren Ambarchi",
+      "source_video_id": "tiHr1bDEJIw",
+      "configured_source_start_seconds": 0,
+      "reference_file": "17 - I.mp3",
+      "reference_sha256": "ee6a96065453389d11041bebd0bb1d23186741ef918a74c2735ab12ae7dbb42b",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "I",
+        "track": "I",
+        "artist": "Oren Ambarchi",
+        "album": "Shebang",
+        "channel": "Oren Ambarchi - Topic",
+        "duration": 481,
+        "upload_date": "20220929",
+        "webpage_url": "https://www.youtube.com/watch?v=tiHr1bDEJIw",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 480.96,
+      "source_decoded_duration_seconds": 480.96,
+      "effective_source_decoded_duration_seconds": 480.96,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999969690767101,
+          "rms_100ms_correlation": 0.9999998244503808,
+          "gain_reference_over_source": 0.9999760389143565,
+          "relative_waveform_residual": 0.002462080225561464
+        },
+        {
+          "start_seconds": 225.48,
+          "end_seconds": 255.48,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999972282567924,
+          "rms_100ms_correlation": 0.9999997647096359,
+          "gain_reference_over_source": 0.9999582549186127,
+          "relative_waveform_residual": 0.0023544593692235894
+        },
+        {
+          "start_seconds": 449.96,
+          "end_seconds": 479.96,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999566423774932,
+          "rms_100ms_correlation": 0.9999990039208736,
+          "gain_reference_over_source": 0.9998722122722279,
+          "relative_waveform_residual": 0.009312064790865002
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 479.96,
+          "compared_seconds": 478.96,
+          "waveform_correlation": 0.9999876156849584,
+          "rms_100ms_correlation": 0.9999995517034114,
+          "gain_reference_over_source": 0.9999669317541455,
+          "relative_waveform_residual": 0.004976794094227988
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 480.96
+    },
+    {
+      "track_id": "18-birch-beer-forest",
+      "supplied_title": "birch beer forest",
+      "supplied_artist": "Marumari",
+      "source_video_id": "cuzGVxJ-cq4",
+      "configured_source_start_seconds": 0,
+      "reference_file": "18 - birch beer forest.mp3",
+      "reference_sha256": "6a4ddb1673f4d87a746b1a7397fa0f9956dd0944b37f723416c4c358a78c90ec",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Marumari - \"birch beer forest\" (Official Music Video)",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Carpark Records",
+        "duration": 211,
+        "upload_date": "20250417",
+        "webpage_url": "https://www.youtube.com/watch?v=cuzGVxJ-cq4",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 211.44097916666666,
+      "source_decoded_duration_seconds": 211.44091666666668,
+      "effective_source_decoded_duration_seconds": 211.44091666666668,
+      "duration_delta_seconds": -6.25e-05,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999310399977112,
+          "rms_100ms_correlation": 0.9999990699194073,
+          "gain_reference_over_source": 0.9998307287509869,
+          "relative_waveform_residual": 0.011743739151426128
+        },
+        {
+          "start_seconds": 90.72045833333334,
+          "end_seconds": 120.72045833333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.999935332584212,
+          "rms_100ms_correlation": 0.9999824832808878,
+          "gain_reference_over_source": 0.9999508837756571,
+          "relative_waveform_residual": 0.011372370519369191
+        },
+        {
+          "start_seconds": 180.44091666666668,
+          "end_seconds": 210.44091666666668,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999320826019586,
+          "rms_100ms_correlation": 0.9999972165438422,
+          "gain_reference_over_source": 0.9998917235731339,
+          "relative_waveform_residual": 0.011654621669781774
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 210.44091666666668,
+          "compared_seconds": 209.44091666666668,
+          "waveform_correlation": 0.9999173885757191,
+          "rms_100ms_correlation": 0.9999981505928013,
+          "gain_reference_over_source": 0.9999179326131328,
+          "relative_waveform_residual": 0.012853643223737644
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 211.44091666666668
+    },
+    {
+      "track_id": "19-an-unopened-letter",
+      "supplied_title": "An Unopened Letter",
+      "supplied_artist": "Dorian Concept & Bibio",
+      "source_video_id": "ARAbv66v7mQ",
+      "configured_source_start_seconds": 0,
+      "reference_file": "19 - An Unopened Letter.mp3",
+      "reference_sha256": "7a9bc8453621a30705bad5f7158cad9d3205b431dad8c6f46007ef53c1f39e75",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Dorian Concept - 'An Unopened Letter' (featuring Bibio) (Official Video)",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Dorian Concept",
+        "duration": 174,
+        "upload_date": "20251010",
+        "webpage_url": "https://www.youtube.com/watch?v=ARAbv66v7mQ",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 173.52272916666666,
+      "source_decoded_duration_seconds": 173.52272916666666,
+      "effective_source_decoded_duration_seconds": 173.52272916666666,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999962486977694,
+          "rms_100ms_correlation": 0.9999998251014582,
+          "gain_reference_over_source": 1.000005624417614,
+          "relative_waveform_residual": 0.002739096466176594
+        },
+        {
+          "start_seconds": 71.76136458333333,
+          "end_seconds": 101.76136458333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999959490054807,
+          "rms_100ms_correlation": 0.9999996175954651,
+          "gain_reference_over_source": 0.9999707858164748,
+          "relative_waveform_residual": 0.002846398554537674
+        },
+        {
+          "start_seconds": 142.52272916666666,
+          "end_seconds": 172.52272916666666,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.999993689820126,
+          "rms_100ms_correlation": 0.9999998353107193,
+          "gain_reference_over_source": 0.999994154800974,
+          "relative_waveform_residual": 0.0035525089578371397
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 172.52272916666666,
+          "compared_seconds": 171.52272916666666,
+          "waveform_correlation": 0.9999959843706371,
+          "rms_100ms_correlation": 0.9999999163464435,
+          "gain_reference_over_source": 0.9999661073232576,
+          "relative_waveform_residual": 0.002833945911872395
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 173.52272916666666
+    },
+    {
+      "track_id": "20-recovery",
+      "supplied_title": "Recovery",
+      "supplied_artist": "Rival Consoles",
+      "source_video_id": "mpHVqod6mB8",
+      "configured_source_start_seconds": 0,
+      "reference_file": "20 - Recovery.mp3",
+      "reference_sha256": "d85efcb43135a5b3d635825334b531757063f5ee5fce38fe3a625df991f24f1c",
+      "reference_hash_matches_manifest": true,
+      "status": "fetch-failed",
+      "error": "ERROR: unable to download video data: HTTP Error 403: Forbidden",
+      "antibot_stopped_run": false,
+      "observed_metadata": {
+        "title": "Rival Consoles - Recovery",
+        "artist": null,
+        "duration": 291,
+        "availability": "public",
+        "playable_in_embed": true,
+        "channel": "Erased Tapes",
+        "webpage_url": "https://www.youtube.com/watch?v=mpHVqod6mB8"
+      },
+      "not_retried": true
+    },
+    {
+      "track_id": "21-continuum-3",
+      "supplied_title": "Continuum 3",
+      "supplied_artist": "Nala Sinephro",
+      "source_video_id": "Gx41vYzyPZo",
+      "configured_source_start_seconds": 0,
+      "reference_file": "21 - Continuum 3.mp3",
+      "reference_sha256": "4890b68d9c64c7f930f264d0e00f25dda9b83cd16ce5ceb5bd2c210ed26ac8c9",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Continuum 3",
+        "track": "Continuum 3",
+        "artist": "Nala Sinephro",
+        "album": "Endlessness",
+        "channel": "Nala Sinephro",
+        "duration": 248,
+        "upload_date": "20240806",
+        "webpage_url": "https://www.youtube.com/watch?v=Gx41vYzyPZo",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 247.53883333333334,
+      "source_decoded_duration_seconds": 247.53883333333334,
+      "effective_source_decoded_duration_seconds": 247.53883333333334,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999931492911429,
+          "rms_100ms_correlation": 0.9999998391982722,
+          "gain_reference_over_source": 0.9998946335721676,
+          "relative_waveform_residual": 0.0037015377688855255
+        },
+        {
+          "start_seconds": 108.76941666666667,
+          "end_seconds": 138.76941666666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999924451996034,
+          "rms_100ms_correlation": 0.9999997424810806,
+          "gain_reference_over_source": 0.9999167162917998,
+          "relative_waveform_residual": 0.0038871271305215504
+        },
+        {
+          "start_seconds": 216.53883333333334,
+          "end_seconds": 246.53883333333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999968137250701,
+          "rms_100ms_correlation": 0.9999999303612881,
+          "gain_reference_over_source": 0.9999354182082583,
+          "relative_waveform_residual": 0.0025244058303327873
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 246.53883333333334,
+          "compared_seconds": 245.53883333333334,
+          "waveform_correlation": 0.9999947991965609,
+          "rms_100ms_correlation": 0.9999998300531574,
+          "gain_reference_over_source": 0.9999414640233142,
+          "relative_waveform_residual": 0.003225148009469902
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 247.53883333333334
+    },
+    {
+      "track_id": "22-rider",
+      "supplied_title": "Rider",
+      "supplied_artist": "Niko Demus",
+      "source_video_id": "jGIKgJ9MzfE",
+      "configured_source_start_seconds": 0,
+      "reference_file": "22 - Rider.mp3",
+      "reference_sha256": "a054a876158ca80fdd65a1078bec215591de3539943eb8250c07912075c501ca",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "DEAR DRIVER",
+        "track": "DEAR DRIVER",
+        "artist": "NICO, Martin Hallenslev",
+        "album": "DEAR DRIVER",
+        "channel": "NICO - Topic",
+        "duration": 170,
+        "upload_date": "20260624",
+        "webpage_url": "https://www.youtube.com/watch?v=jGIKgJ9MzfE",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 170.36291666666668,
+      "source_decoded_duration_seconds": 170.36291666666668,
+      "effective_source_decoded_duration_seconds": 170.36291666666668,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.999814406299046,
+          "rms_100ms_correlation": 0.9999947094809029,
+          "gain_reference_over_source": 0.9997906467900344,
+          "relative_waveform_residual": 0.01926541446369661
+        },
+        {
+          "start_seconds": 70.18145833333334,
+          "end_seconds": 100.18145833333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9996893666332869,
+          "rms_100ms_correlation": 0.9999934742733083,
+          "gain_reference_over_source": 0.999733979905514,
+          "relative_waveform_residual": 0.024923287129139472
+        },
+        {
+          "start_seconds": 139.36291666666668,
+          "end_seconds": 169.36291666666668,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9997444532928225,
+          "rms_100ms_correlation": 0.9999962564581454,
+          "gain_reference_over_source": 0.9996186332713689,
+          "relative_waveform_residual": 0.022606071797400203
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 169.36291666666668,
+          "compared_seconds": 168.36291666666668,
+          "waveform_correlation": 0.9997572179537748,
+          "rms_100ms_correlation": 0.9999948348761203,
+          "gain_reference_over_source": 0.9997358933998852,
+          "relative_waveform_residual": 0.022034192518419732
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 170.36291666666668
+    },
+    {
+      "track_id": "23-lights-on-the-vibe",
+      "supplied_title": "Lights On the Vibe",
+      "supplied_artist": "The Solid Doctor",
+      "source_video_id": "RhePGWq5HV4",
+      "configured_source_start_seconds": 0,
+      "reference_file": "23 - Lights On the Vibe.mp3",
+      "reference_sha256": "612353173c863a57607f717460f17a282cba2df9219466f31100576c7651fa42",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "The Solid Doctor - Lights On The Vibe",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Tajak",
+        "duration": 462,
+        "upload_date": "20170122",
+        "webpage_url": "https://www.youtube.com/watch?v=RhePGWq5HV4",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 461.64754166666665,
+      "source_decoded_duration_seconds": 461.64754166666665,
+      "effective_source_decoded_duration_seconds": 461.64754166666665,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.999940919640586,
+          "rms_100ms_correlation": 0.9999975778242951,
+          "gain_reference_over_source": 0.9999345227886972,
+          "relative_waveform_residual": 0.010870018279094073
+        },
+        {
+          "start_seconds": 215.82377083333333,
+          "end_seconds": 245.82377083333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9998432209987337,
+          "rms_100ms_correlation": 0.9999941527685033,
+          "gain_reference_over_source": 0.9995351422786781,
+          "relative_waveform_residual": 0.017706992578040634
+        },
+        {
+          "start_seconds": 430.64754166666665,
+          "end_seconds": 460.64754166666665,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9998858912553181,
+          "rms_100ms_correlation": 0.9999980239126207,
+          "gain_reference_over_source": 0.9999070749036683,
+          "relative_waveform_residual": 0.015106455512688919
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 460.64754166666665,
+          "compared_seconds": 459.64754166666665,
+          "waveform_correlation": 0.9998072312333693,
+          "rms_100ms_correlation": 0.9999930261359059,
+          "gain_reference_over_source": 0.999806100388094,
+          "relative_waveform_residual": 0.019634164191539835
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 461.64754166666665
+    },
+    {
+      "track_id": "24-heal",
+      "supplied_title": "Heal",
+      "supplied_artist": "Space Ghost",
+      "source_video_id": "nVbFCQWbvCs",
+      "configured_source_start_seconds": 0,
+      "reference_file": "24 - Heal.mp3",
+      "reference_sha256": "ea403bdbbdc2de89d132a73d7ac480080d50c894fe3a328210dac257f05de484",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Heal",
+        "track": "Heal",
+        "artist": "Space Ghost",
+        "album": "Private Paradise",
+        "channel": "Space Ghost - Topic",
+        "duration": 411,
+        "upload_date": "20230309",
+        "webpage_url": "https://www.youtube.com/watch?v=nVbFCQWbvCs",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 410.6358125,
+      "source_decoded_duration_seconds": 410.6358125,
+      "effective_source_decoded_duration_seconds": 410.6358125,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999871833000237,
+          "rms_100ms_correlation": 0.9999996100370059,
+          "gain_reference_over_source": 0.9999818437680632,
+          "relative_waveform_residual": 0.005062927623407844
+        },
+        {
+          "start_seconds": 190.31790625,
+          "end_seconds": 220.31790625,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.99999213213413,
+          "rms_100ms_correlation": 0.999999314730372,
+          "gain_reference_over_source": 1.0000544644951204,
+          "relative_waveform_residual": 0.003966836658759672
+        },
+        {
+          "start_seconds": 379.6358125,
+          "end_seconds": 409.6358125,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999834380246647,
+          "rms_100ms_correlation": 0.9999994846292857,
+          "gain_reference_over_source": 1.000018934054868,
+          "relative_waveform_residual": 0.0057553178089993304
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 409.6358125,
+          "compared_seconds": 408.6358125,
+          "waveform_correlation": 0.9999918574106376,
+          "rms_100ms_correlation": 0.9999995503023996,
+          "gain_reference_over_source": 1.0000242444371434,
+          "relative_waveform_residual": 0.004035482072994136
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 410.6358125
+    },
+    {
+      "track_id": "25-the-dance-no-2",
+      "supplied_title": "The Dance No. 2",
+      "supplied_artist": "Laraaji",
+      "source_video_id": "FwTN4sb7CGI",
+      "configured_source_start_seconds": 0,
+      "reference_file": "25 - The Dance No. 2.mp3",
+      "reference_sha256": "28e6a3a1d973b1a992503d41247578fcda4aef82a4433b467175f455b55dc686",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "The Dance No. 2",
+        "track": "The Dance No. 2",
+        "artist": "Laraaji, Brian Eno",
+        "album": "Ambient 3: Day Of Radiance",
+        "channel": "Laraaji - Topic",
+        "duration": 583,
+        "upload_date": "20150710",
+        "webpage_url": "https://www.youtube.com/watch?v=FwTN4sb7CGI",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 582.7333333333333,
+      "source_decoded_duration_seconds": 582.7333333333333,
+      "effective_source_decoded_duration_seconds": 582.7333333333333,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9997146406721611,
+          "rms_100ms_correlation": 0.9999970041311628,
+          "gain_reference_over_source": 0.9997540391539176,
+          "relative_waveform_residual": 0.02388801436901484
+        },
+        {
+          "start_seconds": 276.3666666666667,
+          "end_seconds": 306.3666666666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9998200316344144,
+          "rms_100ms_correlation": 0.9999605327234633,
+          "gain_reference_over_source": 0.9998857755294903,
+          "relative_waveform_residual": 0.01897114860761439
+        },
+        {
+          "start_seconds": 551.7333333333333,
+          "end_seconds": 581.7333333333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9991486428023018,
+          "rms_100ms_correlation": 0.9999976559457237,
+          "gain_reference_over_source": 0.9994784071378033,
+          "relative_waveform_residual": 0.04125517695733055
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 581.7333333333333,
+          "compared_seconds": 580.7333333333333,
+          "waveform_correlation": 0.9996007789064925,
+          "rms_100ms_correlation": 0.9999877305344025,
+          "gain_reference_over_source": 0.9997309971449146,
+          "relative_waveform_residual": 0.028253899424096732
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 582.7333333333333
+    },
+    {
+      "track_id": "26-a-future-untold",
+      "supplied_title": "A Future Untold",
+      "supplied_artist": "Shabaka",
+      "source_video_id": "PudxQucb3Js",
+      "configured_source_start_seconds": 0,
+      "reference_file": "26 - A Future Untold.mp3",
+      "reference_sha256": "c29889eda3e8a6978b82601d518338e65221faee058b1e022ee522560a600819",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "A Future Untold",
+        "track": "A Future Untold",
+        "artist": "Shabaka",
+        "album": "Of The Earth",
+        "channel": "Shabaka ",
+        "duration": 203,
+        "upload_date": "20260113",
+        "webpage_url": "https://www.youtube.com/watch?v=PudxQucb3Js",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 202.72322916666667,
+      "source_decoded_duration_seconds": 202.72322916666667,
+      "effective_source_decoded_duration_seconds": 202.72322916666667,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999734891876783,
+          "rms_100ms_correlation": 0.9999966522695634,
+          "gain_reference_over_source": 1.0000155596182707,
+          "relative_waveform_residual": 0.00728155017809732
+        },
+        {
+          "start_seconds": 86.36161458333333,
+          "end_seconds": 116.36161458333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999543629064851,
+          "rms_100ms_correlation": 0.9999909618910627,
+          "gain_reference_over_source": 1.0000033413556575,
+          "relative_waveform_residual": 0.00955366604970209
+        },
+        {
+          "start_seconds": 171.72322916666667,
+          "end_seconds": 201.72322916666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999774163315406,
+          "rms_100ms_correlation": 0.9999991349579532,
+          "gain_reference_over_source": 1.0000208199986835,
+          "relative_waveform_residual": 0.006720627253040602
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 201.72322916666667,
+          "compared_seconds": 200.72322916666667,
+          "waveform_correlation": 0.9999667826693959,
+          "rms_100ms_correlation": 0.9999973300492617,
+          "gain_reference_over_source": 0.9999891418826816,
+          "relative_waveform_residual": 0.00815068246153092
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 202.72322916666667
+    },
+    {
+      "track_id": "27-k-notes",
+      "supplied_title": "K-Notes",
+      "supplied_artist": "Kedr Livanskiy",
+      "source_video_id": "PkHYFkyfMCs",
+      "configured_source_start_seconds": 0,
+      "reference_file": "27 - K-Notes.mp3",
+      "reference_sha256": "9770ee72a4c8bda355809ac0d735742b49dad15378efb837521c54d85d4407b2",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Kedr Livanskiy - K-Notes (Official Video)",
+        "track": null,
+        "artist": null,
+        "album": null,
+        "channel": "Kedr Livanskiy",
+        "duration": 196,
+        "upload_date": "20230622",
+        "webpage_url": "https://www.youtube.com/watch?v=PkHYFkyfMCs",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 195.98933333333332,
+      "source_decoded_duration_seconds": 195.98933333333332,
+      "effective_source_decoded_duration_seconds": 195.98933333333332,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9996253297137113,
+          "rms_100ms_correlation": 0.9999975875673022,
+          "gain_reference_over_source": 0.9996406529869374,
+          "relative_waveform_residual": 0.027371526861209524
+        },
+        {
+          "start_seconds": 82.99466666666666,
+          "end_seconds": 112.99466666666666,
+          "compared_seconds": 30.000020833333334,
+          "waveform_correlation": 0.9998597388799811,
+          "rms_100ms_correlation": 0.9999923454545445,
+          "gain_reference_over_source": 0.9997681397478262,
+          "relative_waveform_residual": 0.016748220817904898
+        },
+        {
+          "start_seconds": 164.98933333333332,
+          "end_seconds": 194.98933333333332,
+          "compared_seconds": 30.000020833333334,
+          "waveform_correlation": 0.9998648513568941,
+          "rms_100ms_correlation": 0.9999972175946377,
+          "gain_reference_over_source": 0.9997683192170563,
+          "relative_waveform_residual": 0.016440166489419622
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 194.98933333333332,
+          "compared_seconds": 193.98933333333332,
+          "waveform_correlation": 0.9998596835154443,
+          "rms_100ms_correlation": 0.999997005830732,
+          "gain_reference_over_source": 0.9998437466844134,
+          "relative_waveform_residual": 0.01675151927742709
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 195.98933333333332
+    },
+    {
+      "track_id": "28-wildflower-wood",
+      "supplied_title": "Wildflower Wood",
+      "supplied_artist": "The Seven Fields of Aphelion",
+      "source_video_id": "50yPEiqOa2o",
+      "configured_source_start_seconds": 0,
+      "reference_file": "28 - Wildflower Wood.mp3",
+      "reference_sha256": "bbb2c0157734755d9a5227afd3cb23536fb005a1aeaced592003bf8702843d9c",
+      "reference_hash_matches_manifest": true,
+      "status": "fetch-failed",
+      "error": "ERROR: unable to download video data: HTTP Error 403: Forbidden",
+      "antibot_stopped_run": false,
+      "observed_metadata": {
+        "title": "Wildflower Wood",
+        "artist": "The Seven Fields Of Aphelion",
+        "duration": 227,
+        "availability": "public",
+        "playable_in_embed": true,
+        "channel": "The Seven Fields Of Aphelion - Topic",
+        "webpage_url": "https://www.youtube.com/watch?v=50yPEiqOa2o"
+      },
+      "not_retried": true
+    },
+    {
+      "track_id": "29-bromine-yamaneko-s-irusu-mix",
+      "supplied_title": "Bromine (Yamaneko's Irusu Mix)",
+      "supplied_artist": "Chevel",
+      "source_video_id": "L70WRWg-ADQ",
+      "configured_source_start_seconds": 0,
+      "reference_file": "29 - Bromine (Yamaneko's Irusu Mix).mp3",
+      "reference_sha256": "55c07b6c1f7e5550b0612e110f5dd7c5610854cf6eb4fa616463a025a4978ff2",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Bromine (Yamaneko's Irusu Mix)",
+        "track": "Bromine (Yamaneko's Irusu Mix)",
+        "artist": "Chevel",
+        "album": "Bromine",
+        "channel": "Chevel - Topic",
+        "duration": 540,
+        "upload_date": "20241204",
+        "webpage_url": "https://www.youtube.com/watch?v=L70WRWg-ADQ",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 539.708375,
+      "source_decoded_duration_seconds": 539.708375,
+      "effective_source_decoded_duration_seconds": 539.708375,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999731756484221,
+          "rms_100ms_correlation": 0.9999987694167497,
+          "gain_reference_over_source": 1.0000349461767557,
+          "relative_waveform_residual": 0.007324478166199018
+        },
+        {
+          "start_seconds": 254.85418750000002,
+          "end_seconds": 284.8541875,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999735390511034,
+          "rms_100ms_correlation": 0.9999947799793972,
+          "gain_reference_over_source": 0.9999613133991918,
+          "relative_waveform_residual": 0.007274839009343547
+        },
+        {
+          "start_seconds": 508.70837500000005,
+          "end_seconds": 538.708375,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999375838569263,
+          "rms_100ms_correlation": 0.9999977999403616,
+          "gain_reference_over_source": 1.0000427925119497,
+          "relative_waveform_residual": 0.011172683976620445
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 538.708375,
+          "compared_seconds": 537.708375,
+          "waveform_correlation": 0.999965489661401,
+          "rms_100ms_correlation": 0.9999985396706443,
+          "gain_reference_over_source": 0.9999486453112257,
+          "relative_waveform_residual": 0.008307797990660159
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 539.708375
+    },
+    {
+      "track_id": "30-in-memory",
+      "supplied_title": "In Memory",
+      "supplied_artist": "RONA.",
+      "source_video_id": "Zk82i2lCi-k",
+      "configured_source_start_seconds": 0,
+      "reference_file": "30 - In Memory.mp3",
+      "reference_sha256": "1bdbabc5cf9d57942ae041b6515a63ec75743e1ca0aefc6bb6733211539e382f",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "In Memory",
+        "track": "In Memory",
+        "artist": "RONA., Rona Glynn-McDonald",
+        "album": "To The Ground",
+        "channel": "RONA.",
+        "duration": 210,
+        "upload_date": "20260819",
+        "webpage_url": "https://www.youtube.com/watch?v=Zk82i2lCi-k",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 209.66014583333333,
+      "source_decoded_duration_seconds": 209.66014583333333,
+      "effective_source_decoded_duration_seconds": 209.66014583333333,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999562902083861,
+          "rms_100ms_correlation": 0.9999969546859223,
+          "gain_reference_over_source": 1.0000166913822714,
+          "relative_waveform_residual": 0.00934974172942664
+        },
+        {
+          "start_seconds": 89.83007291666667,
+          "end_seconds": 119.83007291666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999586097970614,
+          "rms_100ms_correlation": 0.9999955372202839,
+          "gain_reference_over_source": 0.9999238031651485,
+          "relative_waveform_residual": 0.009098287843998432
+        },
+        {
+          "start_seconds": 178.66014583333333,
+          "end_seconds": 208.66014583333333,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999769780476394,
+          "rms_100ms_correlation": 0.9999995524906312,
+          "gain_reference_over_source": 0.9999243500451026,
+          "relative_waveform_residual": 0.006785528498455161
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 208.66014583333333,
+          "compared_seconds": 207.66014583333333,
+          "waveform_correlation": 0.999966555126954,
+          "rms_100ms_correlation": 0.9999987779397842,
+          "gain_reference_over_source": 0.9999504128309076,
+          "relative_waveform_residual": 0.008178546791530834
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 209.66014583333333
+    },
+    {
+      "track_id": "31-unknown",
+      "supplied_title": "Unknown",
+      "supplied_artist": "WAARI",
+      "source_video_id": "Rvr1EsKYQZI",
+      "configured_source_start_seconds": 0,
+      "reference_file": "31 - Unknown.mp3",
+      "reference_sha256": "d2380cd6770b6720473ada58b8539d4d530b9d4bf38bfcfd6b099406ac09363f",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Unknown",
+        "track": "Unknown",
+        "artist": "WAARI, WAARI",
+        "album": "Kiangu Ngalhika",
+        "channel": "WAARI",
+        "duration": 422,
+        "upload_date": "20260918",
+        "webpage_url": "https://www.youtube.com/watch?v=Rvr1EsKYQZI",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 422.0,
+      "source_decoded_duration_seconds": 422.0,
+      "effective_source_decoded_duration_seconds": 422.0,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999954796061977,
+          "rms_100ms_correlation": 0.9999997374724958,
+          "gain_reference_over_source": 1.0000036316088239,
+          "relative_waveform_residual": 0.0030067893364243963
+        },
+        {
+          "start_seconds": 196.0,
+          "end_seconds": 226.0,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999864366569887,
+          "rms_100ms_correlation": 0.9999993163641705,
+          "gain_reference_over_source": 1.0000066726506205,
+          "relative_waveform_residual": 0.0052083117974103975
+        },
+        {
+          "start_seconds": 391.0,
+          "end_seconds": 421.0,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999928857197993,
+          "rms_100ms_correlation": 0.99999988744002,
+          "gain_reference_over_source": 0.9999440144720644,
+          "relative_waveform_residual": 0.0037720759178108574
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 421.0,
+          "compared_seconds": 420.0,
+          "waveform_correlation": 0.999989394918248,
+          "rms_100ms_correlation": 0.9999995338301652,
+          "gain_reference_over_source": 0.999952798665789,
+          "relative_waveform_residual": 0.004605437908500868
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 422.0
+    },
+    {
+      "track_id": "32-da-du-dah-onome-remix-feat-nyron-higor",
+      "supplied_title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+      "supplied_artist": "Kokoroko",
+      "source_video_id": "Hax9dZ5QATE",
+      "configured_source_start_seconds": 0,
+      "reference_file": "32 - Da Du Dah (Onome Remix) [feat. Nyron Higor].mp3",
+      "reference_sha256": "f1b9c56f63408291c855fc0b53e34d5fe4b5f58f37866228427721e374c68913",
+      "reference_hash_matches_manifest": true,
+      "observed_metadata": {
+        "title": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+        "track": "Da Du Dah (Onome Remix) [feat. Nyron Higor]",
+        "artist": "Kokoroko, Nyron Higor",
+        "album": "Tempos Difíceis Sempre Passam",
+        "channel": "Kokoroko",
+        "duration": 224,
+        "upload_date": "20260806",
+        "webpage_url": "https://www.youtube.com/watch?v=Hax9dZ5QATE",
+        "availability": "public",
+        "playable_in_embed": true
+      },
+      "reference_decoded_duration_seconds": 223.56502083333334,
+      "source_decoded_duration_seconds": 223.56502083333334,
+      "effective_source_decoded_duration_seconds": 223.56502083333334,
+      "duration_delta_seconds": 0.0,
+      "additional_source_offset_seconds": 0.0,
+      "verified_source_start_seconds": 0.0,
+      "spans": [
+        {
+          "start_seconds": 1,
+          "end_seconds": 34,
+          "compared_seconds": 33.0,
+          "waveform_correlation": 0.9999786900900625,
+          "rms_100ms_correlation": 0.9999996936474805,
+          "gain_reference_over_source": 0.9999623302769125,
+          "relative_waveform_residual": 0.006528352326232457
+        },
+        {
+          "start_seconds": 96.78251041666667,
+          "end_seconds": 126.78251041666667,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999827475552224,
+          "rms_100ms_correlation": 0.9999990904745786,
+          "gain_reference_over_source": 0.9999511821645585,
+          "relative_waveform_residual": 0.005874305969081278
+        },
+        {
+          "start_seconds": 192.56502083333334,
+          "end_seconds": 222.56502083333334,
+          "compared_seconds": 30.0,
+          "waveform_correlation": 0.9999806229180893,
+          "rms_100ms_correlation": 0.9999998560933283,
+          "gain_reference_over_source": 0.9999151062410871,
+          "relative_waveform_residual": 0.006225263707463346
+        },
+        {
+          "start_seconds": 1,
+          "end_seconds": 222.56502083333334,
+          "compared_seconds": 221.56502083333334,
+          "waveform_correlation": 0.9999786528084483,
+          "rms_100ms_correlation": 0.9999995604610246,
+          "gain_reference_over_source": 0.9999457275266824,
+          "relative_waveform_residual": 0.006534079031975148
+        }
+      ],
+      "status": "recording-match",
+      "matched_coverage_seconds": 223.56502083333334
+    }
+  ],
+  "statistics": {
+    "minimum_span_waveform_correlation": 0.9991486428023018,
+    "minimum_span_rms_correlation": 0.9999605327234633,
+    "largest_absolute_additional_offset_seconds": 0.0,
+    "matching_duration_seconds_total": 8162.568854166667
+  }
+}
