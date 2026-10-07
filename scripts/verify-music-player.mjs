@@ -53,10 +53,12 @@ const poll=async(port,index,time,state=1)=>{
 await music.open();assert.deepEqual(controls.state,ordinary,'Opening Music must not alter ordinary water');assert.equal(music.enabled,false);
 assert.equal(document.getElementById('music-details').hidden,true);assert.equal(document.getElementById('music-expand').getAttribute('aria-expanded'),'false');
 assert.equal(document.getElementById('youtube-frame').hidden,true,'No empty video rectangle before Play');
+assert.equal(document.getElementById('youtube-slot').hidden,true,'No empty layout gap before Play');
 await music.play();const port=ports.at(-1);port.ready();await flush();
 assert.deepEqual(port.calls.find(c=>c[0]==='cuePlaylist')[1],{listType:'playlist',list:'PLTab0IXtn0Nw'});
 assert.equal(port.frame.title,'YouTube — Ink Water playlist');assert.deepEqual(controls.state,ordinary,'Playing must preserve every water setting and the current tone');assert.equal(music.enabled,true);
-assert.equal(document.getElementById('youtube-frame').hidden,false);
+assert.equal(document.getElementById('youtube-frame').hidden,true,'Compact playback hides the native video while retaining its clock');
+assert.equal(document.getElementById('youtube-slot').hidden,true,'Compact playback hides the video layout slot too');
 assert.equal(latest.musicPlaylistValidation.orderMatches,true);assert.equal(latest.musicPlaylistValidation.mappingComplete,true);
 const openingId=fixture.order[0];await poll(port,0,0);assert.equal(music.engine.scheduler.score.track_id,openingId);
 assert.equal(document.getElementById('music-play').textContent,'Pause');
@@ -66,7 +68,7 @@ assert.deepEqual([...document.querySelectorAll('#quick-drawings button')].map(b=
 document.getElementById('pause').click();assert.equal(port.state,2,'Water Pause immediately pauses music without a GPU frame');
 assert.equal(controls.state.paused,true);document.getElementById('pause').click();await flush();await poll(port,0,0);
 assert.equal(port.state,1);assert.equal(controls.state.paused,false);
-// Expand/collapse changes the chrome only: no hidden player, clock restart,
+// Expand/collapse changes the chrome only: no clock restart,
 // water setting reset, recreated iframe or interruption to playback.
 const currentScheduler=music.engine.scheduler;
 for(const expanded of [true,false,true,false]){
@@ -74,7 +76,8 @@ for(const expanded of [true,false,true,false]){
  assert.equal(document.getElementById('music-details').hidden,!expanded);
  assert.equal(document.getElementById('music-expand').getAttribute('aria-expanded'),String(expanded));
  assert.equal(latest.musicPanelExpanded,expanded);assert.equal(document.getElementById('music-panel').classList.contains('is-expanded'),expanded);
- assert.equal(document.getElementById('music-panel').hidden,false);assert.equal(document.getElementById('youtube-frame').hidden,false);
+ assert.equal(document.getElementById('music-panel').hidden,false);assert.equal(document.getElementById('youtube-frame').hidden,!expanded);
+ assert.equal(document.getElementById('youtube-slot').hidden,!expanded);
  assert.equal(document.querySelector('iframe'),port.frame);assert.equal(port.calls.length,calls);assert.equal(port.state,1);
  assert.equal(music.engine.scheduler,currentScheduler);assert.deepEqual(controls.state,ordinary);
 }
@@ -112,7 +115,7 @@ music.setSimulationPaused(false);await flush();assert.equal(port.state,1);
 await poll(port,2,854+fixture.tracks.find(t=>t.index===21).duration);assert.equal(port.calls.at(-1)[1],3,'Segment end manually advances a longer album source');
 port.index=3;port.time=0;port.options.events.onError({data:100});await flush();assert.equal(port.calls.at(-1)[1],4,'Native error identity must be read even before the next polling sample');
 assert.ok(latest.musicUnavailableVideos.includes(port.playlist[3]));await poll(port,4,0);
-port.options.events.onAutoplayBlocked();assert.deepEqual(music.updateMusicRain(),[]);assert.match(document.getElementById('music-status').textContent,/visible YouTube/);
+port.options.events.onAutoplayBlocked();assert.deepEqual(music.updateMusicRain(),[]);assert.match(document.getElementById('music-status').textContent,/Expand music.*Play in the video/);
 await poll(port,4,0);port.playlist[5]='unknown1234';await poll(port,5,30);
 assert.equal(music.engine.scheduler,undefined);assert.equal(document.getElementById('music-title').textContent,'Unmapped YouTube video');
 assert.equal(document.getElementById('music-play').textContent,'Pause','Unmapped audio is still controlled by the shared transport button');
@@ -148,9 +151,11 @@ controls.change({tone:'green-dark'});const selected={...controls.state};
 document.getElementById('music-expand').click();document.getElementById('music-close').click();
 assert.equal(document.getElementById('music-panel').hidden,false,'Close minimizes instead of hiding the native player');assert.equal(music.expanded,false);
 assert.equal(document.getElementById('music-details').hidden,true);assert.equal(port.state,1);
+assert.equal(document.getElementById('youtube-frame').hidden,true);assert.equal(document.getElementById('youtube-slot').hidden,true);
 document.getElementById('music-stop').click();assert.deepEqual(controls.state,selected,'Stop cannot reset water settings');
 assert.equal(music.enabled,false);assert.equal(intervals.size,0);assert.ok(port.calls.some(c=>c[0]==='destroy'));
 assert.equal(document.getElementById('music-panel').hidden,true);assert.equal(document.querySelector('iframe'),null,'Off/hidden mode never leaves playing YouTube offscreen');
+assert.equal(document.getElementById('youtube-frame').hidden,true);assert.equal(document.getElementById('youtube-slot').hidden,true);
 for(const tone of ['paper','silver','night','green-light','green-dark']){
  document.querySelector(`button[data-quick-tone="${tone}"]`).click();const settings={...controls.state};
  await music.open();await music.play();const again=ports.at(-1);again.ready();await flush();await poll(again,0,0);
@@ -225,13 +230,14 @@ assert.equal(typeof music.importLocalFiles,'undefined','The reference-recording 
 // The synthetic development/capture clock uses the exact same score owner.
 const capture=new PlaylistMusic({publish:()=>{}},true);
 await window.inkWaterMusicCapture.select('02-fused-dj-kicks',124.55);
+assert.equal(document.getElementById('youtube-frame').hidden,true);assert.equal(document.getElementById('youtube-slot').hidden,true,'Capture has no native video layout gap');
 assert.equal(capture.engine.scheduler.score.track_id,'02-fused-dj-kicks');assert.equal(capture.enabled,true);
 capture.updateMusicRain();now+=100;capture.updateMusicRain();const fixed=window.inkWaterMusicCapture.state();
 assert.equal(fixed.seed,scores.get('scores/02-fused-dj-kicks.json').seed);assert.ok(Math.abs(fixed.time-124.65)<1e-9);
 window.inkWaterMusicCapture.pause();now+=10000;assert.equal(window.inkWaterMusicCapture.state().time,fixed.time);
 window.inkWaterMusicCapture.seek(35);assert.equal(window.inkWaterMusicCapture.state().time,35);capture.close();
 assert.ok(requests.every(url=>!url.endsWith('.mp3')));
-console.log(JSON.stringify({nativePlaylistOnly:true,visiblePlayer:true,idMatching:true,sourceOffsets:true,lateSamplesDiscarded:true,trackChanges:true,
+console.log(JSON.stringify({nativePlaylistOnly:true,expandedVideoOnly:true,idMatching:true,sourceOffsets:true,lateSamplesDiscarded:true,trackChanges:true,
  nativeOrderPreserved:true,pauseResume:true,seeksNoStorm:true,unavailableSkipped:true,autoplayHandled:true,playlistEnd:true,musicOffDestroysEmbed:true,
  syncSwitchCycle:true,allTonesPreserved:true,missingMapHoldsRain:true,captureClockDeterministic:true,referenceAudioNeverFetched:true,
  compactDefault:true,expandCollapseRetainsPlayer:true,headerCollapseRetainsPlayer:true,sharedPlayPauseWorksForUnmappedVideos:true,bufferingCanBePausedWithoutRain:true,privateDownloadedPlaybackOptIn:true,

@@ -156,8 +156,10 @@ export class PlaylistMusic implements MusicRainClock{
     $('music-status').classList.toggle('visually-hidden',!this.expanded);
     $('music-expand').setAttribute('aria-expanded',String(this.expanded));$('music-expand').textContent=this.expanded?'Minimize':'Expand';$('music-close').hidden=!this.expanded;
     $('music-sync').setAttribute('aria-pressed',String(this.syncRain));$('music-sync').textContent=this.syncRain?'Rain sync on':'Rain sync off';
-    $('youtube-frame').hidden=this.transport!=='youtube';this.syncPlaybackButton();this.syncRainNotice();
-    // A playing YouTube embed is destroyed before this wrapper can be hidden.
+    // Compact mode keeps the native player and its clock alive without a
+    // second video rectangle beside the submerged transport bar.
+    $('youtube-frame').hidden=$('youtube-slot').hidden=this.transport!=='youtube'||!this.expanded;
+    this.syncPlaybackButton();this.syncRainNotice();
     this.hooks.publish({musicEnabled:this.enabled,musicTransport:this.transport,musicPanelExpanded:this.expanded});
   }
   async play(){
@@ -188,7 +190,7 @@ export class PlaylistMusic implements MusicRainClock{
         if(playlistId){this.validatingPlaylist=playlistId;this.player.loadPlaylistId(playlistId);this.status('Checking playlist video IDs…');}
         else this.status('Enter the YouTube playlist ID to begin.');
       },sample:snapshot=>this.youTubeSample(snapshot),error:code=>this.youTubeError(code),
-      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.syncRainNotice(true);this.status('Playback was blocked. Press play in the visible YouTube player.');},
+      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.syncRainNotice(true);this.status('Playback was blocked. Expand music and press Play in the video.');},
     });
   }
   async loadPlaylist(value:string){
