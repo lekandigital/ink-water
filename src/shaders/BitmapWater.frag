@@ -1,6 +1,7 @@
 // Independent bitmap layers over the existing water drawing and its caustics.
 precision highp float;
 uniform sampler2D baseColor;
+uniform sampler2D sceneColor;
 uniform sampler2D litScene;
 uniform sampler2D flatScene;
 uniform sampler2D water;
@@ -11,6 +12,9 @@ uniform mat4 inverseViewProjection;
 uniform vec3 eye;
 uniform vec3 paper;
 uniform vec3 ink;
+uniform vec3 causticColor;
+uniform float causticContrast;
+uniform bool caustics;
 uniform bool causticRipples;
 uniform bool bitmapTones;
 uniform bool causticReveal;
@@ -27,6 +31,7 @@ varying vec2 coord;
 float bitmapLuma(vec3 c){return dot(c,vec3(.2126,.7152,.0722));}
 float bitmapHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float opticalGrey(vec3 c){float l=bitmapLuma(c);return l/(1.0+l);}
+float projectedGrey(vec2 uv){return opticalGrey(texture2D(sceneColor,uv).rgb);}
 float focusAt(vec2 uv){return opticalGrey(texture2D(litScene,uv).rgb)-opticalGrey(texture2D(flatScene,uv).rgb);}
 float bitmapOrder(vec2 index){vec2 q=mod(index,2.0);return 2.0*q.x+3.0*q.y-4.0*q.x*q.y;}
 float dotPrint(vec2 position){
@@ -90,5 +95,12 @@ void main(){
     color=mix(color,mix(paper,ink,printed),waterBitmapContrast);
   }
   if(subtle)color=mix(paper,color,.64);
+  if(caustics&&causticContrast>0.0){
+    // Emphasize the existing projected-light edges after bitmap quantization.
+    // The source light field, geometry, strokes and both solvers stay intact.
+    vec2 d=pixel;
+    float edge=length(vec2(projectedGrey(coord+vec2(d.x,0))-projectedGrey(coord-vec2(d.x,0)),projectedGrey(coord+vec2(0,d.y))-projectedGrey(coord-vec2(0,d.y))));
+    color=mix(color,causticColor,clamp(edge*causticContrast,0.0,.65));
+  }
   gl_FragColor=vec4(clamp(color,0.0,1.0),1.0);
 }

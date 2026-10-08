@@ -4,6 +4,7 @@ import { Renderer as WaterRenderer } from './Renderer';
 import { connectWaterPointer } from './PointerInteraction';
 import { fitWaterCamera, insideWater } from './Viewport';
 import { applyDrawingTone, tones } from './DrawingPalette';
+import {applyCausticTone} from './CausticPalette';
 import { ContinuousWaveLines } from './ContinuousWaveLines';
 import { OpenWaterBoundary } from './OpenWaterBoundary';
 import { CausticPresentation } from './CausticPresentation';
@@ -116,7 +117,7 @@ class Puddle {
       ...Object.fromEntries(Object.entries(experimentDefaults).map(([key,value])=>[key,{value}])),
     },depthTest:false,depthWrite:false,toneMapped:false});
     this.printDrawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:printDrawingFrag,uniforms:this.drawing.uniforms,depthTest:false,depthWrite:false,toneMapped:false});
-    this.bitmapDrawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:bitmapWaterFrag,uniforms:{...this.drawing.uniforms,baseColor:{value:this.drawingTarget.texture},litScene:{value:this.litTarget.texture},flatScene:{value:this.flatTarget.texture}},depthTest:false,depthWrite:false,toneMapped:false});
+    this.bitmapDrawing=new THREE.ShaderMaterial({vertexShader:drawingVert,fragmentShader:bitmapWaterFrag,uniforms:{...this.drawing.uniforms,causticColor:{value:new THREE.Color()},causticContrast:{value:0},baseColor:{value:this.drawingTarget.texture},litScene:{value:this.litTarget.texture},flatScene:{value:this.flatTarget.texture}},depthTest:false,depthWrite:false,toneMapped:false});
     const bitmapQuad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.bitmapDrawing);bitmapQuad.frustumCulled=false;this.bitmapScene.add(bitmapQuad);
     this.drawingQuad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
     this.drawingQuad.frustumCulled=false;
@@ -381,6 +382,7 @@ class Puddle {
     const {mode,tone,lineWeight,sourceGeometry,hairlineRipples,caustics}=this.state;
     document.body.dataset.tone=tone;
     applyDrawingTone(this.drawing.uniforms.paper.value,this.drawing.uniforms.ink.value,tone);
+    this.bitmapDrawing.uniforms.causticContrast.value=applyCausticTone(this.bitmapDrawing.uniforms.causticColor.value,tone);
     this.drawing.uniforms.mode.value=modes[mode];this.drawing.uniforms.lineWeight.value=lineWeight;
     this.drawing.uniforms.sourceGeometry.value=sourceGeometry;
     this.drawing.uniforms.hairlineRipples.value=hairlineRipples;this.drawing.uniforms.caustics.value=caustics&&!this.state.causticRipples&&!this.state.alignedCaustics;

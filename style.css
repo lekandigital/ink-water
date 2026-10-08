@@ -22,7 +22,8 @@ body[data-tone="green-dark"]{color-scheme:dark;--paper:#144a32;--text:#aacdb2;--
 .water-dock>*{pointer-events:auto}.water-dock .music-panel,.water-dock .appearance-dock{pointer-events:none}.music-panel>*,.appearance-dock>*{pointer-events:auto}
 .water-dock:has(.music-panel:not([hidden]))>.music-trigger{display:none}
 .water-dock.water-refracting{filter:var(--water-refraction-filter,none)}
-.water-dock:is(:hover,:has(:focus-visible)){filter:none;z-index:4}
+.water-dock:has(:focus-visible){filter:none;z-index:4}
+@media(hover:hover) and (pointer:fine){.water-dock:hover{filter:none;z-index:4}}
 .water-dock .header-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 12px;border:1px solid color-mix(in srgb,var(--line),transparent 60%);border-radius:22px;background:color-mix(in srgb,var(--paper),transparent 82%)}
 .water-dock .header-actions .plain-button{font-size:.6875rem;padding:6px 0}
 .water-dock>.music-trigger{width:100%;justify-content:center;padding:9px 12px;border:1px solid color-mix(in srgb,var(--line),transparent 50%);border-radius:22px;background:color-mix(in srgb,var(--paper),transparent 80%);font-size:.75rem}
@@ -52,8 +53,9 @@ body[data-tone="green-dark"]{color-scheme:dark;--paper:#144a32;--text:#aacdb2;--
    one live video outside that filter, with motion sampled from the same field. */
 .youtube-frame{position:fixed;z-index:3;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--line),transparent 50%);background:transparent;border-radius:3px;opacity:.6;transform:var(--water-video-transform,none);transition:opacity .2s}
 .youtube-frame iframe{width:100%!important;height:100%!important;min-width:200px;min-height:200px;display:block;border:0}
-.youtube-frame:hover{opacity:1;transform:none;z-index:4}
-.water-dock:is(:hover,:has(:focus-visible)) :is(.tone-dock,.drawing-dock,.header-actions,.music-trigger,.music-bar,.music-details){background:color-mix(in srgb,var(--paper),transparent 14%)}
+@media(hover:hover) and (pointer:fine){.youtube-frame:hover{opacity:1;transform:none;z-index:4}}
+.water-dock:has(:focus-visible) :is(.tone-dock,.drawing-dock,.header-actions,.music-trigger,.music-bar,.music-details){background:color-mix(in srgb,var(--paper),transparent 14%)}
+@media(hover:hover) and (pointer:fine){.water-dock:hover :is(.tone-dock,.drawing-dock,.header-actions,.music-trigger,.music-bar,.music-details){background:color-mix(in srgb,var(--paper),transparent 14%)}}
 .music-details{min-height:0;max-height:min(240px,calc(100svh - 590px));overflow:auto;scrollbar-width:thin;padding:12px;border:1px solid color-mix(in srgb,var(--line),transparent 50%);border-radius:6px;background:color-mix(in srgb,var(--paper),transparent 82%)}
 .music-timeline{flex-wrap:wrap;gap:6px;margin:9px 0 3px}.music-timeline button{padding:5px 8px!important;font-size:.625rem!important}
 #music-sync[aria-pressed="true"]{border-color:var(--text)}#music-seek{margin:13px 0 15px}

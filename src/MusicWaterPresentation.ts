@@ -18,13 +18,26 @@ export class MusicWaterPresentation{
   private last=0;
   private pending=false;
   private failed=false;
+  private readonly layers:{element:HTMLElement;map:SVGElement;filter:SVGElement}[];
   private readonly host:HTMLElement;
   private readonly video=document.getElementById('youtube-frame')!;
   private readonly slot=document.getElementById('youtube-slot')!;
-  constructor(private readonly panel:HTMLElement,private readonly map:SVGElement){
+  constructor(private readonly panel:HTMLElement,map:SVGElement,private readonly presentation:{stable?:boolean;targets?:HTMLElement[];video?:boolean}={}){
     this.host=panel;
-    // Resolve against the page, not the external stylesheet's asset URL.
-    this.panel.style.setProperty('--water-refraction-filter',`url("${new URL('#music-water-refraction',document.baseURI).href}")`);
+    // One physical sample can serve several independent controls. Filtering the
+    // individual surfaces avoids treating a resized dock as one moving image.
+    const template=map.parentElement as unknown as SVGElement;
+    this.layers=(presentation.targets??[panel]).map((element,index)=>{
+      const filter=presentation.targets?template.cloneNode(true) as SVGElement:template;
+      const image=filter.querySelector('feImage') as SVGElement;
+      if(presentation.targets){
+        filter.id=`${template.id}-${index}`;image.id=`${map.id}-${index}`;
+        template.parentElement!.appendChild(filter);
+      }
+      // Resolve against the page, not the external stylesheet's asset URL.
+      element.style.setProperty('--water-refraction-filter',`url("${new URL('#'+filter.id,document.baseURI).href}")`);
+      return {element,map:image,filter};
+    });
     const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.material);quad.frustumCulled=false;this.scene.add(quad);
     this.canvas.width=this.canvas.height=80;this.context=this.canvas.getContext('2d');
     // Layout must still update when the simulation is paused and draws stop.
@@ -32,18 +45,27 @@ export class MusicWaterPresentation{
     window.addEventListener('resize',()=>this.positionVideo());
   }
   private positionVideo(){
-    if(this.video.hidden||this.slot.hidden)return;
+    if(this.presentation.video===false||this.video.hidden||this.slot.hidden)return;
     const rect=this.slot.getBoundingClientRect();
-    this.video.style.left=`${rect.left}px`;this.video.style.top=`${rect.top}px`;
-    this.video.style.width=`${rect.width}px`;this.video.style.height=`${rect.height}px`;
+    const page=document.querySelector<HTMLElement>('main');
+    const fallback=page?.matches('.home-dream-in,.animate-theme-blur-in');
+    const bounds=fallback?page!.getBoundingClientRect():null;
+    const sx=bounds?bounds.width/page!.offsetWidth:1,sy=bounds?bounds.height/page!.offsetHeight:1;
+    // A CSS fallback temporarily makes main the fixed-position containing block.
+    // Convert the slot's screen bounds back to that block before placing video.
+    this.video.style.left=`${(rect.left-(bounds?.left??0))/sx}px`;this.video.style.top=`${(rect.top-(bounds?.top??0))/sy}px`;
+    this.video.style.width=`${rect.width/sx}px`;this.video.style.height=`${rect.height/sy}px`;
   }
   private available(){
     return !this.failed&&!!this.context&&!this.host.hidden&&
       !document.body.classList.contains('capture')&&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
-  private controlsAvailable(){return this.available()&&!this.host.matches(':hover, :has(:focus-visible)');}
-  private videoAvailable(){return this.available()&&!this.video.hidden&&!this.slot.hidden&&!this.video.matches(':hover');}
+  // Touch browsers can retain :hover after a tap. Only a real hover pointer lifts
+  // controls; keyboard focus remains available independently of pointer input.
+  private hovering(element:HTMLElement){return window.matchMedia('(hover: hover) and (pointer: fine)').matches&&element.matches(':hover');}
+  private controlsAvailable(){return this.available()&&(this.presentation.stable||(!this.hovering(this.host)&&!this.host.matches(':has(:focus-visible)')));}
+  private videoAvailable(){return this.presentation.video!==false&&this.available()&&!this.video.hidden&&!this.slot.hidden&&(this.presentation.stable||!this.hovering(this.video));}
   private moveVideo(region:{left:number;top:number;width:number;height:number}){
     const rect=this.slot.getBoundingClientRect();
     if(!rect.width||!rect.height)return;
@@ -68,14 +90,17 @@ export class MusicWaterPresentation{
   update(renderer:THREE.WebGLRenderer,water:THREE.Texture,inverse:THREE.Matrix4,eye:THREE.Vector3,stage:DOMRect,now=performance.now()){
     this.positionVideo();
     const controls=this.controlsAvailable(),video=this.videoAvailable();
-    if(!controls)this.panel.classList.remove('water-refracting');
-    if(!video)this.video.style.removeProperty('--water-video-transform');
+    if(!controls)for(const {element} of this.layers)element.classList.remove('water-refracting');
+    if(!video&&this.presentation.video!==false)this.video.style.removeProperty('--water-video-transform');
     if(!controls&&!video)return;
-    if(this.pending||now-this.last<50)return;
     const rect=this.panel.getBoundingClientRect();if(!rect.width||!rect.height||!stage.width||!stage.height)return;
+    const slotVisible=this.presentation.video!==false&&!this.slot.hidden;
+    const frame=slotVisible?this.slot.getBoundingClientRect():null;
+    if(this.pending||now-this.last<50)return;
+    const layers=this.layers.map(layer=>({...layer,rect:layer.element.getBoundingClientRect()}));
     let left=rect.left,top=rect.bottom-rect.height,right=left+rect.width,bottom=rect.bottom;
-    if(!this.slot.hidden){
-      const frame=this.slot.getBoundingClientRect();left=Math.min(left,frame.left);top=Math.min(top,frame.top);
+    if(frame){
+      left=Math.min(left,frame.left);top=Math.min(top,frame.top);
       right=Math.max(right,frame.left+frame.width);bottom=Math.max(bottom,frame.bottom);
     }
     // Include the native video and a 12px refraction margin.
@@ -86,20 +111,49 @@ export class MusicWaterPresentation{
     u.screenRect.value.set((left-stage.left)/stage.width,1-(bottom-stage.top)/stage.height,(right-left)/stage.width,(bottom-top)/stage.height);
     const previous=renderer.getRenderTarget();
     try{renderer.setRenderTarget(this.target);renderer.render(this.scene,this.camera);}finally{renderer.setRenderTarget(previous);}
-    const region={x:left-rect.left,y:top-(rect.bottom-rect.height),width:right-left,height:bottom-top};
-    for(const [key,value] of Object.entries(region)){this.map.setAttribute(key,String(value));this.map.parentElement!.setAttribute(key,String(value));}
     this.last=now;this.pending=true;
     void renderer.readRenderTargetPixelsAsync(this.target,0,0,80,80,this.pixels).then(()=>{
       const controls=this.controlsAvailable(),video=this.videoAvailable();
       if(!controls&&!video)return;
+      // Opening music or resizing must never remap an old GPU frame into new bounds.
+      const sameRect=(a:DOMRect,b:DOMRect)=>Math.abs(a.left-b.left)<.25&&Math.abs(a.top-b.top)<.25&&Math.abs(a.width-b.width)<.25&&Math.abs(a.height-b.height)<.25;
+      if(!sameRect(rect,this.panel.getBoundingClientRect())||slotVisible!==(this.presentation.video!==false&&!this.slot.hidden)||(frame&&!sameRect(frame,this.slot.getBoundingClientRect()))||layers.some(layer=>!sameRect(layer.rect,layer.element.getBoundingClientRect()))){
+        // Keep the last completed image in place and request a fresh region next
+        // frame. Clearing the filter here made controls jump sideways on click.
+        this.last=0;return;
+      }
       // GPU rows run up; SVG image rows run down.
+      // Preserve Ink Water's exact amplitude and timing, without attenuation or
+      // temporal smoothing. This is presentation only; neither solver is changed.
       for(let y=0;y<80;y++)this.image.data.set(this.pixels.subarray((79-y)*320,(80-y)*320),y*320);
+      for(const layer of layers){
+        if(!layer.rect.width||!layer.rect.height)continue;
+        // WebKit's untransformed CSS reference filters position feImage in page
+        // space. A transformed surface has its own local coordinate space, as
+        // Chromium does. iOS Chrome and Firefox also use WebKit's behavior.
+        // Only the map origin changes; its physical sample and 24px scale stay exact.
+        const webkit=typeof navigator!=='undefined'&&(navigator.vendor==='Apple Computer, Inc.'||/(?:CriOS|FxiOS|EdgiOS)\//.test(navigator.userAgent));
+        const transformed=typeof getComputedStyle==='function'&&getComputedStyle(layer.element).transform!=='none';
+        const pageCoordinates=webkit&&!transformed;
+        const region={x:left-(pageCoordinates?0:layer.rect.left),y:top-(pageCoordinates?0:layer.rect.top),width:right-left,height:bottom-top};
+        for(const [key,value] of Object.entries(region)){layer.map.setAttribute(key,String(value));layer.filter.setAttribute(key,String(value));}
+      }
       if(controls){
         this.context!.putImageData(this.image,0,0);
-        this.map.setAttribute('href',this.canvas.toDataURL('image/png'));
-        this.panel.classList.add('water-refracting');this.panel.dataset.waterRefraction='physical';
+        const href=this.canvas.toDataURL('image/png');
+        for(const layer of layers){
+          if(!layer.rect.width||!layer.rect.height)continue;
+          // Each filter has its own local origin, even though all share the same
+          // completed physical field. Geometry and pixels commit together.
+          layer.map.setAttribute('href',href);
+          layer.element.classList.add('water-refracting');layer.element.dataset.waterRefraction='physical';
+        }
+        this.panel.dataset.waterRefraction='physical';
       }
       if(video)this.moveVideo({left,top,width:right-left,height:bottom-top});
-    }).catch(()=>{this.failed=true;this.panel.classList.remove('water-refracting');this.video.style.removeProperty('--water-video-transform');}).finally(()=>{this.pending=false;});
+    }).catch(()=>{
+      this.failed=true;for(const {element} of this.layers)element.classList.remove('water-refracting');
+      if(this.presentation.video!==false)this.video.style.removeProperty('--water-video-transform');
+    }).finally(()=>{this.pending=false;});
   }
 }

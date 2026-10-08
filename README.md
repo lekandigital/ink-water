@@ -25,6 +25,22 @@ Nothing about the water changes between styles. Switch from **Original**, the ph
 
 Two faint lines lie on the floor beneath the water. They are there for the ripples to bend, the way the lines of a pool wobble when someone dives in.
 
+The light and dark green palettes retain their mint paper and forest ink. Their caustics use independent forest and pale mint accents after bitmap quantization, so focused light stays visible without changing the water simulation or the original grayscale palettes.
+
+The submerged controls use the same displayed water field and full 12px displacement range as the floor optics. SVG map origins account for WebKit's page coordinates and transformed surfaces. Mouse hover and keyboard focus lift the controls; touch hover keeps them submerged.
+
+To check actual painted controls, native mobile taps, and portrait/landscape layouts in Chromium and WebKit (with Playwright browsers installed):
+
+```sh
+CHROME_PATH=/path/to/chrome node scripts/verify-mobile-refraction.mjs
+```
+
+To compare the unchanged physics and grayscale canvas against a dependency-installed checkout of commit `097638c1583ca758da97703f809771e04445129e`, and measure the green caustic improvement:
+
+```sh
+CHROME_PATH=/path/to/chrome INK_WATER_SOURCE=/path/to/original-ink-water node scripts/verify-caustics-browser.mjs
+```
+
 ## Lineage
 
 ```
