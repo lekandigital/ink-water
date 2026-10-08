@@ -112,12 +112,13 @@ export class MusicWaterPresentation{
     const previous=renderer.getRenderTarget();
     try{renderer.setRenderTarget(this.target);renderer.render(this.scene,this.camera);}finally{renderer.setRenderTarget(previous);}
     this.last=now;this.pending=true;
-    void renderer.readRenderTargetPixelsAsync(this.target,0,0,80,80,this.pixels).then(()=>{
+    void renderer.readRenderTargetPixelsAsync(this.target,0,0,80,80,this.pixels).then(async()=>{
       const controls=this.controlsAvailable(),video=this.videoAvailable();
       if(!controls&&!video)return;
       // Opening music or resizing must never remap an old GPU frame into new bounds.
       const sameRect=(a:DOMRect,b:DOMRect)=>Math.abs(a.left-b.left)<.25&&Math.abs(a.top-b.top)<.25&&Math.abs(a.width-b.width)<.25&&Math.abs(a.height-b.height)<.25;
-      if(!sameRect(rect,this.panel.getBoundingClientRect())||slotVisible!==(this.presentation.video!==false&&!this.slot.hidden)||(frame&&!sameRect(frame,this.slot.getBoundingClientRect()))||layers.some(layer=>!sameRect(layer.rect,layer.element.getBoundingClientRect()))){
+      const currentLayout=()=>sameRect(rect,this.panel.getBoundingClientRect())&&slotVisible===(this.presentation.video!==false&&!this.slot.hidden)&&(!frame||sameRect(frame,this.slot.getBoundingClientRect()))&&layers.every(layer=>sameRect(layer.rect,layer.element.getBoundingClientRect()));
+      if(!currentLayout()){
         // Keep the last completed image in place and request a fresh region next
         // frame. Clearing the filter here made controls jump sideways on click.
         this.last=0;return;
@@ -126,6 +127,16 @@ export class MusicWaterPresentation{
       // Preserve Ink Water's exact amplitude and timing, without attenuation or
       // temporal smoothing. This is presentation only; neither solver is changed.
       for(let y=0;y<80;y++)this.image.data.set(this.pixels.subarray((79-y)*320,(80-y)*320),y*320);
+      let href:string|undefined;
+      if(controls){
+        this.context!.putImageData(this.image,0,0);
+        href=this.canvas.toDataURL('image/png');
+        // Keep the previous, decoded map visible while the next one loads.
+        // Replacing feImage with an undecoded data URL can blank iOS controls.
+        const decoded=new Image();decoded.src=href;await decoded.decode();
+        if(!currentLayout()){this.last=0;return;}
+        if(!this.controlsAvailable())return;
+      }
       for(const layer of layers){
         if(!layer.rect.width||!layer.rect.height)continue;
         // WebKit's untransformed CSS reference filters position feImage in page
@@ -139,18 +150,16 @@ export class MusicWaterPresentation{
         for(const [key,value] of Object.entries(region)){layer.map.setAttribute(key,String(value));layer.filter.setAttribute(key,String(value));}
       }
       if(controls){
-        this.context!.putImageData(this.image,0,0);
-        const href=this.canvas.toDataURL('image/png');
         for(const layer of layers){
           if(!layer.rect.width||!layer.rect.height)continue;
           // Each filter has its own local origin, even though all share the same
           // completed physical field. Geometry and pixels commit together.
-          layer.map.setAttribute('href',href);
+          layer.map.setAttribute('href',href!);
           layer.element.classList.add('water-refracting');layer.element.dataset.waterRefraction='physical';
         }
         this.panel.dataset.waterRefraction='physical';
       }
-      if(video)this.moveVideo({left,top,width:right-left,height:bottom-top});
+      if(video&&this.videoAvailable())this.moveVideo({left,top,width:right-left,height:bottom-top});
     }).catch(()=>{
       this.failed=true;for(const {element} of this.layers)element.classList.remove('water-refracting');
       if(this.presentation.video!==false)this.video.style.removeProperty('--water-video-transform');

@@ -14,7 +14,9 @@ document.createElement=name=>{const element=create(name);if(name==='canvas'){
  element.toDataURL=()=> 'data:image/png;base64,test';
 }return element;};
 class ImageData{constructor(width,height){this.data=new Uint8ClampedArray(width*height*4);}}
-Object.assign(globalThis,{window,document,ImageData});
+let slowDecode=false,resolveDecode;
+class Image{async decode(){if(slowDecode)await new Promise(resolve=>{resolveDecode=resolve;});}}
+Object.assign(globalThis,{window,document,ImageData,Image});
 const {outputFiles}=await build({stdin:{contents:"export {MusicWaterPresentation} from './src/MusicWaterPresentation';export {Matrix4,Vector3,Texture} from 'three';",resolveDir:process.cwd(),loader:'ts'},bundle:true,platform:'node',format:'esm',write:false,plugins:[{name:'shaders',setup(b){b.onLoad({filter:/\.(vert|frag|glsl)$/},async args=>({contents:await shaderSource(args.path),loader:'text'}));}}]});
 const {MusicWaterPresentation,Matrix4,Vector3,Texture}=await import('data:text/javascript;base64,'+Buffer.from(outputFiles[0].text).toString('base64'));
 const panel=document.getElementById('water-dock'),map=document.getElementById('music-water-map'),music=document.getElementById('music-panel'),video=document.getElementById('youtube-frame'),slot=document.getElementById('youtube-slot');
@@ -108,9 +110,21 @@ assert.equal(panel.classList.contains('water-refracting'),true,'Quick controls r
 canHover=false;dockHover=true;dockFocus=false;videoHover=true;music.hidden=true;video.hidden=true;slot.hidden=true;
 const beforeTouch=writes;update(2300);await complete();
 assert.equal(writes,beforeTouch+1);assert.equal(panel.classList.contains('water-refracting'),true,'Touch hover keeps controls physically submerged');
+// Keep the last completed map while a new image is decoding. Reject bounds
+// that changed during decode, including a phone rotation or an opening player.
+const beforeDecode=Object.fromEntries(['x','y','width','height','href'].map(key=>[key,map.getAttribute(key)]));
+const initialBounds=panel.getBoundingClientRect();let changingBounds={...initialBounds};
+panel.getBoundingClientRect=()=>changingBounds;slowDecode=true;
+update(2350);await complete();assert.equal(typeof resolveDecode,'function','A new map must decode before it becomes visible');
+assert.deepEqual(Object.fromEntries(Object.keys(beforeDecode).map(key=>[key,map.getAttribute(key)])),beforeDecode,'Previously decoded pixels and bounds remain visible during decode');
+changingBounds={...initialBounds,top:initialBounds.top-30,height:initialBounds.height+30};
+resolveDecode();await new Promise(resolve=>setImmediate(resolve));
+assert.deepEqual(Object.fromEntries(Object.keys(beforeDecode).map(key=>[key,map.getAttribute(key)])),beforeDecode,'Layout changes during decode cannot commit stale pixels or geometry');
+slowDecode=false;update(2380);await complete();
+assert.equal(map.getAttribute('height'),String(changingBounds.height+24),'The next completed map uses fresh bounds');
 // WebKit positions feImage in page space; the physical sample remains identical.
 Object.defineProperty(globalThis,'navigator',{value:{vendor:'Apple Computer, Inc.',userAgent:'AppleWebKit Safari'},configurable:true});
-update(2400);await complete();
+update(2500);await complete();
 const panelRect=panel.getBoundingClientRect();
 assert.equal(map.getAttribute('x'),String(panelRect.left-12));assert.equal(map.getAttribute('y'),String(panelRect.top-12),'WebKit map origin follows the page, preserving the original displacement range');
 console.log(JSON.stringify({readOnlyDisplayedField:true,asyncGPURead:true,oneReadInFlight:true,correctScreenCoordinates:true,restoreRenderTarget:true,nativeVideoOutsideSVGFilter:true,nativeVideoAlignedWithEmptySlot:true,pausedResizeAlignment:true,boundedNativeVideoAffineMotion:true,SVGDisplacementDirectionPreserved:true,compactVideoExcluded:true,compactFocusCrisp:true,expandedControlHoverLeavesVideoSubmerged:true,expandedControlFocusLeavesVideoSubmerged:true,videoHoverLeavesControlsSubmerged:true,lateVideoHoverReadRejected:true,videoHoverExitSubmerged:true,reducedMotion:true,wholeQuickClusterSubmerged:true,captureUnchanged:true}));

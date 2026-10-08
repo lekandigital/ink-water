@@ -9,18 +9,18 @@ const server=await createServer({cacheDir:'node_modules/.cache/mobile-refraction
 const engines=(process.env.BROWSERS||'chromium,webkit').split(',');
 const manifest=JSON.parse(await readFile('data/music/manifest.json','utf8'));
 const queue=manifest.order.map(id=>manifest.tracks.find(track=>track.id===id).source.video_id);
-const metrics=async(page,selector)=>{
+const metrics=async(page,selector,isolate=true)=>{
  const rect=await page.locator(selector).evaluate(el=>{
   const r=el.getBoundingClientRect(),padding=16;
   return {left:Math.max(0,Math.floor(r.left-padding)),top:Math.max(0,Math.floor(r.top-padding)),right:Math.min(innerWidth,Math.ceil(r.right+padding)),bottom:Math.min(innerHeight,Math.ceil(r.bottom+padding))};
  });
- const isolated=await page.addStyleTag({content:'.blog-copy>*,.water-dock>*,.youtube-frame{visibility:hidden}'+selector+','+selector+' *{visibility:visible}'});
+ const isolated=isolate?await page.addStyleTag({content:'#stage canvas,.blog-copy>*,.water-dock>*,.youtube-frame{visibility:hidden}'+selector+','+selector+' *{visibility:visible}'}):null;
  const png=(await page.screenshot()).toString('base64');
- await isolated.evaluate(el=>el.remove());
+ if(isolated)await isolated.evaluate(el=>el.remove());
  return page.evaluate(async({png,rect})=>{
   const image=new Image();image.src='data:image/png;base64,'+png;await image.decode();
-  const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;
-  const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);
+  const canvas=document.createElement('canvas');canvas.width=innerWidth;canvas.height=innerHeight;
+  const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0,canvas.width,canvas.height);
   const paper=getComputedStyle(document.body).backgroundColor.match(/[\d.]+/g).slice(0,3).map(Number);
   const pixels=ctx.getImageData(rect.left,rect.top,rect.right-rect.left,rect.bottom-rect.top).data;
   let count=0,x=0,y=0;const width=rect.right-rect.left;
@@ -35,14 +35,17 @@ try{
  await server.listen();
  for(const engine of engines){
   assert.ok(['chromium','webkit'].includes(engine));
-  const browser=await (engine==='webkit'?webkit.launch({headless:true}):chromium.launch({executablePath:process.env.CHROME_PATH||'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']}));
+  const density=Number(process.env.DEVICE_SCALE_FACTOR||(engine==='webkit'?3:1));
+  const moving=engine==='webkit'||process.env.CHECK_MOVING==='1';
+  const browser=await (engine==='webkit'?webkit.launch({headless:true}):chromium.launch({executablePath:process.env.CHROME_PATH||'/usr/bin/google-chrome',headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--use-angle=swiftshader','--enable-unsafe-swiftshader',...JSON.parse(process.env.CHROME_EXTRA_ARGS||'[]')]}));
   try{
-   const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,colorScheme:'light',userAgent:process.env.MOBILE_USER_AGENT||'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'}),errors=[];
+   const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:density,colorScheme:'light',userAgent:process.env.MOBILE_USER_AGENT||'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'}),errors=[];
+   page.setDefaultTimeout(60000);
    page.on('pageerror',error=>errors.push(error.message));
-   await page.addInitScript(()=>{
-    Object.defineProperty(window,'devicePixelRatio',{value:.5});
-    const frame=requestAnimationFrame.bind(window);window.requestAnimationFrame=cb=>frame(time=>setTimeout(()=>cb(time),100));
-   });
+   // Software GPU only: cap the canvas backdrop, while the browser still paints
+   // HTML/SVG at the context's native 3× density. The physical solvers and the
+   // controls' fixed 80×80 displacement readback keep their actual resolution.
+   await page.addInitScript(()=>Object.defineProperty(window,'devicePixelRatio',{value:.5}));
    // Keep the real playlist adapter while making network/autoplay deterministic.
    await page.addInitScript(queue=>{window.YT={Player:class{
     constructor(element,options){this.options=options;this.state=5;this.index=0;this.frame=document.createElement('iframe');element.replaceWith(this.frame);setTimeout(()=>options.events.onReady(),10);}
@@ -50,12 +53,32 @@ try{
     playVideoAt(index){this.index=index;this.playVideo();}seekTo(){}getCurrentTime(){return 0;}getDuration(){return 300;}getVideoUrl(){return 'https://www.youtube.com/watch?v='+queue[this.index];}getPlaylist(){return queue;}getPlaylistIndex(){return this.index;}getPlaybackRate(){return 1;}getPlayerState(){return this.state;}
     setLoop(){}setShuffle(){}getIframe(){return this.frame;}destroy(){this.frame.remove();}
    }};},queue);
-   await page.goto('http://127.0.0.1:4173/');
+   await page.goto(process.env.TEST_URL||'http://127.0.0.1:4173/');
    await page.waitForFunction(()=>window.puddle,{},{timeout:60000});
-   await page.waitForFunction(()=>!document.documentElement.matches('.dream-pending,.dream-in'));
+   await page.waitForFunction(()=>!document.documentElement.matches('.dream-pending,.dream-in')&&!document.documentElement.dataset.blogTransition&&!document.querySelector('main').matches('.home-dream-in,.animate-theme-blur-in'));
    const blog=await page.locator('.blog-links').count()>0;
    const surface=blog?'#music-open':'#water-dock';
    await page.waitForFunction(selector=>document.querySelector(selector).dataset.waterRefraction==='physical',surface);
+   // Observe repeated live updates at phone pixel density. A paused uniform
+   // map alone misses images that disappear between data-URL decodes on iOS.
+   const movingSelectors=blog?['.blog-links',surface]:[surface];
+   if(!moving){await page.evaluate(()=>window.puddle.controls.change({paused:true}));await page.waitForFunction(()=>!window.puddle.pendingDraw&&!window.puddle.musicWater?.pending&&!window.puddle.linksWater?.pending);}
+   const referenceStyle=await page.addStyleTag({content:'.water-refracting{filter:none!important}'});
+   const reference=[];for(const selector of movingSelectors)reference.push(await metrics(page,selector));
+   await referenceStyle.evaluate(el=>el.remove());
+   const maps=new Set(),minimum=reference.map(()=>Infinity);
+   const probe=await page.locator(surface).evaluate(el=>{const r=el.getBoundingClientRect();return {x:Math.max(15,r.left-20),y:r.top+r.height/2};});
+   for(let n=0;n<(moving?8:0);n++){
+    if(n%2===0)await page.touchscreen.tap(probe.x,probe.y);
+    maps.add(await page.locator('feImage[href]').first().getAttribute('href'));
+    for(let i=0;i<movingSelectors.length;i++){
+     const painted=await metrics(page,movingSelectors[i]);minimum[i]=Math.min(minimum[i],painted.count);
+     assert.ok(painted.count>reference[i].count*.75,'Moving water must retain readable '+movingSelectors[i]);
+    }
+   }
+   if(moving)assert.ok(maps.size>1,'The visibility check must observe changing displacement maps');
+   if(blog)for(let i=1;i<=5;i++)assert.ok((await metrics(page,'.blog-links a:nth-of-type('+i+')')).count>10,'Every moving contact label remains painted');
+   console.log(JSON.stringify({engine,liveMovingControls:moving,deviceScaleFactor:density,distinctMaps:maps.size,minimumPaintedPixels:minimum}));
    await page.evaluate(()=>{window.puddle.controls.change({paused:true,rain:false});});
    await page.waitForFunction(()=>{const app=window.puddle;return !app.pendingDraw&&!app.musicWater?.pending&&!app.linksWater?.pending;});
    await page.addStyleTag({content:'#stage canvas{visibility:hidden}'});
@@ -85,6 +108,7 @@ try{
    if(blog){
     await page.locator('#blog-theme').tap();
     await page.waitForFunction(()=>!document.documentElement.dataset.blogTransition);
+    for(let n=0;n<(moving?4:0);n++)for(const selector of movingSelectors)assert.ok((await metrics(page,selector)).count>25,'Controls stay painted during dark-mode water updates');
     await page.evaluate(()=>{
      window.__contactClicks=[];
      document.body.addEventListener('click',event=>{
@@ -107,7 +131,9 @@ try{
     assert.equal(await page.locator('#stage canvas').evaluate(el=>getComputedStyle(el).touchAction),'none','Vertical touch movement belongs to the water canvas');
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&document.documentElement.scrollHeight<=innerHeight),'Mobile layout stays in the viewport');
     await page.evaluate(()=>{window.puddle.controls.change({paused:true});document.querySelector('#stage canvas').style.visibility='hidden';});await page.waitForFunction(()=>{const app=window.puddle;return !app.pendingDraw&&!app.musicWater?.pending&&!app.linksWater?.pending;});
-    for(const selector of selectors){const visible=await metrics(page,selector);assert.ok(visible.count>25,engine+' '+selector+' survives resize '+width+'x'+height);}
+    for(const selector of selectors){
+     const visible=await metrics(page,selector);assert.ok(visible.count>25,engine+' '+selector+' survives resize '+width+'x'+height);
+    }
     await page.evaluate(()=>{document.querySelector('#stage canvas').style.visibility='';window.puddle.controls.change({paused:false});});
    }
    assert.deepEqual(errors,[]);
