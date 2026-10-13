@@ -115,7 +115,7 @@ music.setSimulationPaused(false);await flush();assert.equal(port.state,1);
 await poll(port,2,854+fixture.tracks.find(t=>t.index===21).duration);assert.equal(port.calls.at(-1)[1],3,'Segment end manually advances a longer album source');
 port.index=3;port.time=0;port.options.events.onError({data:100});await flush();assert.equal(port.calls.at(-1)[1],4,'Native error identity must be read even before the next polling sample');
 assert.ok(latest.musicUnavailableVideos.includes(port.playlist[3]));await poll(port,4,0);
-port.options.events.onAutoplayBlocked();assert.deepEqual(music.updateMusicRain(),[]);assert.match(document.getElementById('music-status').textContent,/Expand music.*Play in the video/);
+port.options.events.onAutoplayBlocked();assert.deepEqual(music.updateMusicRain(),[]);assert.match(document.getElementById('music-status').textContent,/Tap Play in the video/);
 await poll(port,4,0);port.playlist[5]='unknown1234';await poll(port,5,30);
 assert.equal(music.engine.scheduler,undefined);assert.equal(document.getElementById('music-title').textContent,'Unmapped YouTube video');
 assert.equal(document.getElementById('music-play').textContent,'Pause','Unmapped audio is still controlled by the shared transport button');

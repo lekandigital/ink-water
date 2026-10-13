@@ -18,11 +18,12 @@ export class MusicWaterPresentation{
   private last=0;
   private pending=false;
   private failed=false;
-  private readonly layers:{element:HTMLElement;map:SVGElement;filter:SVGElement}[];
+  private readonly layers:{element:HTMLElement;map:SVGElement;filter:SVGElement;spareMap:SVGElement;spareFilter:SVGElement}[];
+  private frame=0;
   private readonly host:HTMLElement;
   private readonly video=document.getElementById('youtube-frame')!;
   private readonly slot=document.getElementById('youtube-slot')!;
-  constructor(private readonly panel:HTMLElement,map:SVGElement,private readonly presentation:{stable?:boolean;targets?:HTMLElement[];video?:boolean}={}){
+  constructor(private readonly panel:HTMLElement,map:SVGElement,private readonly presentation:{stable?:boolean;targets?:HTMLElement[];video?:boolean;filterBounds?:'element'}={}){
     this.host=panel;
     // One physical sample can serve several independent controls. Filtering the
     // individual surfaces avoids treating a resized dock as one moving image.
@@ -33,10 +34,24 @@ export class MusicWaterPresentation{
       if(presentation.targets){
         filter.id=`${template.id}-${index}`;image.id=`${map.id}-${index}`;
         template.parentElement!.appendChild(filter);
+        if(presentation.filterBounds==='element')filter.setAttribute('filterUnits','objectBoundingBox');
       }
+      // Give independent HTML surfaces their own painting origin. On iOS,
+      // untransformed reference filters can inherit page/ancestor coordinates;
+      // a nonzero depth translation keeps them local even when iOS optimizes
+      // identity transforms away. With no CSS perspective, screen bounds stay fixed.
+      // Preserve any existing placement transform, including the demo's dock.
+      if(presentation.targets&&typeof getComputedStyle==='function'&&getComputedStyle(element).transform==='none')element.style.setProperty('transform','translateZ(0.01px)');
       // Resolve against the page, not the external stylesheet's asset URL.
       element.style.setProperty('--water-refraction-filter',`url("${new URL('#'+filter.id,document.baseURI).href}")`);
-      return {element,map:image,filter};
+      // Swapping two persistent filter bindings explicitly invalidates the
+      // composited HTML surface. Updating only feImage.href can leave Safari
+      // displaying a previously painted displacement map during mobile playback.
+      const spareFilter=filter.cloneNode(true) as SVGElement;
+      spareFilter.id=filter.id+'-frame';
+      const spareMap=spareFilter.querySelector('feImage') as SVGElement;spareMap.id=image.id+'-frame';
+      template.parentElement!.appendChild(spareFilter);
+      return {element,map:image,filter,spareMap,spareFilter};
     });
     const quad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.material);quad.frustumCulled=false;this.scene.add(quad);
     this.canvas.width=this.canvas.height=80;this.context=this.canvas.getContext('2d');
@@ -147,17 +162,29 @@ export class MusicWaterPresentation{
         const transformed=typeof getComputedStyle==='function'&&getComputedStyle(layer.element).transform!=='none';
         const pageCoordinates=webkit&&!transformed;
         const region={x:left-(pageCoordinates?0:layer.rect.left),y:top-(pageCoordinates?0:layer.rect.top),width:right-left,height:bottom-top};
-        for(const [key,value] of Object.entries(region)){layer.map.setAttribute(key,String(value));layer.filter.setAttribute(key,String(value));}
+        for(const [key,value] of Object.entries(region)){
+          layer.map.setAttribute(key,String(value));layer.spareMap.setAttribute(key,String(value));
+          // WebKit can move/clamp SourceGraphic when a bottom-anchored player
+          // changes height under a user-space filter. Anchor its output region
+          // to the element's box; keep map samples and the 24px primitive in CSS
+          // pixels, so the actual refraction and water physics stay unchanged.
+          const extent=key==='x'||key==='width'?layer.rect.width:layer.rect.height;
+          const bound=String(this.presentation.filterBounds==='element'?value/extent:value);
+          layer.filter.setAttribute(key,bound);layer.spareFilter.setAttribute(key,bound);
+        }
       }
       if(controls){
         for(const layer of layers){
           if(!layer.rect.width||!layer.rect.height)continue;
           // Each filter has its own local origin, even though all share the same
           // completed physical field. Geometry and pixels commit together.
-          layer.map.setAttribute('href',href!);
+          layer.map.setAttribute('href',href!);layer.spareMap.setAttribute('href',href!);
+          const filter=this.frame%2?layer.spareFilter:layer.filter;
+          layer.element.style.setProperty('--water-refraction-filter',`url("${new URL('#'+filter.id,document.baseURI).href}")`);
+          layer.element.dataset.waterRefractionFrame=String(this.frame);
           layer.element.classList.add('water-refracting');layer.element.dataset.waterRefraction='physical';
         }
-        this.panel.dataset.waterRefraction='physical';
+        this.frame++;this.panel.dataset.waterRefraction='physical';
       }
       if(video&&this.videoAvailable())this.moveVideo({left,top,width:right-left,height:bottom-top});
     }).catch(()=>{

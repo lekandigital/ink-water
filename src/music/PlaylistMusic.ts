@@ -42,6 +42,9 @@ export class PlaylistMusic implements MusicRainClock{
   private playlistNote='';
   private pendingPause=false;
   private initialPlay=false;
+  private preparingPlayer=false;
+  private playerLoading?:Promise<void>;
+  private youtubePlayIntent=false;
   private endTimer?:number;
   private matchedVideo=false;
   private sourceMismatch=false;
@@ -92,10 +95,21 @@ export class PlaylistMusic implements MusicRainClock{
     document.addEventListener('visibilitychange',()=>{this.rebase();});
     if(captureMode)this.exposeCapture();
     this.sync();
+    if(!captureMode)this.prepareInitialPlayer();
+  }
+
+  private prepareInitialPlayer(){
+    const connection=this.connectionRevision;this.preparingPlayer=true;this.sync();
+    void this.assets().then(manifest=>{
+      if(connection!==this.connectionRevision)return;
+      return this.createYouTube(manifest.playlist_id);
+    }).catch(()=>{this.preparingPlayer=false;this.sync();});
   }
 
   get enabled(){return this.active&&this.syncRain&&this.transport!=='none';}
-  get backgroundRainAllowed(){return !this.transportPlaying();}
+  // Keep ambient water moving while the native player buffers; musical rain
+  // only advances once its media clock actually plays.
+  get backgroundRainAllowed(){return this.transport==='youtube'?this.snapshot?.state!==1:!this.transportPlaying();}
   get expression(){return this.impactExpression;}
   private status(message:string){$('music-status').textContent=message;}
   private async json<T>(path:string){const response=await fetch(new URL('music/'+path,document.baseURI));if(!response.ok)throw new Error('Music score could not load.');return response.json() as Promise<T>;}
@@ -143,27 +157,37 @@ export class PlaylistMusic implements MusicRainClock{
     ++this.opening;++this.revision;++this.connectionRevision;this.active=false;this.expanded=false;this.transport='none';this.pendingTrack=undefined;this.snapshot=undefined;
     this.engine.clearScore();this.player?.destroy();this.player=undefined;this.validatingPlaylist=null;this.sourceMismatch=false;this.matchedVideo=false;
     this.pendingNativeIndex=undefined;this.nativeVideos=[];this.nativeIndex=0;this.unavailableVideos.clear();this.pendingPause=false;this.pendingOffset=false;
-    this.initialPlay=false;this.playlistNote='';$('music-playlist-note').textContent='';this.clock.reset();
+    this.initialPlay=false;this.preparingPlayer=false;this.youtubePlayIntent=false;this.playerLoading=undefined;this.playlistNote='';$('music-playlist-note').textContent='';this.clock.reset();
     if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);this.awaitingEnd=undefined;
     this.resumeAfterSimulation=false;this.referencePlaying=false;this.sync();
     this.pendingSeek=undefined;
   }
   private sync(){
     $('music-panel').hidden=!this.active;$('music-open').setAttribute('aria-expanded',String(this.active));
-    $('music-open').textContent=this.active?'Music':'Play music';$('music-open').setAttribute('aria-label',this.active?'Expand or minimize music':'Play music');
+    $<HTMLButtonElement>('music-open').disabled=!this.active&&this.preparingPlayer;
+    $('music-open').textContent=this.active?'Music':this.preparingPlayer?'Loading music…':'Play music';$('music-open').setAttribute('aria-label',this.active?'Expand or minimize music':'Play music');
     $('music-panel').classList.toggle('is-expanded',this.expanded);
     $('music-details').hidden=!this.expanded;
     $('music-status').classList.toggle('visually-hidden',!this.expanded);
     $('music-expand').setAttribute('aria-expanded',String(this.expanded));$('music-expand').textContent=this.expanded?'Minimize':'Expand';$('music-close').hidden=!this.expanded;
     $('music-sync').setAttribute('aria-pressed',String(this.syncRain));$('music-sync').textContent=this.syncRain?'Rain sync on':'Rain sync off';
-    // Compact mode keeps the native player and its clock alive without a
-    // second video rectangle beside the submerged transport bar.
-    $('youtube-frame').hidden=$('youtube-slot').hidden=this.transport!=='youtube'||!this.expanded;
+    // iOS can suspend hidden media between playlist items. Keep the native
+    // player visible on touch devices, including the compact transport view.
+    const mobile=window.matchMedia?.('(pointer: coarse)').matches??false;
+    $('youtube-frame').hidden=$('youtube-slot').hidden=this.transport!=='youtube'||(!this.expanded&&!mobile);
     this.syncPlaybackButton();this.syncRainNotice();
     this.hooks.publish({musicEnabled:this.enabled,musicTransport:this.transport,musicPanelExpanded:this.expanded});
   }
   async play(){
-    try{
+    // An already-cued player must receive playVideo in the initiating click,
+    // before any await. iOS does not transfer that gesture through networking.
+    if(this.player?.isReady&&this.nativeVideos.length&&this.session&&this.transport!=='local'&&!this.simulationPaused){
+      if(!this.active){this.active=true;++this.opening;}
+      this.transport='youtube';this.sync();this.youtubePlayIntent=true;
+      if(this.session.ended)this.moveToNative(0,true);else this.player.port.playVideo();
+      return;
+    }
+    try{this.youtubePlayIntent=true;
       if(!this.active)await this.open();const opening=this.opening,manifest=await this.assets();
       if(!this.active||opening!==this.opening)return;
       if(this.simulationPaused){this.status('Water paused — resume the water to play.');return;}
@@ -174,24 +198,35 @@ export class PlaylistMusic implements MusicRainClock{
       }
       if(this.transport==='capture'){this.referenceWall=performance.now();this.referencePlaying=true;this.rebase();this.syncPlaybackButton();this.syncRainNotice();return;}
       if(this.captureMode)throw new Error('Capture mode uses the reference clock. Use a normal page URL for YouTube playback.');
+      this.transport='youtube';this.sync();
       if(!this.player){this.initialPlay=true;await this.createYouTube(manifest.playlist_id);}
       else if(!this.player.isReady){this.initialPlay=true;this.status('Connecting to YouTube…');}
       else if(this.session!.ended){this.moveToNative(0,true);}
       else this.player.port.playVideo();
     }catch(error){this.status(error instanceof Error?error.message:'Press play in the YouTube player.');}
   }
-  private async createYouTube(playlistId:string|null=null){
-    const opening=this.opening,connection=++this.connectionRevision,namespace=await loadYouTubeAPI();
-    if(!this.active||opening!==this.opening||connection!==this.connectionRevision)return;
-    this.transport='youtube';this.sync();this.status('Connecting to YouTube…');
-    const holder=$('youtube-frame');holder.replaceChildren();const element=document.createElement('div');holder.append(element);
-    this.player=new YouTubePlayback(namespace,element,{
-      ready:()=>{if(!this.active||!this.player)return;
-        if(playlistId){this.validatingPlaylist=playlistId;this.player.loadPlaylistId(playlistId);this.status('Checking playlist video IDs…');}
-        else this.status('Enter the YouTube playlist ID to begin.');
-      },sample:snapshot=>this.youTubeSample(snapshot),error:code=>this.youTubeError(code),
-      blocked:()=>{this.snapshot=undefined;this.rebase();this.syncPlaybackButton();this.syncRainNotice(true);this.status('Playback was blocked. Expand music and press Play in the video.');},
+  private createYouTube(playlistId:string|null=null):Promise<void>{
+    if(this.player)return Promise.resolve();
+    if(this.playerLoading)return this.playerLoading;
+    const connection=++this.connectionRevision;
+    const loading=loadYouTubeAPI().then(namespace=>{
+      if(connection!==this.connectionRevision)return;
+      if(this.active&&this.youtubePlayIntent){this.transport='youtube';this.sync();this.status('Connecting to YouTube…');}
+      const holder=$('youtube-frame');holder.replaceChildren();const element=document.createElement('div');holder.append(element);
+      this.player=new YouTubePlayback(namespace,element,{
+        ready:()=>{if(!this.player||connection!==this.connectionRevision)return;
+          if(playlistId){this.validatingPlaylist=playlistId;this.player.loadPlaylistId(playlistId);if(this.active)this.status('Checking playlist video IDs…');}
+          else{this.preparingPlayer=false;this.sync();this.status('Enter the YouTube playlist ID to begin.');}
+        },sample:snapshot=>this.youTubeSample(snapshot),error:code=>this.youTubeError(code),
+        blocked:()=>{
+          this.youtubePlayIntent=false;this.preparingPlayer=false;this.initialPlay=false;
+          this.snapshot=undefined;this.rebase();this.expanded=true;this.sync();this.syncRainNotice(true);
+          this.status('Tap Play in the video to start music.');
+        },
+      });
     });
+    this.playerLoading=loading;
+    return loading.finally(()=>{if(this.playerLoading===loading)this.playerLoading=undefined;});
   }
   async loadPlaylist(value:string){
     this.terminalDrops=[];
@@ -201,15 +236,15 @@ export class PlaylistMusic implements MusicRainClock{
       ++this.localChoice;this.local.close();this.localPlayIntent=false;this.localSeeking=false;
       ++this.localLoadChoice;this.localLoadPlayIntent=undefined;
       this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);this.endTimer=undefined;
-      this.player?.destroy();this.player=undefined;this.initialPlay=false;
+      this.player?.destroy();this.player=undefined;this.initialPlay=false;this.playerLoading=undefined;
       ++this.revision;this.pendingTrack=undefined;this.pendingNativeIndex=undefined;this.snapshot=undefined;this.clock.reset();
       this.nativeVideos=[];this.nativeIndex=0;this.unavailableVideos.clear();this.pendingSeek=undefined;this.matchedVideo=false;this.engine.clearScore();await this.createYouTube(id);
     }catch(error){this.status(error instanceof Error?error.message:'Playlist could not load.');}
   }
   private youTubeSample(snapshot:YouTubeSnapshot){
-    if(!this.active||this.transport!=='youtube'||!this.session)return;
+    if(!this.session)return;
     if(this.validatingPlaylist){
-      if(!snapshot.playlist.length)return;
+      if(!snapshot.playlist.length||(!this.active&&snapshot.state!==5))return;
       const complete=this.session.manifest.tracks.every(t=>t.source);
       const playlistId=this.validatingPlaylist;
       const result=validatePlaylist(this.session.manifest,snapshot.playlist);this.validatingPlaylist=null;this.nativeVideos=snapshot.playlist;
@@ -232,8 +267,11 @@ export class PlaylistMusic implements MusicRainClock{
         'Actual video IDs:\n'+snapshot.playlist.map((id,i)=>`${i+1}. ${id}`).join('\n'),
       ].join('\n\n');
       this.nativeIndex=Math.max(0,snapshot.index);this.pendingOffset=true;
-      if(this.initialPlay){this.initialPlay=false;this.player!.port.playVideo();}else this.status('Playlist loaded. Press play.');return;
+      this.preparingPlayer=false;this.sync();
+      if(this.initialPlay&&this.active){this.initialPlay=false;this.player!.port.playVideo();}else if(this.active)this.status('Playlist loaded. Press play.');return;
     }
+    if(!this.active||this.transport!=='youtube')return;
+    const transitionArrived=this.pendingNativeIndex!==undefined;
     if(this.pendingNativeIndex!==undefined){
       if(snapshot.index!==this.pendingNativeIndex||snapshot.videoId!==this.nativeVideos[this.pendingNativeIndex])return;
       this.pendingNativeIndex=undefined;
@@ -258,6 +296,11 @@ export class PlaylistMusic implements MusicRainClock{
       (snapshot.state===0||snapshot.state===1)&&this.session.atEnd(snapshot.time)){
       this.terminalDrops.push(...this.engine.updateMusicRain({trackId:track.id,time:track.duration,playing:true}));
     }
+    // Retain a requested start across asynchronous queue metadata. Some mobile
+    // players report CUED for the new item before they acknowledge playVideoAt.
+    if((transitionArrived||track&&track.id!==this.session.current.id)&&this.youtubePlayIntent&&snapshot.state===5&&!this.simulationPaused){this.player!.port.playVideo();return;}
+    if(snapshot.state===1||snapshot.state===3)this.youtubePlayIntent=true;
+    else if(snapshot.state===2)this.youtubePlayIntent=false;
     this.snapshot=snapshot;this.rate=snapshot.rate;this.matchedVideo=!!track;this.syncPlaybackButton();this.syncRainNotice();
     if(!track){if(snapshot.videoId){
       ++this.revision;this.pendingTrack=undefined;this.engine.clearScore();
@@ -313,6 +356,11 @@ export class PlaylistMusic implements MusicRainClock{
     this.endTimer=window.setTimeout(()=>{if(this.active&&this.awaitingEnd===trackId&&this.session?.current.id===trackId){this.awaitingEnd=undefined;void this.next(true,true);}},350);
   }
   private youTubeError(code:number){
+    if(!this.active||!this.player?.isReady){
+      this.preparingPlayer=false;this.initialPlay=false;this.youtubePlayIntent=false;this.transport='none';
+      this.player?.destroy();this.player=undefined;this.playerLoading=undefined;++this.connectionRevision;
+      this.sync();this.status('Music could not load. Press Play to retry.');return;
+    }
     this.pendingSeek=undefined;
     this.snapshot=undefined;this.engine.clearScore();this.syncPlaybackButton();this.syncRainNotice();
     if([100,101,150].includes(code)&&this.session){
@@ -385,10 +433,12 @@ export class PlaylistMusic implements MusicRainClock{
     this.session.ended=false;this.pendingOffset=true;this.sourceMismatch=false;this.nativeIndex=index;this.pendingNativeIndex=index;
     this.pendingSeek=undefined;
     this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);
-    this.pendingPause=!play||this.simulationPaused;this.player.port.playVideoAt(index);
+    this.youtubePlayIntent=play&&!this.simulationPaused;
+    this.pendingPause=!this.youtubePlayIntent;this.player.port.playVideoAt(index);
   }
   private finish(preserveTerminal=false){this.pause(preserveTerminal);this.engine.clearScore();this.status('Playlist complete. Play again to return to the opening.');this.progress();}
   pause(preserveTerminal=false){
+    this.youtubePlayIntent=false;
     if(!preserveTerminal)this.terminalDrops=[];
     if(this.localLoadPlayIntent!==undefined)this.localLoadPlayIntent=false;
     if(this.transport==='youtube')this.player?.port.pauseVideo();
@@ -418,7 +468,7 @@ export class PlaylistMusic implements MusicRainClock{
   }
   // Buffering is a pending play request that the user must be able to pause,
   // but it never advances musical rain until the master clock is playing.
-  private transportPlaying(){return this.transport==='youtube'?(this.snapshot?.state===1||this.snapshot?.state===3):this.transport==='local'?this.localPlayIntent||this.local.playing:this.transport==='capture'?this.referencePlaying:false;}
+  private transportPlaying(){return this.transport==='youtube'?(this.snapshot?.state===1||this.snapshot?.state===3||(this.youtubePlayIntent&&this.pendingNativeIndex!==undefined)):this.transport==='local'?this.localPlayIntent||this.local.playing:this.transport==='capture'?this.referencePlaying:false;}
   private isPlaying(){return !this.simulationPaused&&!this.sourceMismatch&&!this.pendingSeek&&(this.transport==='youtube'?this.matchedVideo&&this.snapshot?.state===1:this.transport==='local'?this.local.trackId===this.session?.current.id&&this.local.playing&&!this.localSeeking:this.transport==='capture'&&this.referencePlaying);}
   rebase(){this.engine.seek(Math.max(0,this.currentTime()));}
   setSimulationPaused(paused:boolean){
@@ -456,7 +506,7 @@ export class PlaylistMusic implements MusicRainClock{
       await this.local.load(files,manifest);
       if(choice!==this.localLoadChoice)return;
       if(!this.active||opening!==this.opening){this.local.close();return;}
-      this.player?.destroy();this.player=undefined;++this.connectionRevision;++this.revision;
+      this.player?.destroy();this.player=undefined;this.playerLoading=undefined;this.preparingPlayer=false;++this.connectionRevision;++this.revision;
       this.snapshot=undefined;this.pendingTrack=undefined;this.pendingSeek=undefined;this.pendingNativeIndex=undefined;
       this.validatingPlaylist=null;this.matchedVideo=false;this.sourceMismatch=false;this.clock.reset();
       this.awaitingEnd=undefined;if(this.endTimer!==undefined)window.clearTimeout(this.endTimer);this.endTimer=undefined;

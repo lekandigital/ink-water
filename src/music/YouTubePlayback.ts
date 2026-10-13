@@ -26,18 +26,21 @@ export function loadYouTubeAPI():Promise<YTNamespace>{
 
 export class YouTubePlayback{
   private timer?:number;
+  private readyTimer?:number;
   private ready=false;
   private destroyed=false;
   readonly port:YouTubePort;
   constructor(namespace:YTNamespace,element:HTMLElement,private listener:Listener){
     this.port=new namespace.Player(element,{width:480,height:270,playerVars:{controls:1,playsinline:1,autoplay:0,origin:location.origin},events:{
-      onReady:()=>{if(this.destroyed)return;this.ready=true;this.port.setLoop(false);this.port.setShuffle(false);
-        const frame=this.port.getIframe();frame.title='YouTube — Ink Water playlist';frame.referrerPolicy='strict-origin-when-cross-origin';
+      onReady:()=>{if(this.destroyed)return;this.ready=true;if(this.readyTimer!==undefined)window.clearTimeout(this.readyTimer);this.port.setLoop(false);this.port.setShuffle(false);
+        const frame=this.port.getIframe();frame.setAttribute('allow','autoplay; encrypted-media; picture-in-picture; fullscreen');
+        frame.title='YouTube — Ink Water playlist';frame.referrerPolicy='strict-origin-when-cross-origin';
         this.timer=window.setInterval(()=>this.poll(),80);this.listener.ready();this.poll();},
       onStateChange:()=>this.poll(),onPlaybackRateChange:()=>this.poll(),
       onError:(event:{data:number})=>{if(!this.destroyed)this.listener.error(event.data);},
       onAutoplayBlocked:()=>{if(!this.destroyed)this.listener.blocked();},
     }});
+    this.readyTimer=window.setTimeout(()=>{if(!this.ready&&!this.destroyed)this.listener.error(-1);},12000);
   }
   poll(){
     if(!this.ready||this.destroyed)return;
@@ -47,5 +50,5 @@ export class YouTubePlayback{
   }
   get isReady(){return this.ready&&!this.destroyed;}
   loadPlaylistId(id:string){this.port.cuePlaylist({listType:'playlist',list:id});}
-  destroy(){this.destroyed=true;if(this.timer!==undefined)window.clearInterval(this.timer);this.port.destroy();}
+  destroy(){this.destroyed=true;if(this.readyTimer!==undefined)window.clearTimeout(this.readyTimer);if(this.timer!==undefined)window.clearInterval(this.timer);this.port.destroy();}
 }

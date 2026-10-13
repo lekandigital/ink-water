@@ -56,6 +56,7 @@ try{
    await page.goto(process.env.TEST_URL||'http://127.0.0.1:4173/');
    await page.waitForFunction(()=>window.puddle,{},{timeout:60000});
    await page.waitForFunction(()=>!document.documentElement.matches('.dream-pending,.dream-in')&&!document.documentElement.dataset.blogTransition&&!document.querySelector('main').matches('.home-dream-in,.animate-theme-blur-in'));
+   await page.waitForFunction(()=>!document.getElementById('music-open').disabled);
    const blog=await page.locator('.blog-links').count()>0;
    const surface=blog?'#music-open':'#water-dock';
    await page.waitForFunction(selector=>document.querySelector(selector).dataset.waterRefraction==='physical',surface);

@@ -113,3 +113,7 @@ Restoration history, the exact-base file hashes, the open-water boundary, the ra
 - **Ink Water** — drawing, interaction and presentation layers by [lekandigital](https://github.com/lekandigital)
 
 MIT License. The original notices are retained in [LICENSE](LICENSE): Original work Copyright (c) 2011 Evan Wallace; Modified work Copyright (c) 2026 Yong Su.
+
+Mobile playback prepares the cued native player before enabling Play, preserves the first tap’s activation, keeps the iframe visible on touch devices, and resumes requested playback across cued playlist handoffs. Ambient rain continues while YouTube buffers. No audio starts before a user action.
+
+Completed displacement maps alternate two persistent SVG filter bindings to explicitly repaint mobile controls. `node scripts/verify-mobile-playback.mjs` checks strict first-tap activation, native/cued handoffs, paused state and blocked-play recovery. `node scripts/verify-ripple-paint.mjs` uses real WebKit/WebGL to compare button pixels across still water, two propagating ripple phases, and still water again. The physical solvers, normal reconstruction and refraction amplitude are unchanged.

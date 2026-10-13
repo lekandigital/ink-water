@@ -78,3 +78,9 @@ body[data-tone="green-dark"]{color-scheme:dark;--paper:#144a32;--text:#aacdb2;--
  .water-dock:has(.is-expanded){top:75px}
 }
 @media(prefers-reduced-motion:reduce){.water-dock{filter:none!important}.youtube-frame{transform:none!important}}
+
+/* Keep the visible touch player and its controls reachable on short phones. */
+@media(pointer:coarse) and (max-height:700px){
+ .water-dock,.water-dock:has(.is-expanded){top:18px;transform:none;max-height:calc(100svh - 36px);overflow-y:auto;scrollbar-width:thin}
+ .water-dock>*{flex-shrink:0}
+}
