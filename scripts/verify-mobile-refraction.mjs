@@ -124,7 +124,11 @@ try{
    assert.ok(await page.locator(surface).evaluate(el=>getComputedStyle(el).filter.startsWith('url(')),engine+' touch hover must keep controls submerged');
    await page.locator('#music-open').tap();
    await page.waitForFunction(()=>JSON.parse(document.getElementById('water-state').textContent).musicPlaying===true);
+   const nativeFrame=await page.locator('#youtube-frame iframe').elementHandle();
+   assert.equal(await page.locator('#youtube-frame').isVisible(),false,'The compact mobile player hides the video');
+   assert.equal(await page.locator('#youtube-slot').isVisible(),false,'Compact playback reserves no video rectangle');
    await page.locator('#music-expand').tap();
+   assert.equal(await page.locator('#youtube-frame').isVisible(),true,'Expanded mobile playback displays the video');
    selectors.splice(selectors.indexOf(surface),1,'#music-bar','#music-details');
    for(const [width,height] of [[390,844],[320,568],[844,390]]){
     await page.setViewportSize({width,height});
@@ -137,6 +141,11 @@ try{
     }
     await page.evaluate(()=>{document.querySelector('#stage canvas').style.visibility='';window.puddle.controls.change({paused:false});});
    }
+   await page.locator('#music-expand').tap();
+   assert.equal(await page.locator('#youtube-frame').isVisible(),false,'Minimize hides the mobile video');
+   assert.equal(await page.locator('#youtube-slot').isVisible(),false,'Minimize removes the video rectangle');
+   assert.ok(await nativeFrame.evaluate(frame=>frame.isConnected),'Minimize retains the existing native player');
+   assert.ok(await page.evaluate(()=>JSON.parse(document.getElementById('water-state').textContent).musicPlaying),'Minimize retains playback');
    assert.deepEqual(errors,[]);
    console.log(JSON.stringify({engine,realWebGL:true,paintedControls:true,full12pxDisplacement:true,touchHoverRemainsSubmerged:true,nativeContactLinks:blog,expandedPlayerPainted:true,portraitAndLandscape:true,verticalTouchInput:true}));
   }finally{await browser.close();}

@@ -171,10 +171,9 @@ export class PlaylistMusic implements MusicRainClock{
     $('music-status').classList.toggle('visually-hidden',!this.expanded);
     $('music-expand').setAttribute('aria-expanded',String(this.expanded));$('music-expand').textContent=this.expanded?'Minimize':'Expand';$('music-close').hidden=!this.expanded;
     $('music-sync').setAttribute('aria-pressed',String(this.syncRain));$('music-sync').textContent=this.syncRain?'Rain sync on':'Rain sync off';
-    // iOS can suspend hidden media between playlist items. Keep the native
-    // player visible on touch devices, including the compact transport view.
-    const mobile=window.matchMedia?.('(pointer: coarse)').matches??false;
-    $('youtube-frame').hidden=$('youtube-slot').hidden=this.transport!=='youtube'||(!this.expanded&&!mobile);
+    // Compact mode retains the same player and playback clock. Only the
+    // expanded view displays the video, on both touch and desktop devices.
+    $('youtube-frame').hidden=$('youtube-slot').hidden=this.transport!=='youtube'||!this.expanded;
     this.syncPlaybackButton();this.syncRainNotice();
     this.hooks.publish({musicEnabled:this.enabled,musicTransport:this.transport,musicPanelExpanded:this.expanded});
   }
