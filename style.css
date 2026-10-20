@@ -84,3 +84,8 @@ body[data-tone="green-dark"]{color-scheme:dark;--paper:#144a32;--text:#aacdb2;--
  .water-dock,.water-dock:has(.is-expanded){top:18px;transform:none;max-height:calc(100svh - 36px);overflow-y:auto;scrollbar-width:thin}
  .water-dock>*{flex-shrink:0}
 }
+/* The experiment keeps the original water controls and pointer surface. */
+body.ascii-active { background: #000; }
+.ascii-controls { margin-bottom: 18px; }
+.ascii-controls small { opacity: .6; font-size: 10px; }
+#toggle-ascii[aria-pressed="true"] { color: #bfe8f0; }

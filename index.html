@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#161616">
   <meta name="description" content="Simulated water, drawn instead of rendered. A real-time heightfield water study in etching, graphite, ink and bitmap texture.">
-  <title>Ink Water — a water study</title>
+  <title>Ink Water — ASCII experiment</title>
   <link rel="canonical" href="https://demo.1001ud.me/ink-water/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Ink Water">
@@ -26,7 +26,7 @@
 </head>
 <body data-tone="night" class="controls-hidden">
   <header class="masthead">
-    <div class="identity"><h1>Ink Water</h1><span class="byline">A water study</span></div>
+    <div class="identity"><h1>Ink Water</h1><span class="byline">ASCII experiment</span></div>
 
   </header>
   <main>
@@ -36,6 +36,12 @@
     </div>
     <aside id="controls" class="controls" aria-label="Water appearance and interaction controls">
       <div class="panel-heading"><h2>On the surface</h2><span id="style-caption">Etching</span></div>
+      <fieldset class="ascii-controls"><legend>ASCII experiment</legend>
+        <div class="rain-row"><label for="ascii-enabled">ASCII water <small>Press A to compare</small></label><input id="ascii-enabled" type="checkbox" role="switch" checked></div>
+        <div class="range-control"><label for="ascii-scale">Character size <output id="ascii-scale-value" for="ascii-scale">8 × 12 px</output></label><input id="ascii-scale" type="range" min="0.65" max="1.8" step="0.05" value="1"></div>
+        <div class="rain-row"><label for="ascii-accents">Colored glints</label><input id="ascii-accents" type="checkbox" role="switch" checked></div>
+        <p class="experiment-note">Click or drag to ripple. Inspired by <a href="https://github.com/stackedlol/ascii-sharks" target="_blank" rel="noopener noreferrer">ASCII Sharks</a>.</p>
+      </fieldset>
       <fieldset class="style-field"><legend>Drawing</legend>
         <div class="style-grid">
           <button type="button" data-mode="ink-wash" aria-pressed="false"><span class="style-mark wash-mark" aria-hidden="true">≈</span>Ink wash</button>
@@ -131,6 +137,7 @@
     </aside>
     <section id="water-dock" class="water-dock" aria-label="Water and music quick controls">
     <div class="header-actions">
+      <button id="toggle-ascii" class="plain-button" type="button" aria-pressed="true" title="Toggle ASCII rendering (A)">ASCII</button>
 
       <button id="pause" class="plain-button" type="button" aria-pressed="false"><span class="pause-symbol" aria-hidden="true">Ⅱ</span><span id="pause-label">Pause</span></button>
       <button id="toggle-controls" class="plain-button" type="button" aria-expanded="false" aria-controls="controls">Show controls</button>

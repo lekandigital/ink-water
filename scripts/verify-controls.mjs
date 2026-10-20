@@ -55,6 +55,8 @@ controls.reset();assert.equal(controls.state.tone,'night');assert.deepEqual({ico
 const beforeBadTone={...controls.state};assert.throws(()=>controls.change({tone:'toString'}));assert.deepEqual(controls.state,beforeBadTone,'Invalid inherited property names are not tones');
 let cycles=0;
 for(const el of document.querySelectorAll('input[type="checkbox"]')){
+ // The separate ASCII presentation owns its controls; these cycles exercise WaterControls.
+ if(el.closest('.ascii-controls'))continue;
  controls.reset();const key=keyFor(el.id);
  input(el.id,false);const before={...controls.state};
  for(const checked of [true,false,true]){
@@ -67,6 +69,7 @@ for(const el of document.querySelectorAll('input[type="checkbox"]')){
 // Sliders remain independent of switches, with input bindings and visible outputs.
 let sliders=0;
 for(const el of document.querySelectorAll('#controls input[type="range"]')){
+ if(el.closest('.ascii-controls'))continue;
  controls.reset();const key=keyFor(el.id),value=Number(el.getAttribute('min'))+(Number(el.getAttribute('max'))-Number(el.getAttribute('min')))*.4;
  input(el.id,value);assert.equal(controls.state[key],value);
  for(const checked of [true,false,true]){input('bitmap-tones',checked);assert.equal(controls.state[key],value);}

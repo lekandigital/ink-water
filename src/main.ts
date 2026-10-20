@@ -13,6 +13,7 @@ import { WaterControls } from './WaterControls';
 import { type Mode, type WaterSettings } from './StartupSettings';
 import { effectiveMotion, rainImpulse, selectedWaveSpeed } from './WaterMotion';
 import { WaterPresentation } from './WaterPresentation';
+import { AsciiWaterPresentation } from './AsciiWaterPresentation';
 import { RainWaveLayer } from './RainWaveLayer';
 import { gesturePattern, type GestureKey } from './GesturePatterns';
 import { SunDiscPresentation } from './OpticsPresentation';
@@ -52,6 +53,7 @@ class Puddle {
   readonly bitmapScene=new THREE.Scene();
   readonly sunDisc=new SunDiscPresentation();
   readonly floorLine=new FloorLinePresentation();
+  readonly ascii:AsciiWaterPresentation;
   private waterPresentation?:WaterPresentation;
   private rainLayer?:RainWaveLayer;
   private rainLayerActive=false;
@@ -122,6 +124,7 @@ class Puddle {
     this.drawingQuad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
     this.drawingQuad.frustumCulled=false;
     this.drawingScene.add(this.drawingQuad);
+    this.ascii=new AsciiWaterPresentation(()=>{this.pendingDraw=true;});
     this.camera.position.set(0,4.5,0);
     this.camera.up.set(0,0,-1);
     this.camera.lookAt(0,0,0);
@@ -151,6 +154,7 @@ class Puddle {
   resize(){
     const rect=$('stage').getBoundingClientRect(),width=Math.max(1,rect.width),height=Math.max(1,rect.height);
     this.gl.setSize(width,height);
+    this.ascii.resize(width,height,this.gl.getPixelRatio());
     fitWaterCamera(this.camera,width,height);
     this.inverseViewProjection.multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).invert();
     const size=this.gl.getDrawingBufferSize(new THREE.Vector2());
@@ -229,6 +233,8 @@ class Puddle {
       if(!this.referenceDrawing)this.referenceDrawing=new UnderwaterLineDrawing(this.engine.getWaterMesh());
       this.referenceDrawing.draw(this.gl,this.camera,this.drawingCamera,this.drawing.uniforms.ink.value,this.target.width,this.target.height);
     }
+    this.ascii.render(this.gl,surface.textureA.texture,this.target.texture,this.inverseViewProjection,this.camera.position,
+      (this.simulationSteps+(this.rainLayerActive?this.rainLayer?.simulationSteps??0:0))/120,projectedCaustics);
     const musicPanel=$('water-dock');
     if(!musicPanel.hidden){
       this.musicWater??=new MusicWaterPresentation(musicPanel,document.getElementById('music-water-map') as unknown as SVGElement);
@@ -236,7 +242,7 @@ class Puddle {
     }
     this.pendingDraw=false;this.renderRevision++;
     this.controls.publish({simulationSteps:this.simulationSteps,renderRevision:this.renderRevision,
-      drawingPipeline:printActive?'print':'normal',bitmapPass:bitmapActive,projectedCaustics,
+      drawingPipeline:printActive?'print':'normal',asciiPass:this.ascii.enabled,bitmapPass:bitmapActive,projectedCaustics,
       touchWaveSpeed:this.motion.speed,rainWaveSpeed:this.rainLayerActive?this.rainLayer?.speed:this.motion.speed,
       rainSimulationSteps:this.rainLayerActive?this.rainLayer?.simulationSteps:0});
   }
