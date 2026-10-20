@@ -88,4 +88,5 @@ body[data-tone="green-dark"]{color-scheme:dark;--paper:#144a32;--text:#aacdb2;--
 body.ascii-active { background: #000; }
 .ascii-controls { margin-bottom: 18px; }
 .ascii-controls small { opacity: .6; font-size: 10px; }
+.panel-close { width: 28px; height: 28px; padding: 0; margin: -4px -6px -4px 0; border: 0; background: transparent; font-size: 20px; line-height: 1; }
 #toggle-ascii[aria-pressed="true"] { color: #bfe8f0; }

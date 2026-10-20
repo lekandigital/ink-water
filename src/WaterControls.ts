@@ -39,6 +39,7 @@ export class WaterControls{
     $('clear').addEventListener('click',()=>this.hooks.clear());
     $('pause').addEventListener('click',()=>this.change({paused:!this.state.paused}));
     $('toggle-controls').addEventListener('click',()=>this.toggleVisibility());
+    $('close-controls').addEventListener('click',()=>this.toggleVisibility());
     const typing=(target:EventTarget|null)=>(target as Element)?.closest?.('textarea,[contenteditable="true"],input:not([type="range"]):not([type="checkbox"]):not([type="button"])');
     window.addEventListener('keydown',e=>{
       if(e.isComposing||e.ctrlKey||e.metaKey||e.altKey||typing(e.target))return;

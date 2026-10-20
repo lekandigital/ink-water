@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import vertexShader from './shaders/Drawing.vert';
 import fragmentShader from './shaders/AsciiWater.frag';
+import {seededRandom} from './CaptureMode';
 
 // ASCII Sharks supplies the visual reference: tall mono cells, cool shaded
 // blocks, sparse edge glyphs and a few colored glints. This pass only reads the
@@ -9,6 +10,17 @@ const GLYPHS = " .',`:;t%SX8#@";
 const ATLAS_CELL = 64;
 
 export class AsciiWaterPresentation {
+  static create(invalidate: () => void) {
+    // Three.js allocates UUIDs with Math.random. Give presentation resources an
+    // independent synchronous stream so they cannot shift seeded physical rain.
+    const physicalRandom = Math.random;
+    try {
+      Math.random = seededRandom(0xa5c11);
+      return new AsciiWaterPresentation(invalidate);
+    } finally {
+      Math.random = physicalRandom;
+    }
+  }
   enabled = new URLSearchParams(location.search).get('ascii') !== '0';
   private readonly scene = new THREE.Scene();
   private readonly camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -18,7 +30,7 @@ export class AsciiWaterPresentation {
   private height = 1;
   private pixelRatio = 1;
 
-  constructor(private readonly invalidate: () => void) {
+  private constructor(private readonly invalidate: () => void) {
     const atlas = document.createElement('canvas');
     atlas.width = ATLAS_CELL * GLYPHS.length;
     atlas.height = ATLAS_CELL;

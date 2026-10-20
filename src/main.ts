@@ -124,7 +124,7 @@ class Puddle {
     this.drawingQuad=new THREE.Mesh(new THREE.PlaneGeometry(2,2),this.drawing);
     this.drawingQuad.frustumCulled=false;
     this.drawingScene.add(this.drawingQuad);
-    this.ascii=new AsciiWaterPresentation(()=>{this.pendingDraw=true;});
+    this.ascii=AsciiWaterPresentation.create(()=>{this.pendingDraw=true;});
     this.camera.position.set(0,4.5,0);
     this.camera.up.set(0,0,-1);
     this.camera.lookAt(0,0,0);

@@ -1,0 +1,103 @@
+{
+  "baseCommit": "3e2dfef99ee5b825584faf7e913bab73776547d8",
+  "checks": {
+    "typescript": true,
+    "productionBuild": true,
+    "existingRegressionSuite": true,
+    "sourceIntegrityFiles": 62
+  },
+  "cases": [
+    {
+      "case": "initial field",
+      "exactGPUFields": true,
+      "hashes": [
+        "6300d0df56ffb3180e25053967b3ff865d37bd040a147395ef8c25a0372ed310",
+        "6300d0df56ffb3180e25053967b3ff865d37bd040a147395ef8c25a0372ed310",
+        "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+        "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+      ],
+      "simulationSteps": 44,
+      "rainSteps": 0,
+      "stats": {
+        "min": -0.0017088388558477163,
+        "max": 0.00202205590903759,
+        "mean": -0.0000023122132916269332,
+        "energy": 0.004595081847241031,
+        "finite": true
+      }
+    },
+    {
+      "case": "touch and drag impacts",
+      "exactGPUFields": true,
+      "hashes": [
+        "3e048568aa612cdd7b2b87971de08672ca9ae22989d0221f939e65240b9a1a0e",
+        "3e048568aa612cdd7b2b87971de08672ca9ae22989d0221f939e65240b9a1a0e",
+        "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+        "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
+      ],
+      "simulationSteps": 66,
+      "rainSteps": 6,
+      "stats": {
+        "min": -0.002677523996680975,
+        "max": 0.0016012761043384671,
+        "mean": -0.00003237549496340892,
+        "energy": 0.003917498867577924,
+        "finite": true
+      }
+    },
+    {
+      "case": "independent rain field",
+      "exactGPUFields": true,
+      "hashes": [
+        "dc1240df4165c16e3c748b8e4418f079ee42dd9eea14d9270cbfd775e1f5aea2",
+        "dc1240df4165c16e3c748b8e4418f079ee42dd9eea14d9270cbfd775e1f5aea2",
+        "96df110be9dac7cda20c09d24a8e035efaaaefafeb121acf5b37b65ad55ddbb0",
+        "7eab5ef2c7519670089e7d9ecaf56ecafa95cffcc0bddd0ed0a2eb327830518d"
+      ],
+      "simulationSteps": 114,
+      "rainSteps": 22,
+      "stats": {
+        "min": -0.001720854197628796,
+        "max": 0.0010073885787278414,
+        "mean": -0.00003151799067824199,
+        "energy": 0.0034492491704353574,
+        "finite": true
+      }
+    },
+    {
+      "case": "repeatable C gesture",
+      "exactGPUFields": true,
+      "hashes": [
+        "9d9cfd9e1b8ed52bd00900da1f21e56d40b5b5de968aa9dafc2b68091f9d294e",
+        "9d9cfd9e1b8ed52bd00900da1f21e56d40b5b5de968aa9dafc2b68091f9d294e",
+        "fff2cadcd1711a9739439c31f70d9610c7e2183ebb8b37b19808a82edb22ff9c",
+        "126823bc77d4cbb2c9d59da42f9d258eb752fd7ff9accb5cbab1010aa96342d8"
+      ],
+      "simulationSteps": 162,
+      "rainSteps": 36,
+      "stats": {
+        "min": -0.013002626597881317,
+        "max": 0.002696890849620104,
+        "mean": -0.00016014983877753162,
+        "energy": 0.05512496509664796,
+        "finite": true
+      }
+    },
+    {
+      "case": "render controls",
+      "pixelExactOriginalView": true,
+      "repeatableASCII": true,
+      "appearancePreservesFields": true,
+      "pause": true
+    },
+    {
+      "case": "mobile",
+      "nativeTouch": true,
+      "portraitAndLandscape": true,
+      "noOverflow": true,
+      "deviceScaleFactor": 2
+    }
+  ],
+  "passed": true,
+  "originalCanvasSHA256": "e168400f5218313224aa3c0e5c0b7c001d9e240badbb2cdead108abf3a44e45e"
+}
